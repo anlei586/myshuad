@@ -1,0 +1,1015 @@
+# Translation of Themes - Shop Isle in Chinese (China)
+# This file is distributed under the same license as the Themes - Shop Isle package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2018-07-23 07:36:36+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"Language: zh_CN\n"
+"Project-Id-Version: Themes - Shop Isle\n"
+
+#. Theme Name of the theme
+#: inc/functions/setup.php:400 inc/functions/setup.php:407
+#: inc/functions/setup.php:414 inc/sections/shop_isle_slider_section.php:28
+#: inc/sections/shop_isle_slider_section.php:35
+#: inc/sections/shop_isle_slider_section.php:42
+#: inc/customizer/customize-pro/class-shopisle-customizer-upsell.php:90
+msgid "Shop Isle"
+msgstr "Shop Isle"
+
+#: inc/customizer/features/feature-slider-shortcode.php:26
+msgid "You can replace the homepage slider with any plugin you like, just copy the shortcode generated and paste it here."
+msgstr "你可以用任何你喜欢的插件来替换主页幻灯器，只要复制生成的短代码并粘贴到这里。"
+
+#: inc/customizer/features/feature-slider-shortcode.php:25
+msgid "Slider shortcode"
+msgstr "幻灯器短代码"
+
+#: inc/woocommerce/functions.php:731
+#: inc/sections/shop_isle_products_section.php:214
+#: inc/sections/shop_isle_products_slider_section.php:151
+#: inc/sections/shop_isle_products_slider_section.php:224
+msgid "Out of Stock"
+msgstr "缺货商品"
+
+#: inc/frontpage-manager.php:31
+msgid "Keep the old static frontpage template?"
+msgstr "保留旧的静态首页模板？"
+
+#: inc/customizer/functions.php:41 inc/admin/class-shopisle-admin-page.php:87
+msgid "Support"
+msgstr "支持"
+
+#: inc/customizer/features/feature-frontpage-video-section-controls.php:94
+msgid "Video thumbnail"
+msgstr "视频缩略图"
+
+#: inc/customizer/customizer-repeater/class/customizer-repeater-control.php:629
+#: inc/customizer/customizer-repeater/class/customizer-repeater-control.php:667
+msgid "Add icon"
+msgstr "添加图标"
+
+#: inc/customizer/customizer-repeater/class/customizer-repeater-control.php:604
+msgid "Social icons"
+msgstr "社交图标"
+
+#: inc/customizer/customizer-repeater/class/customizer-repeater-control.php:590
+msgid "None"
+msgstr "无"
+
+#: inc/customizer/customizer-repeater/class/customizer-repeater-control.php:585
+msgid "Image type"
+msgstr "图像类型"
+
+#. translators: Fontawesome link with full list of icons available
+#: inc/customizer/customizer-repeater/class/customizer-repeater-control.php:533
+msgid "here"
+msgstr "在这里"
+
+#. translators: Fontawesome link with full list of icons available
+#: inc/customizer/customizer-repeater/class/customizer-repeater-control.php:531
+msgid "Some icons may not be displayed here. You can see the list of icons %1$s"
+msgstr "有些图标可能不会显示在这里，您可以查看图标列表  %1$s"
+
+#: inc/customizer/customizer-repeater/class/customizer-repeater-control.php:359
+#: inc/customizer/customizer-repeater/class/customizer-repeater-control.php:462
+msgid "Shortcode"
+msgstr "短代码"
+
+#: inc/customizer/customizer-repeater/class/customizer-repeater-control.php:224
+msgid "Add new field"
+msgstr "添加新的字段"
+
+#: inc/customizer/customizer-repeater/class/customizer-repeater-control.php:114
+msgid "Customizer Repeater"
+msgstr "中继定制器"
+
+#: inc/customizer/customize-pro/class-shopisle-customizer-upsell.php:114
+msgid "Static Front Page"
+msgstr "静态首页"
+
+#. translators: 1: Link to static front page customizer control
+#: inc/customizer/customize-pro/class-shopisle-customizer-upsell.php:109
+msgid "To customize the Frontpage sections please create a page. After that, go to %1$s and select \"A static page\". Finally, for \"Front page\" choose the page you previously created."
+msgstr "如果要自定义首页部分, 请创建一个页面。然后, 转到 %1$s 并选择 “一个静态页面”。最后, 对于“首页”选择您以前创建的页面。"
+
+#: inc/init.php:21
+msgid "Categories Section"
+msgstr "分类部分"
+
+#: inc/customizer/class/class-shop-isle-pro-palette.php:60
+#: inc/customizer/class/class-shop-isle-pro-palette.php:69
+msgid "Default"
+msgstr "默认"
+
+#. translators: 1: Link to WPForms Plugin.
+#: inc/customizer/features/feature-contact-controls.php:39
+msgid "Create a form, copy the shortcode generated and paste it here. We recommend %1$s but you can use any plugin you like."
+msgstr "创建表单，复制生成的短代码并将其粘贴到此处，我们推荐 %1$s 但是您也可以使用任何您喜欢的插件。"
+
+#: inc/customizer/features/feature-frontpage-products-slider-section-controls.php:29
+#: inc/customizer/features/feature-frontpage-products-section-controls.php:31
+msgid "WooCommerce"
+msgstr "WooCommerce"
+
+#: inc/sections/shop_isle_products_slider_section.php:31
+msgid "For this section to work, you first need to install the WooCommerce plugin , create some products, and select a product category in Customize -> Frontpage sections -> Products slider section"
+msgstr "要使本部分操作，您首先需要安装 WooCommerce 插件，创建一些产品，然后在自定义 -> 首页部分 -> 产品幻灯器部分中选择产品类别"
+
+#: inc/sections/shop_isle_products_section.php:110
+msgid "For this section to work, you first need to install the WooCommerce plugin , create some products, and insert a WooCommerce shortocode or select a product category in Customize -> Frontpage sections -> Products section"
+msgstr "要使本节工作，您首先需要安装 WooCommerce 插件，创建一些产品，并插入 WooCommerce 短代码或在自定义 ->首页部分 -> 产品部分中选择产品类别"
+
+#: inc/sections/shop_isle_products_section.php:108
+msgid "No products found."
+msgstr "没有找到产品。"
+
+#: inc/sections/shop_isle_products_section.php:233
+#: inc/sections/shop_isle_products_section.php:235
+msgid "See all products"
+msgstr "查看所有产品"
+
+#: inc/sections/shop_isle_products_section.php:174
+#: inc/sections/shop_isle_products_section.php:181
+msgid "Quick View"
+msgstr "快速浏览"
+
+#. translators: s: Search term.
+#: search.php:29
+msgid "Search Results for: %s"
+msgstr "%s 的搜索结果"
+
+#. translators: d: number of items.
+#: inc/woocommerce/template-tags.php:27
+msgid "%d item"
+msgid_plural "%d items"
+msgstr[0] "%d  项"
+
+#: inc/structure/template-tags.php:175
+msgid "On Sale"
+msgstr "出售"
+
+#: inc/structure/template-tags.php:139
+msgid "Top Rated Products"
+msgstr "好评产品"
+
+#: inc/structure/template-tags.php:103
+msgid "Featured Products"
+msgstr "特色产品"
+
+#: inc/structure/template-tags.php:65
+msgid "Recent Products"
+msgstr "最新产品"
+
+#: inc/structure/template-tags.php:29
+msgid "Product Categories"
+msgstr "产品分类"
+
+#. translators: s: category name
+#: inc/structure/post.php:165
+msgid "View all posts in %s"
+msgstr "查看 %s 中的全部文章"
+
+#: inc/structure/post.php:151
+msgid "1 Comment"
+msgstr "一条评论"
+
+#: inc/structure/post.php:149
+msgid " Comments"
+msgstr " 评论"
+
+#: inc/structure/post.php:147
+msgid "No Comments"
+msgstr "没有评论"
+
+#: inc/structure/post.php:127
+msgid "By "
+msgstr "由 "
+
+#: inc/structure/post.php:98
+msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
+msgstr "较新文章 <span class=\"meta-nav\">&rarr;</span>"
+
+#: inc/structure/post.php:95
+msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
+msgstr "<span class=\"meta-nav\">&larr;</span> 早期文章"
+
+#: inc/structure/post.php:92
+msgid "Posts navigation"
+msgstr "文章导航"
+
+#. translators: s: post title
+#: inc/structure/post.php:59
+msgid "Tagged %1$s"
+msgstr "标签：%1$s"
+
+#: inc/structure/post.php:55
+msgid ", "
+msgstr "、 "
+
+#. translators: s: post title
+#: inc/structure/post.php:40
+msgid "Continue reading %s"
+msgstr "继续阅读%s"
+
+#: inc/structure/post.php:47 inc/structure/page.php:22
+msgid "Pages:"
+msgstr "页码："
+
+#: inc/structure/header.php:128
+msgctxt "submit button"
+msgid "Search"
+msgstr "搜索"
+
+#: inc/structure/header.php:127
+msgctxt "label"
+msgid "Search for:"
+msgstr "搜索："
+
+#: inc/structure/header.php:127
+msgctxt "placeholder"
+msgid "Search Products&hellip;"
+msgstr "搜索产品&hellip;"
+
+#: inc/structure/header.php:96
+msgid "Toggle navigation"
+msgstr "切换导航"
+
+#: inc/structure/footer.php:95
+msgid "powered by"
+msgstr "自豪地采用"
+
+#: inc/structure/comments.php:76
+msgid "Edit"
+msgstr "编辑"
+
+#: inc/structure/comments.php:48
+msgid "Your comment is awaiting moderation."
+msgstr "您的评论正在等待审核。"
+
+#: inc/woocommerce/template-tags.php:19 inc/structure/header.php:136
+#: inc/init.php:149
+msgid "View your shopping cart"
+msgstr "查看您的购物车"
+
+#: inc/functions/setup.php:595
+msgid "Easy to use"
+msgstr "容易使用"
+
+#: inc/functions/setup.php:590
+msgid "Highly customizable"
+msgstr "高度可定制"
+
+#: inc/functions/setup.php:585
+msgid "Designs & interfaces"
+msgstr "设计和接口"
+
+#: inc/functions/setup.php:581 inc/functions/setup.php:586
+#: inc/functions/setup.php:591 inc/functions/setup.php:596
+msgid "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+msgstr "范例文字，请取代此段落文字。此段落文字为范例文字内容，请务必取代。范例文字，请取代此段落文字。"
+
+#: inc/functions/setup.php:580
+msgid "Ideas and concepts"
+msgstr "想法和概念"
+
+#: inc/functions/setup.php:294
+msgid "Sidebar Shop Page"
+msgstr "侧栏商店页面"
+
+#: inc/functions/setup.php:283
+msgid "Footer area 4"
+msgstr "页脚区域4"
+
+#: inc/functions/setup.php:272
+msgid "Footer area 3"
+msgstr "页脚区域3"
+
+#: inc/functions/setup.php:261
+msgid "Footer area 2"
+msgstr "页脚区域2"
+
+#: inc/functions/setup.php:250
+msgid "Footer area 1"
+msgstr "页脚区域1"
+
+#: inc/functions/setup.php:239
+#: inc/compatibility/wordpress-editor/wp-editor.php:49
+msgid "Sidebar"
+msgstr "边栏"
+
+#: inc/functions/setup.php:149 inc/flag-wporg.php:35
+msgid "Primary Menu"
+msgstr "主菜单"
+
+#: inc/customizer/customizer-repeater/class/customizer-repeater-control.php:392
+#: inc/customizer/customizer-repeater/class/customizer-repeater-control.php:481
+msgid "Delete field"
+msgstr "删除字段"
+
+#: inc/customizer/customizer-repeater/class/customizer-repeater-control.php:350
+#: inc/customizer/customizer-repeater/class/customizer-repeater-control.php:454
+msgid "Button Label"
+msgstr "按钮文本"
+
+#: inc/customizer/customizer-repeater/class/customizer-repeater-control.php:368
+#: inc/customizer/customizer-repeater/class/customizer-repeater-control.php:470
+msgid "Description"
+msgstr "描述"
+
+#: inc/customizer/customizer-repeater/class/customizer-repeater-control.php:572
+msgid "Upload Image"
+msgstr "上传图像"
+
+#: inc/customizer/customizer-repeater/class/customizer-repeater-control.php:525
+#: inc/customizer/customizer-repeater/class/customizer-repeater-control.php:588
+msgid "Icon"
+msgstr "图标"
+
+#: inc/customizer/functions.php:40
+#: inc/customizer/customize-pro/class-shopisle-customizer-upsell.php:92
+#: inc/admin/class-shopisle-admin-page.php:55
+msgid "Documentation"
+msgstr "文档"
+
+#: inc/customizer/features/feature-advanced-controls.php:37
+msgid "Disable preloader?"
+msgstr "禁用预加载？"
+
+#: inc/customizer/features/feature-advanced-controls.php:19
+msgid "Advanced options"
+msgstr "高级选项"
+
+#: inc/customizer/features/feature-404-controls.php:71
+msgid "Text"
+msgstr "文本"
+
+#: inc/customizer/features/feature-404-controls.php:31
+msgid "Background image"
+msgstr "背景图像"
+
+#: inc/customizer/features/feature-contact-controls.php:64
+msgid "To use this section please install <a href=\"https://wordpress.org/plugins/intergeo-maps/\">Intergeo Maps</a> plugin then use it to create a map and paste here the shortcode generated"
+msgstr "要使用此部分，请安装<a href=\"https://wordpress.org/plugins/intergeo-maps/\"> Intergeo Maps </a>插件，然后使用它创建地图并在此处粘贴生成的短代码"
+
+#: inc/customizer/features/feature-contact-controls.php:63
+msgid "Map shortcode"
+msgstr "地图短代码"
+
+#: inc/customizer/features/feature-contact-controls.php:36
+msgid "Contact form shortcode"
+msgstr "联系表单短代码"
+
+#. Template Name of the theme
+#: inc/customizer/features/feature-contact-controls.php:20
+#: inc/customizer/features/feature-contact-controls.php:76
+msgid "Contact page"
+msgstr "联系页面"
+
+#: inc/customizer/features/feature-footer-controls.php:88
+msgid "Social"
+msgstr "社交"
+
+#: inc/customizer/features/feature-footer-controls.php:77
+#: inc/customizer/features/feature-footer-controls.php:89
+msgid "Add new social"
+msgstr "添加新的社交资料"
+
+#: inc/customizer/features/feature-footer-controls.php:57
+msgid "Hide site info?"
+msgstr "隐藏站点信息？"
+
+#: inc/customizer/features/feature-footer-controls.php:38
+msgid "Copyright"
+msgstr "版权"
+
+#: inc/customizer/features/feature-footer-controls.php:21
+msgid "Footer"
+msgstr "页脚"
+
+#: inc/customizer/features/feature-frontpage-products-slider-section-controls.php:159
+msgid "If no category is selected , WooCommerce products from the first category found are displaying."
+msgstr "如果没有选择类目，将从第一个类目显示 WooCommerce 产品。"
+
+#: inc/customizer/features/feature-frontpage-products-slider-section-controls.php:116
+msgid "Section subtitle"
+msgstr "章节副标题"
+
+#: inc/woocommerce/functions.php:381
+#: inc/customizer/features/feature-frontpage-products-slider-section-controls.php:109
+msgid "Special category of products"
+msgstr "产品特殊类别"
+
+#: inc/woocommerce/functions.php:380
+#: inc/sections/shop_isle_products_slider_section.php:29
+#: inc/customizer/features/feature-frontpage-products-slider-section-controls.php:90
+msgid "Exclusive products"
+msgstr "独家产品"
+
+#: inc/customizer/features/feature-frontpage-products-slider-section-controls.php:78
+msgid "Hide products slider section on single product page?"
+msgstr "在单一产品页面上隐藏产品幻灯器部分?"
+
+#: inc/customizer/features/feature-frontpage-products-slider-section-controls.php:59
+msgid "Hide products slider section on frontpage?"
+msgstr "在首页隐藏产品幻灯器部分?"
+
+#: inc/customizer/features/feature-frontpage-products-slider-section-controls.php:39
+msgid "Products slider section"
+msgstr "产品幻灯器部分"
+
+#: inc/customizer/features/feature-frontpage-video-section-controls.php:75
+msgid "Youtube link"
+msgstr "Youtube 链接"
+
+#: inc/customizer/features/feature-frontpage-video-section-controls.php:40
+msgid "Hide video section?"
+msgstr "隐藏视频部分？"
+
+#: inc/customizer/features/feature-frontpage-video-section-controls.php:21
+msgid "Video section"
+msgstr "视频部分"
+
+#: inc/customizer/features/feature-frontpage-products-section-controls.php:136
+msgid "OR pick a product category. If no shortcode or no category is selected , WooCommerce latest products are displaying."
+msgstr "选择一个产品类别，如果没有选择产品类别或没有短代码，那么就会显示 WooCommerce 的最新产品。"
+
+#: inc/customizer/features/feature-frontpage-products-slider-section-controls.php:155
+#: inc/customizer/features/feature-frontpage-products-section-controls.php:135
+msgid "Products category"
+msgstr "产品类目"
+
+#: inc/customizer/features/feature-frontpage-products-slider-section-controls.php:124
+#: inc/customizer/features/feature-frontpage-products-section-controls.php:104
+msgid "Select category"
+msgstr "选择分类目录"
+
+#: inc/customizer/features/feature-frontpage-products-section-controls.php:97
+msgid "Insert a WooCommerce shortcode"
+msgstr "插入一个 WooCommerce 短代码"
+
+#: inc/customizer/features/feature-frontpage-products-section-controls.php:95
+msgid "WooCommerce shortcode"
+msgstr "WooCommerce 短代码"
+
+#: inc/customizer/features/feature-frontpage-products-slider-section-controls.php:97
+#: inc/customizer/features/feature-frontpage-banners-section-controls.php:56
+#: inc/customizer/features/feature-frontpage-products-section-controls.php:78
+msgid "Section title"
+msgstr "部分标题"
+
+#: inc/sections/shop_isle_products_section.php:29
+#: inc/customizer/features/feature-frontpage-products-section-controls.php:71
+msgid "Latest products"
+msgstr "最新上架"
+
+#: inc/customizer/features/feature-frontpage-products-section-controls.php:59
+msgid "Hide products section?"
+msgstr "隐藏产品部分?"
+
+#: inc/customizer/features/feature-frontpage-products-section-controls.php:40
+msgid "Products section"
+msgstr "产品部分"
+
+#. translators: 1: Link to WooCommerce Plugin
+#: inc/customizer/features/feature-frontpage-products-slider-section-controls.php:20
+#: inc/customizer/features/feature-frontpage-products-section-controls.php:22
+msgid "To use this section, you are required to first install the  %1$s plugin"
+msgstr "要使用此部分，您需要先安装 %1$s 插件"
+
+#: inc/customizer/features/feature-frontpage-banners-section-controls.php:102
+msgid "Banner"
+msgstr "横幅"
+
+#: inc/customizer/features/feature-frontpage-banners-section-controls.php:91
+#: inc/customizer/features/feature-frontpage-banners-section-controls.php:103
+msgid "Add new banner"
+msgstr "新建横幅"
+
+#: inc/customizer/features/feature-frontpage-banners-section-controls.php:39
+msgid "Hide banners section?"
+msgstr "隐藏横幅部分？"
+
+#: inc/customizer/features/feature-frontpage-banners-section-controls.php:21
+#: inc/init.php:20
+msgid "Banners section"
+msgstr "横幅部分"
+
+#: inc/customizer/features/feature-404-controls.php:90
+#: inc/customizer/features/feature-frontpage-big-title-section-controls.php:137
+#: inc/customizer/customizer-repeater/class/customizer-repeater-control.php:341
+#: inc/customizer/customizer-repeater/class/customizer-repeater-control.php:446
+#: inc/customizer/customizer-repeater/class/customizer-repeater-control.php:624
+#: inc/customizer/customizer-repeater/class/customizer-repeater-control.php:650
+msgid "Button link"
+msgstr "按钮链接"
+
+#: inc/customizer/features/feature-frontpage-big-title-section-controls.php:129
+#: inc/customizer/features/feature-frontpage-big-title-section-controls.php:222
+msgid "#"
+msgstr "#"
+
+#: inc/customizer/features/feature-404-controls.php:109
+#: inc/customizer/features/feature-frontpage-big-title-section-controls.php:118
+msgid "Button label"
+msgstr "按钮标签"
+
+#: inc/customizer/features/feature-frontpage-big-title-section-controls.php:99
+#: inc/customizer/customizer-repeater/class/customizer-repeater-control.php:333
+#: inc/customizer/customizer-repeater/class/customizer-repeater-control.php:438
+msgid "Subtitle"
+msgstr "字幕"
+
+#: inc/functions/setup.php:401 inc/functions/setup.php:408
+#: inc/functions/setup.php:415 inc/sections/shop_isle_big_title_section.php:26
+#: inc/sections/shop_isle_slider_section.php:29
+#: inc/sections/shop_isle_slider_section.php:36
+#: inc/sections/shop_isle_slider_section.php:43
+#: inc/customizer/features/feature-frontpage-big-title-section-controls.php:91
+msgid "WooCommerce Theme"
+msgstr "WooCommerce 主题"
+
+#: inc/customizer/features/feature-404-controls.php:51
+#: inc/customizer/features/feature-frontpage-video-section-controls.php:58
+#: inc/customizer/features/feature-frontpage-big-title-section-controls.php:80
+#: inc/customizer/customizer-repeater/class/customizer-repeater-control.php:317
+#: inc/customizer/customizer-repeater/class/customizer-repeater-control.php:325
+#: inc/customizer/customizer-repeater/class/customizer-repeater-control.php:421
+#: inc/customizer/customizer-repeater/class/customizer-repeater-control.php:429
+msgid "Title"
+msgstr "标题"
+
+#: inc/customizer/features/feature-frontpage-big-title-section-controls.php:60
+#: inc/customizer/customizer-repeater/class/customizer-repeater-control.php:569
+#: inc/customizer/customizer-repeater/class/customizer-repeater-control.php:589
+msgid "Image"
+msgstr "图像"
+
+#: inc/customizer/features/feature-frontpage-big-title-section-controls.php:40
+msgid "Hide big title section?"
+msgstr "想要隐藏大标题区段吗？"
+
+#: inc/customizer/features/feature-frontpage-big-title-section-controls.php:21
+msgid "Big title section"
+msgstr "大标题区段"
+
+#: inc/customizer/customizer.php:32
+msgid "Frontpage sections"
+msgstr "首页区段"
+
+#: inc/customizer/features/feature-blog-header-controls.php:43
+msgid "Blog header subtitle"
+msgstr "博客页眉副标题"
+
+#: inc/customizer/features/feature-blog-header-controls.php:26
+msgid "Blog header title"
+msgstr "博客页眉标题"
+
+#: inc/customizer/features/feature-header-controls.php:16
+msgid "Header"
+msgstr "顶部"
+
+#. translators: 1: Link to documentation page. 2: 'doc'
+#: inc/customizer/class/class-shopisle-contact-page-instructions.php:21
+#: inc/customizer/customize-pro/class-shopisle-customizer-upsell.php:118
+msgid "Need further informations? Check this %1$s"
+msgstr "需要更多信息？请点击查看 %1$s"
+
+#: inc/customizer/class/class-shopisle-contact-page-instructions.php:22
+#: inc/customizer/customize-pro/class-shopisle-customizer-upsell.php:121
+msgid "doc"
+msgstr "文档"
+
+#: inc/customizer/class/class-shopisle-contact-page-instructions.php:19
+msgid "To customize the Contact Page you need to first select the template \"Contact page\" for the page you want to use for this purpose. Then open that page in the browser and press \"Customize\" in the top bar."
+msgstr "要自定义联系人页面，您需要首先选择用于此目的的页面的“联系页面”模板。然后在浏览器中打开该页面，并在顶部栏中按“自定义”。"
+
+#: home.php:39 inc/customizer/features/feature-blog-header-controls.php:18
+msgid "Blog"
+msgstr "博客"
+
+#: header.php:35
+msgid "Loading..."
+msgstr "加载中..."
+
+#: content-none.php:36
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr "我们可能无法找到您需要的内容。或许搜索功能可以帮到您。"
+
+#: content-none.php:31
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr "抱歉，没有符合您搜索条件的结果。请换其它关键词再试。"
+
+#. translators: 1: link to new post page
+#: content-none.php:23
+msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr "准备好发布第一篇文章了？<a href=\"%1$s\">从这里开始</a>。"
+
+#: content-none.php:13
+msgid "Nothing Found"
+msgstr "未找到"
+
+#: comments.php:74
+msgid "Comments are closed."
+msgstr "评论已关闭。"
+
+#: comments.php:47 comments.php:67
+msgid "Newer Comments &rarr;"
+msgstr "较新评论 &rarr;"
+
+#: comments.php:46 comments.php:66
+msgid "&larr; Older Comments"
+msgstr "&larr; 早期评论"
+
+#: comments.php:45 comments.php:65
+msgid "Comment navigation"
+msgstr "评论导航"
+
+#. translators: 1: number of comments, 2: post title
+#: comments.php:30
+msgctxt "comments title"
+msgid "%1$s thought on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
+msgstr[0] "%2$s 有 %1$s 个评论"
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: class-tgm-plugin-activation.php:3535
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr "正在安装插件 %1$s (%2$d/%3$d)"
+
+#: class-tgm-plugin-activation.php:3533
+msgid "All installations have been completed."
+msgstr "所有安装均已完成。"
+
+#. translators: 1: plugin name.
+#: class-tgm-plugin-activation.php:3532
+msgid "%1$s installed successfully."
+msgstr "%1$s 安装成功。"
+
+#: class-tgm-plugin-activation.php:3530
+msgid "The installation process is starting. This process may take a while on some hosts, so please be patient."
+msgstr "安装过程即将开始。这个过程可能会持续一段时间，请保持耐心。"
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: class-tgm-plugin-activation.php:3527
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr "正在安装和激活插件%1$s (%2$d/%3$d)"
+
+#: class-tgm-plugin-activation.php:3525
+msgid "All installations and activations have been completed."
+msgstr "所有安装和激活均已完成。"
+
+#. translators: 1: plugin name.
+#: class-tgm-plugin-activation.php:3524 class-tgm-plugin-activation.php:3532
+msgid "Hide Details"
+msgstr "隐藏详情"
+
+#. translators: 1: plugin name.
+#: class-tgm-plugin-activation.php:3524 class-tgm-plugin-activation.php:3532
+msgid "Show Details"
+msgstr "显示详情"
+
+#. translators: 1: plugin name.
+#: class-tgm-plugin-activation.php:3524
+msgid "%1$s installed and activated successfully."
+msgstr "安装并激活%1$s成功。"
+
+#: class-tgm-plugin-activation.php:3522
+msgid "The installation and activation process is starting. This process may take a while on some hosts, so please be patient."
+msgstr "安装和激活过程即将开始。这个过程可能会持续一段时间，请保持耐心。"
+
+#. translators: 1: plugin name.
+#: class-tgm-plugin-activation.php:3518
+msgid "The installation of %1$s failed."
+msgstr "%1$s 安装失败。"
+
+#. translators: 1: plugin name, 2: error message.
+#: class-tgm-plugin-activation.php:3516
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr "正在安装%1$s: <strong>%2$s</strong>时发生错误。"
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: class-tgm-plugin-activation.php:3513
+msgid "Updating Plugin %1$s (%2$d/%3$d)"
+msgstr "正在升级%1$s插件（%2$d/%3$d）"
+
+#: class-tgm-plugin-activation.php:3171
+msgid "Plugin activation failed."
+msgstr "插件激活失败。"
+
+#: class-tgm-plugin-activation.php:2947
+msgid "No plugins are available to be activated at this time."
+msgstr "当前无可激活插件。"
+
+#: class-tgm-plugin-activation.php:2921
+msgid "No plugins were selected to be activated. No action taken."
+msgstr "未选中插件激活。无动作进行。"
+
+#: class-tgm-plugin-activation.php:2815
+msgid "No plugins are available to be updated at this time."
+msgstr "现在没有需要更新的插件。"
+
+#: class-tgm-plugin-activation.php:2813
+msgid "No plugins are available to be installed at this time."
+msgstr "当前无可安装插件。"
+
+#: class-tgm-plugin-activation.php:2772
+msgid "No plugins were selected to be updated. No action taken."
+msgstr "未选中插件更新。无动作进行。"
+
+#: class-tgm-plugin-activation.php:2770
+msgid "No plugins were selected to be installed. No action taken."
+msgstr "未选中插件安装。无动作进行。"
+
+#: class-tgm-plugin-activation.php:2739
+msgid "Activate"
+msgstr "启用"
+
+#: class-tgm-plugin-activation.php:2736
+msgid "Update"
+msgstr "更新"
+
+#: class-tgm-plugin-activation.php:2730
+msgid "Install"
+msgstr "安装"
+
+#: class-tgm-plugin-activation.php:2697
+msgid "Upgrade message from the plugin author:"
+msgstr "来自插件制作者的升级信息："
+
+#. translators: %2$s: plugin name in screen reader markup
+#: class-tgm-plugin-activation.php:2627
+msgid "Activate %2$s"
+msgstr "激活%2$s"
+
+#. translators: %2$s: plugin name in screen reader markup
+#: class-tgm-plugin-activation.php:2621
+msgid "Update %2$s"
+msgstr "更新%2$s"
+
+#. translators: %2$s: plugin name in screen reader markup
+#: class-tgm-plugin-activation.php:2616
+msgid "Install %2$s"
+msgstr "安装%2$s"
+
+#: class-tgm-plugin-activation.php:2567
+msgid "Status"
+msgstr "状态"
+
+#: class-tgm-plugin-activation.php:2566
+msgid "Version"
+msgstr "版本"
+
+#: class-tgm-plugin-activation.php:2562
+msgid "Type"
+msgstr "类型"
+
+#: class-tgm-plugin-activation.php:2561
+msgid "Source"
+msgstr "源"
+
+#: class-tgm-plugin-activation.php:2560
+msgid "Plugin"
+msgstr "插件"
+
+#: class-tgm-plugin-activation.php:2546
+msgid "No plugins to install, update or activate."
+msgstr "没有插件来安装，更新或激活。"
+
+#: class-tgm-plugin-activation.php:2523
+msgid "Available version:"
+msgstr "可获得版本："
+
+#: class-tgm-plugin-activation.php:2511
+msgid "Minimum required version:"
+msgstr "最低需要版本："
+
+#: class-tgm-plugin-activation.php:2503
+msgid "Installed version:"
+msgstr "已安装版本："
+
+#: class-tgm-plugin-activation.php:2495
+msgctxt "as in: \"version nr unknown\""
+msgid "unknown"
+msgstr "未知"
+
+#. translators: 1: number of plugins.
+#: class-tgm-plugin-activation.php:2413
+msgid "To Activate <span class=\"count\">(%s)</span>"
+msgid_plural "To Activate <span class=\"count\">(%s)</span>"
+msgstr[0] "激活 <span class=\"count\">(%s)</span>"
+
+#. translators: 1: number of plugins.
+#: class-tgm-plugin-activation.php:2409
+msgid "Update Available <span class=\"count\">(%s)</span>"
+msgid_plural "Update Available <span class=\"count\">(%s)</span>"
+msgstr[0] "可用更新<span class=\"count\">(%s)</span>"
+
+#. translators: 1: number of plugins.
+#: class-tgm-plugin-activation.php:2405
+msgid "To Install <span class=\"count\">(%s)</span>"
+msgid_plural "To Install <span class=\"count\">(%s)</span>"
+msgstr[0] "安装<span class=\"count\">(%s)</span>"
+
+#. translators: 1: number of plugins.
+#: class-tgm-plugin-activation.php:2401
+msgctxt "plugins"
+msgid "All <span class=\"count\">(%s)</span>"
+msgid_plural "All <span class=\"count\">(%s)</span>"
+msgstr[0] "全部 <span class=\"count\">(%s)</span>"
+
+#. translators: 1: install status, 2: update status
+#: class-tgm-plugin-activation.php:2355
+msgctxt "Install/Update Status"
+msgid "%1$s, %2$s"
+msgstr "%2$s %1$s"
+
+#: class-tgm-plugin-activation.php:2346
+msgid "Update recommended"
+msgstr "更新推荐"
+
+#: class-tgm-plugin-activation.php:2343
+msgid "Requires Update"
+msgstr "需要更新"
+
+#: class-tgm-plugin-activation.php:2340
+msgid "Required Update not Available"
+msgstr "未获得所需更新"
+
+#: class-tgm-plugin-activation.php:2334
+msgid "Active"
+msgstr "已启用"
+
+#: class-tgm-plugin-activation.php:2332
+msgid "Installed But Not Activated"
+msgstr "安装成功但未激活"
+
+#: class-tgm-plugin-activation.php:2328
+msgid "Not Installed"
+msgstr "未安装"
+
+#: class-tgm-plugin-activation.php:2311
+msgid "Pre-Packaged"
+msgstr "预包装"
+
+#: class-tgm-plugin-activation.php:2308
+msgid "External Source"
+msgstr "外部源"
+
+#: class-tgm-plugin-activation.php:2305
+msgid "WordPress Repository"
+msgstr "WordPress 库"
+
+#: class-tgm-plugin-activation.php:2289
+msgid "Recommended"
+msgstr "推荐"
+
+#: class-tgm-plugin-activation.php:2286
+msgid "Required"
+msgstr "必填"
+
+#. translators: %s: version number
+#: class-tgm-plugin-activation.php:1995
+msgid "TGMPA v%s"
+msgstr "TGMPA v%s"
+
+#: class-tgm-plugin-activation.php:1129 class-tgm-plugin-activation.php:2961
+msgctxt "plugin A *and* plugin B"
+msgid "and"
+msgstr "和"
+
+#: class-tgm-plugin-activation.php:941
+msgid "The remote plugin package consists of more than one file, but the files are not packaged in a folder."
+msgstr "远程插件安装包中含有多个文件，这些文件不在一个文件夹中。"
+
+#: class-tgm-plugin-activation.php:933 class-tgm-plugin-activation.php:941
+msgid "Please contact the plugin provider and ask them to package their plugin according to the WordPress guidelines."
+msgstr "请联系该插件提供者，请他们根据WordPress指导打包插件。"
+
+#: class-tgm-plugin-activation.php:933
+msgid "The remote plugin package does not contain a folder with the desired slug and renaming did not work."
+msgstr "远程插件安装包中未包含所需slug的文件，重命名无效。"
+
+#: class-tgm-plugin-activation.php:521
+msgid "Update Required"
+msgstr "必需更新"
+
+#: class-tgm-plugin-activation.php:520
+msgid "This plugin needs to be updated to be compatible with your theme."
+msgstr "该插件需要更新，以便与您的主题相兼容。"
+
+#: class-tgm-plugin-activation.php:395
+msgid "Please contact the administrator of this site for help."
+msgstr "请联系本网站管理员寻求帮助。"
+
+#: class-tgm-plugin-activation.php:394
+msgid "There are one or more required or recommended plugins to install, update or activate."
+msgstr "至少有一个必需或推荐的插件来安装，更新或激活。"
+
+#: class-tgm-plugin-activation.php:393
+msgid "Dismiss this notice"
+msgstr "关闭此通知"
+
+#. translators: 1: dashboard link.
+#: class-tgm-plugin-activation.php:392
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr "所有插件均被成功安装并激活。%1$s"
+
+#. translators: 1: plugin name.
+#: class-tgm-plugin-activation.php:390
+msgid "Plugin not activated. A higher version of %s is needed for this theme. Please update the plugin."
+msgstr "插件未激活。本主题需要更高版本的%s。请更新插件。"
+
+#. translators: 1: plugin name.
+#: class-tgm-plugin-activation.php:388
+msgid "No action taken. Plugin %1$s was already active."
+msgstr "无动作进行。插件%1$s已激活。"
+
+#: class-tgm-plugin-activation.php:386 class-tgm-plugin-activation.php:2965
+msgid "The following plugin was activated successfully:"
+msgid_plural "The following plugins were activated successfully:"
+msgstr[0] "下列插件成功激活："
+
+#: class-tgm-plugin-activation.php:385 class-tgm-plugin-activation.php:3172
+msgid "Plugin activated successfully."
+msgstr "插件激活成功。"
+
+#: class-tgm-plugin-activation.php:384 class-tgm-plugin-activation.php:825
+#: class-tgm-plugin-activation.php:2546 class-tgm-plugin-activation.php:3595
+msgid "Return to the Dashboard"
+msgstr "返回主控页面"
+
+#: class-tgm-plugin-activation.php:383
+msgid "Return to Required Plugins Installer"
+msgstr "返回所需插件的安装页面"
+
+#: class-tgm-plugin-activation.php:378
+msgid "Begin activating plugin"
+msgid_plural "Begin activating plugins"
+msgstr[0] "开始激活插件"
+
+#: class-tgm-plugin-activation.php:373
+msgid "Begin updating plugin"
+msgid_plural "Begin updating plugins"
+msgstr[0] "开始更新插件"
+
+#: class-tgm-plugin-activation.php:368
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] "开始安装插件"
+
+#: class-tgm-plugin-activation.php:331
+msgid "Something went wrong with the plugin API."
+msgstr "插件API发生错误。"
+
+#. translators: %s: plugin name.
+#: class-tgm-plugin-activation.php:330
+msgid "Updating Plugin: %s"
+msgstr "升级插件：%s"
+
+#. translators: %s: plugin name.
+#: class-tgm-plugin-activation.php:328
+msgid "Installing Plugin: %s"
+msgstr "正在安装插件：%s"
+
+#: class-tgm-plugin-activation.php:326
+msgid "Install Plugins"
+msgstr "安装插件"
+
+#: class-tgm-plugin-activation.php:325
+msgid "Install Required Plugins"
+msgstr "安装需要插件"
+
+#: archive.php:113 home.php:156 index.php:152
+msgid "Newer posts <span class=\"meta-nav\">&raquo;</span>"
+msgstr "较新的文章 <span class=\"meta-nav\">&raquo;</span>"
+
+#: archive.php:112 home.php:155 index.php:151
+msgid "<span class=\"meta-nav\">&laquo;</span> Older posts"
+msgstr "<span class=\"meta-nav\">&laquo;</span> 较早的文章"
+
+#: archive.php:98 home.php:141 index.php:137 inc/functions/setup.php:402
+#: inc/functions/setup.php:409 inc/functions/setup.php:416
+#: inc/sections/shop_isle_slider_section.php:30
+#: inc/sections/shop_isle_slider_section.php:37
+#: inc/sections/shop_isle_slider_section.php:44
+#: inc/customizer/features/feature-frontpage-big-title-section-controls.php:110
+#: inc/customizer/features/feature-frontpage-big-title-section-controls.php:221
+#: inc/init.php:200
+msgid "Read more"
+msgstr "阅读更多"
+
+#: 404.php:45 inc/customizer/features/feature-404-controls.php:101
+msgid "Back to home page"
+msgstr "返回首页"
+
+#: inc/customizer/features/feature-404-controls.php:62
+msgid "The requested URL was not found on this server.<br> That is all we know."
+msgstr "在这个服务器上找不到所请求的网址。<br>这是我们所知道的。"
+
+#: 404.php:28 inc/customizer/features/feature-404-controls.php:43
+msgid "Error 404"
+msgstr "404错误"

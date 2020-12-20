@@ -1,0 +1,51 @@
+
+---Downloaded files---
+The import files for: Almaira Shop Light Scheme were successfully downloaded!
+Initial max execution time = 300
+Files info:
+Site URL = http://192.168.123.85
+Data file = I:\wwwroot\WWW13/wp-content/uploads/2020/12/demo-content-import-file_2020-12-20__09-07-52.xml
+Widget file = I:\wwwroot\WWW13/wp-content/uploads/2020/12/demo-widgets-import-file_2020-12-20__09-07-52.json
+Customizer file = I:\wwwroot\WWW13/wp-content/uploads/2020/12/demo-customizer-import-file_2020-12-20__09-07-52.dat
+Redux files:
+not defined!
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+[ERROR] Failed to import "hoodie-with-logo-2.jpg" (媒体)
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+[ERROR] Failed to import "cap-2.jpg" (媒体)
+
+
+------
+New AJAX call!
+[ERROR] Failed to import "cap-2.jpg" (媒体)
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+[ERROR] Failed to import "single-1.jpg" (媒体)
+

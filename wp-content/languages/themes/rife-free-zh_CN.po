@@ -1,0 +1,4213 @@
+# Translation of Themes - Rife Free in Chinese (China)
+# This file is distributed under the same license as the Themes - Rife Free package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2019-12-17 03:53:29+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"Language: zh_CN\n"
+"Project-Id-Version: Themes - Rife Free\n"
+
+#. Description of the theme
+msgid "Rife Free is a great portfolio and photography WP theme with 7 ready-to-use demo layouts. It is also perfect for business, blogging websites and for your shop because it is WooCommerce compatible. More cool features in the Rife theme are the: &#10003; Writing Effect &#10003; One Page Mode &#10003; Mobile/Touch Friendly Image & Video Slider &#10003; Bricks Gallery for Photographers &#10003; Mega Menu &#10003; Post Grid &#10003; Google Fonts &#10003; Hidden Sidebar and many more. Over 450 options to change in the Customizer and much more in each page, post, album or work. We also integrate Schema.org which helps your website be more visible to search engines. Elementor compatibility will help you make your great website even more natural. The theme is RTL and translation-ready (WPML). &#9733; Check our demos for more details: https://apollo13themes.com/rife/designs/"
+msgstr "Rife Free是一个很棒的WordPress主题，它有7个现成的示例布局，特别适合作为摄影作品集网站。它同样也很适合用作业务网站和博客网站，此外由于它兼容WooCommerce，也适合作为电商独立站。以下是Rife主题含有的一些酷酷的功能：&#10003; 书写效果 &#10003; 单页模式 &#10003; 适合移动/触摸屏的图像 & 视频滑块 &#10003; 适合摄影师的区块画廊 &#10003; 超级菜单 &#10003; 文章网格 &#10003; Google字体 &#10003; 隐藏的侧边栏，等等。在定制器里有超过450个可以更改的选项，在每个页面、文章、相册或作品里还有更多。我们还整合了Schema.org，它能让您的网站更容易被搜索引擎找到。兼容Elementor，能让您的网站做得更漂亮。这个主题还支持RTL（从右向左书写的语言）和多语言翻译（WPML）。 &#9733; 在这里查看我们更多设计示例：https://apollo13themes.com/rife/designs/"
+
+#. Theme Name of the theme
+#: advance/admin/apollo13-pages.php:90
+msgid "Rife Free"
+msgstr "Rife Free"
+
+#: advance/rife.php:133
+msgid "Do not show this notification again"
+msgstr "不要再显示此通知"
+
+#: advance/rife.php:131
+msgid "Maybe later&#8230;(hide for 7 days)"
+msgstr "下次吧&#8230;（隐藏7天）"
+
+#: advance/rife.php:129
+msgid "Rate Rife Free"
+msgstr "评价Rife Free"
+
+#: advance/rife.php:124
+msgid "Daniel &amp; Air. from Apollo13Themes."
+msgstr "Daniel &amp; Air. from Apollo13Themes."
+
+#: advance/rife.php:123
+msgid "If you have a spare 2 minutes please rate our Rife Free theme. If not, no big deal, just keep on rocking :-)"
+msgstr "如果您有2分钟时间，麻烦请评价一下我们的Rife Free主题。如果没空的话也没关系，直接开始使用吧 :-)"
+
+#: advance/rife.php:122
+msgid "Thank you for using our Rife Free theme, we hope everything is working good for you."
+msgstr "感谢您使用我们的Rife Free主题，祝您一切顺利。"
+
+#. translators: %d - number of comments
+#: comments.php:27
+msgid "%d comment"
+msgid_plural "%d comments"
+msgstr[0] "%d条评论"
+
+#: advance/meta.php:941 advance/meta.php:1467
+msgid "Works on devices less than 600 pixels wide."
+msgstr "在低于600像素宽的设备上生效。"
+
+#: advance/meta.php:102 advance/meta.php:439 advance/meta.php:1216
+#: advance/meta.php:1856 advance/theme-options.php:106
+#: advance/theme-options.php:5060
+msgid "Yes, hide the content"
+msgstr "好的，隐藏内容"
+
+#: advance/theme-options.php:2161 advance/theme-options.php:2828
+#: advance/theme-options.php:4000 advance/theme-options.php:4747
+msgid "If your items have different heights, you can start each row of items from a new line instead of the masonry style."
+msgstr "如果您的项目有不同的高度，您可以选择每行顶部对齐，而不是瀑布流风格。"
+
+#. translators: %1$s: Post type name, %2$s: URL
+#: advance/class-apollo13-framework.php:476
+#: advance/class-apollo13-framework.php:486
+msgid "Warning - slug reserved for %1$s post type is used by some post or page. It may cause problems with reaching some of your content. You should change slug of <a href=\"%2$s\">this post</a> to make sure everything will work proper."
+msgstr "警告 - 为%1$s文章类型保留的别名被某个文章或页面占用。这可能会引起问题，导致您的部分内容会找不到。您应该更改<a href=\"%2$s\">这篇文章</a>的别名以确保一切都能正常工作。"
+
+#: advance/sidebars.php:38
+msgid "It is always available sidebar (but only active if WooCommerce is installed and activated), that is activated by clicking on the icon in the header. You should put a shopping cart widget there, as well as, for example, several special widgets."
+msgstr "这是一个垂手可得的侧边栏（但仅当WooCommerce已安装并激活时才启用），它通过点击页头中的图标来打开。您应该在那里放一个购物车小工具，还有例如一些特殊小工具。"
+
+#: advance/theme-options.php:5364
+msgid "Text write speed"
+msgstr "文字书写速度"
+
+#: advance/meta.php:940 advance/meta.php:1466 advance/theme-options.php:5356
+msgid "on mobiles"
+msgstr "在移动端"
+
+#: advance/theme-options.php:5297
+msgid "Share a link to the album or to the attachment page"
+msgstr "分享一个跳转到相册或附件页面的链接"
+
+#: advance/theme-options.php:5132
+msgid "Bricks filter"
+msgstr "区块筛选"
+
+#: advance/theme-options.php:4525 advance/theme-options.php:5236
+msgid "Time between slides"
+msgstr "幻灯片之间的时间间隔"
+
+#: advance/theme-options.php:4358 advance/theme-options.php:5124
+msgid "If enabled, the video will be displayed in the lightbox."
+msgstr "如果启用，视频将会在弹出框中展示。"
+
+#: advance/theme-options.php:4341 advance/theme-options.php:5092
+msgid "If enabled, navigation leads to the next/previous item in the same category. If disabled, it will navigate through items according to the order of the \"publication date\"."
+msgstr "如果启用，导航将跳转到同个分类目录中前后项目。如果禁用，导航将按照“发布日期”跳转。"
+
+#: advance/theme-options.php:4076
+msgid "Work info"
+msgstr "作品信息"
+
+#: advance/theme-options.php:3870 advance/theme-options.php:4628
+msgid "Main page"
+msgstr "主要页面"
+
+#: advance/theme-options.php:3457 advance/theme-options.php:3463
+#: advance/theme-options.php:3469 advance/theme-options.php:3475
+msgid "Alternative button"
+msgstr "备选按钮"
+
+#: advance/theme-options.php:2849 advance/theme-options.php:3989
+#: advance/theme-options.php:4736
+msgid "Items per page"
+msgstr " 每页项目数"
+
+#: advance/theme-options.php:2290 advance/theme-options.php:2514
+msgid "Comments number"
+msgstr "评论数"
+
+#: advance/theme-options.php:2283 advance/theme-options.php:2507
+msgid "Author"
+msgstr "作者"
+
+#: advance/theme-options.php:2271 advance/theme-options.php:2495
+msgid "Date of publish or last update"
+msgstr "发布日期或更新日期"
+
+#: advance/theme-options.php:2271 advance/theme-options.php:2283
+#: advance/theme-options.php:2290 advance/theme-options.php:2297
+#: advance/theme-options.php:2495 advance/theme-options.php:2507
+#: advance/theme-options.php:2514 advance/theme-options.php:2521
+msgid "Post info"
+msgstr "文章信息"
+
+#: advance/theme-options.php:2172 advance/theme-options.php:2839
+#: advance/theme-options.php:4011 advance/theme-options.php:4758
+msgid "It is a maximum number of columns displayed on larger devices. On smaller devices, it can be a lower number of columns."
+msgstr "它是在较大的设备上展示的最多列数。在较小的设备上，列数也许比这更少。"
+
+#: advance/theme-options.php:2064
+msgid "This will be the default background for pages related to the blog."
+msgstr "这将作为博客相关页面的默认背景。"
+
+#: advance/theme-options.php:1978
+msgid "Open link in new tab"
+msgstr "在新标签页打开链接"
+
+#: advance/theme-options.php:1970
+msgid "Link"
+msgstr "链接"
+
+#: advance/theme-options.php:1939
+msgctxt "tool"
+msgid "Search"
+msgstr "搜索"
+
+#: advance/theme-options.php:1878 advance/theme-options.php:1885
+#: advance/theme-options.php:2024 advance/theme-options.php:2032
+msgid "Border color"
+msgstr "边框颜色"
+
+#: advance/theme-options.php:1864 advance/theme-options.php:1871
+#: advance/theme-options.php:1878 advance/theme-options.php:1885
+#: advance/theme-options.php:1946 advance/theme-options.php:1970
+#: advance/theme-options.php:1978 advance/theme-options.php:1987
+#: advance/theme-options.php:1999 advance/theme-options.php:2008
+#: advance/theme-options.php:2016 advance/theme-options.php:2024
+#: advance/theme-options.php:2032 advance/theme-options.php:2040
+msgid "Tools button"
+msgstr "工具按钮"
+
+#: advance/theme-options.php:1850 advance/theme-options.php:1857
+#: advance/theme-options.php:1915 advance/theme-options.php:1925
+#: advance/theme-options.php:1932
+msgid "Tools icons"
+msgstr "工具图标"
+
+#: advance/theme-options.php:1698
+msgid "You can change some options here to modify the appearance of the sticky header(if it is enabled)."
+msgstr "您可以在这里更改一些选项，改变粘性页头（若启用）的外观。"
+
+#: advance/theme-options.php:1697
+msgid "Override normal settings"
+msgstr "覆盖通用设置"
+
+#: advance/theme-options.php:1697
+msgid "Sticky header"
+msgstr "粘性页头"
+
+#: advance/theme-options.php:1628 advance/theme-options.php:1642
+msgid "Submenu 3rd level"
+msgstr "子菜单第三层"
+
+#: advance/theme-options.php:1615 advance/theme-options.php:1642
+msgid "Closing icon"
+msgstr "关闭图标"
+
+#: advance/theme-options.php:1601 advance/theme-options.php:1628
+msgid "Opening icon"
+msgstr "打开图标"
+
+#: advance/theme-options.php:1593
+msgid "Opening/Closing icons"
+msgstr "打开/关闭图标"
+
+#: advance/theme-options.php:1579 advance/theme-options.php:1593
+#: advance/theme-options.php:1601 advance/theme-options.php:1615
+#: advance/theme-options.php:1655 advance/theme-options.php:1662
+#: advance/theme-options.php:1669 advance/theme-options.php:1680
+#: advance/theme-options.php:1688
+msgid "Submenu/Mega-Menu"
+msgstr "子菜单/超级菜单"
+
+#: advance/theme-options.php:1548 advance/theme-options.php:1555
+#: advance/theme-options.php:1662 advance/theme-options.php:1812
+#: advance/theme-options.php:1818 advance/theme-options.php:1857
+#: advance/theme-options.php:1932 advance/theme-options.php:4258
+#: advance/theme-options.php:5005 advance/theme-options.php:5176
+msgid "on hover/active"
+msgstr "悬停时/激活时"
+
+#: advance/theme-options.php:1512
+msgid "If you disable this then menu will not switch to mobile menu. You should consider disabling this option only if you have a clean header with a short menu."
+msgstr "如果您禁用这个选项，则菜单将不会切换到移动菜单。仅当您有一个菜单很短的清爽的页头时，才应该考虑禁用这个选项。"
+
+#: advance/theme-options.php:1511
+msgid "Allow for the mobile menu"
+msgstr "允许用于移动菜单"
+
+#: advance/theme-options.php:1503
+msgid "After turning on the mobile menu will be closed after clicking the link menu. This option is good for \"one page\" sites. For traditional websites, it is recommended to disable this option."
+msgstr "打开后这个选项后，移动菜单将会在点击链接菜单后关闭。这个选项适合“单页”网站。对于传统的网站，建议禁用这个选项。"
+
+#: advance/theme-options.php:1502
+msgid "Close menu after click"
+msgstr "点击后关闭菜单"
+
+#: advance/theme-options.php:1502 advance/theme-options.php:1523
+#: advance/theme-options.php:1831
+msgid "Mobile menu"
+msgstr "移动菜单"
+
+#. translators: %s: Rife Pro tab link
+#: advance/theme-options.php:1494 advance/theme-options.php:1556
+#: advance/theme-options.php:1819
+msgid "It works only for first level links."
+msgstr "它仅对第一层链接生效。"
+
+#: advance/theme-options.php:1405
+msgid "If you use more than one word in the logo, you can use <code>&amp;nbsp;</code> instead of a white space, so the words will not break into many lines."
+msgstr "如果您在logo中使用不止一个词，您可以使用<code>&amp;nbsp;</code>，而不是空格，这样词与词之间就不会变成换行。"
+
+#: advance/theme-options.php:1359 advance/theme-options.php:1462
+#: advance/theme-options.php:1744 advance/theme-options.php:1773
+msgid "It works only on mobile devices(1024px wide or less)."
+msgstr "这仅在移动设备（不高于1024像素宽）上生效。"
+
+#: advance/theme-options.php:1344 advance/theme-options.php:1448
+#: advance/theme-options.php:1729 advance/theme-options.php:1759
+msgid "It works only on large screens(1025px wide or more)."
+msgstr " 这仅在大屏幕（不低于1025像素宽）上生效。"
+
+#: advance/theme-options.php:1343 advance/theme-options.php:1447
+#: advance/theme-options.php:1728 advance/theme-options.php:1758
+msgid "on desktop"
+msgstr "在桌面端"
+
+#: advance/theme-options.php:1343 advance/theme-options.php:1358
+#: advance/theme-options.php:1728 advance/theme-options.php:1743
+msgid "Max width"
+msgstr "最大宽度"
+
+#: advance/theme-options.php:1284 advance/theme-options.php:2041
+msgid "Should it be displayed on devices less than 600 pixels wide."
+msgstr "它应该在低于600像素宽的设备上展示吗？"
+
+#: advance/theme-options.php:1283 advance/theme-options.php:2040
+msgid "Display it on mobiles"
+msgstr "在移动端展示它"
+
+#: advance/theme-options.php:1205
+msgid "Narrow the entire header as well"
+msgstr "也缩窄整个页头"
+
+#: advance/theme-options.php:1185
+msgid "Turn on only for a sticky variant"
+msgstr "仅在粘性变体上打开"
+
+#: advance/theme-options.php:1115
+msgid "Border radius"
+msgstr "边框圆角"
+
+#: advance/theme-options.php:951 advance/theme-options.php:969
+msgid "It only affects the widgets in the vertical sidebars."
+msgstr "它仅影响垂直侧边栏中的小工具"
+
+#: advance/theme-options.php:950
+msgid "Top margin"
+msgstr "顶部边距"
+
+#: advance/theme-options.php:933
+msgid "If enabled, the theme will use a lightbox to display images in the post content. To work properly, Images should link to \"Media File\"."
+msgstr "如果启用，主题会使用一个弹出框展示文章内容中的图像。要使它正常工作，图像应该链接到“媒体文件”。"
+
+#: advance/theme-options.php:866
+msgid "If enabled, it highlights(font size and color) the first paragraph in the content(blog, post, page)."
+msgstr "如果启用，它将突出显示（字体尺寸和颜色）内容（博客、文章、页面）中的第一个段落。"
+
+#: advance/theme-options.php:865
+msgid "Highlight"
+msgstr "突出显示"
+
+#: advance/theme-options.php:865 advance/theme-options.php:873
+msgid "First paragraph"
+msgstr "第一个段落"
+
+#: advance/theme-options.php:809 advance/theme-options.php:1358
+#: advance/theme-options.php:1461 advance/theme-options.php:1743
+#: advance/theme-options.php:1772
+msgid "on mobile devices"
+msgstr "在移动设备上"
+
+#: advance/theme-options.php:799 advance/theme-options.php:809
+#: advance/theme-options.php:958
+msgid "Main titles"
+msgstr "主标题"
+
+#: advance/theme-options.php:763
+msgid "Headings"
+msgstr "标题"
+
+#: advance/theme-options.php:722
+msgid "Font for main navigation menu and overlay menu:"
+msgstr "主导航菜单和覆盖层菜单的字体："
+
+#: advance/theme-options.php:698
+msgid "Opening effect"
+msgstr "打开效果"
+
+#: advance/theme-options.php:688
+msgid "Side"
+msgstr "一侧"
+
+#: advance/theme-options.php:652
+msgid "It is active only if it contains active widgets. After activation, displays the opening button in the header."
+msgstr "仅当它含有激活的小工具时才会启用。激活后，将在页头中展示一个打开按钮。"
+
+#: advance/theme-options.php:632 advance/theme-options.php:641
+#: advance/theme-options.php:843 advance/theme-options.php:849
+#: advance/theme-options.php:901 advance/theme-options.php:1541
+#: advance/theme-options.php:1548 advance/theme-options.php:1555
+#: advance/theme-options.php:1655 advance/theme-options.php:1662
+#: advance/theme-options.php:1806 advance/theme-options.php:1812
+#: advance/theme-options.php:1818 advance/theme-options.php:4251
+#: advance/theme-options.php:4258 advance/theme-options.php:4998
+#: advance/theme-options.php:5005 advance/theme-options.php:5169
+#: advance/theme-options.php:5176
+msgid "Links"
+msgstr "链接"
+
+#: advance/theme-options.php:611
+msgid "Widgets part"
+msgstr "小工具部位"
+
+#: advance/theme-options.php:588
+msgid "Separator"
+msgstr "分割线"
+
+#: advance/theme-options.php:557 advance/theme-options.php:599
+#: advance/theme-options.php:623 advance/theme-options.php:632
+#: advance/theme-options.php:641
+msgid "Lower part"
+msgstr "最底部"
+
+#: advance/theme-options.php:537
+msgid "Style"
+msgstr "风格"
+
+#: advance/theme-options.php:300
+msgid "<strong>On load</strong> is called when the whole site, with all the images, is loaded, which can take a lot of time on heavier sites, and even more time on mobile devices. Also,  it can sometimes hang and never hide the preloader, when there is a problem with some resource. <br /><strong>On DOM ready</strong> is called when the whole HTML with CSS is loaded, so after the preloader is hidden, you can still see the loading of images. This is a much safer option."
+msgstr "<strong>加载时</strong>：在当整个网站以及图像加载完成时被调用，这个方式在一些较大型的网站上可能会花费更长时间，在移动设备上的时间甚至更加长。此外，当某些资源有问题时，它有时候会假死，预加载图标也不会消失。<br /><strong>DOM就绪时</strong>：在当整个HTML和CSS加载完成时被调用，这样当预加载图标被隐藏后，您仍可以看到图像在加载，这是一个更稳妥的选项。"
+
+#: advance/utilities/header.php:251 advance/utilities/layout-parts.php:522
+msgctxt "action"
+msgid "Search"
+msgstr "搜索"
+
+#: advance/admin/print-options.php:235
+msgid "Use the \"Transparent\" button to insert a transparent value."
+msgstr "使用“透明”按钮以插入一个透明数值。"
+
+#: advance/admin/print-options.php:235
+msgid "Use the correct <code>color</code> property in CSS( <code>green, #33FF99, rgb(255,128,0), rgba(222,112,12,0.5)</code> ), or choose a color with a color picker. Leave an empty value to use the default theme value."
+msgstr "在CSS中使用正确的<code>颜色</code>属性（<code>绿色, #33FF99, rgb(255,128,0), rgba(222,112,12,0.5)</code>），或者从颜色选择器选择一个颜色。此数值留空则使用默认主题数值。"
+
+#: advance/admin/apollo13-pages.php:121
+msgid "In Pro version of Rife theme, you get access to much more features, that can help make your page more useful & beautiful."
+msgstr "在Rife主题Pro版本中，您可以使用更多的功能，能让您的页面更加精美和实用。"
+
+#: advance/admin/apollo13-pages.php:100
+msgid "Changelog"
+msgstr "更新记录"
+
+#: advance/admin/apollo13-pages.php:92
+msgid "To get support for Rife Free we invite you to visit community support forum on WordPress.org theme repository. We also are monitoring this forum, however, priority support is provided for Rife Pro users, so we might not be available."
+msgstr "要从Rife Free获取支持，我们邀请您访问WordPress.org主题库上的社区支持论坛。我们也在留意这个论坛，不过我们不一定每时每刻都有空，因为我们优先提供支持给Rife Pro的用户。"
+
+#: advance/admin/apollo13-pages.php:90
+msgid "Community Support"
+msgstr "社区支持"
+
+#: advance/admin/apollo13-pages.php:17 advance/admin/apollo13-pages.php:101
+msgid "Visit the Changelog"
+msgstr "访问更新记录"
+
+#: advance/admin/apollo13-pages-functions.php:36
+msgid "Demo Data Directory"
+msgstr "示例数据目录"
+
+#: advance/meta.php:1595
+msgid "Stretch the slider to the window height"
+msgstr "拉伸滑块到窗口高度"
+
+#: advance/meta.php:1329
+msgid "What should be the width of this work on the Works list?"
+msgstr "这个作品在作品列表中的宽度应该是多少呢？"
+
+#: advance/meta.php:1283
+msgid "Overlay"
+msgstr "覆盖层"
+
+#: advance/meta.php:1181 advance/meta.php:1739
+msgid "Open"
+msgstr "打开"
+
+#: advance/meta.php:1167 advance/meta.php:1181 advance/meta.php:1725
+#: advance/meta.php:1739 advance/theme-options.php:4560
+#: advance/theme-options.php:5271
+msgid "Thumbnails"
+msgstr "缩略图"
+
+#: advance/meta.php:1115 advance/meta.php:1673
+msgid "Zoom in %"
+msgstr "放大%"
+
+#: advance/meta.php:1098 advance/meta.php:1656 advance/theme-options.php:4536
+#: advance/theme-options.php:4549 advance/theme-options.php:5247
+#: advance/theme-options.php:5260
+msgid "Transition"
+msgstr "转换"
+
+#: advance/meta.php:1084 advance/meta.php:1642 advance/theme-options.php:4518
+#: advance/theme-options.php:5229
+msgid "If autoplay is on, slider will run on page load."
+msgstr "如果打开了自动播放，滑块会在页面加载时启动。"
+
+#: advance/meta.php:1077 advance/meta.php:1635
+msgid "Cover the whole screen"
+msgstr "覆盖整个屏幕"
+
+#: advance/meta.php:1069 advance/meta.php:1627
+msgid "How pictures will fit in the area of the slider. <strong>Fit when needed</strong> is best suited for small images that should not be stretched to larger sizes, only to smaller ones (so that they are always completely visible)."
+msgstr "图片将如何适应在滑块区域内？<strong>必要时适应</strong>最适合小尺寸图像，小尺寸图像不应该被放大，只应该被缩小（这样它们就会总是显示完整）。"
+
+#: advance/meta.php:1042 advance/meta.php:1056 advance/meta.php:1568
+#: advance/meta.php:1582 advance/theme-options.php:3958
+#: advance/theme-options.php:3966 advance/theme-options.php:4705
+#: advance/theme-options.php:4713
+msgid "Show texts"
+msgstr "显示文字"
+
+#: advance/meta.php:1019 advance/meta.php:1031 advance/meta.php:1545
+#: advance/meta.php:1557
+msgid "The main use of this function is to make the texts more readable."
+msgstr "这个功能的主要作用是让文字更容易阅读。"
+
+#: advance/meta.php:1018 advance/meta.php:1030 advance/meta.php:1544
+#: advance/meta.php:1556 advance/theme-options.php:3940
+#: advance/theme-options.php:3949 advance/theme-options.php:4687
+#: advance/theme-options.php:4696
+msgid "Show gradient"
+msgstr "显示渐变"
+
+#: advance/meta.php:1007 advance/meta.php:1030 advance/meta.php:1056
+#: advance/meta.php:1533 advance/meta.php:1556 advance/meta.php:1582
+#: advance/theme-options.php:513 advance/theme-options.php:641
+#: advance/theme-options.php:779 advance/theme-options.php:849
+#: advance/theme-options.php:1002 advance/theme-options.php:1016
+#: advance/theme-options.php:1060 advance/theme-options.php:1072
+#: advance/theme-options.php:1222 advance/theme-options.php:1272
+#: advance/theme-options.php:1394 advance/theme-options.php:1421
+#: advance/theme-options.php:1796 advance/theme-options.php:1871
+#: advance/theme-options.php:1885 advance/theme-options.php:1903
+#: advance/theme-options.php:2016 advance/theme-options.php:2032
+#: advance/theme-options.php:3439 advance/theme-options.php:3451
+#: advance/theme-options.php:3463 advance/theme-options.php:3475
+#: advance/theme-options.php:3932 advance/theme-options.php:3949
+#: advance/theme-options.php:3966 advance/theme-options.php:4679
+#: advance/theme-options.php:4696 advance/theme-options.php:4713
+msgid "on hover"
+msgstr "悬停时"
+
+#: advance/meta.php:996 advance/meta.php:1018 advance/meta.php:1042
+#: advance/meta.php:1522 advance/meta.php:1544 advance/meta.php:1568
+#: advance/theme-options.php:3924 advance/theme-options.php:3940
+#: advance/theme-options.php:3958 advance/theme-options.php:4671
+#: advance/theme-options.php:4687 advance/theme-options.php:4705
+msgid "without hover"
+msgstr "非悬停时"
+
+#: advance/meta.php:996 advance/meta.php:1007 advance/meta.php:1522
+#: advance/meta.php:1533 advance/theme-options.php:3924
+#: advance/theme-options.php:3932 advance/theme-options.php:4671
+#: advance/theme-options.php:4679
+msgid "Show overlay"
+msgstr "显示覆盖层"
+
+#: advance/meta.php:910 advance/meta.php:1436
+msgid "It works only for images. If you change the theme option, which is called \"Display thumbnails instead of video\", then for videos that have set a featured image, it will also work."
+msgstr "这仅对图像生效。如果您选择了“展示缩略图，而不是视频”这个主题选项，那么对于设了主打图像的视频，同样生效。"
+
+#: advance/meta.php:909 advance/meta.php:1435 advance/theme-options.php:4042
+#: advance/theme-options.php:4789
+msgid "Choose the proportions of the bricks"
+msgstr "选择区块的比例"
+
+#: advance/meta.php:889 advance/meta.php:1415 advance/theme-options.php:2184
+#: advance/theme-options.php:4022 advance/theme-options.php:4769
+msgid "Depending on the actual width of the screen, the available space for bricks may be smaller, but never greater than this number."
+msgstr "根据屏幕的实际宽度，区块的可用空间也许会比这个数值小，但不会比它大。"
+
+#: advance/meta.php:888 advance/meta.php:1414 advance/theme-options.php:2183
+#: advance/theme-options.php:4021 advance/theme-options.php:4768
+msgid "The maximum width of the brick layout"
+msgstr "区块布局的最大宽度"
+
+#: advance/meta.php:871 advance/theme-options.php:5115
+msgid "Show on the right"
+msgstr "在右侧显示"
+
+#: advance/meta.php:870 advance/theme-options.php:5114
+msgid "Show on the left"
+msgstr "在左侧显示"
+
+#: advance/meta.php:851 advance/meta.php:1393
+msgid "Show media in"
+msgstr "媒体展示在"
+
+#: advance/meta.php:829 advance/meta.php:1371
+msgid "It will display your images/videos from the first to the last or in a different way."
+msgstr "这会从按时间顺序展示您的图像/视频，或者换个方式。"
+
+#: advance/meta.php:787
+msgid "What should be the width of this album on the Albums list?"
+msgstr "这个相册在相册列表中的宽度应该是多少呢？"
+
+#: advance/meta.php:754
+msgid "Default bullets icon"
+msgstr "默认项目图标"
+
+#: advance/meta.php:745
+msgid "Color of navigation bullets"
+msgstr "导航项目颜色"
+
+#: advance/meta.php:735
+msgid "This works only when page is designed with WPBakery Page Builder. With this option enabled, the page will turn into a vertical slider to the full height of the browser window, and each row created in the WPBakery Page Builder is a single slide."
+msgstr "仅当此页面是用WPBakery Page Builder设计时，此项才生效。当开启此项时，此页面会变成一个垂直滑块，高度为浏览器窗口的全高度，用WPBakery Page Builder创建的每一行都是一个单独的幻灯片。"
+
+#: advance/meta.php:446
+msgid "If you use Elementor or WPBakery Page Builder, then you can decide to show header after the content is scrolled to Nth row. Thanks to that you can have a clean welcome screen."
+msgstr "如果您使用Elementor或者WPBakery Page Builder，那么您可以设置当内容滚动了多少行才显示页头。因此您可以做出一个清爽的欢迎界面。"
+
+#. translators: %s: Children Navigation
+#: advance/meta.php:402
+msgid "Only %s on the right"
+msgstr "仅%s在右侧"
+
+#. translators: %s: Children Navigation
+#: advance/meta.php:398
+msgid "Only %s on the left"
+msgstr "仅%s在左侧"
+
+#. translators: %s: Children Navigation
+#: advance/meta.php:396 advance/meta.php:398 advance/meta.php:400
+#: advance/meta.php:402
+msgid "Children Navigation"
+msgstr "子导航"
+
+#: advance/meta.php:378 advance/meta.php:1823
+msgid "Left/right padding"
+msgstr "左/右填充"
+
+#: advance/meta.php:277 advance/meta.php:366 advance/meta.php:629
+#: advance/meta.php:1811 advance/meta.php:2031 advance/theme-options.php:2125
+#: advance/theme-options.php:2423 advance/theme-options.php:2690
+#: advance/theme-options.php:2998 advance/theme-options.php:3204
+#: advance/theme-options.php:3366 advance/theme-options.php:3736
+#: advance/theme-options.php:4194 advance/theme-options.php:4488
+#: advance/theme-options.php:4941
+msgid "Top/bottom padding"
+msgstr "上/下填充"
+
+#: advance/meta.php:266 advance/meta.php:618 advance/meta.php:2020
+#: advance/theme-options.php:2415 advance/theme-options.php:2679
+#: advance/theme-options.php:2990 advance/theme-options.php:3193
+#: advance/theme-options.php:3358 advance/theme-options.php:3725
+#: advance/theme-options.php:4186 advance/theme-options.php:4480
+#: advance/theme-options.php:4933
+msgid "Other elements"
+msgstr "其它元素"
+
+#: advance/meta.php:256 advance/meta.php:608 advance/meta.php:2010
+#: advance/theme-options.php:2408 advance/theme-options.php:2669
+#: advance/theme-options.php:2983 advance/theme-options.php:3183
+#: advance/theme-options.php:3351 advance/theme-options.php:3715
+#: advance/theme-options.php:4179 advance/theme-options.php:4473
+#: advance/theme-options.php:4926
+msgid "Titles"
+msgstr "标题"
+
+#: advance/meta.php:246 advance/meta.php:598 advance/meta.php:2000
+#: advance/theme-options.php:2401 advance/theme-options.php:2662
+#: advance/theme-options.php:2976 advance/theme-options.php:3173
+#: advance/theme-options.php:3344 advance/theme-options.php:3708
+#: advance/theme-options.php:4172 advance/theme-options.php:4466
+#: advance/theme-options.php:4919
+msgid "Will be placed above the image(if used)"
+msgstr "将被放置在图像上面（若使用了图像）"
+
+#: advance/meta.php:233 advance/meta.php:585 advance/meta.php:1987
+#: advance/theme-options.php:2386 advance/theme-options.php:2646
+#: advance/theme-options.php:2961 advance/theme-options.php:3157
+#: advance/theme-options.php:3329 advance/theme-options.php:3692
+#: advance/theme-options.php:4157 advance/theme-options.php:4451
+#: advance/theme-options.php:4549 advance/theme-options.php:4904
+#: advance/theme-options.php:5260
+msgid "Speed"
+msgstr "速度"
+
+#: advance/meta.php:140 advance/meta.php:492 advance/meta.php:1894
+#: advance/theme-options.php:2565 advance/theme-options.php:3090
+#: advance/theme-options.php:3625
+msgid "Inside the content"
+msgstr "在内容里面"
+
+#: advance/meta.php:139 advance/meta.php:491 advance/meta.php:1893
+#: advance/theme-options.php:2564 advance/theme-options.php:3089
+#: advance/theme-options.php:3624 advance/theme-options.php:4384
+msgid "Before the content"
+msgstr "在内容之前"
+
+#: advance/meta.php:94 advance/meta.php:431 advance/meta.php:446
+#: advance/meta.php:1208 advance/meta.php:1848 advance/theme-options.php:1344
+#: advance/theme-options.php:1512 advance/theme-options.php:1698
+#: advance/theme-options.php:2110 advance/theme-options.php:2453
+#: advance/theme-options.php:2772 advance/theme-options.php:3028
+#: advance/theme-options.php:3240 advance/theme-options.php:3546
+#: advance/theme-options.php:3877 advance/theme-options.php:4311
+#: advance/theme-options.php:4635 advance/theme-options.php:5058
+msgid "Works only with the horizontal header."
+msgstr "仅对水平页头生效。"
+
+#: advance/meta.php:66 advance/meta.php:692
+msgid "This limits the height of the image so that the parallax can work."
+msgstr "这限制了图像的高度以使视差效果生效。"
+
+#: advance/meta.php:65 advance/meta.php:691
+msgid "Area height"
+msgstr "区域高度"
+
+#: advance/meta.php:54 advance/meta.php:65 advance/meta.php:196
+#: advance/meta.php:211 advance/meta.php:233 advance/meta.php:548
+#: advance/meta.php:563 advance/meta.php:585 advance/meta.php:680
+#: advance/meta.php:691 advance/meta.php:1950 advance/meta.php:1965
+#: advance/meta.php:1987 advance/theme-options.php:2366
+#: advance/theme-options.php:2374 advance/theme-options.php:2386
+#: advance/theme-options.php:2622 advance/theme-options.php:2633
+#: advance/theme-options.php:2646 advance/theme-options.php:2941
+#: advance/theme-options.php:2949 advance/theme-options.php:2961
+#: advance/theme-options.php:3133 advance/theme-options.php:3144
+#: advance/theme-options.php:3157 advance/theme-options.php:3309
+#: advance/theme-options.php:3317 advance/theme-options.php:3329
+#: advance/theme-options.php:3668 advance/theme-options.php:3679
+#: advance/theme-options.php:3692 advance/theme-options.php:4137
+#: advance/theme-options.php:4145 advance/theme-options.php:4157
+#: advance/theme-options.php:4431 advance/theme-options.php:4439
+#: advance/theme-options.php:4451 advance/theme-options.php:4884
+#: advance/theme-options.php:4892 advance/theme-options.php:4904
+msgid "Parallax"
+msgstr "视差效果"
+
+#: advance/meta.php:54 advance/meta.php:680
+msgid "Featured Image "
+msgstr "主打图像"
+
+#: advance/meta.php:19
+msgid "What should be the width of this post on the Posts list?"
+msgstr "这篇文章在文章列表中的宽度应该是多少呢？"
+
+#: attachment.php:77
+msgid "Link to full-size image"
+msgstr "跳转到原始尺寸图像的链接"
+
+#. translators: %s - size in pixels
+#: attachment.php:74
+msgid "Full size is %s pixels"
+msgstr "原始尺寸为%s像素"
+
+#. translators: %1$s - date
+#: attachment.php:61
+msgid "Published %1$s"
+msgstr "发布于%1$s"
+
+#. translators: %1$s - author name in form of link
+#: attachment.php:49
+msgid "By %1$s"
+msgstr "作者：%1$s"
+
+#. translators: %s - title of parent post
+#: attachment.php:41 attachment.php:43
+msgid "Return to %s"
+msgstr "返回%s"
+
+#: searchwp-live-ajax-search/search-results.php:47
+msgid "Please try another search term"
+msgstr "请尝试用别的词搜索"
+
+#: searchwp-live-ajax-search/search-results.php:46
+msgid "No results found."
+msgstr "没有找到结果。"
+
+#: searchwp-live-ajax-search/search-results.php:43
+msgid "View all results"
+msgstr "查看全部结果"
+
+#: comments.php:51
+msgid "Comments are closed."
+msgstr "评论功能已关闭。"
+
+#: 404.php:38
+msgid "previous page"
+msgstr "前一页"
+
+#: 404.php:37
+msgid "home page"
+msgstr "首页"
+
+#. translators:  Go to our home page(link) or go back to previous page(link)
+#: 404.php:36
+msgid "Go to our %1$s or go back to %2$s"
+msgstr "前往%1$s或者返回%2$s"
+
+#: 404.php:33
+msgid "The page you are looking for can't be found!"
+msgstr "无法找到您想要的页面！"
+
+#: index.php:63
+msgid "Blog Archives"
+msgstr "博客归档"
+
+#. translators: %s - year
+#: index.php:61
+msgid "Yearly Archives: %s"
+msgstr "年度归档：%s"
+
+#. translators: %s - month
+#: index.php:58
+msgid "Monthly Archives: %s"
+msgstr "月度归档：%s"
+
+#. translators: %s - day
+#: index.php:55
+msgid "Daily Archives: %s"
+msgstr "每日归档：%s"
+
+#. translators: %s - tag name
+#: index.php:52
+msgid "Tag Archives: %s"
+msgstr "标签归档：%s"
+
+#. translators: %s - category name
+#: index.php:49
+msgid "Category Archives: %s"
+msgstr "分类目录归档：%s"
+
+#. translators: %s - author name
+#: index.php:46
+msgid "Author Archives: %s"
+msgstr "作者归档：%s"
+
+#. translators: %1$d number of results, %2$s search query
+#: index.php:42
+msgid "%1$d search result for \"%2$s\""
+msgid_plural "%1$d search results for \"%2$s\""
+msgstr[0] "“%2$s”的搜索结果有%1$d个"
+
+#: no-content.php:55
+msgid "Albums"
+msgstr "相册"
+
+#: no-content.php:38
+msgid "Pages"
+msgstr "页面"
+
+#: advance/theme-options.php:2297 advance/theme-options.php:2521
+#: advance/theme-options.php:4076 no-content.php:31
+msgid "Categories"
+msgstr "分类目录"
+
+#: no-content.php:20
+msgid "Main navigation"
+msgstr "主导航"
+
+#. translators: "Go back" link
+#: no-content.php:15
+msgid "Go back"
+msgstr "返回"
+
+#. translators: "Go back" link
+#: no-content.php:15
+msgid "%s or use Site Map below:"
+msgstr "%s或使用以下站点地图："
+
+#: advance/inc/customizer/controls/class-a13-customize-font-control.php:129
+msgid "Sample text with <strong>some bold words</strong>, <em>some italic ones</em> and numbers 1 2 3 4 5 6 7 8 9 :-)"
+msgstr "示例文本和<strong>一些加粗的字</strong>、<em>一些斜体的字</em>以及数字 1 2 3 4 5 6 7 8 9 :-)"
+
+#: advance/inc/customizer/controls/class-a13-customize-font-control.php:124
+msgid "Letter Spacing"
+msgstr "字符间距"
+
+#: advance/inc/customizer/controls/class-a13-customize-font-control.php:120
+msgid "Word Spacing"
+msgstr "字间距"
+
+#: advance/inc/customizer/controls/class-a13-customize-font-control.php:106
+msgid "Font Weights & Styles"
+msgstr "字体权重与风格"
+
+#: advance/inc/customizer/controls/class-a13-customize-font-control.php:99
+msgid "Font Subsets"
+msgstr "字体子集"
+
+#: advance/inc/customizer/controls/class-a13-customize-font-control.php:89
+msgid "Google Webfonts"
+msgstr "Google字体"
+
+#: advance/inc/customizer/controls/class-a13-customize-font-control.php:81
+msgid "Standard Fonts"
+msgstr "标准字体"
+
+#: advance/inc/customizer/controls/class-a13-customize-font-control.php:78
+msgid "Font Family"
+msgstr "字体系列"
+
+#: advance/inc/customizer/controls/class-a13-customize-sidebars-control.php:54
+msgid "Add sidebar"
+msgstr "添加侧边栏"
+
+#: advance/inc/customizer/controls/class-a13-customize-sidebars-control.php:51
+msgid "Remove this sidebar"
+msgstr "移除此侧边栏"
+
+#: advance/inc/customizer/controls/class-a13-customize-sidebars-control.php:49
+msgid "Name of sidebar"
+msgstr "侧边栏名称"
+
+#: advance/inc/customizer/controls/class-a13-customize-spacing-control.php:96
+msgid "Unit"
+msgstr "单位"
+
+#: advance/inc/customizer/controls/class-a13-customize-spacing-control.php:42
+msgid "Bottom"
+msgstr "底部"
+
+#: advance/inc/customizer/controls/class-a13-customize-spacing-control.php:40
+msgid "Top"
+msgstr "顶部"
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: advance/inc/class-tgm-plugin-activation.php:3520
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr "正在安装插件%1$s (%2$d/%3$d)"
+
+#: advance/inc/class-tgm-plugin-activation.php:3518
+msgid "All installations have been completed."
+msgstr "已完成所有安装。"
+
+#. translators: 1: plugin name.
+#: advance/inc/class-tgm-plugin-activation.php:3517
+msgid "%1$s installed successfully."
+msgstr "%1$s安装成功。"
+
+#: advance/inc/class-tgm-plugin-activation.php:3515
+msgid "The installation process is starting. This process may take a while on some hosts, so please be patient."
+msgstr "正在开始安装。这个过程在某些主机上可能会花费一些时间，所以请耐心等待。"
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: advance/inc/class-tgm-plugin-activation.php:3512
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr "正在安装和激活插件%1$s (%2$d/%3$d)"
+
+#: advance/inc/class-tgm-plugin-activation.php:3510
+msgid "All installations and activations have been completed."
+msgstr "已完成所有安装和激活。"
+
+#. translators: 1: plugin name.
+#: advance/inc/class-tgm-plugin-activation.php:3509
+#: advance/inc/class-tgm-plugin-activation.php:3517
+msgid "Hide Details"
+msgstr "隐藏详情"
+
+#. translators: 1: plugin name.
+#: advance/inc/class-tgm-plugin-activation.php:3509
+#: advance/inc/class-tgm-plugin-activation.php:3517
+msgid "Show Details"
+msgstr "显示详情"
+
+#. translators: 1: plugin name.
+#: advance/inc/class-tgm-plugin-activation.php:3509
+msgid "%1$s installed and activated successfully."
+msgstr "%1$s安装和激活成功。"
+
+#: advance/inc/class-tgm-plugin-activation.php:3507
+msgid "The installation and activation process is starting. This process may take a while on some hosts, so please be patient."
+msgstr "正在开始安装和激活。这个过程在某些主机上可能会花费一些时间，所以请耐心等待。"
+
+#. translators: 1: plugin name.
+#: advance/inc/class-tgm-plugin-activation.php:3503
+msgid "The installation of %1$s failed."
+msgstr "%1$s安装失败。"
+
+#. translators: 1: plugin name, 2: error message.
+#: advance/inc/class-tgm-plugin-activation.php:3501
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr "安装%1$s时发生了一个错误：<strong>%2$s</strong>。"
+
+#. translators: 1: plugin name, 2: action number 3: total number of actions.
+#: advance/inc/class-tgm-plugin-activation.php:3498
+msgid "Updating Plugin %1$s (%2$d/%3$d)"
+msgstr "正在更新插件%1$s (%2$d/%3$d)"
+
+#: advance/inc/class-tgm-plugin-activation.php:3158
+msgid "Plugin activation failed."
+msgstr "插件激活失败。"
+
+#: advance/inc/class-tgm-plugin-activation.php:2934
+msgid "No plugins are available to be activated at this time."
+msgstr "当前没有插件可供激活。"
+
+#: advance/inc/class-tgm-plugin-activation.php:2908
+msgid "No plugins were selected to be activated. No action taken."
+msgstr "没有选择要激活的插件。没有执行操作。"
+
+#: advance/inc/class-tgm-plugin-activation.php:2802
+msgid "No plugins are available to be updated at this time."
+msgstr "当前没有插件可供更新。"
+
+#: advance/inc/class-tgm-plugin-activation.php:2800
+msgid "No plugins are available to be installed at this time."
+msgstr "当前没有插件可供安装。"
+
+#: advance/inc/class-tgm-plugin-activation.php:2759
+msgid "No plugins were selected to be updated. No action taken."
+msgstr "没有选择要更新的插件。没有执行操作。"
+
+#: advance/inc/class-tgm-plugin-activation.php:2757
+msgid "No plugins were selected to be installed. No action taken."
+msgstr "没有选择要安装的插件。没有执行操作。"
+
+#: advance/inc/class-tgm-plugin-activation.php:2726
+#: advance/class-apollo13-framework.php:1074
+msgid "Activate"
+msgstr "激活"
+
+#: advance/inc/class-tgm-plugin-activation.php:2723
+#: advance/class-apollo13-framework.php:1083
+msgid "Update"
+msgstr "更新"
+
+#: advance/inc/class-tgm-plugin-activation.php:2717
+#: advance/class-apollo13-framework.php:1064
+msgid "Install"
+msgstr "安装"
+
+#: advance/inc/class-tgm-plugin-activation.php:2684
+msgid "Upgrade message from the plugin author:"
+msgstr "来自插件作者的升级信息："
+
+#. translators: %2$s: plugin name in screen reader markup
+#: advance/inc/class-tgm-plugin-activation.php:2614
+msgid "Activate %2$s"
+msgstr "激活%2$s"
+
+#. translators: %2$s: plugin name in screen reader markup
+#: advance/inc/class-tgm-plugin-activation.php:2608
+msgid "Update %2$s"
+msgstr "更新%2$s"
+
+#. translators: %2$s: plugin name in screen reader markup
+#: advance/inc/class-tgm-plugin-activation.php:2603
+msgid "Install %2$s"
+msgstr "安装%2$s"
+
+#: advance/inc/class-tgm-plugin-activation.php:2554
+msgid "Status"
+msgstr "状态"
+
+#: advance/inc/class-tgm-plugin-activation.php:2548
+msgid "Source"
+msgstr "来源"
+
+#: advance/inc/class-tgm-plugin-activation.php:2547
+msgid "Plugin"
+msgstr "插件"
+
+#: advance/inc/class-tgm-plugin-activation.php:2533
+msgid "No plugins to install, update or activate."
+msgstr "没有插件可以安装、更新或激活。"
+
+#: advance/inc/class-tgm-plugin-activation.php:2510
+msgid "Available version:"
+msgstr "可用的版本："
+
+#: advance/inc/class-tgm-plugin-activation.php:2498
+msgid "Minimum required version:"
+msgstr "所需的最低版本："
+
+#: advance/inc/class-tgm-plugin-activation.php:2490
+msgid "Installed version:"
+msgstr "已安装的版本："
+
+#: advance/inc/class-tgm-plugin-activation.php:2482
+msgctxt "as in: \"version nr unknown\""
+msgid "unknown"
+msgstr "未知"
+
+#. translators: 1: number of plugins.
+#: advance/inc/class-tgm-plugin-activation.php:2400
+msgid "To Activate <span class=\"count\">(%s)</span>"
+msgid_plural "To Activate <span class=\"count\">(%s)</span>"
+msgstr[0] "激活<span class=\"count\">(%s)</span>"
+
+#. translators: 1: number of plugins.
+#: advance/inc/class-tgm-plugin-activation.php:2396
+msgid "Update Available <span class=\"count\">(%s)</span>"
+msgid_plural "Update Available <span class=\"count\">(%s)</span>"
+msgstr[0] "可供更新<span class=\"count\">(%s)</span>"
+
+#. translators: 1: number of plugins.
+#: advance/inc/class-tgm-plugin-activation.php:2392
+msgid "To Install <span class=\"count\">(%s)</span>"
+msgid_plural "To Install <span class=\"count\">(%s)</span>"
+msgstr[0] "安装<span class=\"count\">(%s)</span>"
+
+#. translators: 1: number of plugins.
+#: advance/inc/class-tgm-plugin-activation.php:2388
+msgctxt "plugins"
+msgid "All <span class=\"count\">(%s)</span>"
+msgid_plural "All <span class=\"count\">(%s)</span>"
+msgstr[0] "全部<span class=\"count\">(%s)</span>"
+
+#. translators: 1: install status, 2: update status
+#: advance/inc/class-tgm-plugin-activation.php:2342
+msgctxt "Install/Update Status"
+msgid "%1$s, %2$s"
+msgstr "%1$s, %2$s"
+
+#: advance/inc/class-tgm-plugin-activation.php:2333
+msgid "Update recommended"
+msgstr "建议更新"
+
+#: advance/inc/class-tgm-plugin-activation.php:2330
+msgid "Requires Update"
+msgstr "需要更新"
+
+#: advance/inc/class-tgm-plugin-activation.php:2327
+msgid "Required Update not Available"
+msgstr "所需的更新不可用"
+
+#: advance/inc/class-tgm-plugin-activation.php:2321
+msgid "Active"
+msgstr "已激活"
+
+#: advance/inc/class-tgm-plugin-activation.php:2319
+msgid "Installed But Not Activated"
+msgstr "已安装但未激活"
+
+#: advance/inc/class-tgm-plugin-activation.php:2315
+msgid "Not Installed"
+msgstr "未安装"
+
+#: advance/inc/class-tgm-plugin-activation.php:2298
+msgid "Pre-Packaged"
+msgstr "预封包的"
+
+#: advance/inc/class-tgm-plugin-activation.php:2295
+msgid "External Source"
+msgstr "外部来源"
+
+#: advance/inc/class-tgm-plugin-activation.php:2292
+msgid "WordPress Repository"
+msgstr "WordPress库"
+
+#: advance/inc/class-tgm-plugin-activation.php:2276
+msgid "Recommended"
+msgstr "推荐"
+
+#: advance/inc/class-tgm-plugin-activation.php:2273
+msgid "Required"
+msgstr "需要"
+
+#. translators: %s: version number
+#: advance/inc/class-tgm-plugin-activation.php:1982
+msgid "TGMPA v%s"
+msgstr "TGMPA v%s"
+
+#: advance/inc/class-tgm-plugin-activation.php:1121
+#: advance/inc/class-tgm-plugin-activation.php:2948
+msgctxt "plugin A *and* plugin B"
+msgid "and"
+msgstr "与"
+
+#: advance/inc/class-tgm-plugin-activation.php:937
+msgid "The remote plugin package consists of more than one file, but the files are not packaged in a folder."
+msgstr "远程插件包中含有多个文件，但这些文件不是打包在一个文件夹中。"
+
+#: advance/inc/class-tgm-plugin-activation.php:934
+#: advance/inc/class-tgm-plugin-activation.php:937
+msgid "Please contact the plugin provider and ask them to package their plugin according to the WordPress guidelines."
+msgstr "请联系插件提供者，让他们按照WordPress指南打包他们的插件。"
+
+#: advance/inc/class-tgm-plugin-activation.php:934
+msgid "The remote plugin package does not contain a folder with the desired slug and renaming did not work."
+msgstr "远程插件包中没有想要的别名的文件夹，重命名无效。"
+
+#: advance/inc/class-tgm-plugin-activation.php:523
+msgid "Update Required"
+msgstr "需要更新"
+
+#: advance/inc/class-tgm-plugin-activation.php:522
+msgid "This plugin needs to be updated to be compatible with your theme."
+msgstr "此插件需要更新以兼容您的主题。"
+
+#: advance/inc/class-tgm-plugin-activation.php:397
+msgid "Please contact the administrator of this site for help."
+msgstr "请联系此网站的管理员来获取帮助。"
+
+#: advance/inc/class-tgm-plugin-activation.php:396
+msgid "There are one or more required or recommended plugins to install, update or activate."
+msgstr "有一个或多个插件需要或建议安装、更新或激活。"
+
+#: advance/inc/class-tgm-plugin-activation.php:395
+msgid "Dismiss this notice"
+msgstr "关闭此通知"
+
+#. translators: 1: dashboard link.
+#: advance/inc/class-tgm-plugin-activation.php:394
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr "所有插件成功安装并激活。 %1$s"
+
+#. translators: 1: plugin name.
+#: advance/inc/class-tgm-plugin-activation.php:392
+msgid "Plugin not activated. A higher version of %s is needed for this theme. Please update the plugin."
+msgstr "插件未激活。此主题需要更高版本的%s。请更新插件。"
+
+#. translators: 1: plugin name.
+#: advance/inc/class-tgm-plugin-activation.php:390
+msgid "No action taken. Plugin %1$s was already active."
+msgstr "没有执行操作。%1$s插件已经激活。"
+
+#: advance/inc/class-tgm-plugin-activation.php:388
+#: advance/inc/class-tgm-plugin-activation.php:2952
+msgid "The following plugin was activated successfully:"
+msgid_plural "The following plugins were activated successfully:"
+msgstr[0] "以下插件激活成功："
+
+#: advance/inc/class-tgm-plugin-activation.php:387
+#: advance/inc/class-tgm-plugin-activation.php:3159
+msgid "Plugin activated successfully."
+msgstr "插件激活成功。"
+
+#: advance/inc/class-tgm-plugin-activation.php:386
+#: advance/inc/class-tgm-plugin-activation.php:827
+#: advance/inc/class-tgm-plugin-activation.php:2533
+#: advance/inc/class-tgm-plugin-activation.php:3580
+msgid "Return to the Dashboard"
+msgstr "返回主控页面"
+
+#: advance/inc/class-tgm-plugin-activation.php:385
+msgid "Return to Required Plugins Installer"
+msgstr "返回至所需插件安装页面"
+
+#: advance/inc/class-tgm-plugin-activation.php:380
+msgid "Begin activating plugin"
+msgid_plural "Begin activating plugins"
+msgstr[0] "开始激活插件"
+
+#: advance/inc/class-tgm-plugin-activation.php:375
+msgid "Begin updating plugin"
+msgid_plural "Begin updating plugins"
+msgstr[0] "开始更新插件"
+
+#: advance/inc/class-tgm-plugin-activation.php:370
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] "开始安装插件"
+
+#. translators: 1: plugin name(s).
+#: advance/inc/class-tgm-plugin-activation.php:365
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] "以下推荐的插件当前未启用：%1$s。"
+
+#. translators: 1: plugin name(s).
+#: advance/inc/class-tgm-plugin-activation.php:359
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] "以下需要的插件当前未启用：%1$s。"
+
+#. translators: 1: plugin name(s).
+#: advance/inc/class-tgm-plugin-activation.php:353
+msgid "There is an update available for: %1$s."
+msgid_plural "There are updates available for the following plugins: %1$s."
+msgstr[0] "以下插件可以更新：%1$s。"
+
+#. translators: 1: plugin name(s).
+#: advance/inc/class-tgm-plugin-activation.php:347
+msgid "The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s."
+msgid_plural "The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s."
+msgstr[0] "以下插件需要更新到最新版本以确保与%1$s主题兼容。"
+
+#. translators: 1: plugin name(s).
+#: advance/inc/class-tgm-plugin-activation.php:341
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] "这个主题建议以下插件%1$s。"
+
+#. translators: 1: plugin name(s).
+#: advance/inc/class-tgm-plugin-activation.php:335
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] "这个主题需要以下插件%1$s。"
+
+#: advance/inc/class-tgm-plugin-activation.php:333
+msgid "Something went wrong with the plugin API."
+msgstr "插件API出错了。"
+
+#. translators: %s: plugin name.
+#: advance/inc/class-tgm-plugin-activation.php:332
+msgid "Updating Plugin: %s"
+msgstr "正在更新插件：%s"
+
+#. translators: %s: plugin name.
+#: advance/inc/class-tgm-plugin-activation.php:330
+msgid "Installing Plugin: %s"
+msgstr "正在安装插件：%s"
+
+#: advance/inc/class-tgm-plugin-activation.php:328
+msgid "Install Plugins"
+msgstr "安装插件"
+
+#: advance/inc/class-tgm-plugin-activation.php:327
+msgid "Install Required Plugins"
+msgstr "安装所需的插件"
+
+#: advance/head-scripts-styles.php:258
+msgid "Uncheck item"
+msgstr "取消勾选项目"
+
+#: advance/head-scripts-styles.php:257
+msgid "Mark item"
+msgstr "标记项目"
+
+#: advance/head-scripts-styles.php:256
+msgid "Write your comment here&hellip;"
+msgstr "在此输入您的评论&hellip;"
+
+#: advance/head-scripts-styles.php:255
+msgid "Add comment"
+msgstr "添加评论"
+
+#: advance/head-scripts-styles.php:171
+msgid "Loading next items"
+msgstr "正在加载项目"
+
+#: advance/head-scripts-styles.php:170
+msgid "Load more"
+msgstr "加载更多"
+
+#: advance/rife.php:36
+msgid "Faded out Designs are available only in Rife Pro. You can preview them from here by clicking on each Design and then using \"Live preview\" button."
+msgstr "淡出设计仅在Rife Pro中可用。您可以在这里预览这些设计，只需点击它们，然后按“实时预览”。"
+
+#: advance/admin/admin.php:135
+msgid "Start typing to filter icons"
+msgstr "开始输入来筛选图标"
+
+#. translators: %s: Theme name
+#: advance/admin/admin.php:112
+msgid "%s Import &amp; Info"
+msgstr "%s导入&amp;信息"
+
+#: advance/admin/admin.php:10
+msgid "Do You want to delete selected One Page Navigation Pointer?"
+msgstr "您想要删除选中的单页导航指针吗？"
+
+#: advance/admin/admin.php:9
+msgid "There are rows in content with identical \"Navigation anchor title\" parameter, which has to be unique for each item. Please fix it by editing row parameters. Duplicated titles are:"
+msgstr ""
+"内容中有多个一模一样的“导航锚点标题”行参数，但这个参数必须是唯一的。请编辑行参数以修复该问题。\n"
+"重复的标题如下："
+
+#: advance/admin/apollo13-pages-functions.php:212
+msgid "If you are looking for more beautiful and Free templates for Elementor try our Templates pack. It also includes new Elementor widgets."
+msgstr "如果您在寻找更多Elementor的免费精美模板，试试我们的模板包。它还包含了新的Elementor小工具。"
+
+#: advance/admin/apollo13-pages-functions.php:211
+msgid "Rife Elementor Extensions &amp; Templates"
+msgstr "Rife Elementor扩展&amp;模板"
+
+#: advance/admin/apollo13-pages-functions.php:204
+msgid "You already know Elementor Page builder in its great free version. Support team behind it and get more cool widgets by upgrading to Pro version."
+msgstr "您已经体验到强大的免费版Elementor页面构建器。升级到Pro版本以支持他们的开发团队，还可以获得更多更酷的小工具。"
+
+#: advance/admin/apollo13-pages-functions.php:203
+msgid "Elementor Pro"
+msgstr "Elementor Pro"
+
+#: advance/admin/apollo13-pages-functions.php:198
+msgid "Read more details in the documentation."
+msgstr "在文档里查看更多细节。"
+
+#: advance/admin/apollo13-pages-functions.php:196
+msgid "Releasing website in few languages is a lot of work. Use the WPML plugin to get much help with this."
+msgstr "发布多语言版本的网站需要大量的工作。使用WPML插件以减轻您的负担。"
+
+#: advance/admin/apollo13-pages-functions.php:195
+msgid "WPML"
+msgstr "WPML"
+
+#: advance/admin/apollo13-pages-functions.php:188
+msgid "A lightweight plugin that can help you speed up your website by optimizing various assets."
+msgstr "一个轻量级插件，能够通过优化资源来帮您的网站加速。"
+
+#: advance/admin/apollo13-pages-functions.php:187
+msgid "Autoptimize"
+msgstr "Autoptimize"
+
+#: advance/admin/apollo13-pages-functions.php:180
+msgid "Great speed with flawless support - a managed hosting for WordPress. In terms of speed, hosting is the first thing you have to upgrade to make your website fly!"
+msgstr "飞快的速度，完美的支持 - 一个WordPress管理式主机。要让您的网站快得飞起，您的首要任务就是升级主机！"
+
+#: advance/admin/apollo13-pages-functions.php:179
+msgid "Kinsta"
+msgstr "Kinsta"
+
+#: advance/admin/apollo13-pages-functions.php:174
+#: advance/admin/apollo13-pages-functions.php:182
+#: advance/admin/apollo13-pages-functions.php:190
+#: advance/admin/apollo13-pages-functions.php:206
+#: advance/admin/apollo13-pages-functions.php:214
+msgid "Read more details on our Blog"
+msgstr "在我们博客上查看更多细节"
+
+#: advance/admin/apollo13-pages-functions.php:172
+msgid "Image optimization is one element that can cut off your page weight by 50 percent or more. Check this great plugin & service to achieve better results in no time."
+msgstr "图像优化能让您的页面瘦身50%以上。试试这个优秀的插件&服务，您可以立刻得到更好的结果。"
+
+#: advance/admin/apollo13-pages-functions.php:171
+msgid "Shortpixel"
+msgstr "Shortpixel"
+
+#: advance/admin/apollo13-pages-functions.php:168
+msgid "Below you can find various tools that can improve your site and workflow. All of these tools we use in our websites and recommend them as great help!"
+msgstr "以下是一些能够改进您网站和工作流程的工具。这些工具我们都用于自己的网站，很有用，推荐！"
+
+#: advance/admin/apollo13-pages-functions.php:136
+msgid "The largest file size that can be uploaded to your WordPress installation. Recommended 64 MB or more."
+msgstr "能上传到您的WordPress的最大文件尺寸。建议设为64MB或更多。"
+
+#: advance/admin/apollo13-pages-functions.php:135
+msgid "Max Upload Size"
+msgstr "最大上传尺寸"
+
+#. translators: %s: Post size limit value
+#. translators: %s: Max upload size limit value
+#: advance/admin/apollo13-pages-functions.php:127
+#: advance/admin/apollo13-pages-functions.php:142
+msgid "%s - too low value for this setting might cause problems. Recommended 64MB or more."
+msgstr "%s - 此数值设得过低可能会引起问题。建议至少设为64MB。"
+
+#: advance/admin/apollo13-pages-functions.php:121
+msgid "The largest file size that can be contained in one post. Recommended 64 MB or more."
+msgstr "能插入在文章内的最大文件尺寸。建议设为64MB或更多。"
+
+#: advance/admin/apollo13-pages-functions.php:120
+msgid "PHP Post Max Size"
+msgstr "PHP文章最大尺寸"
+
+#. translators: %1$s - time in seconds, %2$s - max_execution_time
+#: advance/admin/apollo13-pages-functions.php:107
+msgid "%1$s - Having %2$s less than 30 can hurt the import process. We recommend setting it to at least 60 if possible, even if only for the import process."
+msgstr "%1$s - %2$s设得低于30会影响导入操作。就算只是为了导入操作，我们也建议尽可能设为不低于60。"
+
+#: advance/admin/apollo13-pages-functions.php:100
+msgid "The amount of time (in seconds) that your site will spend on a single operation before timing out (to avoid server lockups). Recommended 60 seconds or more for the import process."
+msgstr "您的网站在超时（避免服务器死锁）之前在单个操作上花费的时间（秒）。对于导入操作来说建议设为60秒或以上。"
+
+#: advance/admin/apollo13-pages-functions.php:99
+msgid "PHP Time Limit"
+msgstr "PHP时间限制"
+
+#: advance/admin/apollo13-pages-functions.php:94
+msgid "Couldn't determine PHP version because phpversion() doesn't exist."
+msgstr "无法判定PHP版本，因为phpversion()不存在。"
+
+#. translators:  %1$s is PHP version number and %2$s is link to "How to update
+#. your PHP version" article
+#: advance/admin/apollo13-pages-functions.php:84
+#: advance/admin/apollo13-pages-functions.php:88
+msgid "How to update your PHP version"
+msgstr "如何升级您的PHP版本"
+
+#. translators:  %1$s is PHP version number and %2$s is link to "How to update
+#. your PHP version" article
+#: advance/admin/apollo13-pages-functions.php:84
+#: advance/admin/apollo13-pages-functions.php:88
+msgid "%1$s - We recommend a minimum PHP version of 5.6. Having version 7 or higher is even better. See: %2$s"
+msgstr "%1$s - 我们建议最低的PHP版本是5.6。使用7或以上的版本更好。详见：%2$s"
+
+#: advance/admin/apollo13-pages-functions.php:76
+msgid "The version of PHP installed on your hosting server."
+msgstr "安装在您的主机服务器上的PHP版本。"
+
+#: advance/admin/apollo13-pages-functions.php:75
+msgid "PHP Version"
+msgstr "PHP版本"
+
+#. translators:  %1$s is memory available and %2$s is link to "Increasing
+#. memory allocated to PHP" article
+#: advance/admin/apollo13-pages-functions.php:67
+msgid "%1$s - You should be fine with so much memory, however, depending on how many plugins you have active you should change it to 128 MB or more. See: %2$s"
+msgstr "%1$s - 这个内存大小应该没有问题。然而，根据您有多少启用的插件，您应该把它更改为128MB或更多。详见：%2$s"
+
+#. translators:  %1$s is memory available and %2$s is link to "Increasing
+#. memory allocated to PHP" article
+#: advance/admin/apollo13-pages-functions.php:63
+msgid "%1$s - Having memory lower than 96 MB(we recommend 128 MB or more) can produce errors while importing demo data, depending on how many plugins you have active. See: %2$s"
+msgstr "%1$s - 根据您有多少启用的插件，内存低于96MB时（我们建议至少128MB）可能会在导入示例数据时发生错误。详见：%2$s"
+
+#. translators:  %1$s is memory available and %2$s is link to "Increasing
+#. memory allocated to PHP" article
+#: advance/admin/apollo13-pages-functions.php:59
+#: advance/admin/apollo13-pages-functions.php:63
+#: advance/admin/apollo13-pages-functions.php:67
+msgid "Increasing memory allocated to PHP"
+msgstr "增加分配给PHP的内存"
+
+#. translators:  %1$s is memory available and %2$s is link to "Increasing
+#. memory allocated to PHP" article
+#: advance/admin/apollo13-pages-functions.php:59
+msgid "%1$s - We can not determine the true memory limit that is set on your server. It is possible that your server admin blocked manipulating this limit. See: %2$s"
+msgstr "%1$s - 我们无法判定您服务器上设置的真实的内存限制。有可能是您的服务器管理员阻止调整这个限制。详见：%2$s"
+
+#: advance/admin/apollo13-pages-functions.php:50
+msgid "The maximum amount of memory (RAM) that your site can use at one time."
+msgstr "您网站同时能够使用的最大内存（RAM）。"
+
+#: advance/admin/apollo13-pages-functions.php:49
+msgid "WP Memory Limit"
+msgstr "WP内存限制"
+
+#. translators: %s: directory name
+#: advance/admin/apollo13-pages-functions.php:43
+msgid "To allow import, make %s writable."
+msgstr "要允许导入，先把%s设为可写入。"
+
+#: advance/admin/apollo13-pages-functions.php:37
+msgid "The directory must be writable so downloaded demo data could be saved for the import process."
+msgstr "目录必须处于可写入状态，这样导入操作才能保存下载好的示例数据。"
+
+#: advance/admin/apollo13-pages-functions.php:29
+msgid "Server/WordPress Environment"
+msgstr "服务器/WordPress环境"
+
+#: advance/admin/print-options.php:312
+msgid "There are no products yet!"
+msgstr "现在还没有产品！"
+
+#: advance/admin/print-options.php:272
+msgid "Use slider to set proper value. You can click on slider handle and then use arrows keys(on keyboard) to adjust value precisely. You can also type in input value that is in/out of range of slider, and it will be used."
+msgstr "使用滑块设置适当的数值。您可以点击滑块位置，使用（键盘上的）箭头键来精确地调整数值。您也可以输入数值，就会在滑块中生效。"
+
+#: advance/admin/print-options.php:252
+msgid "Add"
+msgstr "添加"
+
+#: advance/admin/print-options.php:237
+msgid "Transparent"
+msgstr "透明"
+
+#: advance/admin/print-options.php:142
+msgid "Clear field"
+msgstr "清除字段"
+
+#: advance/admin/print-options.php:123
+msgid "Upload"
+msgstr "上传"
+
+#: advance/admin/metaboxes.php:316
+msgid "To mark more items in Media Library and in below list, you can use <code>Ctrl</code>(<code>Cmd</code>) or <code>Shift</code> key while selecting them with mouse."
+msgstr "要在媒体库和以下列表中标记更多项目，您可以在用鼠标选择时同时按下<code>Ctrl</code>(<code>Cmd</code>)或<code>Shift</code>键。"
+
+#: advance/admin/metaboxes.php:311
+msgid "Remove selected"
+msgstr "移除选择"
+
+#: advance/admin/metaboxes.php:309
+msgid "Add items at beginning of the list"
+msgstr "在列表开头添加项目"
+
+#: advance/admin/metaboxes.php:308
+msgid "Add Video from Youtube/Vimeo"
+msgstr "从Youtube/Vimeo添加视频"
+
+#: advance/admin/metaboxes.php:305
+msgid "Select/Upload images and videos"
+msgstr "选择/上传图像和视频"
+
+#: advance/admin/metaboxes.php:192
+msgid "Work media - Add images/videos"
+msgstr "作品媒体 - 添加图像/视频"
+
+#: advance/admin/metaboxes.php:183
+msgid "Work details"
+msgstr "作品详情"
+
+#: advance/admin/metaboxes.php:173
+msgid "People details"
+msgstr "人详情"
+
+#: advance/admin/metaboxes.php:163
+msgid "Album media - Add images/videos"
+msgstr "相册媒体 - 添加图像/视频"
+
+#: advance/admin/metaboxes.php:154
+msgid "Album details"
+msgstr "相册详情"
+
+#: advance/admin/metaboxes.php:96 advance/admin/metaboxes.php:107
+#: advance/admin/metaboxes.php:118 advance/admin/metaboxes.php:129
+#: advance/admin/metaboxes.php:140
+msgid "Page details"
+msgstr "页面详情"
+
+#: advance/admin/metaboxes.php:80
+msgid "Blog post details"
+msgstr "博客文章详情"
+
+#. translators: %1$s: link to customizer, %2$s section name
+#: advance/admin/metaboxes.php:8 advance/admin/metaboxes.php:25
+#: advance/admin/metaboxes.php:42 advance/admin/metaboxes.php:59
+msgid "Theme options for this page can be found in <a href=\"%1$s\">Appearance -&gt; Customize -&gt; %2$s</a>."
+msgstr "此页面的主题选项可以在<a href=\"%1$s\">外观 -&gt; 自定义 -&gt; %2$s</a>里找到。"
+
+#: advance/admin/apollo13-pages.php:223
+msgid "Choose & move to next step"
+msgstr "选择&到下一步"
+
+#: advance/admin/apollo13-pages.php:212
+msgid "Live preview"
+msgstr "实时预览"
+
+#: advance/admin/apollo13-pages.php:171
+#: advance/inc/class-tgm-plugin-activation.php:2553
+msgid "Version"
+msgstr "版本"
+
+#: advance/admin/apollo13-pages.php:169
+msgid "Apollo13Themes on Twitter"
+msgstr "Twitter上的Apollo13Themes"
+
+#: advance/admin/apollo13-pages.php:168
+msgid "Thanks for being with us!"
+msgstr "感谢与我们在一起！"
+
+#: advance/admin/apollo13-pages.php:167
+msgid "On these pages you can get info what is new, import designs and get help if you will ever need it."
+msgstr "在这些页面您可以获得最新资讯，导入设计，如果有需要还可以寻求帮助。"
+
+#. translators: %s: Theme name
+#: advance/rife.php:161 advance/admin/apollo13-pages.php:163
+msgid "Welcome to %s Theme"
+msgstr "欢迎来到%s主题"
+
+#: advance/admin/apollo13-pages-functions.php:167
+#: advance/admin/apollo13-pages.php:154
+msgid "Recommended Tools"
+msgstr "推荐的工具"
+
+#: advance/admin/apollo13-pages.php:152
+msgid "Get Help"
+msgstr "寻求帮助"
+
+#: advance/admin/apollo13-pages.php:151
+msgid "Export"
+msgstr "导出"
+
+#: advance/admin/apollo13-pages.php:150
+msgid "Design Importer"
+msgstr "设计导入页面"
+
+#: advance/admin/apollo13-pages.php:149
+msgid "Info"
+msgstr "信息"
+
+#: advance/admin/apollo13-pages.php:146
+msgid "Sorry, you are not allowed to access this page."
+msgstr "抱歉，您不能访问此页面。"
+
+#: advance/rife.php:81 advance/admin/apollo13-pages.php:138
+#: advance/admin/apollo13-pages.php:220
+msgid "Try Rife Pro"
+msgstr "试试Rife Pro"
+
+#: advance/admin/apollo13-pages.php:135
+msgid "You can read more about it in the documentation."
+msgstr "您可以在文档里查看更多关于它的信息。"
+
+#: advance/admin/apollo13-pages.php:133
+msgid "For Rife Pro users we offer premium support, which means we can help you more closely & faster with issues that you may encounter."
+msgstr "对于Rife Pro的用户，我们提供高级支持，我们会更紧密地与您配合，更快地解决您遇到的问题。"
+
+#: advance/admin/apollo13-pages.php:132
+msgid "Premium Support"
+msgstr "高级支持"
+
+#: advance/admin/apollo13-pages.php:129
+msgid "Check what you can use for your site on designs page."
+msgstr "在设计页上看看有什么设计可以供您的网站套用。"
+
+#: advance/admin/apollo13-pages.php:127
+msgid "Each month we are adding new beautiful designs that you can use on sites that you build. Designs target various niches & also general purpose pages."
+msgstr "我们每个月都会增加新的精美设计，您可以用来打造您的网站。设计包含不同的细分领域，也包含通用的页面。"
+
+#: advance/admin/apollo13-pages.php:126
+msgid "More Designs!"
+msgstr "更多设计！"
+
+#: advance/admin/apollo13-pages.php:123
+msgid "Check what we have in stock here on features page."
+msgstr "在功能页上看看我们有什么好东西。"
+
+#: advance/admin/apollo13-pages.php:120
+msgid "More features"
+msgstr "更多功能"
+
+#: advance/rife.php:82 advance/admin/apollo13-pages.php:75
+#: advance/admin/apollo13-pages.php:118 advance/admin/apollo13-pages.php:153
+msgid "Rife Pro"
+msgstr "Rife Pro"
+
+#: advance/admin/apollo13-pages.php:103
+msgid "Theme requirements:"
+msgstr "主题需求："
+
+#: advance/admin/apollo13-pages.php:97
+msgid "Just come and say hi :-)"
+msgstr "来打声招呼吧 :-)"
+
+#: advance/admin/apollo13-pages.php:95
+msgid "Contact Apollo13Themes"
+msgstr "联系Apollo13Themes"
+
+#. translators: %1$s: Rife Free
+#: advance/admin/apollo13-pages.php:86
+msgid "%1$s users can access our support forum in read mode and check if their issue was not explained or solved there. Read mode is available for anyone :-)"
+msgstr "%1$s用户可以访问我们的支持论坛的阅读模式，看看他们的问题是否已经解决或者解释清楚。任何人都能使用阅读模式 :-)"
+
+#: advance/admin/apollo13-pages.php:83
+msgid "We understand that most of our customers are not developers(programmers), that is why we will also help you with issues caused by other components (plugins for example) and we will provide you instructions to help fixing issues, even if it is not directly related to our theme."
+msgstr "我们理解，您大部分客户都不是开发者（程序员），因此我们也会帮您解决那些由其他组件（例如插件）引起的问题，我们会提供您修复问题的指引，即使那些问题并不是直接由我们的主题造成的。"
+
+#: advance/admin/apollo13-pages.php:81
+msgid "Where to find your code?"
+msgstr "去哪里找您的代码？"
+
+#: advance/admin/apollo13-pages.php:80
+msgid "To access forum you will need your license code."
+msgstr "您需要许可证代码以访问论坛。"
+
+#: advance/admin/apollo13-pages.php:77
+msgid "If you have question about how something works, or you feel like you have found bug please come to our support forum! It is the best place, where we can work together to solve issues and explain various topics."
+msgstr "如果您对某些功能的使用方法有疑问，或者您觉得发现了bug，请访问我们的支持论坛！在这里我们会一起解决问题，或者对一些题目作出讲解。"
+
+#: advance/admin/apollo13-pages.php:75
+msgid "Support Forum"
+msgstr "支持论坛"
+
+#: advance/admin/apollo13-pages.php:72
+msgid "We are planning to do more, but if you have idea for subject that we should cover in next tutorials, please let us know."
+msgstr "我们计划做更多内容，不过如果您对我们后续教程的主题有任何建议或意见，请告诉我们。"
+
+#: advance/admin/apollo13-pages.php:69
+msgid "We have prepared some basics tutorials on how to work with the theme."
+msgstr "我们准备了一些关于主题使用的基础教程。"
+
+#: advance/admin/apollo13-pages.php:67
+msgid "Video Tutorials"
+msgstr "视频教程"
+
+#: advance/admin/apollo13-pages.php:64
+msgid "Online documentation is always most up to date if it comes to explaining how to work with the theme. It will come handy as the first source when you trying to work out problematic topics."
+msgstr "关于讲解主题的使用方法，在线文档总是及时更新的。当您尝试解决一些问题时，在线文档很有用，是您获取资讯的最佳途径。"
+
+#: advance/admin/apollo13-pages.php:62
+msgid "Online Documentation"
+msgstr "在线文档"
+
+#: advance/admin/apollo13-pages.php:60
+msgid "Where to get help?"
+msgstr "去哪里寻求帮助？"
+
+#: advance/admin/apollo13-pages.php:29
+msgid "How to do it is explained in the documentation here."
+msgstr "这里的文档讲解了它的使用方法。"
+
+#: advance/admin/apollo13-pages.php:28
+msgid "If you have an existing website, you can also try to import one of our designs to speed up your work. You will have to do it without demo data."
+msgstr "如果您有一个现存的网站，您也可以试试导入我们的一个设计，加快您的工作。导入时需要不带示例数据。"
+
+#: advance/admin/apollo13-pages.php:25
+msgid "Go to Customizer"
+msgstr "前往定制器"
+
+#: advance/admin/apollo13-pages.php:24
+msgid "If you have an existing website, then you can start from scratch by changing theme options."
+msgstr "如果您有一个现存的网站，您可以通过变更主题选项，改头换面。"
+
+#: advance/rife.php:163 advance/admin/apollo13-pages.php:21
+msgid "Go to Design Importer"
+msgstr "前往设计导入页面"
+
+#: advance/rife.php:162 advance/admin/apollo13-pages.php:20
+msgid "If you have fresh installation then it would be good time to import one of our designs."
+msgstr "如果您是刚刚安装，那就是时候导入我们的一款设计了。"
+
+#: advance/admin/apollo13-pages.php:16
+msgid "You can check out what is new in the Changelog or just move on with your usual work."
+msgstr "您可以在更新记录中查看新鲜事，或者继续您的日常工作。"
+
+#: advance/admin/apollo13-pages.php:15
+msgid "Some features(like Albums, Works, shortcodes, plugins support) of the Theme requires an additional plugin before you will be able to use it. "
+msgstr "主题的一些功能（例如相册、作品、短代码、插件支持），需要一个额外的插件才能使用。"
+
+#: advance/admin/apollo13-pages.php:13
+msgid "What's next?"
+msgstr "下一步是什么？"
+
+#: advance/admin/apollo13-pages.php:10
+msgid "Get more details in Rife Pro tab."
+msgstr "在Rife Pro标签获取更多细节。"
+
+#: advance/admin/apollo13-pages.php:9
+msgid "If you are looking for even more features or Designs, you can always try Rife Pro version."
+msgstr "如果您在寻找更多功能或设计，您可以试试Rife Pro版本。"
+
+#: advance/admin/apollo13-pages.php:8
+msgid "We are glad that you have decided to test & use our Rife Free theme. We hope it will help you with making your site beautiful!"
+msgstr "我们很高兴您终于决定尝试我们的Rife Free主题了。我们希望它可以帮您把网站变得漂漂亮亮！"
+
+#: advance/admin/apollo13-pages.php:7
+msgid "Thanks for using Rife Free!"
+msgstr "感谢使用Rife Free！"
+
+#: advance/utilities/header.php:253
+msgid "Main menu"
+msgstr "主菜单"
+
+#: advance/utilities/header.php:252
+msgid "More info"
+msgstr "更多信息"
+
+#: advance/utilities/password.php:13
+msgid "Submit"
+msgstr "提交"
+
+#: advance/utilities/password.php:13
+msgid "password"
+msgstr "密码"
+
+#: advance/utilities/cpt.php:1604
+msgid "Accepted Items:"
+msgstr "接受的项目："
+
+#: advance/utilities/cpt.php:1603
+msgid "Working ..."
+msgstr "工作中 ..."
+
+#: advance/utilities/cpt.php:1602
+msgid "I am done with Selecting Items"
+msgstr "我选好项目了"
+
+#: advance/utilities/cpt.php:1602
+msgid "When you are done with commenting and selecting photos/videos, click this button."
+msgstr "当您完成评论和选好照片/视频时，点击此按钮。"
+
+#: advance/utilities/cpt.php:1599
+msgid "Commented"
+msgstr "已评论"
+
+#: advance/utilities/cpt.php:1598
+msgid "Not selected"
+msgstr "未选择"
+
+#: advance/utilities/cpt.php:1597
+msgid "Selected"
+msgstr "已选择"
+
+#: advance/utilities/cpt.php:966
+msgctxt "next product"
+msgid "Next"
+msgstr "下一个"
+
+#: advance/utilities/cpt.php:965
+msgctxt "previous product"
+msgid "Previous"
+msgstr "上一个"
+
+#: advance/utilities/cpt.php:17
+msgid "Website"
+msgstr "网站"
+
+#: advance/utilities/posts.php:392
+msgid "Newer Comments"
+msgstr "更近期的评论"
+
+#: advance/utilities/posts.php:388
+msgid "Older Comments"
+msgstr "更早期的评论"
+
+#: advance/utilities/posts.php:385
+msgid "Comment navigation"
+msgstr "评论导航"
+
+#: advance/utilities/posts.php:277
+msgid "Next article"
+msgstr "下一篇"
+
+#: advance/utilities/posts.php:269
+msgid "Previous article"
+msgstr "上一篇"
+
+#. translators: %s - author name
+#: advance/utilities/posts.php:140 attachment.php:53
+msgid "View all posts by %s"
+msgstr "查看%s的所有文章"
+
+#. translators: %s - author name
+#: advance/utilities/posts.php:136
+msgid "by %s "
+msgstr "作者：%s"
+
+#: advance/utilities/posts.php:42
+msgid "Updated: "
+msgstr "更新于："
+
+#: advance/utilities/cpt.php:1572 advance/utilities/cpt.php:1596
+#: advance/utilities/layout-parts.php:1273
+msgid "All"
+msgstr "全部"
+
+#: advance/utilities/layout-parts.php:513
+msgid "Search &hellip;"
+msgstr "搜索&hellip;"
+
+#: advance/utilities/cpt-work.php:167 advance/utilities/cpt-work.php:170
+#: advance/utilities/cpt-album.php:157 advance/utilities/cpt-album.php:160
+msgid "Next"
+msgstr "下一个"
+
+#: advance/utilities/cpt-work.php:158 advance/utilities/cpt-work.php:161
+#: advance/utilities/cpt-album.php:148 advance/utilities/cpt-album.php:151
+msgid "Previous"
+msgstr "上一个"
+
+#: advance/utilities/cpt-work.php:561 advance/utilities/cpt-album.php:556
+#: advance/utilities/cpt-people.php:280
+msgid "Click and enter your password to view content"
+msgstr "点击和输入密码以查看内容"
+
+#: advance/utilities/cpt-work.php:552 advance/utilities/cpt-album.php:547
+#: advance/utilities/cpt-people.php:276 advance/vc-extend.php:50
+msgid "This content is password protected"
+msgstr "此内容受密码保护"
+
+#: advance/utilities/posts.php:487 advance/utilities/cpt-work.php:302
+#: advance/utilities/cpt-album.php:343 advance/utilities/cpt-people.php:123
+msgid "Apologies, but no results were found for the requested archive."
+msgstr "抱歉，但无法找到该归档的结果。"
+
+#. translators: %s: page title
+#: advance/utilities/cpt-work.php:132 advance/utilities/cpt-work.php:142
+#: advance/utilities/cpt-album.php:55 advance/utilities/cpt-album.php:65
+#: advance/utilities/cpt-album.php:122 advance/utilities/cpt-album.php:132
+msgid "Back to %s"
+msgstr "返回%s"
+
+#: advance/utilities/woocommerce.php:611
+msgid "Go to shop"
+msgstr "前往店铺"
+
+#: advance/utilities/woocommerce.php:334
+msgid "New"
+msgstr "新上架"
+
+#: advance/utilities/woocommerce.php:330
+msgid "Sale"
+msgstr "打折"
+
+#: advance/utilities/woocommerce.php:325
+msgid "Out of stock"
+msgstr "缺货"
+
+#. translators: %s - parent term name
+#: advance/utilities/woocommerce.php:102
+msgid "View all posts in %s"
+msgstr "在%s中查看所有文章"
+
+#: advance/sidebars.php:48
+msgid "Widgets from this area will appear in footer, only if horizontal header is used."
+msgstr "仅当使用水平页头时，此区域的小工具会出现在页脚里。"
+
+#: advance/sidebars.php:47
+msgid "Footer widget area(Header horizontal)"
+msgstr "页脚小工具区域（水平页头）"
+
+#: advance/sidebars.php:43
+msgid "Widgets from this area will appear in vertical header only."
+msgstr "此区域的小工具仅会出现在垂直页头里。"
+
+#: advance/sidebars.php:42
+msgid "Header(vertical) default widget area"
+msgstr "页头（垂直）默认小工具区域"
+
+#: advance/sidebars.php:37
+msgid "Basket sidebar"
+msgstr "篮子侧边栏"
+
+#: advance/sidebars.php:33
+msgid "It is always available sidebar, that is activated by clicking on the icon in the header. Good for some special menus or other tips/information for the user."
+msgstr "这是一个垂手可得的侧边栏，点击页头的图标可以打开它。适用于一些特殊的菜单或用于一些给用户的信息/提示。"
+
+#: advance/sidebars.php:28
+msgid "Widgets from this sidebar will appear only in shop pages. WooCommerce have to be installed and activated."
+msgstr "此侧边栏的小工具仅会出现在店铺页面里。需要安装并激活WooCommerce才生效。"
+
+#: advance/utilities/header.php:250 advance/sidebars.php:27
+msgid "Shop sidebar"
+msgstr "店铺侧边栏"
+
+#: advance/sidebars.php:23 advance/sidebars.php:74
+msgid "Widgets from this sidebar will appear in static pages."
+msgstr "此侧边栏的小工具会出现在静态页面里。"
+
+#: advance/sidebars.php:22
+msgid "Page sidebar"
+msgstr "页面侧边栏"
+
+#: advance/sidebars.php:18
+msgid "Widgets from this sidebar will appear in single posts."
+msgstr "此侧边栏的小工具会出现在单篇文章里。"
+
+#: advance/sidebars.php:17
+msgid "Post sidebar"
+msgstr "文章侧边栏"
+
+#: advance/sidebars.php:13
+msgid "Widgets from this sidebar will appear on blog, search results, archive page, and 404 error page."
+msgstr "此侧边栏的小工具会出现在博客、搜索结果、归档页面，和404错误页面里。"
+
+#: advance/sidebars.php:12
+msgid "Blog sidebar"
+msgstr "博客侧边栏"
+
+#: advance/customizer.php:475
+msgid "black"
+msgstr "黑"
+
+#: advance/customizer.php:474
+msgid "extra-bold"
+msgstr "特粗"
+
+#: advance/customizer.php:473
+msgid "bold"
+msgstr "粗体"
+
+#: advance/customizer.php:472
+msgid "semi-bold"
+msgstr "半粗"
+
+#: advance/customizer.php:471
+msgid "medium"
+msgstr "中等"
+
+#: advance/customizer.php:470
+msgid "regular"
+msgstr "常规"
+
+#: advance/customizer.php:469
+msgid "light"
+msgstr "细体"
+
+#: advance/customizer.php:468
+msgid "extra-light"
+msgstr "特细"
+
+#: advance/customizer.php:467
+msgid "thin"
+msgstr "纤细"
+
+#: advance/customizer.php:128
+msgid "There are no works yet!"
+msgstr "现在还没有作品！"
+
+#: advance/customizer.php:96
+msgid "There are no albums yet!"
+msgstr "现在还没有相册！"
+
+#: advance/plugins/plugins-list.php:21
+msgid "Rife Elementor Extensions"
+msgstr "Rife Elementor扩展"
+
+#: advance/plugins/plugins-list.php:13
+#: advance/class-apollo13-framework.php:1064
+#: advance/class-apollo13-framework.php:1074
+#: advance/class-apollo13-framework.php:1083
+msgid "Apollo13 Framework Extensions"
+msgstr "Apollo13 Framework Extensions"
+
+#: advance/theme-options.php:5365
+msgid "How many ms should pass between printing each character. Bigger value is slower writing."
+msgstr "打印每个字之间应该相隔多少毫秒。数值越大书写越慢。"
+
+#: advance/theme-options.php:5357
+msgid "If disabled it will show all written lines as separate paragraphs on small devices(less than 600 pixels wide). It is good to disable it to save CPU of your user devices, and to remove \"jumping screen\" effect on smaller screens."
+msgstr "如果禁用，则在小型设备（低于600像素宽）上把所有行显示为单独的段落。禁用它可以节省用户设备的CPU资源，和避免在小屏幕上出现“跳屏”效果。"
+
+#: advance/theme-options.php:5347 advance/theme-options.php:5356
+#: advance/theme-options.php:5364
+msgid "Writing effect"
+msgstr "书写效果"
+
+#: advance/theme-options.php:5339
+msgid "If enabled it will scroll to anchor after it is clicked on the same page. It can, however, conflict with plugins that uses the same mechanism, and the page can scroll in a weird way. In such case disable this feature."
+msgstr "如果启用，则当点击时滚动到当前页中的锚点位置。不过，这会与某些使用了相同机制的插件冲突，导致页面滚动得很奇怪。在此情况下请禁用此功能。"
+
+#: advance/theme-options.php:5338
+msgid "Scroll to anchor handling"
+msgstr "滚动至锚点位置"
+
+#. translators: %1$s: Link example, %2$s: Link example
+#: advance/theme-options.php:5331
+msgid "If disabled it will not show anchors, in the address bar of your browser, when they are clicked or entered. So address like %1$s will be displayed as %2$s."
+msgstr "如果禁用，则当点击或者输入时，锚点不会显示在您浏览器地址栏中。因此以下地址 %1$s 将显示为 %2$s。"
+
+#: advance/theme-options.php:5329
+msgid "Display anchors in address bar"
+msgstr "在地址栏中显示锚点"
+
+#: advance/theme-options.php:5320
+msgid "Anchors"
+msgstr "锚点"
+
+#: advance/theme-options.php:5311
+msgid "Miscellaneous"
+msgstr "杂项"
+
+#: advance/theme-options.php:5301
+msgid "Attachment page"
+msgstr "附件页面"
+
+#: advance/theme-options.php:5300
+msgid "Album"
+msgstr "相册"
+
+#: advance/theme-options.php:5298
+msgid "When using the share plugin choose one way of sharing. More details in the documentation."
+msgstr "使用分享插件时，选择一种分享的方式。详情请查看文档。"
+
+#: advance/theme-options.php:5290
+msgid "Use social icons in albums"
+msgstr "在相册中使用社交图标"
+
+#: advance/theme-options.php:5282
+msgid "If you are using AddToAny plugin for sharing, then you should check these options."
+msgstr "如果您使用AddToAny分享插件，您应该勾选这些选项。"
+
+#: advance/theme-options.php:5229 advance/theme-options.php:5272
+msgid "Can be overridden in each album."
+msgstr "可以在各个相册中被覆盖。"
+
+#: advance/theme-options.php:5237 advance/theme-options.php:5261
+msgid "Global for all albums."
+msgstr "对所有相册生效。"
+
+#: advance/theme-options.php:5084
+msgid "Displayed in text content"
+msgstr "在文字内容中展示"
+
+#: advance/theme-options.php:5083
+msgid "Albums navigation"
+msgstr "相册导航"
+
+#: advance/theme-options.php:5069
+msgid "Title in content"
+msgstr "内容中标题"
+
+#: advance/theme-options.php:4823
+msgid "Album meta: Categories"
+msgstr "相册meta：分类目录"
+
+#: advance/theme-options.php:4643
+msgid "Album look"
+msgstr "相册外观"
+
+#: advance/theme-options.php:4629
+msgid "This page will list all your albums and also give the main title for \"album category\" pages."
+msgstr "此页面将会列出您的所有相册，以及给“相册分类目录”页面一个主标题。"
+
+#: advance/theme-options.php:4582
+msgid "These will work for Albums list and single album."
+msgstr "这些将应用于相册列表与单个相册。"
+
+#: advance/admin/metaboxes.php:50 advance/theme-options.php:4571
+msgid "Albums settings"
+msgstr "相册设置"
+
+#: advance/theme-options.php:4518 advance/theme-options.php:4561
+msgid "Can be overridden in each work."
+msgstr "可以在各个作品中被覆盖。"
+
+#: advance/theme-options.php:4550 advance/theme-options.php:5261
+msgid "Speed of transition."
+msgstr "转换的速度。"
+
+#: advance/theme-options.php:4526 advance/theme-options.php:4550
+#: advance/theme-options.php:4561
+msgid "Global for all works."
+msgstr "对所有作品生效。"
+
+#: advance/theme-options.php:4357 advance/theme-options.php:5123
+msgid "Display thumbnails instead of video"
+msgstr "展示缩略图，而不是视频"
+
+#: advance/theme-options.php:4350
+msgid "Will display list(up to 3 items) of similar works at bottom of work content."
+msgstr "将在作品内容底部展示一列（最多3项）相似作品。"
+
+#: advance/utilities/cpt-work.php:642 advance/theme-options.php:4349
+msgid "Similar works"
+msgstr "相似作品"
+
+#: advance/theme-options.php:4340 advance/theme-options.php:5091
+msgid "Navigate by categories"
+msgstr "按分类目录导航"
+
+#: advance/theme-options.php:4333
+msgid "Works navigation"
+msgstr "作品导航"
+
+#: advance/theme-options.php:4292 advance/theme-options.php:5039
+#: advance/theme-options.php:5210
+msgid "Text align"
+msgstr "文字对齐"
+
+#: advance/theme-options.php:4214 advance/theme-options.php:4223
+#: advance/theme-options.php:4961 advance/theme-options.php:4970
+#: advance/theme-options.php:5141
+msgid "Filter"
+msgstr "筛选"
+
+#: advance/theme-options.php:3899 advance/theme-options.php:4646
+msgid "Title under photo"
+msgstr "图片下标题"
+
+#: advance/theme-options.php:3898 advance/theme-options.php:4645
+msgid "Title over photo"
+msgstr "图片上标题"
+
+#: advance/theme-options.php:3896
+msgid "Work look"
+msgstr "作品外观"
+
+#: advance/theme-options.php:3889
+msgid "In lightbox"
+msgstr "在弹出框内"
+
+#: advance/theme-options.php:3886
+msgid "\"In lightbox\" will load work content dynamically with JavaScript. Cause of that use JavaScripts plugins is very limited in such works. If you need page builder elements, then use normal mode."
+msgstr "“在弹出框内”将使用JavaScript动态地加载作品内容。因此在这些作品内，JavaScript插件的功能将受到限制。如果您需要页面构建器元素，使用正常模式。"
+
+#: advance/theme-options.php:3885
+msgid "How to open work"
+msgstr "如何打开作品"
+
+#: advance/theme-options.php:3871
+msgid "This page will list all your works and also give the main title for \"work category\" pages."
+msgstr "此页面将会列出您的所有作品，以及给“作品分类目录”页面一个主标题。"
+
+#: advance/theme-options.php:3824
+msgid "These will work for Works list and single work."
+msgstr "这些将应用于作品列表与单个作品。"
+
+#: advance/admin/metaboxes.php:67 advance/theme-options.php:3813
+msgid "Works settings"
+msgstr "作品设置"
+
+#: advance/theme-options.php:3786
+msgid "Password protected page template"
+msgstr "受密码保护页模板"
+
+#: advance/theme-options.php:3779 advance/theme-options.php:3805
+msgid "Default but I want to change the background image"
+msgstr "默认，但我想要更换背景图像"
+
+#: advance/theme-options.php:3772 advance/theme-options.php:3798
+msgid "Default"
+msgstr "默认"
+
+#. translators: %s: Rife Pro tab link
+#: advance/theme-options.php:3770 advance/theme-options.php:3796
+msgid "<strong>Setting custom page is available in %s.</strong>"
+msgstr "<strong>设置自定义页面在%s中可用。</strong>"
+
+#: advance/theme-options.php:3759
+msgid "404 page template"
+msgstr "404页模板"
+
+#: advance/theme-options.php:3562
+msgid "You can change it in each page settings."
+msgstr "您可以在各个页面设置中更改它。"
+
+#: advance/theme-options.php:3538
+msgid "Comments"
+msgstr "评论"
+
+#: advance/theme-options.php:3529 advance/theme-options.php:3606
+msgid "Single page"
+msgstr "单个页面"
+
+#: advance/theme-options.php:3520
+msgid "Page settings"
+msgstr "页面设置"
+
+#: advance/theme-options.php:3425
+msgid "You can change here the colors of buttons used in the shop. Alternative buttons colors are used in various places in the shop."
+msgstr "您可以在这里更换店铺内按钮的颜色。备选按钮颜色用于店铺的不同地方。"
+
+#: advance/theme-options.php:3387
+msgid "When WooCommerce is activated, button opening this basket will appear in the header. There also have to be some active widgets in \"Basket sidebar\" for this."
+msgstr "当WooCommerce启用时，页头会显示打开此篮子的按钮。此外还需要在“篮子侧边栏”内有启用的小工具。"
+
+#: advance/theme-options.php:3386
+msgid "Pop up basket"
+msgstr "弹出篮子"
+
+#: advance/theme-options.php:3231 advance/theme-options.php:3256
+msgid "Settings for cart, checkout, order received and my account pages."
+msgstr "购物车、结账、收到订单和我的账户页面设置。"
+
+#: advance/theme-options.php:3230 advance/theme-options.php:3257
+msgid "Other shop pages"
+msgstr "其他店铺页面"
+
+#: advance/theme-options.php:3063
+msgid "Should related products be displayed on single product page."
+msgstr "关联产品是否在单个产品页面展示？"
+
+#: advance/theme-options.php:3062
+msgid "Related products"
+msgstr "关联产品"
+
+#: advance/theme-options.php:3055
+msgid "If disabled it will display standard WooCommerce thumbnails."
+msgstr "如果禁用，则展示标准WooCommerce缩略图。"
+
+#: advance/theme-options.php:3054
+msgid "Theme thumbnails"
+msgstr "主题缩略图"
+
+#: advance/theme-options.php:3018 advance/theme-options.php:3071
+msgid "Single product"
+msgstr "单个产品"
+
+#: advance/theme-options.php:2820
+msgid "Show second image of product on hover"
+msgstr "悬停时显示产品的第二张图片"
+
+#: advance/theme-options.php:2812
+msgid "Texts to right"
+msgstr "文字右对齐"
+
+#: advance/theme-options.php:2811
+msgid "Texts to center"
+msgstr "文字居中"
+
+#: advance/theme-options.php:2810
+msgid "Texts to left"
+msgstr "文字左对齐"
+
+#: advance/theme-options.php:2801
+msgid "Text under photo"
+msgstr "文字位于图片下方"
+
+#: advance/theme-options.php:2800
+msgid "Text as overlay"
+msgstr "文字作为覆盖层"
+
+#: advance/theme-options.php:2798 advance/theme-options.php:2808
+msgid "Look of products on list"
+msgstr "列表上产品的外观"
+
+#: advance/theme-options.php:2764
+msgid "It will change WordPress default search function to make shop search. So when this is activated search function in header or search widget will act as WooCommerece search widget."
+msgstr "这会把WordPress的默认搜索功能更换为店铺搜索。当开启时，页头上的搜索功能或搜索小工具将作为WooCommerce搜索小工具。"
+
+#: advance/theme-options.php:2763
+msgid "Search in products instead of pages"
+msgstr "在产品中搜索，而不是在页面中"
+
+#: advance/theme-options.php:2754 advance/theme-options.php:2888
+msgid "Products list"
+msgstr "产品列表"
+
+#: advance/theme-options.php:2717
+msgid "These options will work for all shop pages - product list, single product and other."
+msgstr "这些选项将应用于所有店铺页面 - 产品列表、单个产品，等等。"
+
+#: advance/admin/metaboxes.php:33 advance/theme-options.php:2706
+msgid "Shop(WooCommerce) settings"
+msgstr "店铺（WooCommerce）设置"
+
+#: advance/theme-options.php:2562 advance/theme-options.php:3087
+#: advance/theme-options.php:3622 advance/theme-options.php:4382
+msgid "Title position"
+msgstr "标题位置"
+
+#: advance/theme-options.php:2537
+msgid "Links to next and prev post."
+msgstr "跳转到前一篇与后一篇文章的链接。"
+
+#: advance/theme-options.php:2536
+msgid "Posts navigation"
+msgstr "文章导航"
+
+#: advance/theme-options.php:2488
+msgid "Will show information about author below post content."
+msgstr "将在文章内容之后显示作者信息"
+
+#: advance/theme-options.php:2487
+msgid "Author info"
+msgstr "作者信息"
+
+#: advance/theme-options.php:2480
+msgid "You can set to not display post media(featured image/video/slider) inside of the post."
+msgstr "您可以设为在文章内不展示文章媒体（主打图像/视频/滑块）。"
+
+#: advance/theme-options.php:2443 advance/theme-options.php:2546
+msgid "Single post"
+msgstr "单篇文章"
+
+#: advance/meta.php:1141 advance/meta.php:1699 advance/theme-options.php:2322
+#: advance/theme-options.php:2555 advance/theme-options.php:2897
+#: advance/theme-options.php:3080 advance/theme-options.php:3265
+#: advance/theme-options.php:3615 advance/theme-options.php:4093
+#: advance/theme-options.php:4375 advance/theme-options.php:4840
+msgid "Title"
+msgstr "标题"
+
+#: advance/theme-options.php:2305 advance/theme-options.php:2529
+msgid "Displays list of post tags under a post content."
+msgstr "在文章内容下展示文章标签列表。"
+
+#: advance/theme-options.php:2304 advance/theme-options.php:2528
+msgid "Tags"
+msgstr "标签"
+
+#: advance/theme-options.php:2275 advance/theme-options.php:2499
+msgid "Updated"
+msgstr "已更新"
+
+#: advance/theme-options.php:2274 advance/theme-options.php:2498
+msgid "Published"
+msgstr "已发布"
+
+#: advance/theme-options.php:2272 advance/theme-options.php:2496
+msgid "You can't use both dates, because the Search Engine will not know which date is correct."
+msgstr "您不能用两个日期，因为搜索引擎不知道哪个日期才是正确的。"
+
+#: advance/theme-options.php:2264
+msgid "You can set to display videos as featured image on posts list. This can speed up loading of pages with many posts(blog, archive, search results) when the videos are used."
+msgstr "您可以设为在文章列表上展示视频作为主打图像。当有视频时，这样做能加快有许多文章的页面（如博客、归档、搜索结果）的加载速度。"
+
+#: advance/theme-options.php:2263
+msgid "Display of posts video"
+msgstr "文章视频展示"
+
+#: advance/theme-options.php:2256
+msgid "You can set to not display post media(featured image/video/slider) inside of the post brick."
+msgstr "您可以设为在文章区块内不展示文章媒体（主打图像/视频/滑块）。"
+
+#: advance/theme-options.php:2255 advance/theme-options.php:2479
+msgid "Display post Media"
+msgstr "展示文章媒体"
+
+#: advance/theme-options.php:2244
+msgid "After this many words post will be cut in the automatic mode."
+msgstr "在自动模式中，超出这个字数后的文章内容将不被截取。"
+
+#: advance/theme-options.php:2243
+msgid "Number of words to cut post"
+msgstr "文章截取的字数"
+
+#: advance/theme-options.php:2236
+msgid "Manual"
+msgstr "手动"
+
+#: advance/theme-options.php:2235
+msgid "Automatic"
+msgstr "自动"
+
+#: advance/theme-options.php:2232
+msgid "In the Manual mode, excerpts are used only if you add the \"Read More Tag\" (&lt;!--more--&gt;).<br /> In the Automatic mode, if you will not provide the \"Read More Tag\" or explicit excerpt, the content of the post will be truncated automatically.<br /> This setting only concerns blog list, archive list, search results."
+msgstr "在手动模式中，仅当您添加“继续阅读标签”（&lt;!--更多--&gt;）时，才使用摘要。<br /> 在自动模式中，如果您不提供“继续阅读标签”或明确摘要，文章的内容将被自动截取。<br /> 这项设置仅影响博客列表、归档列表，和搜索结果。"
+
+#: advance/theme-options.php:2231
+msgid "Type of post excerpts"
+msgstr "文章摘要类型"
+
+#: advance/theme-options.php:2224
+msgid "Should \"Read more\" link be displayed after excerpts on blog list/search results."
+msgstr "在博客列表/搜索结果中，摘要后面是否展示“继续阅读”链接？"
+
+#: advance/theme-options.php:2223
+msgid "Display \"Read more\" link"
+msgstr "展示“继续阅读”链接"
+
+#: advance/theme-options.php:2215 advance/theme-options.php:2879
+#: advance/theme-options.php:4068 advance/theme-options.php:4815
+msgid "On scroll"
+msgstr "滚动时"
+
+#: advance/theme-options.php:2214 advance/theme-options.php:2878
+#: advance/theme-options.php:4067 advance/theme-options.php:4814
+msgid "By clicking button"
+msgstr "点击按钮时"
+
+#: advance/theme-options.php:2205 advance/theme-options.php:2212
+#: advance/theme-options.php:2869 advance/theme-options.php:2876
+#: advance/theme-options.php:4058 advance/theme-options.php:4065
+#: advance/theme-options.php:4805 advance/theme-options.php:4812
+msgid "Lazy load"
+msgstr "延迟加载"
+
+#: advance/theme-options.php:2164 advance/theme-options.php:2831
+#: advance/theme-options.php:4003 advance/theme-options.php:4750
+msgid "Each row from new line"
+msgstr "每行顶部对齐"
+
+#: advance/theme-options.php:2163 advance/theme-options.php:2830
+#: advance/theme-options.php:4002 advance/theme-options.php:4749
+msgid "Masonry"
+msgstr "瀑布流"
+
+#: advance/theme-options.php:2160 advance/theme-options.php:2827
+#: advance/theme-options.php:3999 advance/theme-options.php:4746
+msgid "How to place items in rows"
+msgstr "如何放置行中的项目"
+
+#: advance/theme-options.php:2152
+msgid "Vertical centered"
+msgstr "垂直居中"
+
+#: advance/theme-options.php:2151
+msgid "Vertical with padding"
+msgstr "垂直带填充"
+
+#: advance/theme-options.php:2150
+msgid "Vertical no padding"
+msgstr "垂直无填充"
+
+#: advance/theme-options.php:2148
+msgid "Post look"
+msgstr "文章外观"
+
+#: advance/theme-options.php:2071 advance/theme-options.php:2725
+#: advance/theme-options.php:3577 advance/theme-options.php:3832
+#: advance/theme-options.php:4590
+msgid "Custom background"
+msgstr "自定义背景"
+
+#: advance/theme-options.php:2062 advance/theme-options.php:2716
+#: advance/theme-options.php:3823 advance/theme-options.php:4581
+msgid "Background"
+msgstr "背景"
+
+#: advance/theme-options.php:2054
+msgid "Posts list refers to Blog, Search and Archives pages"
+msgstr "文章列表指博客、搜索结果与归档页面"
+
+#: advance/admin/metaboxes.php:16 advance/theme-options.php:2053
+msgid "Blog settings"
+msgstr "博客设置"
+
+#: advance/theme-options.php:1947
+msgid "If left empty then the button will not be displayed."
+msgstr "若留空，此按钮将不会展示。"
+
+#: advance/theme-options.php:1851 advance/theme-options.php:1858
+#: advance/theme-options.php:1926 advance/theme-options.php:1933
+msgid "Basket, sidebar, menu and search icons. It is also color for the text of \"Tools button\"."
+msgstr " 篮子、侧边栏、菜单与搜索图标，以及“工具按钮”文字的颜色。"
+
+#. translators: %s: Rife Pro tab link
+#: advance/theme-options.php:1917
+msgid "<strong>Settings for individual tools icons & animated icons are available in %s.</strong>"
+msgstr "<strong>单独的工具图标&动画图标设置在%s中可用。</strong>"
+
+#: advance/theme-options.php:1586
+msgid "Mega-Menu separator color"
+msgstr "超级菜单分割线颜色"
+
+#. translators: %s: Rife Pro tab link
+#: advance/theme-options.php:1494
+msgid "<strong>More effects are available in %s.</strong><br />"
+msgstr "<strong>更多效果在%s中可用</strong><br />"
+
+#: advance/theme-options.php:1476 advance/theme-options.php:1485
+#: advance/theme-options.php:1806 advance/theme-options.php:1812
+#: advance/theme-options.php:1818
+msgid "Main Menu"
+msgstr "主菜单"
+
+#. translators: %s: Customizer JS URL
+#: advance/theme-options.php:1407
+msgid "If you want to change the font for logo go to <a href=\"%s\">Font settings</a>."
+msgstr "如果您想要更换logo的字体，前往<a href=\"%s\">字体设置</a>。"
+
+#: advance/theme-options.php:1384 advance/theme-options.php:1394
+msgid "Opacity"
+msgstr "不透明度"
+
+#: advance/theme-options.php:1373
+msgid "Leave empty if you do not need anything fancy"
+msgstr "如果您不需要花俏的东西，留空即可"
+
+#: advance/theme-options.php:1372
+msgid "Height"
+msgstr "高度"
+
+#: advance/theme-options.php:1336 advance/theme-options.php:1718
+msgid "For example Retina(iPhone/iPad) screen has HIGH DPI screen."
+msgstr "例如视网膜（iPhone/iPad）屏幕是高DPI屏幕。"
+
+#: advance/theme-options.php:1335 advance/theme-options.php:1717
+msgid "Image for HIGH DPI screen"
+msgstr "用于高DPI屏幕的图像"
+
+#: advance/theme-options.php:1328 advance/theme-options.php:1336
+#: advance/theme-options.php:1707 advance/theme-options.php:1718
+msgid "Upload an image for logo."
+msgstr "上传用于logo的图像。"
+
+#: advance/theme-options.php:1320 advance/theme-options.php:1404
+msgid "Text"
+msgstr "文字"
+
+#: advance/theme-options.php:1306
+msgid "If you want to be able to change the logo in header color variants (light and dark variants) or in the sticky header variant, then enable this option."
+msgstr "如果您想在页头颜色变体（白天和夜间变体），或者粘性页头变体中可以更换logo，启用这个选项。"
+
+#: advance/theme-options.php:1305
+msgid "Use logos from header variants"
+msgstr "使用页头变体中logo"
+
+#: advance/theme-options.php:1296 advance/theme-options.php:1706
+#: advance/theme-options.php:1717 advance/theme-options.php:1728
+#: advance/theme-options.php:1743 advance/theme-options.php:1758
+#: advance/theme-options.php:1772 advance/theme-options.php:1786
+#: advance/theme-options.php:1796
+msgid "Logo"
+msgstr "Logo"
+
+#: advance/theme-options.php:1244 advance/theme-options.php:1844
+msgid "Separator and lines color"
+msgstr "分割线与线条颜色"
+
+#: advance/theme-options.php:1237 advance/theme-options.php:1837
+msgid "Shadow"
+msgstr "阴影"
+
+#: advance/theme-options.php:1229
+msgid "Bottom border"
+msgstr "底部边框"
+
+#: advance/theme-options.php:1223
+msgid "Useful in special cases, like when you make a transparent header."
+msgstr "某些情况下有用，例如弄透明页头时。"
+
+#. translators: %s: Rife Pro tab link
+#: advance/theme-options.php:1183
+msgid "If you want to use theme header color variants(light and dark variants) or the sticky header variant, then enable this option. Some settings of the header can then be overridden in color & sticky variants."
+msgstr "如果您要使用主题页头颜色变体（白天与夜间变体）或粘性页头变体，启用这个选项。部分页头设置可以在颜色&粘性变体中被覆盖。"
+
+#. translators: %s: Rife Pro tab link
+#: advance/theme-options.php:1183
+msgid "<strong>Light & dark variants are available in %s.</strong><br />"
+msgstr "<strong>白天&夜间变体在%s中可用。</strong><br />"
+
+#: advance/theme-options.php:1181
+msgid "Header color variants"
+msgstr "页头颜色变体"
+
+#: advance/theme-options.php:1173
+msgid "One line, menu centered"
+msgstr "单行，菜单居中"
+
+#: advance/theme-options.php:1172
+msgid "One line, logo on side"
+msgstr "单行，logo在一侧"
+
+#. translators: %s: Rife Pro tab link
+#: advance/theme-options.php:1170
+msgid "<strong>More variants are available in %s.</strong>"
+msgstr "<strong>更多变体在%s中可用。</strong>"
+
+#: advance/theme-options.php:1160
+msgid "Disabled, show only default header fixed"
+msgstr "已禁用，仅显示默认页头（固定）"
+
+#: advance/theme-options.php:1159
+msgid "Disabled, show only default header(not fixed)"
+msgstr "已禁用，仅显示默认页头（不固定）"
+
+#: advance/theme-options.php:1158
+msgid "No hiding sticky"
+msgstr "非隐藏式粘性"
+
+#: advance/theme-options.php:1156
+msgid "Sticky version"
+msgstr "粘性版本"
+
+#: advance/theme-options.php:1149 advance/theme-options.php:2153
+msgid "Horizontal"
+msgstr "水平"
+
+#. translators: %s: Rife Pro tab link
+#: advance/theme-options.php:1147
+msgid "<strong>Vertical header is available in %s.</strong>"
+msgstr "<strong>垂直页头在%s中可用。</strong>"
+
+#: advance/theme-options.php:1136
+msgid "Type, variant, background"
+msgstr "类型、变体与背景"
+
+#: advance/theme-options.php:1127
+msgid "Header settings"
+msgstr "页头设置"
+
+#: advance/theme-options.php:1102 advance/theme-options.php:1447
+#: advance/theme-options.php:1461 advance/theme-options.php:1758
+#: advance/theme-options.php:1772 advance/theme-options.php:3505
+#: advance/theme-options.php:4230 advance/theme-options.php:4977
+#: advance/theme-options.php:5148
+msgid "Padding"
+msgstr "填充"
+
+#: advance/meta.php:256 advance/meta.php:266 advance/meta.php:608
+#: advance/meta.php:618 advance/meta.php:1283 advance/meta.php:2010
+#: advance/meta.php:2020 advance/theme-options.php:623
+#: advance/theme-options.php:632 advance/theme-options.php:641
+#: advance/theme-options.php:773 advance/theme-options.php:779
+#: advance/theme-options.php:837 advance/theme-options.php:843
+#: advance/theme-options.php:849 advance/theme-options.php:873
+#: advance/theme-options.php:1066 advance/theme-options.php:1072
+#: advance/theme-options.php:1414 advance/theme-options.php:1421
+#: advance/theme-options.php:1541 advance/theme-options.php:1548
+#: advance/theme-options.php:1655 advance/theme-options.php:1662
+#: advance/theme-options.php:1786 advance/theme-options.php:1796
+#: advance/theme-options.php:1806 advance/theme-options.php:1812
+#: advance/theme-options.php:2408 advance/theme-options.php:2415
+#: advance/theme-options.php:2669 advance/theme-options.php:2679
+#: advance/theme-options.php:2983 advance/theme-options.php:2990
+#: advance/theme-options.php:3183 advance/theme-options.php:3193
+#: advance/theme-options.php:3351 advance/theme-options.php:3358
+#: advance/theme-options.php:3445 advance/theme-options.php:3451
+#: advance/theme-options.php:3469 advance/theme-options.php:3475
+#: advance/theme-options.php:3715 advance/theme-options.php:3725
+#: advance/theme-options.php:4179 advance/theme-options.php:4186
+#: advance/theme-options.php:4251 advance/theme-options.php:4258
+#: advance/theme-options.php:4473 advance/theme-options.php:4480
+#: advance/theme-options.php:4926 advance/theme-options.php:4933
+#: advance/theme-options.php:4998 advance/theme-options.php:5005
+#: advance/theme-options.php:5169 advance/theme-options.php:5176
+msgid "Text color"
+msgstr "文字颜色"
+
+#: advance/theme-options.php:1046
+msgid "You can change here colors of buttons that submit forms. For shop buttons, go to the shop settings."
+msgstr "您可以在此更换按钮颜色（如表格提交按钮）。欲更改店铺按钮，前往店铺设置。"
+
+#: advance/theme-options.php:1045 advance/theme-options.php:3424
+msgid "Buttons"
+msgstr "按钮"
+
+#: advance/theme-options.php:1009 advance/theme-options.php:1016
+#: advance/theme-options.php:1023 advance/theme-options.php:1034
+msgid "Icon"
+msgstr "图标"
+
+#: advance/theme-options.php:980 advance/theme-options.php:988
+msgid "To top button"
+msgstr "回顶按钮"
+
+#: advance/theme-options.php:942
+msgid "Widgets"
+msgstr "小工具"
+
+#: advance/theme-options.php:932
+msgid "Use theme lightbox for images in posts"
+msgstr "为文章中的图像应用主题弹出框"
+
+#: advance/theme-options.php:924
+msgid "Light Gallery"
+msgstr "Light Gallery"
+
+#. translators: %s: Rife Pro tab link
+#: advance/theme-options.php:922
+msgid "<strong>Detailed setting for lightGallery are available in %s.</strong>"
+msgstr "<strong>lightGallery的详细设置在%s中可用。</strong>"
+
+#: advance/theme-options.php:920
+msgid "Theme lightbox"
+msgstr "主题弹出框"
+
+#: advance/theme-options.php:912
+msgid "If you wish to use some other plugin/script for images and items, you can switch off default theme lightbox. If you are planning to use different lightbox script instead, then you will have to do some extra work with scripting to make it work in every theme place."
+msgstr "如果您希望为图像和项目应用其他插件/脚本，您可以关闭默认的主题弹出框。如果您计划使用其他弹出框脚本，您需要花一点功夫编辑脚本，以使其在本主题中的所有地方生效。"
+
+#: advance/theme-options.php:911
+msgid "Lightbox settings"
+msgstr "弹出框设置"
+
+#: advance/theme-options.php:902
+msgid "Drag and drop to change order of icons. Only filled links will show up as social icons."
+msgstr "拖放以更改图标顺序。只有填入了链接，社交图标才会展示出来。"
+
+#: advance/theme-options.php:894
+msgid "Only icons"
+msgstr "仅图标"
+
+#: advance/theme-options.php:893
+msgid "Circles"
+msgstr "圆圈"
+
+#: advance/theme-options.php:892
+msgid "Squares"
+msgstr "方形"
+
+#: advance/theme-options.php:890
+msgid "Type of icons"
+msgstr "图标类型"
+
+#: advance/theme-options.php:882
+msgid "These icons will be used in various places across theme if you decide to activate them."
+msgstr "若您启用这些图标，它们将在主题中的各个地方可用。"
+
+#: advance/theme-options.php:831
+msgid "It will change the default white background color that is set under content on pages, blog, posts, works, and albums."
+msgstr "这会更换掉默认的白色背景，此背景用于页面、博客、文章、作品以及相册中的内容。"
+
+#: advance/theme-options.php:810
+msgid "It will be used on devices less than 768 pixels wide."
+msgstr "这会被用在低于768像素宽的设备上。"
+
+#: advance/theme-options.php:792 advance/theme-options.php:1095
+#: advance/theme-options.php:1571 advance/theme-options.php:1688
+#: advance/theme-options.php:3498 advance/theme-options.php:4284
+#: advance/theme-options.php:5031 advance/theme-options.php:5202
+msgid "Text transform"
+msgstr "文字转换"
+
+#: advance/theme-options.php:785 advance/theme-options.php:1088
+#: advance/theme-options.php:1439 advance/theme-options.php:1563
+#: advance/theme-options.php:1680 advance/theme-options.php:1999
+#: advance/theme-options.php:3491 advance/theme-options.php:4276
+#: advance/theme-options.php:5023 advance/theme-options.php:5194
+msgid "Font weight"
+msgstr "字体权重"
+
+#: advance/theme-options.php:752
+msgid "Font for text logo:"
+msgstr "文字logo的字体："
+
+#: advance/theme-options.php:742
+msgid "Font for normal(content) text:"
+msgstr "正常（内容）文字的字体："
+
+#: advance/theme-options.php:732
+msgid "Font for Titles/Headings:"
+msgstr "页面标题/段落标题的字体："
+
+#: advance/theme-options.php:713
+msgid "Fonts settings"
+msgstr "字体设置"
+
+#: advance/theme-options.php:705
+msgid "Fall down"
+msgstr "向下滑"
+
+#: advance/theme-options.php:704
+msgid "Reverse slide out"
+msgstr "反向滑出"
+
+#: advance/theme-options.php:703
+msgid "Slide along"
+msgstr "一起滑"
+
+#: advance/theme-options.php:702
+msgid "Push"
+msgstr "推进"
+
+#: advance/theme-options.php:701
+msgid "Reveal"
+msgstr "展现"
+
+#: advance/theme-options.php:700
+msgid "Slide in on top"
+msgstr "滑入覆盖"
+
+#: advance/theme-options.php:599 advance/theme-options.php:611
+#: advance/theme-options.php:667 advance/theme-options.php:799
+#: advance/theme-options.php:809 advance/theme-options.php:855
+#: advance/theme-options.php:958 advance/theme-options.php:968
+#: advance/theme-options.php:1023 advance/theme-options.php:1078
+#: advance/theme-options.php:1428 advance/theme-options.php:1530
+#: advance/theme-options.php:1669 advance/theme-options.php:1987
+#: advance/theme-options.php:3402 advance/theme-options.php:3481
+#: advance/theme-options.php:4265 advance/theme-options.php:5012
+#: advance/theme-options.php:5183
+msgid "Font size"
+msgstr "字体大小"
+
+#: advance/theme-options.php:651 advance/sidebars.php:32
+msgid "Hidden sidebar"
+msgstr "隐藏的侧边栏"
+
+#: advance/theme-options.php:624 advance/theme-options.php:633
+#: advance/theme-options.php:642
+msgid "Does not work for footer widgets."
+msgstr "不应用于页脚小工具。"
+
+#: advance/theme-options.php:579
+msgid "Separator between widgets and footer content"
+msgstr "小工具与页脚内容的分割线"
+
+#: advance/theme-options.php:570 advance/theme-options.php:681
+#: advance/theme-options.php:3416
+msgid "On light"
+msgstr "白天模式"
+
+#: advance/theme-options.php:569 advance/theme-options.php:680
+#: advance/theme-options.php:3415
+msgid "On dark"
+msgstr "夜间模式"
+
+#: advance/theme-options.php:567 advance/theme-options.php:678
+#: advance/theme-options.php:3413
+msgid "Depending on what background you have set up, choose proper option."
+msgstr "根据您的背景设置，选择适当的选项。"
+
+#: advance/theme-options.php:566 advance/theme-options.php:677
+#: advance/theme-options.php:3412
+msgid "Widgets colors"
+msgstr "小工具颜色"
+
+#: advance/theme-options.php:558
+msgid "If you want to have a different color in the lower part than in the footer widgets."
+msgstr "若您想要页脚最底部的颜色跟页脚小工具不一样。"
+
+#: advance/theme-options.php:539
+msgid "Classic"
+msgstr "经典"
+
+#: advance/theme-options.php:527 advance/theme-options.php:1196
+msgid "Narrow"
+msgstr "窄"
+
+#: advance/theme-options.php:1194
+msgid "Content width"
+msgstr "内容宽度"
+
+#. translators: %s: URL
+#: advance/theme-options.php:483 advance/theme-options.php:1253
+msgid "If you need to edit social links go to <a href=\"%s\">Social icons</a> settings."
+msgstr "若您需要编辑社交链接，前往<a href=\"%s\">社交图标</a>设置。"
+
+#: advance/meta.php:1298 advance/theme-options.php:481
+#: advance/theme-options.php:501 advance/theme-options.php:513
+#: advance/theme-options.php:881 advance/theme-options.php:1251
+#: advance/theme-options.php:1261 advance/theme-options.php:1272
+#: advance/theme-options.php:1283 advance/theme-options.php:1892
+#: advance/theme-options.php:1903 advance/theme-options.php:5281
+msgid "Social icons"
+msgstr "社交图标"
+
+#: advance/theme-options.php:472
+msgid "Here you can set your Privacy Policy page"
+msgstr "这里您可以设置您的隐私政策页面"
+
+#: advance/theme-options.php:472
+msgid "Since WordPress 4.9.6 there is an option to set Privacy Policy page. If you enable this option it will display a link to it in the footer after footer content."
+msgstr "自WordPress 4.9.6起，增加了一个设置隐私政策页面的选项。如果您启用这一项，则会在页脚内容后面展示一个跳转到它的链接。"
+
+#: advance/theme-options.php:471
+msgid "Privacy Policy Link"
+msgstr "隐私政策链接"
+
+#: advance/theme-options.php:453
+msgid "5"
+msgstr "5"
+
+#: advance/theme-options.php:452
+msgid "4"
+msgstr "4"
+
+#: advance/theme-options.php:451
+msgid "3"
+msgstr "3"
+
+#: advance/theme-options.php:450
+msgid "2"
+msgstr "2"
+
+#: advance/theme-options.php:449
+msgid "1"
+msgstr "1"
+
+#: advance/theme-options.php:447
+msgid "Widgets columns number"
+msgstr "小工具列数"
+
+#: advance/theme-options.php:407 advance/theme-options.php:416
+msgid "Footer"
+msgstr "页脚"
+
+#: advance/theme-options.php:399
+msgid "If you do not plan to use theme header or want to replace it with something else, just disable it here."
+msgstr "如果您不打算使用主题页头，或想用其他东西替代它，只需在这里把它禁用掉。"
+
+#: advance/theme-options.php:390
+msgid "Theme header is a place where you usually find the logo of your site, main menu, and a few other elements."
+msgstr "主题页头通常是放置您的网站logo、主菜单、以及一些别的要素的地方。"
+
+#: advance/theme-options.php:389 advance/theme-options.php:398
+msgid "Theme Header"
+msgstr "主题页头"
+
+#: advance/theme-options.php:374
+msgid "Animation color"
+msgstr "动画颜色"
+
+#: advance/theme-options.php:364
+msgid "Jet-Pack-Man"
+msgstr "背着飞行器的人"
+
+#: advance/theme-options.php:363
+msgid "Dots"
+msgstr "点"
+
+#: advance/theme-options.php:362
+msgid "Cloud circle"
+msgstr "云圈"
+
+#: advance/theme-options.php:361
+msgid "Infinity"
+msgstr "无尽"
+
+#: advance/theme-options.php:360
+msgid "Tetromino"
+msgstr "俄罗斯方块"
+
+#: advance/theme-options.php:359
+msgid "Arcs"
+msgstr "弧"
+
+#: advance/theme-options.php:358
+msgid "Blurry"
+msgstr "模糊"
+
+#: advance/theme-options.php:357
+msgid "Hand"
+msgstr "手"
+
+#: advance/theme-options.php:356
+msgid "Plus minus"
+msgstr "加减"
+
+#: advance/theme-options.php:355
+msgid "Square of squares"
+msgstr "方格"
+
+#: advance/theme-options.php:354
+msgid "Circle Illusion"
+msgstr "圆圈幻象"
+
+#: advance/theme-options.php:353
+msgid "Radar"
+msgstr "雷达"
+
+#: advance/theme-options.php:352
+msgid "Indicator"
+msgstr "指示器"
+
+#: advance/theme-options.php:351
+msgid "Flash"
+msgstr "闪烁"
+
+#: advance/theme-options.php:350
+msgid "Atom"
+msgstr "原子"
+
+#: advance/theme-options.php:349
+msgid "none"
+msgstr "不转换"
+
+#: advance/meta.php:211 advance/meta.php:563 advance/meta.php:1098
+#: advance/meta.php:1656 advance/meta.php:1965 advance/theme-options.php:347
+#: advance/theme-options.php:1145 advance/theme-options.php:1317
+#: advance/theme-options.php:2212 advance/theme-options.php:2374
+#: advance/theme-options.php:2633 advance/theme-options.php:2876
+#: advance/theme-options.php:2949 advance/theme-options.php:3144
+#: advance/theme-options.php:3317 advance/theme-options.php:3679
+#: advance/theme-options.php:3768 advance/theme-options.php:3794
+#: advance/theme-options.php:4065 advance/theme-options.php:4145
+#: advance/theme-options.php:4439 advance/theme-options.php:4536
+#: advance/theme-options.php:4812 advance/theme-options.php:4892
+#: advance/theme-options.php:5247
+#: advance/inc/class-tgm-plugin-activation.php:2549
+msgid "Type"
+msgstr "类型"
+
+#: advance/theme-options.php:303
+msgid "On load"
+msgstr "加载时"
+
+#: advance/theme-options.php:302
+msgid "On DOM ready"
+msgstr "DOM就绪时"
+
+#: advance/theme-options.php:299
+msgid "Hide event"
+msgstr "隐藏事件"
+
+#: advance/theme-options.php:282 advance/theme-options.php:291
+msgid "Page preloader"
+msgstr "页面预加载图标"
+
+#: advance/theme-options.php:274
+msgid "Custom cursor image"
+msgstr "自定义光标图像"
+
+#: advance/theme-options.php:265
+msgid "Cursor"
+msgstr "光标"
+
+#: advance/theme-options.php:257
+msgid "Custom"
+msgstr "自定义"
+
+#: advance/theme-options.php:256
+msgid "Predefined"
+msgstr "预定义"
+
+#: advance/theme-options.php:255 advance/theme-options.php:3888
+msgid "Normal"
+msgstr "正常"
+
+#: advance/theme-options.php:253
+msgid "Mouse cursor"
+msgstr "鼠标光标"
+
+#. translators: %s: Rife Pro tab link
+#: advance/theme-options.php:244
+msgid "<strong>Layout boxed & framed are available in %s.</strong>"
+msgstr "<strong>盒式与框架式布局在%s中可用。</strong>"
+
+#: advance/meta.php:1141 advance/meta.php:1699 advance/meta.php:1751
+#: advance/meta.php:2133 advance/theme-options.php:235
+#: advance/theme-options.php:339 advance/theme-options.php:549
+#: advance/theme-options.php:557 advance/theme-options.php:661
+#: advance/theme-options.php:830 advance/theme-options.php:995
+#: advance/theme-options.php:1002 advance/theme-options.php:1054
+#: advance/theme-options.php:1060 advance/theme-options.php:1216
+#: advance/theme-options.php:1222 advance/theme-options.php:1523
+#: advance/theme-options.php:1555 advance/theme-options.php:1579
+#: advance/theme-options.php:1818 advance/theme-options.php:1825
+#: advance/theme-options.php:1831 advance/theme-options.php:1864
+#: advance/theme-options.php:1871 advance/theme-options.php:2008
+#: advance/theme-options.php:2016 advance/theme-options.php:2092
+#: advance/theme-options.php:2746 advance/theme-options.php:3396
+#: advance/theme-options.php:3433 advance/theme-options.php:3439
+#: advance/theme-options.php:3457 advance/theme-options.php:3463
+#: advance/theme-options.php:3598 advance/theme-options.php:3853
+#: advance/theme-options.php:4244 advance/theme-options.php:4611
+#: advance/theme-options.php:4991 advance/theme-options.php:5162
+msgid "Background color"
+msgstr "背景颜色"
+
+#: advance/meta.php:2108 advance/theme-options.php:212
+#: advance/theme-options.php:312 advance/theme-options.php:2078
+#: advance/theme-options.php:2351 advance/theme-options.php:2601
+#: advance/theme-options.php:2732 advance/theme-options.php:2926
+#: advance/theme-options.php:3112 advance/theme-options.php:3294
+#: advance/theme-options.php:3584 advance/theme-options.php:3647
+#: advance/theme-options.php:3839 advance/theme-options.php:4122
+#: advance/theme-options.php:4416 advance/theme-options.php:4597
+#: advance/theme-options.php:4869
+msgid "Background image"
+msgstr "背景图像"
+
+#: advance/theme-options.php:203
+msgid "General layout"
+msgstr "通用布局"
+
+#: advance/theme-options.php:195
+msgid "Select work to use as the front page"
+msgstr "选择用于首页的作品"
+
+#: advance/theme-options.php:188
+msgid "Select album to use as the front page"
+msgstr "选择用于首页的相册"
+
+#: advance/theme-options.php:179 advance/theme-options.php:4301
+#: advance/theme-options.php:4366 advance/theme-options.php:4508
+msgid "Single work"
+msgstr "单个作品"
+
+#: advance/theme-options.php:177 advance/theme-options.php:5048
+#: advance/theme-options.php:5101 advance/theme-options.php:5132
+#: advance/theme-options.php:5219 advance/theme-options.php:5281
+msgid "Single album"
+msgstr "单个相册"
+
+#: advance/utilities/layout-parts.php:834 advance/theme-options.php:176
+msgid "Blog"
+msgstr "博客"
+
+#: advance/theme-options.php:175
+msgid "Page"
+msgstr "页面"
+
+#. translators: %s: URL
+#: advance/theme-options.php:173
+msgid "If you choose <strong>Page</strong> then make sure that in <a href=\"%s\">WordPress Homepage Settings</a> you have selected <strong>A static page</strong>, that you wish to use as the front page."
+msgstr "如果您选择<strong>页面</strong>，请确保在<a href=\"%s\">WordPress首页设置</a>里选中<strong>一个静态页面</strong>，作为您希望使用的首页。"
+
+#: advance/theme-options.php:171
+msgid "What to show on the front page?"
+msgstr "首页中展示什么？"
+
+#: advance/theme-options.php:162
+msgid "Front page"
+msgstr "首页"
+
+#: advance/theme-options.php:153 advance/theme-options.php:1915
+msgid "General settings"
+msgstr "通用设置"
+
+#: advance/theme-options.php:126
+msgid "Scale down"
+msgstr "按比例缩小"
+
+#: advance/theme-options.php:124
+msgid "Pop text"
+msgstr "弹出文字"
+
+#: advance/theme-options.php:116
+msgid "Semi transparent"
+msgstr "半透明"
+
+#: advance/theme-options.php:115
+msgid "White"
+msgstr "白色"
+
+#: advance/theme-options.php:114 advance/theme-options.php:501
+#: advance/theme-options.php:513 advance/theme-options.php:588
+#: advance/theme-options.php:1009 advance/theme-options.php:1016
+#: advance/theme-options.php:1261 advance/theme-options.php:1272
+#: advance/theme-options.php:1850 advance/theme-options.php:1857
+#: advance/theme-options.php:1892 advance/theme-options.php:1903
+#: advance/theme-options.php:1925 advance/theme-options.php:1932
+msgid "Color"
+msgstr "颜色"
+
+#: advance/theme-options.php:113
+msgid "Black"
+msgstr "黑色"
+
+#: advance/theme-options.php:66 advance/theme-options.php:691
+#: advance/theme-options.php:2140 advance/theme-options.php:2471
+#: advance/theme-options.php:2790 advance/theme-options.php:3046
+#: advance/inc/customizer/controls/class-a13-customize-spacing-control.php:41
+msgid "Right"
+msgstr "右"
+
+#: advance/theme-options.php:65
+msgid "Center"
+msgstr "中"
+
+#: advance/theme-options.php:64 advance/theme-options.php:690
+#: advance/theme-options.php:2139 advance/theme-options.php:2470
+#: advance/theme-options.php:2789 advance/theme-options.php:3045
+#: advance/inc/customizer/controls/class-a13-customize-spacing-control.php:43
+msgid "Left"
+msgstr "左"
+
+#: advance/theme-options.php:59
+msgid "Uppercase"
+msgstr "大写"
+
+#: advance/theme-options.php:53
+msgid "900"
+msgstr "900"
+
+#: advance/theme-options.php:52
+msgid "800"
+msgstr "800"
+
+#: advance/theme-options.php:51
+msgid "Bold 700"
+msgstr "加粗700"
+
+#: advance/theme-options.php:50
+msgid "600"
+msgstr "600"
+
+#: advance/theme-options.php:49
+msgid "500"
+msgstr "500"
+
+#: advance/theme-options.php:48
+msgid "Normal 400"
+msgstr "正常400"
+
+#: advance/theme-options.php:47
+msgid "300"
+msgstr "300"
+
+#: advance/theme-options.php:46
+msgid "200"
+msgstr "200"
+
+#: advance/theme-options.php:45
+msgid "100"
+msgstr "100"
+
+#. translators: %1$s: Theme name, %2$s: required PHP version, %3$s: current PHP
+#. version
+#: advance/compatibility.php:44
+msgid "%1$s theme requires at least PHP version %2$s. You are running version %3$s. Please upgrade and try again."
+msgstr "%1$s主题要求使用的最低PHP版本是%2$s。您正在运行的版本是%3$s。请升级并重试。"
+
+#. translators: %1$s: Theme name, %2$s: the required WordPress version, %3$s:
+#. user's current version
+#: advance/compatibility.php:34
+msgid "%1$s theme requires at least WordPress version %2$s. You are running version %3$s. Please upgrade and try again."
+msgstr "%1$s主题要求使用的最低WordPress版本是%2$s。您正在运行的版本是%3$s。请升级并重试。"
+
+#: advance/cpt-admin.php:109
+msgid "Remove item"
+msgstr "移除项目"
+
+#: advance/cpt-admin.php:108 attachment.php:86
+msgid "Edit"
+msgstr "编辑"
+
+#: advance/class-apollo13-framework.php:1087
+msgid "This feature requires Apollo13 Framework Extensions plugin to be active and in the proper version."
+msgstr "此功能需要在适当的版本中启用Apollo13 Framework Extensions插件。"
+
+#: advance/class-apollo13-framework.php:453
+msgid "Alternative short top bar menu"
+msgstr "备选顶部栏短菜单"
+
+#: advance/class-apollo13-framework.php:452
+msgid "Site Navigation"
+msgstr "站点导航"
+
+#: advance/meta.php:2111
+msgid "Upload Image"
+msgstr "上传图像"
+
+#: advance/meta.php:2079
+msgid "On"
+msgstr "开"
+
+#: advance/meta.php:2071 advance/theme-options.php:4326
+#: advance/theme-options.php:5076
+msgid "Categories in content"
+msgstr "内容中的分类目录"
+
+#: advance/meta.php:366 advance/meta.php:378 advance/meta.php:1811
+#: advance/meta.php:1823 advance/meta.php:2065 advance/theme-options.php:462
+#: advance/theme-options.php:525 advance/theme-options.php:537
+#: advance/theme-options.php:821 advance/theme-options.php:968
+#: advance/theme-options.php:1946 advance/theme-options.php:2125
+msgid "Content"
+msgstr "内容"
+
+#: advance/meta.php:1786 advance/theme-options.php:242
+msgid "Layout"
+msgstr "布局"
+
+#: advance/meta.php:1768
+msgid "Media bottom margin"
+msgstr "媒体底部边距"
+
+#: advance/meta.php:1758
+msgid "Media top margin"
+msgstr "媒体顶部边距"
+
+#: advance/meta.php:1616
+msgid "Slider - height proportion"
+msgstr "滑块 - 高度比例"
+
+#: advance/meta.php:1606
+msgid "Slider - width proportion"
+msgstr "滑块 - 宽度比例"
+
+#: advance/meta.php:1382
+msgid "Show title and description of work items"
+msgstr "展示作品项目标题与描述"
+
+#: advance/meta.php:1364
+msgid "Work media"
+msgstr "作品媒体"
+
+#: advance/meta.php:1346
+msgid "If enabled, then this Work will not be listed on the Works list page, but you can still select it for the front page or in other places."
+msgstr "如开启，则此作品将不会显示在作品列表页，但您仍能在首页或其他地方选用它。"
+
+#: advance/meta.php:1345
+msgid "Exclude from the Works list page"
+msgstr "从作品列表页中剔除"
+
+#: advance/meta.php:1340
+msgid "Works only when titles are displayed over images in the Works list."
+msgstr "仅当作品列表标题展示在图像上时生效。"
+
+#: advance/meta.php:1270
+msgid "Testimonial"
+msgstr "见证"
+
+#: advance/meta.php:1264 advance/theme-options.php:463
+msgid "You can use HTML here."
+msgstr "您可以在这里使用HTML。"
+
+#: advance/meta.php:1263
+msgid "Subtitle"
+msgstr "副标题"
+
+#: advance/meta.php:1257
+msgid "General"
+msgstr "常规"
+
+#: advance/meta.php:1182 advance/meta.php:1740
+msgid "If thumbnails are enabled, should they be open by default?"
+msgstr "如果启用缩略图，它们是否默认打开？"
+
+#: advance/meta.php:1161 advance/meta.php:1719
+msgid "Type 5"
+msgstr "类型5"
+
+#: advance/meta.php:1160 advance/meta.php:1718
+msgid "Type 4"
+msgstr "类型4"
+
+#: advance/meta.php:1159 advance/meta.php:1717
+msgid "Type 3"
+msgstr "类型3"
+
+#: advance/meta.php:1158 advance/meta.php:1716
+msgid "Type 2"
+msgstr "类型2"
+
+#: advance/meta.php:1157 advance/meta.php:1715
+msgid "Type 1"
+msgstr "类型1"
+
+#: advance/meta.php:1152 advance/meta.php:1710
+msgid "Pattern above photos"
+msgstr "照片上层样式"
+
+#: advance/meta.php:1130 advance/meta.php:1688
+msgid "Good for better readability of slide titles."
+msgstr "让幻灯片标题更清晰。"
+
+#: advance/meta.php:1129 advance/meta.php:1687
+msgid "Gradient above photos"
+msgstr "照片上层渐变色"
+
+#: advance/meta.php:1116 advance/meta.php:1674
+msgid "How big the zooming effect will be"
+msgstr "缩放效果有多大"
+
+#: advance/meta.php:1109 advance/meta.php:1667 advance/theme-options.php:4542
+#: advance/theme-options.php:5253
+msgid "Zooming"
+msgstr "缩放"
+
+#: advance/meta.php:1108 advance/meta.php:1666 advance/theme-options.php:4541
+#: advance/theme-options.php:5252
+msgid "Carousel"
+msgstr "轮播"
+
+#: advance/meta.php:1107 advance/meta.php:1665 advance/theme-options.php:4540
+#: advance/theme-options.php:5251
+msgid "Fade"
+msgstr "褪色"
+
+#: advance/meta.php:1099 advance/meta.php:1657 advance/theme-options.php:4537
+#: advance/theme-options.php:5248
+msgid "Animation between slides."
+msgstr "幻灯片切换动画"
+
+#: advance/meta.php:1083 advance/meta.php:1641 advance/theme-options.php:4517
+#: advance/theme-options.php:5228
+msgid "Autoplay"
+msgstr "自动播放"
+
+#: advance/meta.php:1076 advance/meta.php:1634
+msgid "Fit when needed"
+msgstr "必要时适应"
+
+#: advance/meta.php:1075 advance/meta.php:1633
+msgid "Fit portrait"
+msgstr "适应竖屏"
+
+#: advance/meta.php:1074 advance/meta.php:1632
+msgid "Fit landscape"
+msgstr "适应横屏"
+
+#: advance/meta.php:1073 advance/meta.php:1631
+msgid "Fit always"
+msgstr "总是适应"
+
+#: advance/meta.php:1068 advance/meta.php:1626
+msgid "Fit images"
+msgstr "适应图像"
+
+#: advance/theme-options.php:3941 advance/theme-options.php:3950
+#: advance/theme-options.php:4688 advance/theme-options.php:4697
+msgid "Its main function is to make texts more visible"
+msgstr "它的主要作用是让文字更容易阅读"
+
+#: advance/meta.php:988 advance/meta.php:1514 advance/theme-options.php:3916
+#: advance/theme-options.php:4663
+msgid "Bottom right"
+msgstr "右下方"
+
+#: advance/meta.php:987 advance/meta.php:1513 advance/theme-options.php:3915
+#: advance/theme-options.php:4662
+msgid "Bottom center"
+msgstr "正下方"
+
+#: advance/meta.php:986 advance/meta.php:1512 advance/theme-options.php:3914
+#: advance/theme-options.php:4661
+msgid "Bottom left"
+msgstr "左下方"
+
+#: advance/meta.php:985 advance/meta.php:1511 advance/theme-options.php:3913
+#: advance/theme-options.php:4660
+msgid "Middle right"
+msgstr "正右方"
+
+#: advance/meta.php:984 advance/meta.php:1510 advance/theme-options.php:3912
+#: advance/theme-options.php:4659
+msgid "Middle center"
+msgstr "正中间"
+
+#: advance/meta.php:983 advance/meta.php:1509 advance/theme-options.php:3911
+#: advance/theme-options.php:4658
+msgid "Middle left"
+msgstr "正左方"
+
+#: advance/meta.php:982 advance/meta.php:1508 advance/theme-options.php:3910
+#: advance/theme-options.php:4657
+msgid "Top right"
+msgstr "右上方"
+
+#: advance/meta.php:981 advance/meta.php:1507 advance/theme-options.php:3909
+#: advance/theme-options.php:4656
+msgid "Top center"
+msgstr "正上方"
+
+#: advance/meta.php:980 advance/meta.php:1506 advance/theme-options.php:3908
+#: advance/theme-options.php:4655
+msgid "Top left"
+msgstr "左上方"
+
+#: advance/meta.php:978 advance/meta.php:1504 advance/theme-options.php:3906
+#: advance/theme-options.php:3974 advance/theme-options.php:4653
+#: advance/theme-options.php:4721
+msgid "Texts position"
+msgstr "文字位置"
+
+#: advance/meta.php:970 advance/meta.php:1106 advance/meta.php:1156
+#: advance/meta.php:1496 advance/meta.php:1664 advance/meta.php:1714
+#: advance/admin/print-options.php:302 advance/theme-options.php:17
+#: advance/theme-options.php:58 advance/theme-options.php:127
+#: advance/theme-options.php:4539 advance/theme-options.php:5250
+msgid "None"
+msgstr "无"
+
+#: advance/meta.php:969 advance/meta.php:1495 advance/theme-options.php:125
+msgid "Border"
+msgstr "边框"
+
+#: advance/meta.php:968 advance/meta.php:1494
+msgid "Pop"
+msgstr "弹出"
+
+#: advance/meta.php:967 advance/meta.php:1493 advance/theme-options.php:123
+msgid "Shift"
+msgstr "位移"
+
+#: advance/meta.php:966 advance/meta.php:1492 advance/theme-options.php:122
+msgid "Drop"
+msgstr "下降"
+
+#: advance/meta.php:965 advance/meta.php:1491 advance/theme-options.php:121
+msgid "Show cross"
+msgstr "显示十字"
+
+#: advance/meta.php:961 advance/meta.php:1487 advance/theme-options.php:1492
+#: advance/theme-options.php:3982 advance/theme-options.php:4729
+msgid "Hover effect"
+msgstr "悬停效果"
+
+#: advance/meta.php:954 advance/meta.php:1142 advance/meta.php:1480
+#: advance/meta.php:1700
+msgid "Leave empty to not set any background"
+msgstr "留空以不设置任何背景"
+
+#: advance/meta.php:929 advance/meta.php:940 advance/meta.php:1455
+#: advance/meta.php:1466
+msgid "Open bricks to lightbox"
+msgstr "用弹出框打开区块"
+
+#: advance/meta.php:921 advance/meta.php:1447 advance/theme-options.php:4051
+#: advance/theme-options.php:4798
+msgid "16:9"
+msgstr "16:9"
+
+#: advance/meta.php:920 advance/meta.php:1446 advance/theme-options.php:4050
+#: advance/theme-options.php:4797
+msgid "9:16"
+msgstr "9:16"
+
+#: advance/meta.php:919 advance/meta.php:1445 advance/theme-options.php:4049
+#: advance/theme-options.php:4796
+msgid "4:3"
+msgstr "4:3"
+
+#: advance/meta.php:918 advance/meta.php:1444 advance/theme-options.php:4048
+#: advance/theme-options.php:4795
+msgid "3:4"
+msgstr "3:4"
+
+#: advance/meta.php:917 advance/meta.php:1443 advance/theme-options.php:4047
+#: advance/theme-options.php:4794
+msgid "3:2"
+msgstr "3:2"
+
+#: advance/meta.php:916 advance/meta.php:1442 advance/theme-options.php:4046
+#: advance/theme-options.php:4793
+msgid "2:3"
+msgstr "2:3"
+
+#: advance/meta.php:915 advance/meta.php:1441 advance/theme-options.php:4045
+#: advance/theme-options.php:4792
+msgid "1:1"
+msgstr "1:1"
+
+#: advance/meta.php:914 advance/meta.php:1440 advance/theme-options.php:4044
+#: advance/theme-options.php:4791
+msgid "Original size"
+msgstr "原始尺寸"
+
+#: advance/meta.php:899 advance/meta.php:1425 advance/theme-options.php:2195
+#: advance/theme-options.php:2859 advance/theme-options.php:4032
+#: advance/theme-options.php:4779
+msgid "Brick margin"
+msgstr "区块边距"
+
+#: advance/meta.php:878 advance/meta.php:1404 advance/theme-options.php:2171
+#: advance/theme-options.php:2838 advance/theme-options.php:4010
+#: advance/theme-options.php:4757
+msgid "Bricks columns"
+msgstr "区块列"
+
+#: advance/meta.php:872 advance/meta.php:1399 advance/theme-options.php:5116
+msgid "Do not display it"
+msgstr "不展示"
+
+#: advance/meta.php:863 advance/theme-options.php:5112
+msgid "This will display separate block with title and text about the album."
+msgstr "这将展示带有标题与相册文字的单独的块。"
+
+#: advance/meta.php:862 advance/theme-options.php:5111
+msgid "Content column"
+msgstr "内容列"
+
+#: advance/meta.php:857 advance/meta.php:1398 advance/meta.php:1751
+#: advance/theme-options.php:4508 advance/theme-options.php:5219
+msgid "Slider"
+msgstr "滑块"
+
+#: advance/meta.php:856 advance/meta.php:1397 advance/theme-options.php:5101
+msgid "Bricks"
+msgstr "区块"
+
+#: advance/meta.php:852
+msgid "Slider and Bricks work for both images and videos."
+msgstr "滑块与区块对图像与视频均适用。"
+
+#: advance/meta.php:841 advance/meta.php:1383
+msgid "If enabled, then it will affect displaying in bricks and slider option, and also in lightbox."
+msgstr "如开启，则会影响区块、滑块与弹出框中的展示。"
+
+#: advance/meta.php:840
+msgid "Show title and description of album items"
+msgstr "展示相册项目标题与描述"
+
+#: advance/meta.php:835 advance/meta.php:1377
+msgid "Random"
+msgstr "随机"
+
+#: advance/meta.php:834 advance/meta.php:1376
+msgid "First on the list, last displayed"
+msgstr "按时间倒序展示"
+
+#: advance/meta.php:833 advance/meta.php:1375
+msgid "First on the list, first displayed"
+msgstr "按时间顺序展示"
+
+#: advance/meta.php:828 advance/meta.php:1370
+msgid "Items order"
+msgstr "项目顺序"
+
+#: advance/meta.php:822
+msgid "Album media"
+msgstr "相册媒体"
+
+#: advance/meta.php:804
+msgid "If enabled, then this Album will not be listed on the Albums list page, but you can still select it for the front page or in other places."
+msgstr "如开启，则此相册将不会显示在相册列表页，但您仍能在首页或其他地方选用它。"
+
+#: advance/meta.php:803
+msgid "Exclude from the Albums list page"
+msgstr "从相册列表页中剔除"
+
+#: advance/meta.php:798
+msgid "Works only when titles are displayed over images in the Albums list."
+msgstr "仅当相册列表标题展示在图像上时生效。"
+
+#. Template Name of the theme
+#: advance/meta.php:780 advance/theme-options.php:178
+#: advance/theme-options.php:4619 advance/theme-options.php:4628
+#: advance/theme-options.php:4831 advance/theme-options.php:4961
+msgid "Albums list"
+msgstr "相册列表"
+
+#: advance/meta.php:728 advance/meta.php:734
+msgid "Sticky One Page mode"
+msgstr "粘性单页模式"
+
+#: advance/meta.php:456
+msgid "from 5th row"
+msgstr "从第5行"
+
+#: advance/meta.php:455
+msgid "from 4th row"
+msgstr "从第4行"
+
+#: advance/meta.php:454
+msgid "from 3rd row"
+msgstr "从第3行"
+
+#: advance/meta.php:453
+msgid "from 2nd row"
+msgstr "从第2行"
+
+#: advance/meta.php:452
+msgid "from 1st row"
+msgstr "从第1行"
+
+#: advance/meta.php:451
+msgid "Show always"
+msgstr "一直显示"
+
+#: advance/meta.php:445
+msgid "Show header from the Nth row"
+msgstr "从第几行开始显示页头"
+
+#: advance/meta.php:408
+msgid "Sidebar to show"
+msgstr "侧边栏显示"
+
+#: advance/meta.php:403 advance/meta.php:2080 advance/theme-options.php:28
+#: advance/theme-options.php:2141 advance/theme-options.php:2472
+#: advance/theme-options.php:2791 advance/theme-options.php:3047
+#: advance/theme-options.php:3570
+msgid "Off"
+msgstr "关"
+
+#: advance/theme-options.php:3569
+msgid "Only children Navigation on the right"
+msgstr "仅子导航在右侧"
+
+#: advance/theme-options.php:3568
+msgid "Children Navigation + sidebar on the right"
+msgstr "子导航 + 侧边栏在右侧"
+
+#: advance/meta.php:399 advance/meta.php:400 advance/theme-options.php:3567
+msgid "Sidebar on the right"
+msgstr "侧边栏在右侧"
+
+#: advance/theme-options.php:3566
+msgid "Only children Navigation on the left"
+msgstr "仅子导航在左侧"
+
+#: advance/theme-options.php:3565
+msgid "Children Navigation + sidebar on the left"
+msgstr "子导航 + 侧边栏在左侧"
+
+#: advance/meta.php:395 advance/meta.php:396 advance/theme-options.php:3564
+msgid "Sidebar on the left"
+msgstr "侧边栏在左侧"
+
+#: advance/meta.php:388 advance/theme-options.php:2137
+#: advance/theme-options.php:2468 advance/theme-options.php:2787
+#: advance/theme-options.php:3043 advance/theme-options.php:3561
+msgid "Sidebar"
+msgstr "侧边栏"
+
+#: advance/meta.php:374 advance/meta.php:384 advance/meta.php:1819
+#: advance/meta.php:1829 advance/theme-options.php:2130
+msgid "Both off"
+msgstr "都关闭"
+
+#: advance/meta.php:373 advance/meta.php:1818 advance/theme-options.php:2129
+msgid "Only bottom"
+msgstr "仅底部"
+
+#: advance/meta.php:372 advance/meta.php:1817 advance/theme-options.php:2128
+msgid "Only top"
+msgstr "仅顶部"
+
+#: advance/meta.php:371 advance/meta.php:383 advance/meta.php:1816
+#: advance/meta.php:1828 advance/theme-options.php:2127
+msgid "Both on"
+msgstr "都开启"
+
+#: advance/meta.php:362 advance/meta.php:1807 advance/theme-options.php:90
+#: advance/theme-options.php:246 advance/theme-options.php:528
+#: advance/theme-options.php:1197
+msgid "Full width"
+msgstr "全宽度"
+
+#: advance/meta.php:361 advance/meta.php:1806 advance/theme-options.php:89
+msgid "Full width + padding"
+msgstr "全宽度 + 填充"
+
+#: advance/meta.php:360 advance/meta.php:1805 advance/theme-options.php:88
+msgid "Full width + fixed content"
+msgstr "全宽度 + 固定内容"
+
+#: advance/meta.php:359 advance/meta.php:1804 advance/theme-options.php:87
+msgid "Right fixed width + padding"
+msgstr "右侧固定宽度 + 填充"
+
+#: advance/meta.php:358 advance/meta.php:1803 advance/theme-options.php:86
+msgid "Right fixed width"
+msgstr "右侧固定宽度"
+
+#: advance/meta.php:357 advance/meta.php:1802 advance/theme-options.php:85
+msgid "Left fixed width + padding"
+msgstr "左侧固定宽度 + 填充"
+
+#: advance/meta.php:356 advance/meta.php:1801 advance/theme-options.php:84
+msgid "Left fixed width"
+msgstr "左侧固定宽度"
+
+#: advance/meta.php:355 advance/meta.php:1800 advance/theme-options.php:83
+msgid "Center fixed width"
+msgstr "中央固定宽度"
+
+#: advance/meta.php:347 advance/meta.php:1792 advance/theme-options.php:2118
+#: advance/theme-options.php:2461 advance/theme-options.php:2780
+#: advance/theme-options.php:3036 advance/theme-options.php:3248
+#: advance/theme-options.php:3554 advance/theme-options.php:4319
+msgid "Content Layout"
+msgstr "内容布局"
+
+#: advance/meta.php:341
+msgid "Layout &amp; Sidebar"
+msgstr "布局 &amp; 侧边栏"
+
+#: advance/meta.php:328
+msgid "Default for pages"
+msgstr "页面默认设置"
+
+#: advance/meta.php:311 advance/meta.php:713 advance/meta.php:2092
+#: advance/meta.php:2098
+msgid "Page background"
+msgstr "页面背景"
+
+#: advance/meta.php:291 advance/meta.php:643 advance/meta.php:2045
+#: advance/theme-options.php:2434 advance/theme-options.php:3009
+#: advance/theme-options.php:3218 advance/theme-options.php:3377
+#: advance/theme-options.php:3750 advance/theme-options.php:4205
+#: advance/theme-options.php:4499 advance/theme-options.php:4952
+msgid "Breadcrumbs"
+msgstr "面包屑"
+
+#: advance/meta.php:267 advance/meta.php:619 advance/meta.php:2021
+#: advance/theme-options.php:2416 advance/theme-options.php:2680
+#: advance/theme-options.php:2991 advance/theme-options.php:3194
+#: advance/theme-options.php:3359 advance/theme-options.php:3726
+#: advance/theme-options.php:4187 advance/theme-options.php:4481
+#: advance/theme-options.php:4934
+msgid "Used in breadcrumbs."
+msgstr "在面包屑中使用。"
+
+#: advance/meta.php:245 advance/meta.php:597 advance/meta.php:796
+#: advance/meta.php:953 advance/meta.php:1277 advance/meta.php:1338
+#: advance/meta.php:1479 advance/meta.php:1999 advance/theme-options.php:2400
+#: advance/theme-options.php:2661 advance/theme-options.php:2975
+#: advance/theme-options.php:3172 advance/theme-options.php:3343
+#: advance/theme-options.php:3707 advance/theme-options.php:4171
+#: advance/theme-options.php:4465 advance/theme-options.php:4918
+msgid "Overlay color"
+msgstr "覆盖层颜色"
+
+#: advance/meta.php:234 advance/meta.php:586 advance/meta.php:1988
+#: advance/theme-options.php:2387 advance/theme-options.php:2647
+#: advance/theme-options.php:2962 advance/theme-options.php:3158
+#: advance/theme-options.php:3330 advance/theme-options.php:3693
+#: advance/theme-options.php:4158 advance/theme-options.php:4452
+#: advance/theme-options.php:4905
+msgid "It will be only used for the background that is repeated. If the background is set to not repeat this value will be ignored."
+msgstr "仅当背景设置为重复时此选项生效。若背景设置为不重复，此数值将被忽略。"
+
+#: advance/meta.php:223 advance/meta.php:575 advance/meta.php:1977
+#: advance/theme-options.php:102
+msgid "bottom-right to top-left"
+msgstr "右下至左上"
+
+#: advance/meta.php:222 advance/meta.php:574 advance/meta.php:1976
+#: advance/theme-options.php:101
+msgid "bottom-left to top-right"
+msgstr "左下至右上"
+
+#: advance/meta.php:221 advance/meta.php:573 advance/meta.php:1975
+#: advance/theme-options.php:100
+msgid "top-right to bottom-left"
+msgstr "右上至左下"
+
+#: advance/meta.php:220 advance/meta.php:572 advance/meta.php:1974
+#: advance/theme-options.php:99
+msgid "top-left to bottom-right"
+msgstr "左上至右下"
+
+#: advance/meta.php:219 advance/meta.php:571 advance/meta.php:1973
+#: advance/theme-options.php:98
+msgid "right to left"
+msgstr "从右至左"
+
+#: advance/meta.php:218 advance/meta.php:570 advance/meta.php:1972
+#: advance/theme-options.php:97
+msgid "left to right"
+msgstr "从左至右"
+
+#: advance/meta.php:217 advance/meta.php:569 advance/meta.php:1971
+#: advance/theme-options.php:96
+msgid "bottom to top"
+msgstr "从下至上"
+
+#: advance/meta.php:216 advance/meta.php:568 advance/meta.php:1970
+#: advance/theme-options.php:95
+msgid "top to bottom"
+msgstr "从上至下"
+
+#: advance/meta.php:212 advance/meta.php:564 advance/meta.php:1966
+#: advance/theme-options.php:2375 advance/theme-options.php:2634
+#: advance/theme-options.php:2950 advance/theme-options.php:3145
+#: advance/theme-options.php:3318 advance/theme-options.php:3680
+#: advance/theme-options.php:4146 advance/theme-options.php:4440
+#: advance/theme-options.php:4893
+msgid "It defines how the image will scroll in the background while the page is scrolled down."
+msgstr "这里设置当页面往下滚动时，背景图像的滚动方式。"
+
+#: advance/meta.php:187 advance/meta.php:539 advance/meta.php:1941
+#: advance/meta.php:2127 advance/theme-options.php:78
+msgid "Repeat Y"
+msgstr "纵向重复"
+
+#: advance/meta.php:186 advance/meta.php:538 advance/meta.php:1940
+#: advance/meta.php:2126 advance/theme-options.php:77
+msgid "Repeat X"
+msgstr "横向重复"
+
+#: advance/meta.php:185 advance/meta.php:537 advance/meta.php:1939
+#: advance/meta.php:2125 advance/theme-options.php:76
+msgid "Repeat"
+msgstr "重复"
+
+#: advance/meta.php:184 advance/meta.php:536 advance/meta.php:1938
+#: advance/meta.php:2124 advance/theme-options.php:75
+msgid "Just center"
+msgstr "居中"
+
+#: advance/meta.php:183 advance/meta.php:535 advance/meta.php:1937
+#: advance/meta.php:2123 advance/theme-options.php:74
+msgid "Fit Horizontally"
+msgstr "水平适应"
+
+#: advance/meta.php:182 advance/meta.php:534 advance/meta.php:1936
+#: advance/meta.php:2122 advance/theme-options.php:73
+msgid "Fit Vertically"
+msgstr "垂直适应"
+
+#: advance/meta.php:181 advance/meta.php:533 advance/meta.php:1935
+#: advance/meta.php:2121 advance/theme-options.php:72
+msgid "Contain"
+msgstr "包含"
+
+#: advance/meta.php:180 advance/meta.php:532 advance/meta.php:1934
+#: advance/meta.php:2120 advance/theme-options.php:71
+msgid "Cover"
+msgstr "覆盖"
+
+#: advance/meta.php:176 advance/meta.php:528 advance/meta.php:1930
+#: advance/meta.php:2116 advance/theme-options.php:227
+#: advance/theme-options.php:330 advance/theme-options.php:2084
+#: advance/theme-options.php:2358 advance/theme-options.php:2611
+#: advance/theme-options.php:2738 advance/theme-options.php:2933
+#: advance/theme-options.php:3122 advance/theme-options.php:3301
+#: advance/theme-options.php:3590 advance/theme-options.php:3657
+#: advance/theme-options.php:3845 advance/theme-options.php:4129
+#: advance/theme-options.php:4423 advance/theme-options.php:4603
+#: advance/theme-options.php:4876
+msgid "How to fit the background image"
+msgstr "背景图像如何适应"
+
+#: advance/meta.php:167 advance/meta.php:519 advance/meta.php:1921
+#: advance/theme-options.php:2343 advance/theme-options.php:2590
+#: advance/theme-options.php:2918 advance/theme-options.php:3286
+#: advance/theme-options.php:4114 advance/theme-options.php:4408
+#: advance/theme-options.php:4861
+msgid "Boxed"
+msgstr "盒式"
+
+#: advance/meta.php:166 advance/meta.php:518 advance/meta.php:1920
+#: advance/theme-options.php:2342 advance/theme-options.php:2589
+#: advance/theme-options.php:2917 advance/theme-options.php:3285
+#: advance/theme-options.php:4113 advance/theme-options.php:4407
+#: advance/theme-options.php:4860
+msgid "Full"
+msgstr "全屏幕"
+
+#: advance/meta.php:161 advance/meta.php:513 advance/meta.php:1915
+#: advance/theme-options.php:525 advance/theme-options.php:2340
+#: advance/theme-options.php:2587 advance/theme-options.php:2915
+#: advance/theme-options.php:3283 advance/theme-options.php:4111
+#: advance/theme-options.php:4405 advance/theme-options.php:4858
+msgid "Width"
+msgstr "宽度"
+
+#: advance/meta.php:152 advance/meta.php:504 advance/meta.php:1906
+#: advance/theme-options.php:540 advance/theme-options.php:2332
+#: advance/theme-options.php:2576 advance/theme-options.php:2907
+#: advance/theme-options.php:3101 advance/theme-options.php:3275
+#: advance/theme-options.php:3636 advance/theme-options.php:4103
+#: advance/theme-options.php:4397 advance/theme-options.php:4850
+msgid "Centered"
+msgstr "居中"
+
+#: advance/meta.php:151 advance/meta.php:503 advance/meta.php:1905
+#: advance/theme-options.php:2331 advance/theme-options.php:2575
+#: advance/theme-options.php:2906 advance/theme-options.php:3100
+#: advance/theme-options.php:3274 advance/theme-options.php:3635
+#: advance/theme-options.php:4102 advance/theme-options.php:4396
+#: advance/theme-options.php:4849
+msgid "Classic(to side)"
+msgstr "经典（靠一边）"
+
+#: advance/meta.php:146 advance/meta.php:498 advance/meta.php:1900
+#: advance/theme-options.php:1168 advance/theme-options.php:2329
+#: advance/theme-options.php:2573 advance/theme-options.php:2904
+#: advance/theme-options.php:3098 advance/theme-options.php:3272
+#: advance/theme-options.php:3633 advance/theme-options.php:4100
+#: advance/theme-options.php:4394 advance/theme-options.php:4847
+msgid "Variant"
+msgstr "变体"
+
+#: advance/meta.php:142 advance/meta.php:494 advance/meta.php:1896
+msgid "To set the background image for the \"Before the content\" option, use the <strong>featured image</strong>."
+msgstr "如需为“内容之前”选项设置背景图像，使用<strong>主打图像</strong>。"
+
+#: advance/meta.php:134 advance/meta.php:486 advance/meta.php:1888
+msgid "Position"
+msgstr "位置"
+
+#: advance/meta.php:129 advance/meta.php:481 advance/meta.php:1883
+#: advance/meta.php:2104
+msgid "Use custom settings"
+msgstr "使用自定义设置"
+
+#: advance/meta.php:123 advance/meta.php:475 advance/meta.php:1877
+msgid "You can use global settings or override them here"
+msgstr "您可以使用全局设置，或在此覆盖它们"
+
+#: advance/meta.php:116 advance/meta.php:122 advance/meta.php:468
+#: advance/meta.php:474 advance/meta.php:1870 advance/meta.php:1876
+#: advance/theme-options.php:2313 advance/theme-options.php:2546
+#: advance/theme-options.php:2888 advance/theme-options.php:3071
+#: advance/theme-options.php:3257 advance/theme-options.php:3606
+#: advance/theme-options.php:4084 advance/theme-options.php:4366
+#: advance/theme-options.php:4831
+msgid "Title bar"
+msgstr "标题栏"
+
+#: advance/meta.php:104 advance/meta.php:130 advance/meta.php:441
+#: advance/meta.php:482 advance/meta.php:1217 advance/meta.php:1858
+#: advance/meta.php:1884 advance/theme-options.php:108
+#: advance/theme-options.php:5061
+msgid "Turn it off"
+msgstr "关掉它"
+
+#: advance/meta.php:103 advance/meta.php:440 advance/meta.php:1857
+#: advance/theme-options.php:107
+msgid "Yes, hide the content and add top padding to the outside title bar."
+msgstr "确定，隐藏内容并为外侧标题栏添加顶部填充。"
+
+#: advance/meta.php:101 advance/meta.php:128 advance/meta.php:354
+#: advance/meta.php:394 advance/meta.php:438 advance/meta.php:480
+#: advance/meta.php:869 advance/meta.php:1090 advance/meta.php:1105
+#: advance/meta.php:1173 advance/meta.php:1215 advance/meta.php:1648
+#: advance/meta.php:1663 advance/meta.php:1731 advance/meta.php:1799
+#: advance/meta.php:1855 advance/meta.php:1882 advance/meta.php:2078
+#: advance/meta.php:2103 advance/theme-options.php:29
+msgid "Global settings"
+msgstr "全局设置"
+
+#: advance/meta.php:93 advance/meta.php:430 advance/meta.php:1207
+#: advance/meta.php:1847 advance/theme-options.php:2109
+#: advance/theme-options.php:2452 advance/theme-options.php:2771
+#: advance/theme-options.php:3027 advance/theme-options.php:3239
+#: advance/theme-options.php:3545 advance/theme-options.php:3876
+#: advance/theme-options.php:4310 advance/theme-options.php:4634
+#: advance/theme-options.php:5057
+msgid "Hide content under the header"
+msgstr "隐藏页头下的内容"
+
+#: advance/meta.php:87 advance/meta.php:424 advance/meta.php:1201
+#: advance/meta.php:1841 advance/theme-options.php:1844
+msgid "Header"
+msgstr "页头"
+
+#: advance/meta.php:60 advance/meta.php:202 advance/meta.php:298
+#: advance/meta.php:554 advance/meta.php:650 advance/meta.php:686
+#: advance/meta.php:741 advance/meta.php:810 advance/meta.php:847
+#: advance/meta.php:932 advance/meta.php:944 advance/meta.php:999
+#: advance/meta.php:1010 advance/meta.php:1022 advance/meta.php:1034
+#: advance/meta.php:1045 advance/meta.php:1059 advance/meta.php:1092
+#: advance/meta.php:1135 advance/meta.php:1175 advance/meta.php:1187
+#: advance/meta.php:1352 advance/meta.php:1389 advance/meta.php:1458
+#: advance/meta.php:1470 advance/meta.php:1525 advance/meta.php:1536
+#: advance/meta.php:1548 advance/meta.php:1560 advance/meta.php:1571
+#: advance/meta.php:1585 advance/meta.php:1600 advance/meta.php:1650
+#: advance/meta.php:1693 advance/meta.php:1733 advance/meta.php:1745
+#: advance/meta.php:1956 advance/meta.php:2052 advance/theme-options.php:40
+#: advance/theme-options.php:925 advance/theme-options.php:1186
+#: advance/theme-options.php:2276 advance/theme-options.php:2500
+msgid "Disable"
+msgstr "禁用"
+
+#: advance/meta.php:59 advance/meta.php:201 advance/meta.php:297
+#: advance/meta.php:553 advance/meta.php:649 advance/meta.php:685
+#: advance/meta.php:740 advance/meta.php:809 advance/meta.php:846
+#: advance/meta.php:931 advance/meta.php:943 advance/meta.php:998
+#: advance/meta.php:1009 advance/meta.php:1021 advance/meta.php:1033
+#: advance/meta.php:1044 advance/meta.php:1058 advance/meta.php:1091
+#: advance/meta.php:1134 advance/meta.php:1174 advance/meta.php:1186
+#: advance/meta.php:1351 advance/meta.php:1388 advance/meta.php:1457
+#: advance/meta.php:1469 advance/meta.php:1524 advance/meta.php:1535
+#: advance/meta.php:1547 advance/meta.php:1559 advance/meta.php:1570
+#: advance/meta.php:1584 advance/meta.php:1599 advance/meta.php:1649
+#: advance/meta.php:1692 advance/meta.php:1732 advance/meta.php:1744
+#: advance/meta.php:1955 advance/meta.php:2051 advance/theme-options.php:39
+msgid "Enable"
+msgstr "启用"
+
+#: advance/meta.php:49 advance/meta.php:675
+msgid "Images slider"
+msgstr "图像滑块"
+
+#: advance/meta.php:48 advance/meta.php:674 advance/theme-options.php:1319
+#: advance/theme-options.php:1327 advance/theme-options.php:1706
+msgid "Image"
+msgstr "图像"
+
+#: advance/meta.php:44 advance/meta.php:670
+msgid "Choose between image, video and images slider. For the image use the Featured Image option. For the <strong>Images slider</strong> you need plugin the <a href=\"https://wordpress.org/plugins/featured-galleries/\" target=\"_blank\">Featured galleries</a>."
+msgstr "在图像、视频与图像滑块之中选择。 若选择图像，使用主打图像选项。若选择<strong>图像滑块</strong>，您需要<a href=\"https://wordpress.org/plugins/featured-galleries/\" target=\"_blank\">Featured galleries</a>这个插件。"
+
+#: advance/meta.php:43 advance/meta.php:669
+msgid "Post media"
+msgstr "文章媒体"
+
+#: advance/meta.php:37 advance/meta.php:663
+msgid "Featured media"
+msgstr "主打媒体"
+
+#: advance/meta.php:18 advance/meta.php:786 advance/meta.php:1328
+msgid "Size of brick"
+msgstr "区块的大小"
+
+#: advance/meta.php:12 advance/theme-options.php:2100
+#: advance/theme-options.php:2313
+msgid "Posts list"
+msgstr "文章列表"
+
+#: archives-template.php:75
+msgid "Top 10 tags"
+msgstr "前10个标签"
+
+#: archives-template.php:62
+msgid "Top 10 categories"
+msgstr "前10个分类目录"
+
+#: archives-template.php:52
+msgid "By months"
+msgstr "按月份"
+
+#: archives-template.php:40
+msgid "Latest 50 posts"
+msgstr "最近50篇文章"
+
+#: archives-template.php:34 advance/utilities/posts.php:187
+#: advance/utilities/layout-parts.php:1133 page.php:55
+msgid "Pages: "
+msgstr "页码："
+
+#. Template Name of the theme
+msgid "Archives"
+msgstr "归档"
+
+#: content.php:30 content.php:38 advance/utilities/posts.php:335
+#: advance/utilities/posts.php:352
+msgid "Read more"
+msgstr "继续阅读"
+
+#. Template Name of the theme
+#: advance/meta.php:1322 advance/theme-options.php:180
+#: advance/theme-options.php:3861 advance/theme-options.php:3870
+#: advance/theme-options.php:4084 advance/theme-options.php:4214
+msgid "Works list"
+msgstr "作品列表"
+
+#: password-template.php:39
+msgid "This content is password protected."
+msgstr "此内容受密码保护。"
+
+#: advance/utilities/posts.php:553 advance/vc-extend.php:52
+#: single-work-ajax.php:15 password-template.php:41
+msgid "To view it please enter your password below"
+msgstr "如需查看，请在下方输入密码"
+
+#. Author URI of the theme
+msgid "https://apollo13themes.com/"
+msgstr "https://apollo13themes.com/"
+
+#. Author of the theme
+msgid "Apollo13Themes"
+msgstr "Apollo13Themes"
+
+#. Theme URI of the theme
+msgid "https://apollo13themes.com/rife/free/"
+msgstr "https://apollo13themes.com/rife/free/"
