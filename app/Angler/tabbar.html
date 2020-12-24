@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="./css/mui.min.css">
+		<!--App自定义的css-->
+		<link rel="stylesheet" type="text/css" href="./css/app.css"/>
+		<style>
+			
+			.title{
+				margin: 20px 15px 10px;
+				color: #6d6d72;
+				font-size: 15px;
+			}
+			
+			.oa-contact-cell.mui-table .mui-table-cell {
+				padding: 11px 0;
+				vertical-align: middle;
+			}
+			
+			.oa-contact-cell {
+				position: relative;
+				margin: -11px 0;
+			}
+	
+			.oa-contact-avatar {
+				width: 75px;
+			}
+			.oa-contact-avatar img {
+				border-radius: 50%;
+			}
+			.oa-contact-content {
+				width: 100%;
+			}
+			.oa-contact-name {
+				margin-right: 20px;
+			}
+			.oa-contact-name, oa-contact-position {
+				float: left;
+			}
+			
+			.vuefill {
+			}
+			
+		</style>
+	</head>
+
+	<body>	
+		<nav class="vuefill mui-bar mui-bar-tab">
+			<a class="mui-tab-item mui-active" href="#tabbar-with-chat" @tap="onTabClick(event)">
+				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-tab-label">{{tab_menu.lab.mission}}</span>
+			</a>
+			<a class="mui-tab-item " href="#tabbar-with-map" @tap="onTabClick(event)">
+				<span class="mui-icon mui-icon-gear"></span>
+				<span class="mui-tab-label">{{tab_menu.lab.me}}</span>
+			</a>
+		</nav>
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">	
+			<div class="mui-scroll">	
+				<div id="tabbar-with-chat" class="mui-control-content mui-active">
+					<ul class="mui-table-view mui-table-view-chevron">
+						<li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 1</a></li>
+						<li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 2</a></li>
+						<li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 3</a></li>
+						<li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 4</a></li>
+						<li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 5</a></li>
+						<li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 6</a></li>
+						<li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 7</a></li>
+						<li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 8</a></li>
+						<li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 9</a></li>
+						<li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 10</a></li>
+						<li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 11</a></li>
+						<li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 12</a></li>
+						<li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 13</a></li>
+						<li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 14</a></li>
+						<li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 15</a></li>
+						<li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 16</a></li>
+						<li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 17</a></li>
+						<li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 18</a></li>
+						<li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 19</a></li>
+						<li class="mui-table-view-cell"><a href="" class="mui-navigate-right">Item 20</a></li>
+					</ul>
+				</div>
+				
+				<div id="tabbar-with-map" class="mui-control-content ">
+					<ul class="mui-table-view " style="padding-top: 36px; padding-bottom: 10px;">
+						<li class="mui-table-view-cell">
+							<div class="mui-slider-cell">
+								<div class="oa-contact-cell mui-table">
+									<div class="oa-contact-avatar mui-table-cell">
+										<img src="./images/header.gif" />
+									</div>
+									<div class="oa-contact-content mui-table-cell">
+										<div class="mui-clearfix">
+											<h4 class="oa-contact-name">{{tab_menu.me.lab.user_email}}</h4>
+										</div>
+										<p class="oa-contact-email mui-h6">
+											{{sv.me.user_email}}
+										</p>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<ul class="mui-table-view mui-grid-view mui-grid-9" style=" border-top: none; border-left: none; border-bottom: none; background-color: #ffffff; ">
+						<li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-3">
+							<span class="mui-media-body" style="color: red;">{{sv.me.total_commission}}</span>
+							<span class="mui-media-body">{{tab_menu.me.lab.commission}}</span>
+						</li>
+						<li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-3">
+							<span class="mui-media-body" style="color: red;">{{sv.me.total_principal}}</span>
+							<span class="mui-media-body">{{tab_menu.me.lab.principal}}</span>
+						</li>
+					</ul>
+					<ul class="mui-table-view" style="margin-top: 25px;">
+						<li class="mui-table-view-cell">
+							<a class="mui-navigate-right">
+								{{tab_menu.me.lab.public_notice}}
+							</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a class="mui-navigate-right">
+								{{tab_menu.me.lab.capital_details}}
+							</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a class="mui-navigate-right">
+								{{tab_menu.me.lab.binding_paypal}}
+							</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a class="mui-navigate-right">
+								{{tab_menu.me.lab.draw_money}}
+							</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a class="mui-navigate-right">
+								{{tab_menu.me.lab.share_make_money}}
+							</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a class="mui-navigate-right">
+								{{tab_menu.me.lab.help}}
+							</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a class="mui-navigate-right">
+								{{tab_menu.me.lab.my_business_partner}}
+							</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a class="mui-navigate-right">
+								{{tab_menu.me.lab.my_business_partner}}
+							</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a class="mui-navigate-right">
+								{{tab_menu.me.lab.my_business_partner}}
+							</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a class="mui-navigate-right">
+								{{tab_menu.me.lab.my_business_partner}}
+							</a>
+						</li>
+					</ul>
+					<ul class="mui-table-view" style="margin-top: 25px;">
+						<li class="mui-table-view-cell" >
+							<a style="text-align: center;color: #FF3B30;">
+								{{tab_menu.me.lab.logout}}
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="./js/mui.min.js"></script>
+	<script src="./js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="./js/lang_cn.js"></script>
+	<script>
+		new Vue({
+			el: '.vuefill',
+			data: {
+				tab_menu:lang_var.tab_menu
+			}
+		});
+		
+		var mission_vue;
+		var me_vue;
+		
+		
+		function pulldownRefresh() {
+			
+			mui.getJSON("https://www.baidu.com/home/xman/data/tipspluslist?indextype=manht&_req_seqid=0x9ccbec7f00058e2b&asyn=1&t=1608814555173&sid=1468_33224_33306_33235_31254_33284_33286_33350_33313_33312_33311_33310_33309_33320_33308_33307_33144_33268_33388_33385",
+			 null, function(rsp) {
+				mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
+				mui('#pullrefresh').pullRefresh().endPullupToRefresh();
+				var sv = {
+					me:{
+						user_email:"13321@13"
+						,total_commission:22.86
+						,total_principal:831.56
+					}
+				};
+				mission_vue = new Vue({
+					el: '#tabbar-with-chat',
+					data: {
+						tab_menu:lang_var.tab_menu,
+						sv:sv
+					}
+				});
+				me_vue = new Vue({
+					el: '#tabbar-with-map',
+					data: {
+						tab_menu:lang_var.tab_menu,
+						sv:sv
+					}
+				});
+			});
+			
+		};
+		pulldownRefresh();
+		
+		mui.init({
+			//swipeBack:true ,//启用右滑关闭功能
+			pullRefresh: {
+				container: '#pullrefresh',
+				down: {
+					style: 'circle',
+					offset: '0px',
+					auto: true,
+					contentrefresh: "",//正在刷新
+					contentdown : "",//下拉可以刷新
+					contentover : " ",//释放立即刷新
+					callback: pulldownRefresh
+				}
+			}
+		});
+		
+		function onTabClick(event){
+			var scroller = mui("#pullrefresh").scroll();
+			scroller.scrollTo(0,0,0);
+		}
+		
+	</script>
+</html>
