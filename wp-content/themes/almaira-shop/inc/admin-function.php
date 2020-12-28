@@ -360,13 +360,13 @@ function almaira_shop_get_header(){ ?>
                     $our_title = get_the_title( get_option('page_for_posts', true) );
 			echo '<h1 class="thunk-page-top-title entry-title">'.esc_html($our_title).'</h1>'; ?>
 			<div class="thunk-breadcrumb-wrapper">
-					<?php almaira_shop_breadcrumb();?>
+					<?php //almaira_shop_breadcrumb();?>
 				</div>
 
 			<?php }else{
 			echo'<h1 class="thunk-page-top-title entry-title">'.esc_html__('Blog','almaira-shop').'</h2>'; ?>
 			<div class="thunk-breadcrumb-wrapper">
-					<?php almaira_shop_breadcrumb();?>
+					<?php //almaira_shop_breadcrumb();?>
 				</div>
 			<?php }
 				 
@@ -374,23 +374,23 @@ function almaira_shop_get_header(){ ?>
                    the_archive_title('<h1 class="thunk-page-top-title entry-title">','</h1>'); 
                    ?>
 			<div class="thunk-breadcrumb-wrapper">
-					<?php almaira_shop_breadcrumb();?>
+					<?php //almaira_shop_breadcrumb();?>
 				</div> 
 
 			<?php }elseif(class_exists( 'WooCommerce' ) && is_shop()) { ?>
-				<h2 class="thunk-page-top-title entry-title"><?php woocommerce_page_title(); ?></h2>
+				<h2 class="thunk-page-top-title entry-title"><?php //woocommerce_page_title(); ?></h2>
 				<div class="thunk-breadcrumb-wrapper">
-					<?php almaira_shop_breadcrumb();?>
+					<?php //almaira_shop_breadcrumb();?>
 				</div> 
 			<?php }else{ ?>
 
 				<?php the_title('<h1 class="thunk-page-top-title entry-title">','</h1>'); ?>
 				<div class="thunk-breadcrumb-wrapper">
-					<?php almaira_shop_breadcrumb();?>
+					<?php //almaira_shop_breadcrumb();?>
 				</div> 
 
 			<?php } ?>
-			</div> 
+			</div>
 		</div>
 	</div>
    <?php 

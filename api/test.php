@@ -13,6 +13,24 @@ Money2020
 生日1988-8-8
 备用邮箱anlei602@163.com
 */
-echo '{"a":123}';
+
+$str = "aabb123"=="aabb123";
+exit($str);
+
+$newpwd = rand(10000000,99999999);
+$pwdtxt = "You Password:".$newpwd;
+exit($pwdtxt);
+ 
+$module = $_GET['module'];  
+$action = $_GET['action'];  
+$token = md5($module.date('Y-m-d',time()).'#$@%!*'.$action);  
+echo $token;
+if($token != $_GET['token']){  
+    echo '<br/>access deny';
+    exit();  
+}  
+
+
+echo '<br/>{"a":123}';
 
 ?>

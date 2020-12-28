@@ -122,8 +122,8 @@ class WPBottomMenu{
     <div class="wp-bottom-menu-search-form-wrapper">
     <form role="search" method="get" action="<?php echo esc_url( home_url( '/'  ) ); ?>" class="wp-bottom-menu-search-form">
         <i class="fa fa-search"></i>
-	    <input type="hidden" name="post_type" value="<?php if($wpbmsf=="wpbm-woo-search" and class_exists( 'WooCommerce' )) echo esc_attr("product"); else echo esc_attr("post"); ?>" />
-        <input type="search" class="search-field" placeholder="<?php echo esc_attr_x( 'Search &hellip;', 'placeholder', 'woocommerce' ); ?>" value="<?php echo get_search_query(); ?>" name="s" title="<?php echo esc_attr_x( 'Search for:', 'label', 'woocommerce' ); ?>" />
+	    <!-- <input type="hidden" name="post_type" value="<?php if($wpbmsf=="wpbm-woo-search" and class_exists( 'WooCommerce' )) echo esc_attr("product"); else echo esc_attr("post"); ?>" /> -->
+        <input type="search" class="search-field" placeholder="<?php echo esc_attr_x( 'Search &hellip;', 'placeholder', 'woocommerce' ); ?>" value="<?php echo get_search_query(); ?>" name="product" title="<?php echo esc_attr_x( 'Search for:', 'label', 'woocommerce' ); ?>" />
     </form>
     </div><?php       
         

@@ -985,15 +985,15 @@ background:#fff;
 position: relative;
 }
 .top-footer-bar {
-    border-bottom: solid;
+    /*border-bottom: solid;
     border-bottom-color: #eee;
-    border-bottom-width: 1px;
-        font-size: 13px;
+    border-bottom-width: 1px;*/
+    font-size: 13px;
 }
 .bottom-footer-bar{
-border-top: solid;
+/*border-top: solid;
 border-top-color: #eee;
-border-top-width: 1px;   
+border-top-width: 1px;  */ 
 }
 .widget-footer .widget-footer-bar,
 .widget-cs .widget-cs-bar{
@@ -3076,7 +3076,7 @@ transform: rotate(-90deg);
 }
 #move-to-top{
     right: -10px;
-    bottom: 50px;
+    bottom: 56px;
 }
 #move-to-top i{
   vertical-align: middle;

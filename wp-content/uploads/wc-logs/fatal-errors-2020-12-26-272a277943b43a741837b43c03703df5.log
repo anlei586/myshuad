@@ -1,0 +1,11 @@
+2020-12-26T18:12:54+00:00 CRITICAL I:\wwwroot\WWW13\wp-content\plugins\woocommerce\includes\abstracts\abstract-wc-data.php 中第 810 行的 Uncaught WC_Data_Exception: 无效的或重复的SKU。 in I:\wwwroot\WWW13\wp-content\plugins\woocommerce\includes\abstracts\abstract-wc-data.php:810
+Stack trace:
+#0 I:\wwwroot\WWW13\wp-content\plugins\woocommerce\includes\abstracts\abstract-wc-product.php(820): WC_Data->error('product_invalid...', '\xE6\x97\xA0\xE6\x95\x88\xE7\x9A\x84\xE6\x88\x96\xE9\x87\x8D...', 400, Array)
+#1 I:\wwwroot\WWW13\wp-content\plugins\wooshark-aliexpress-importer\wooshark-aliexpress-importer_init.php(279): WC_Product->set_sku('66235062429')
+#2 I:\wwwroot\WWW13\wp-includes\class-wp-hook.php(287): insertProductInWoocommerce('')
+#3 I:\wwwroot\WWW13\wp-includes\class-wp-hook.php(311): WP_Hook->apply_filters('', Array)
+#4 I:\wwwroot\WWW13\wp-includes\plugin.php(484): WP_Hook->do_action(Array)
+#5 I:\wwwroot\WWW13\wp-admin\admin-ajax.php(184): do_action('wp_ajax_wooshar...')
+#6 {main}
+  thrown
+

@@ -22,6 +22,7 @@ function wpbmsft(){
     document.querySelector(".wp-bottom-menu").classList.toggle("sf-active");
 }
 function wpopenmainmenu(e){
+	/*
     e.preventDefault();
 	var $=jQuery;
 	if ($("#my-menu").hasClass("mm--open")) {
@@ -50,6 +51,11 @@ function wpopenmainmenu(e){
 			}
 		});
 	}
-	console.log("click main menu");
     e.stopPropagation();
+	*/
+	console.log("click main menu");
+	e.preventDefault();
+	jQuery('#menu-btn').click();
+    e.stopPropagation();
+	
 }
