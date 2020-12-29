@@ -4,8 +4,8 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title></title>
-		<link href="css/mui.min.css" rel="stylesheet" />
-		<link href="css/style.css" rel="stylesheet" />
+		<script src="./js/config.js" language="JavaScript"></script>
+		<link href="./css/mui.min.css" rel="stylesheet" />
 		<style>
 			.area {
 				margin: 20px auto 0px auto;
@@ -46,19 +46,35 @@
 						<label>{{login_lab.EMAIL}}</label>
 						<input id='email' type="email" class="mui-input-clear mui-input" :placeholder="login_lab.INPUT_EMAIL">
 					</div>
+					<div class="mui-input-row">
+						<label>{{login_lab.REG_Invitation_code}}</label>
+						<input id='incode' type="email" class="mui-input-clear mui-input" :placeholder="login_lab.INPUT_REG_Invitation_code">
+					</div>
 				</form>
 				<div class="mui-content-padded">
-					<button id='reg' class="mui-btn mui-btn-block mui-btn-primary">{{login_lab.REG}}</button>
+					<button id='reg' class="mui-btn mui-btn-block mui-btn-primary"
+					:data-loading-text="login_lab.REGING_TIP" data-loading-icon-position="right"
+					>{{login_lab.REG}}</button>
 				</div>
 				<div class="mui-content-padded">
 					<p id="reg_tip"></p>
 				</div>
 			</div>
 		</div>
-		<script src="js/mui.min.js"></script>
-		<script src="js/login_cn.js"></script>
-		<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./js/mui.min.js"></script>
+		<script src="./js/login_cn.js"></script>
+		<script src="./js/vue.min.js" type="text/javascript" charset="utf-8"></script>
 		<script>
+			function getQueryVariable(variable)
+			{
+				   var query = window.location.search.substring(1);
+				   var vars = query.split("&");
+				   for (var i=0;i<vars.length;i++) {
+					   var pair = vars[i].split("=");
+					   if(pair[0] == variable){return pair[1];}
+				   }
+				   return "";
+			}
 			(function($, doc) {
 				$.init();
 				//填充
@@ -69,10 +85,49 @@
 					}
 				});
 				
+				var reg_tip = doc.getElementById('reg_tip');
 				var emailBox = doc.getElementById('email');
+				var incodeBox = doc.getElementById('incode');
 				var regButton = doc.getElementById('reg');
-				regButton.addEventListener('tap', function(event) {
+				
+				incodeBox.value = getQueryVariable("incode");
+				
+				regButton.addEventListener('click', function(event) {
 					console.log(emailBox.value);
+					var reg = new RegExp(/^\S+@\S+\.\S{2,}$/);
+					if(!reg.test(emailBox.value)){
+						mui.toast(login_var.login_lab.EMAIL_FORMAT_ERROR_TIP);
+						return;
+					}
+					if(!incodeBox.value){
+						mui.toast(login_var.login_lab.REG_Incode_Input_Tip);
+						return;
+					}
+					console.log("AAA111");
+					mui(regButton).button('loading');
+					reg_tip.innerHTML = "";
+					mui.ajax(config_var.host+"auth.php?ac=2&email="+emailBox.value+"&incode="+incodeBox.value,
+					{
+						data:{},
+						dataType:'json',//服务器返回json格式数据
+						type:'get',//HTTP请求类型
+						timeout:10000,//超时时间设置为10秒；
+						success:function(data){
+							mui(regButton).button('reset');
+							console.log(data);
+							reg_tip.innerHTML = data.msg;
+							if(data.ret!=0){
+								
+							}else{
+								mui.toast(login_var.login_lab.REG_SUCCESS_TIP);
+								reg_tip.innerHTML += "<br/>"+login_var.login_lab.REG_SUCCESS_TIP +", " + login_var.login_lab.GOTO_EMAIL_LOOK_TIP;
+							}
+						},
+						error:function(xhr,type,errorThrown){
+							mui(regButton).button('reset');
+							mui.toast(errorThrown);
+						}
+					});
 				});
 				
 			}(mui, document));

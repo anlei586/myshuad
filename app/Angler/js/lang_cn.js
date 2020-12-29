@@ -6,6 +6,7 @@ var lang_var = {
 	tab_menu_lab:{
 		mission:"任务",
 		me:"我的",
+		appname:"Make Money",
 	},
 	tab_menu:{
 		me:{

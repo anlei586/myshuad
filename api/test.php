@@ -14,16 +14,13 @@ Money2020
 备用邮箱anlei602@163.com
 */
 
-$str = "aabb123"=="aabb123";
-exit($str);
+$_date = date('Y-m',time());
+echo $_date;
+echo "<br/>";
 
-$newpwd = rand(10000000,99999999);
-$pwdtxt = "You Password:".$newpwd;
-exit($pwdtxt);
- 
 $module = $_GET['module'];  
 $action = $_GET['action'];  
-$token = md5($module.date('Y-m-d',time()).'#$@%!*'.$action);  
+$token = md5($module.$_date.'#$@%!*'.$action);  
 echo $token;
 if($token != $_GET['token']){  
     echo '<br/>access deny';
