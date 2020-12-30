@@ -6,6 +6,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <link rel="stylesheet" href="./css/mui.min.css">
 <link rel="stylesheet" href="./css/tabbar.css">
+<script src="./js/config.js" language="JavaScript"></script>
 </head><body>
 		<nav class="vuefill1 mui-bar mui-bar-tab">
 			<a class="mui-tab-item mui-active" href="#tabbar-with-mission" @tap="onTabClick(event)">
@@ -55,6 +56,7 @@
 									{{item.title}}
 									<p class='mui-ellipsis'>{{item.link}}</p>
 								</div>
+								<span class="mui-badge mui-badge-purple">{{item.stock}}</span>
 							</a>
 						</li>
 					</ul>
@@ -77,33 +79,47 @@
 									</div>
 								</div>
 							</div>
+							<button type="button" class="mui-btn mui-btn-link"><a href="#public_notice" class="mui-navigate-right">
+								{{tab_menu.me.lab.public_notice}}
+							</a></button>
 						</li>
 					</ul>
 					<ul class="mui-table-view mui-grid-view mui-grid-9" style=" border-top: none; border-left: none; border-bottom: none; background-color: #ffffff; ">
-						<li class="mui-table-view-cell mui-media mui-col-xs-6 ">
-							<span class="mui-media-body" style="color: red;">{{sv.me.total_commission}}</span>
-							<span class="mui-media-body">{{tab_menu.me.lab.commission}}</span>
+						<li class="mui-table-view-cell mui-media mui-col-xs-4 ">
+							<span class="mui-media-body" style=" margin-top: 0px; height: 23px; ">
+								<span class="mui-badge mui-badge-primary" style=" font-size: 15px; ">+{{sv.me.total_commission}}</span>
+							</span>
+							<span class="mui-media-body" style=" margin-top: 8px; ">{{tab_menu.me.lab.commission}}</span>
 						</li>
-						<li class="mui-table-view-cell mui-media mui-col-xs-6 ">
-							<span class="mui-media-body" style="color: red;">{{sv.me.total_principal}}</span>
-							<span class="mui-media-body">{{tab_menu.me.lab.principal}}</span>
+						<li class="mui-table-view-cell mui-media mui-col-xs-4 ">
+							<span class="mui-media-body" style=" margin-top: 0px; height: 23px; ">
+								<span class="mui-badge mui-badge-danger" style=" font-size: 15px; ">{{sv.me.total_principal}}</span>
+							</span>
+							<span class="mui-media-body" style=" margin-top: 8px; ">{{tab_menu.me.lab.principal}}</span>
+						</li>
+						<li class="mui-table-view-cell mui-media mui-col-xs-4 ">
+							<span class="mui-media-body" style=" margin-top: 0px; height: 23px; ">
+								<span class="mui-badge mui-badge-purple" style=" font-size: 15px; ">+{{sv.me.total_interest}}</span>
+							</span>
+							<span class="mui-media-body" style=" margin-top: 8px; ">{{tab_menu.me.lab.interest}}</span>
 						</li>
 					</ul>
 					
 					<ul class="mui-table-view">
 						<li class="mui-table-view-cell">
-							<a class="mui-navigate-right">
-								{{tab_menu.me.lab.public_notice}}
-							</a>
-						</li>
-						<li class="mui-table-view-cell">
+							
 							<a class="mui-navigate-right">
 								{{tab_menu.me.lab.capital_details}}
 							</a>
 						</li>
 						<li class="mui-table-view-cell">
-							<a href="#general" class="mui-navigate-right">
-								{{tab_menu.me.lab.binding_paypal}}
+							<a class="mui-navigate-right">
+								{{tab_menu.me.lab.my_business_partner}}
+							</a>
+						</li>
+						<li class="mui-table-view-cell">
+							<a href="#share_link_view" class="mui-navigate-right">
+								{{tab_menu.me.lab.share_make_money}}
 							</a>
 						</li>
 						<li class="mui-table-view-cell">
@@ -112,24 +128,14 @@
 							</a>
 						</li>
 						<li class="mui-table-view-cell">
-							<a class="mui-navigate-right">
-								{{tab_menu.me.lab.share_make_money}}
-							</a>
-						</li>
-						<li class="mui-table-view-cell">
-							<a class="mui-navigate-right">
+							<a href="#help_view" class="mui-navigate-right">
 								{{tab_menu.me.lab.help}}
-							</a>
-						</li>
-						<li class="mui-table-view-cell">
-							<a class="mui-navigate-right">
-								{{tab_menu.me.lab.my_business_partner}}
 							</a>
 						</li>
 					</ul>
 					<ul class="mui-table-view" style="margin-bottom: 60px;">
-						<li class="mui-table-view-cell" >
-							<a style="text-align: center;color: #FF3B30;">
+						<li class="mui-table-view-cell">
+							<a style="text-align: center;color: #FF3B30;" id="quit_account_btn">
 								{{tab_menu.me.lab.logout}}
 							</a>
 						</li>
@@ -143,42 +149,81 @@
 	<!--页面主内容区结束-->
 </div>
 <!--单页面结束-->
-
-		
-		<div id="general" class="mui-page" style="z-index: 10;">
-			<div class="mui-navbar-inner mui-bar mui-bar-nav">
-				<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
-					<span class="mui-icon mui-icon-left-nav"></span>设置
-				</button>
-				<h1 class="mui-center mui-title">通用</h1>
-			</div>
-			<div class="mui-page-content">
-				<div class="mui-scroll-wrapper">
-					<div class="mui-scroll">
-						<ul class="mui-table-view">
-							<li class="mui-table-view-cell">
-								多语言
-							</li>
-						</ul>
-		
-						<ul class="mui-table-view">
-							<li class="mui-table-view-cell">
-								听筒模式
-								<div class="mui-switch mui-switch-mini">
-									<div class="mui-switch-handle"></div>
-								</div>
-							</li>
-						</ul>
-						<ul class="mui-table-view">
-							<li class="mui-table-view-cell">
-								功能
-							</li>
-						</ul>
-					</div>
+<div id="public_notice" class="mui-page" style="z-index: 10;">
+	<div class="mui-navbar-inner mui-bar mui-bar-nav">
+		<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+			<span class="mui-icon mui-icon-left-nav"></span>
+		</button>
+		<h1 class="mui-center mui-title">{{tab_menu.me.lab.public_notice}}</h1>
+	</div>
+	<div class="mui-page-content">
+		<div class="mui-content">
+			<div class="mui-scroll">
+				<div class="mui-card">
+					<ul class="mui-table-view" style=" margin-bottom: 0px; margin-top: 0px; ">
+						<li class="mui-table-view-cell mui-collapse mui-active" v-for="item in notice_items" style=" background-color: #FFFFFF; ">
+							<a class="mui-navigate-right" href="#">{{item.title}}</a>
+							<div class="mui-collapse-content" style=" background-color: #eee; ">{{item.text}}</div>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>
-		
+	</div>
+</div>
+
+<div id="help_view" class="mui-page" style="z-index: 10;">
+	<div class="mui-navbar-inner mui-bar mui-bar-nav">
+		<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+			<span class="mui-icon mui-icon-left-nav"></span>
+		</button>
+		<h1 class="mui-center mui-title">{{tab_menu.me.lab.help}}</h1>
+	</div>
+	<div class="mui-page-content">
+		<div class="mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<div class="mui-card">
+					<ul class="mui-table-view" style=" margin-bottom: 0px; margin-top: 0px; ">
+						<li class="mui-table-view-cell mui-collapse mui-active" style=" background-color: #FFFFFF; ">
+							<a class="mui-navigate-right" href="#">{{tab_menu.me.lab.help}}</a>
+							<div class="mui-collapse-content" v-html="tab_menu.me.lab.help_note" style=" background-color: #eee; ">{{tab_menu.me.lab.help_note}}</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="share_link_view" class="mui-page" style="z-index: 10;">
+	<div class="mui-navbar-inner mui-bar mui-bar-nav">
+		<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+			<span class="mui-icon mui-icon-left-nav"></span>
+		</button>
+		<h1 class="mui-center mui-title">{{tab_menu.me.lab.share_make_money}}</h1>
+	</div>
+	<div class="mui-page-content">
+		<div class="mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<div class="mui-card">
+					<ul class="mui-table-view" style=" margin-bottom: 0px; margin-top: 0px; ">
+						<li class="mui-table-view-cell mui-collapse mui-active" style=" background-color: #FFFFFF; ">
+							<a class="mui-navigate-right" href="#">{{tab_menu.me.lab.copy_link_tip}}</a>
+							<div class="mui-collapse-content" style=" background-color: #eee; ">
+								<div class="mui-input-row">
+									<div class="mui-card" id="sharelink_txt" style="padding: 16px;margin: 8px 0px;user-select: text;">{{createShareLink()}}</div>
+								</div>
+								<button type="button" class="mui-btn mui-btn-primary mui-btn-block" @click="onCopyShareLink(event)">{{tab_menu.me.lab.copy_link_tip2}}</button>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
 
 </body>
 	<script src="./js/mui.min.js"></script>

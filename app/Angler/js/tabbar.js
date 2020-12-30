@@ -1,6 +1,7 @@
-
+var initdata_obj;
 var mission_vue;
 var me_vue;
+var notice_vue;
 
 
 
@@ -17,6 +18,13 @@ function fillVue(){
 		el: '.vuefill2',
 		data: {
 			data:lang_var.tab_menu_lab
+		}
+	});
+	//填充help view
+	new Vue({
+		el: '#help_view',
+		data: {
+			tab_menu:lang_var.tab_menu
 		}
 	});
 }
@@ -43,48 +51,38 @@ function onTabClick(event){
 	scroller.scrollTo(0,0,0);
 }
 
+//下拉刷新
 function pulldownRefresh() {
-	mui.ajax("http://127.0.0.1/test.php",
-	{success:function(rsp) {
+	myajax(config_var.host+"initdata.php?ac=1",
+	{dataType:'json',success:function(res) {
 		mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
 		mui('#pullrefresh').pullRefresh().endPullupToRefresh();
+		initdata_obj = res;
+		
+		initdata_obj.uid = localStorage.getItem("uid");
+		initdata_obj.email = localStorage.getItem("email");
+		initdata_obj.token = localStorage.getItem("token");
+		
 		//测试数据-我的
 		var sv = {
 			me:{
-				user_email:"13321@13"
+				user_email:initdata_obj.email
 				,total_commission:(22.86+Math.random()*1).toFixed(2)
 				,total_principal:831.56
+				,total_interest:2.53
 			}
 		};
-		//测试数据-任务
-		var mission_items = [
-			{
-				img:"./images/cbd.jpg",
-				title:"这是测试商品1",
-				link:"https://m.baidu.com/?1",
-			},
-			{
-				img:"./images/cbd.jpg",
-				title:"这是测试商品2",
-				link:"https://m.baidu.com/?2",
-			},
-		];
 		//填充-任务列表
 		if(!mission_vue){
 			mission_vue = new Vue({
 				el: '#tabbar-with-mission',
 				data: {
 					tab_menu:lang_var.tab_menu,
-					mission_items:mission_items
-				},
-				methods:{
-					onMissionItemClick:function(event){
-						console.log(event);
-					}
+					mission_items:res.mission
 				}
 			});
 		}else{
-			mission_vue.mission_items=mission_items;
+			mission_vue.mission_items=res.mission;
 		}
 		//填充-我的数据
 		if(!me_vue){
@@ -98,6 +96,46 @@ function pulldownRefresh() {
 		}else{
 			me_vue.sv = sv;
 		}
+		//填充-公告
+		if(!notice_vue){
+			notice_vue = new Vue({
+				el: '#public_notice',
+				data: {
+					tab_menu:lang_var.tab_menu,
+					notice_items:res.notice
+				}
+			});
+		}else{
+			notice_vue.notice_items = res.notice;
+		}
+		//填充免费招募员工 view
+		new Vue({
+			el: '#share_link_view',
+			data: {
+				tab_menu:lang_var.tab_menu
+			},
+			methods:{
+				createShareLink:function(){
+					var share_make_money = getConfig(res.config, "share_make_money");
+					var _url = share_make_money+"reg.html?incode="+initdata_obj.uid;
+					return _url;
+				},
+				onCopyShareLink:function(event){
+					var code_sp = document.getElementById("sharelink_txt");
+					const range = document.createRange();
+					range.selectNode(code_sp);
+					const selection = window.getSelection();
+					if(selection.rangeCount > 0) selection.removeAllRanges();
+					selection.addRange(range);
+					document.execCommand('copy');
+					mui.toast(lang_var.tab_menu.me.lab.copy_link_tip3);
+					
+				},
+			}
+		});
+		
+		
+	
 	},
 	});
 	
@@ -130,9 +168,31 @@ mui("#pullrefresh").on('tap', 'li', function (event) {
 			}
 		});
 	}
+	if(event.target && event.target.id == "quit_account_btn"){
+		quitAccount();
+	}
 });
 
-pulldownRefresh();
+//pulldownRefresh();
+
+function quitAccount(){
+	console.log("Quit");
+	localStorage.removeItem("token");
+	mui.openWindow({
+		url: 'login.html',
+		id: 'login',
+		preload: true,
+		show: {
+			aniShow: 'pop-in'
+		},
+		styles: {
+			popGesture: 'hide'
+		},
+		waiting: {
+			autoShow: false
+		}
+	});
+}
 
 //
 //
@@ -167,3 +227,5 @@ var view = viewApi.view;
 		//				console.log(e.detail.page.id + ' back');
 	});
 })(mui);
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////

@@ -166,10 +166,11 @@
 			var forgetButton = document.getElementById('forgetPassword');
 			//判断是否有登录过
 			function isLoginedSwitchToTabbar(){
-				mui(loginButton).button('loading');
 				var token = localStorage.getItem("token");
 				_vue.sv.email = localStorage.getItem("email");
 				_vue.sv.passwd = localStorage.getItem("passwd");
+				if(!_vue.sv.email || !token ) return;
+				mui(loginButton).button('loading');
 				myajax(config_var.host+"auth.php?ac=5",
 				{
 					data:{},
@@ -231,6 +232,7 @@
 						if(data.ret!=0){
 							mui.toast(data.msg);
 						}else{
+							localStorage.setItem("uid", data.uid);
 							localStorage.setItem("email", data.email);
 							localStorage.setItem("token", data.token);
 							localStorage.setItem("passwd", passwordBox.value);

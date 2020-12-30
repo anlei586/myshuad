@@ -23,11 +23,12 @@ if($action==1){//登录
 		$sql = 'SELECT * FROM mission_user where email="'.$toemail.'"';
 		$result = $dbh->query($sql)->fetchAll();
 		if(count($result)>0){//已存在，那么去对比密码
+			$uid = $result[0]['id'];
 			$passwd = strtoupper($result[0]['passwd']);
 			$topasswd_md5 = strtoupper(md5($topasswd));
 			if($passwd == $topasswd_md5){
 				$emailtoken=createToken($toemail);
-				$str = '{"ret":0,"email":"'.$toemail.'","token":"'.$emailtoken.'"}';
+				$str = '{"ret":0,"uid":"'.$uid.'","email":"'.$toemail.'","token":"'.$emailtoken.'"}';
 				exit($str);
 			}else{
 				exit(retmsg(106,"Incorrect email or password !"));
@@ -105,7 +106,7 @@ if($action==1){//登录
 	{
 		exit(retmsg(0,"success"));
 	}else{
-		exit(retmsg(107,"lose"));
+		exit(retmsg(107,"logout"));
 	}
 }
 
