@@ -14,20 +14,8 @@ Money2020
 备用邮箱anlei602@163.com
 */
 
-$_date = date('Y-m',time());
-echo $_date;
-echo "<br/>";
+$_date = date("Y-m-d H:i:s");
 
-$module = $_GET['module'];  
-$action = $_GET['action'];  
-$token = md5($module.$_date.'#$@%!*'.$action);  
-echo $token;
-if($token != $_GET['token']){  
-    echo '<br/>access deny';
-    exit();  
-}  
-
-
-echo '<br/>{"a":123}';
+echo $_date.'<br/>'.time();
 
 ?>

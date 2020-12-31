@@ -2,6 +2,7 @@ var initdata_obj;
 var mission_vue;
 var me_vue;
 var notice_vue;
+var capital_details_vue;
 
 
 
@@ -49,6 +50,13 @@ mui.init({
 function onTabClick(event){
 	var scroller = mui("#pullrefresh").scroll();
 	scroller.scrollTo(0,0,0);
+}
+
+function getItemMinMoney(item){
+	var total_sales = parseFloat(item.total_sales);
+	var net_total = parseFloat(item.net_total);
+	var _end = Math.min(total_sales, net_total);
+	return _end;
 }
 
 //下拉刷新
@@ -107,6 +115,65 @@ function pulldownRefresh() {
 			});
 		}else{
 			notice_vue.notice_items = res.notice;
+		}
+		//填充-资金明细
+		if(!capital_details_vue){
+			capital_details_vue = new Vue({
+				el: '#capital_details',
+				data: {
+					tab_menu:lang_var.tab_menu,
+					capital_details:res.meorder
+				},
+				methods:{
+					getMinMoney:function(item){//取最小的金额
+						var _money = parseFloat(getItemMinMoney(item));
+						var money_proportion = _money * parseFloat(getConfig(res.config, "commission_proportion"));
+						var _str = "0";
+						if(item.status == "wc-completed"){
+							_str = _money.toFixed(2)+"(" + money_proportion.toFixed(2) + ")";
+						}
+						return _str;
+					},
+					getInterest:function(item){//利息
+						var _ovint = 0;
+						if(item.status == "wc-completed"){
+							//利息百分比
+							var _interest = parseFloat(getConfig(res.config, "interest"));
+							//服务器当前日期-下单日期=共下单了多少天
+							var _day = (new Date(res.date.date)-new Date(item.date_created_gmt)) / 1000 / (60 * 60 * 24);
+							_day = parseInt(_day);
+							_ovint = _interest * parseFloat(getItemMinMoney(item)) * _day;
+							_ovint = parseFloat(_ovint.toFixed(8));
+						}
+						return _ovint;
+					},
+					getMeIsDrawMoney:function(item){ //用户提现：0=可以提现，3=提现审核中，(1=通过审核，2=已据绝)
+						var _str = "";
+						if(item.status == "wc-completed"){
+							var _tomoney = parseInt(item.tomoney);
+							if(_tomoney == 0){
+								_str = lang_var.tab_menu.me.lab.draw_money_ok;
+							}else if(_tomoney == 1){
+								_str = lang_var.tab_menu.me.lab.draw_money_verify_passport;
+							}else if(_tomoney == 2){
+								_str = lang_var.tab_menu.me.lab.draw_money_verify_decline;
+							}else if(_tomoney == 3){
+								_str = lang_var.tab_menu.me.lab.draw_money_verifing;
+							}
+						}
+						return _str;
+					},
+					getOrderDate:function(item){//取下单日期
+						var date_created = item.date_created;
+						var date_created_gmt = item.date_created_gmt;
+						var oid = item.order_id;
+						var _str = '['+oid+'] ' + date_created + ' | ' + date_created_gmt;
+						return _str;
+					}
+				}
+			});
+		}else{
+			capital_details_vue.capital_details = res.meorder;
 		}
 		//填充免费招募员工 view
 		new Vue({

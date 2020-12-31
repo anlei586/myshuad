@@ -22,7 +22,7 @@
 <!--页面主结构开始-->
 <div id="app" class="mui-views">
 	<div class="mui-view">
-		<div class="mui-navbar">
+		<div class="mui-navbar" style="z-index: 12;">
 		</div>
 		<div class="mui-pages">
 		</div>
@@ -89,7 +89,7 @@
 							<span class="mui-media-body" style=" margin-top: 0px; height: 23px; ">
 								<span class="mui-badge mui-badge-primary" style=" font-size: 15px; ">+{{sv.me.total_commission}}</span>
 							</span>
-							<span class="mui-media-body" style=" margin-top: 8px; ">{{tab_menu.me.lab.commission}}</span>
+							<span class="mui-media-body" style=" margin-top: 8px; ">{{tab_menu.me.lab.total_commission}}</span>
 						</li>
 						<li class="mui-table-view-cell mui-media mui-col-xs-4 ">
 							<span class="mui-media-body" style=" margin-top: 0px; height: 23px; ">
@@ -107,8 +107,7 @@
 					
 					<ul class="mui-table-view">
 						<li class="mui-table-view-cell">
-							
-							<a class="mui-navigate-right">
+							<a href="#capital_details" class="mui-navigate-right">
 								{{tab_menu.me.lab.capital_details}}
 							</a>
 						</li>
@@ -180,7 +179,6 @@
 		<h1 class="mui-center mui-title">{{tab_menu.me.lab.help}}</h1>
 	</div>
 	<div class="mui-page-content">
-		<div class="mui-scroll-wrapper">
 			<div class="mui-scroll">
 				<div class="mui-card">
 					<ul class="mui-table-view" style=" margin-bottom: 0px; margin-top: 0px; ">
@@ -191,7 +189,7 @@
 					</ul>
 				</div>
 			</div>
-		</div>
+		
 	</div>
 </div>
 
@@ -203,7 +201,6 @@
 		<h1 class="mui-center mui-title">{{tab_menu.me.lab.share_make_money}}</h1>
 	</div>
 	<div class="mui-page-content">
-		<div class="mui-scroll-wrapper">
 			<div class="mui-scroll">
 				<div class="mui-card">
 					<ul class="mui-table-view" style=" margin-bottom: 0px; margin-top: 0px; ">
@@ -218,11 +215,89 @@
 						</li>
 					</ul>
 				</div>
+				<div class="mui-card">
+					<img width="100%" src="images/pyramid1.jpg" />
+				</div>
+				<div class="mui-card" style=" padding: 8px; " v-html="tab_menu.me.lab.share_make_money_fxnote">{{tab_menu.me.lab.share_make_money_fxnote}}</div>
+			</div>
+		
+	</div>
+</div>
+
+
+<div id="capital_details" class="mui-page" style="z-index: 10;">
+	<div class="mui-navbar-inner mui-bar mui-bar-nav">
+		<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+			<span class="mui-icon mui-icon-left-nav"></span>
+		</button>
+		<h1 class="mui-center mui-title">{{tab_menu.me.lab.capital_details}}</h1>
+	</div>
+	<div class="mui-page-content">
+		<div class="mui-content">
+			<div class="mui-scroll">
+				<div class="mui-card" style=" margin: 10px 10px 5px 10px; ">
+					<ul class="mui-table-view mui-grid-view mui-grid-9" style="background-color: #FFFFFF;border-top:none;margin: 8px 8px 8px 0px;padding: 0px;">
+						<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3" style="font-size: 8px;padding: 0px;vertical-align: middle;color: #000000;word-wrap: break-word;word-break: normal;border-color: #FFFFFF;">
+							{{tab_menu.me.lab.order_status}}
+						</li>
+						<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3" style="font-size: 8px;padding: 0px;vertical-align: middle;color: #000000;word-wrap: break-word;word-break: normal;border-color: #FFFFFF;">
+							{{tab_menu.me.lab.total_money}}({{tab_menu.me.lab.commission}})
+						</li>
+						<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3" style="font-size: 8px;padding: 0px;vertical-align: middle;color: #000000;word-wrap: break-word;word-break: normal;border-color: #FFFFFF;">
+							{{tab_menu.me.lab.order_total_interest}}
+						</li>
+						<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3" style="font-size: 8px;padding: 0px;vertical-align: middle;color: #000000;word-wrap: break-word;word-break: normal;border-color: #FFFFFF;">
+							{{tab_menu.me.lab.order_draw_money_status}}
+						</li>
+					</ul>
+				</div>
+				<div class="mui-card" style=" box-shadow: 0 0px 0px rgba(0,0,0,0); margin: 0px; background-color: #eee;">
+				<ul class="mui-table-view" style="margin: 0px 0px 8px 0px;padding: 1px 0px 1px 0px; background-color: #eee;">
+					<div class="mui-card" style="box-shadow: 0 0px 1px rgba(0,0,0,.8);" v-for="item in capital_details">
+						<li class="mui-table-view-cell" style="margin: 0px 0px 0px 0px;padding: 0px; border-top: 1px solid #eee;">
+							<ul class="mui-table-view mui-grid-view mui-grid-9" style="background-color: #FFFFFF;border-top:none;margin: 8px 8px 8px 0px;padding: 0px;">
+								<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3" style="font-size: 8px;padding: 0px;vertical-align: middle;color: #000000;word-wrap: break-word;word-break: normal;border-color: #FFFFFF;">
+									{{item.status}}
+								</li>
+								<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3" style="font-size: 8px;padding: 0px;vertical-align: middle;color: #FF5053;word-wrap: break-word;word-break: normal;border-color: #FFFFFF;">
+									${{getMinMoney(item)}}
+								</li>
+								<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3" style="font-size: 8px;padding: 0px;vertical-align: middle;color: #ee00ff;word-wrap: break-word;word-break: normal;border-color: #FFFFFF;">
+									${{getInterest(item)}}
+								</li>
+								<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3" style="font-size: 8px;padding: 0px;vertical-align: middle;color: #000000;word-wrap: break-word;word-break: normal;border-color: #FFFFFF;">
+									{{getMeIsDrawMoney(item)}}
+								</li>
+							</ul>
+							<div class="mui-card-footer" style="min-height: 24px;padding: 4px 6px;background-color: #f0f8ff;border-radius: 0 0 0px 0px;">
+								{{getOrderDate(item)}}</div>
+						</li>
+					</div>
+					<div class="mui-card" style="box-shadow: 0 0px 1px rgba(0,0,0,.8);">
+						<li class="mui-table-view-cell" style="margin: 0px 0px 0px 0px;padding: 0px; border-top: 1px solid #eee;">
+							<ul class="mui-table-view mui-grid-view mui-grid-9" style="background-color: #FFFFFF;border-top:none;margin: 8px 8px 8px 0px;padding: 0px;">
+								<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3" style="font-size: 8px;padding: 0px;vertical-align: middle;color: #000000;word-wrap: break-word;word-break: normal;border-color: #FFFFFF;">
+									wc-completed
+								</li>
+								<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3" style="font-size: 8px;padding: 0px;vertical-align: middle;color: #000000;word-wrap: break-word;word-break: normal;border-color: #FFFFFF;">
+									9.99
+								</li>
+								<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3" style="font-size: 8px;padding: 0px;vertical-align: middle;color: #000000;word-wrap: break-word;word-break: normal;border-color: #FFFFFF;">
+									0.000625977
+								</li>
+								<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3" style="font-size: 8px;padding: 0px;vertical-align: middle;color: #000000;word-wrap: break-word;word-break: normal;border-color: #FFFFFF;">
+									未提现
+								</li>
+							</ul>
+							<div class="mui-card-footer" style="min-height: 24px;padding: 4px 6px;background-color: #f0f8ff;border-radius: 0 0 0px 0px;">2020-12-21 02:22:36 | 2020-12-21 02:22:36</div>
+						</li>
+					</div>
+				</ul>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
-
 
 
 </body>
