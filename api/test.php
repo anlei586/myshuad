@@ -14,8 +14,9 @@ Money2020
 备用邮箱anlei602@163.com
 */
 
-$_date = date("Y-m-d H:i:s");
+$fofel_arr = array('A','B','C','D');
+$fofel_i = 0;
 
-echo $_date.'<br/>'.time();
+echo $fofel_arr[$fofel_i];
 
 ?>

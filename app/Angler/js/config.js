@@ -20,6 +20,9 @@ function myajax(_url, _obj, _header){
 			_success(res);
 		}
 	}
+	_obj['error']=function(res){
+		mui.alert(lang_var.code_lab.ERROR_1, lang_var.code_lab.TIP);
+	}
 	
 	mui.ajax(_url, _obj);
 }
