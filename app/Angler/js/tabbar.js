@@ -244,7 +244,11 @@ function pulldownRefresh() {
 						if(item.status == "wc-completed" && _tomoney == 0){
 							_str = _str + "(" + money_proportion.toFixed(2) + ")";
 						}else{
-							_str = _str;
+							if(item.commission_scale>1 && item.status == "wc-processing"){
+								_str = _str + "(" + money_proportion.toFixed(2) + ")";
+							}else{
+								_str = _str;
+							}
 						}
 						return _str;
 					},
@@ -423,6 +427,63 @@ function pulldownRefresh() {
 				data: {
 					tab_menu:lang_var.tab_menu,
 					draw_money_data:draw_money_data
+				},
+				methods:{
+					onSubPaypal:function(){//确定提交paypal号
+						var draw_money_paypal_txt = document.getElementById('draw_money_paypal_txt');
+						var sub_paypal_btn = document.getElementById('sub_paypal_btn');
+						mui(sub_paypal_btn).button('loading');
+						mui.confirm(lang_var.tab_menu.me.lab.confri_tip+"?", lang_var.code_lab.TIP, [lang_var.code_lab.NO, lang_var.code_lab.YES], function(e) {
+							if (e.index == 1) {
+								if(draw_money_paypal_txt.value.length<=0){
+									mui.alert(lang_var.tab_menu.me.lab.Please_Input_Paypal_Account);
+									mui(sub_paypal_btn).button('reset');
+									return;
+								}
+								myajax(config_var.host+"change.php?ac=1&paypal="+draw_money_paypal_txt.value,
+								{dataType:'json',success:function(res) {
+									mui(sub_paypal_btn).button('reset');
+									console.log(res);
+									localStorage.setItem('paypal', res.paypal);
+									draw_money_vue.draw_money_data.me_paypal = res.paypal;
+								}});
+							}else{
+								mui(sub_paypal_btn).button('reset');
+							}
+						});
+					},
+					onConfriDrawMoney:function(){//确定提现
+						var sub_draw_money_btn = document.getElementById('sub_draw_money_btn');
+						mui(sub_draw_money_btn).button('loading');
+						mui.confirm(lang_var.tab_menu.me.lab.confri_tip+"?", lang_var.code_lab.TIP, [lang_var.code_lab.NO, lang_var.code_lab.YES], function(e) {
+							if (e.index == 1) {
+								if(!localStorage.getItem('paypal')){
+									mui(sub_draw_money_btn).button('reset');
+									mui.alert(lang_var.tab_menu.me.lab.Please_Input_Paypal_Account);
+									return;
+								}
+								if(__isdrawmoney_total<=0){
+									mui(sub_draw_money_btn).button('reset');
+									mui.alert(lang_var.tab_menu.me.lab.TIP_NOT_MONEY_DRAW);
+									return;
+								}
+								myajax(config_var.host+"change.php?ac=2",
+								{dataType:'json',success:function(res) {
+									mui(sub_draw_money_btn).button('reset');
+									console.log(res);
+									if(res.ret==0){
+										mui.alert(lang_var.tab_menu.me.lab.ok_draw_money_complete,'',function() {
+											window.location.reload();
+										});
+									}else{
+										mui.toast(res.msg);
+									}
+								}});
+							}else{
+								mui(sub_draw_money_btn).button('reset');
+							}
+						});
+					}
 				}
 			});
 		}else{

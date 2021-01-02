@@ -1,7 +1,7 @@
 var lang_var = {
 	code_lab:{
 		YES:"是", NO:"否", TIP:"提示~", ERROR_1:"加载数据似乎出现问题了，请刷新。",
-		OPEN_LINK:"打开商品链接？",
+		OPEN_LINK:"打开商品链接？", OKING_TIP:"提交中..."
 	},
 	tab_menu_lab:{
 		mission:"任务",
@@ -43,8 +43,8 @@ var lang_var = {
 				draw_money_wait_completed:"等待完成",
 				share_make_money_fxnote:'<font color="#0062CC"><b>B</b></font>是<font color="#ee0053"><b>您</b></font>的员工<br/><font color="#f4a300"><b>C</b></font>是<font color="#0062CC"><b>B</b></font>的员工<br/><font color="#aa00ff"><b>D</b></font>是<font color="#f4a300"><b>C</b></font>的员工<br/>我们会赠送额外的佣金给您（不会减少任何一位员工的钱）<br/>(1). <font color="#0062CC"><b>B</b></font>佣金的<font color="#00b020"><b>35%</b></font>归属于您。<br/>(2). <font color="#f4a300"><b>C</b></font>佣金的<font color="#00b020"><b>15%</b></font>归属于您。<br/>(3). <font color="#aa00ff"><b>D</b></font>佣金的<font color="#00b020"><b>5%</b></font>归属于您。<br/>注：团队佣金不计算利息。',
 				ok_paypal_to_server:"提交银行帐号", Please_Input_Paypal_Account:"请输入Paypal帐号",Please_Input_NewPaypal_Account:"请输入新的Paypal帐号",
-				ok_isdraw_money_to_paypal:"提现到银行帐号",
-				
+				ok_isdraw_money_to_paypal:"提现到银行帐号", please_input_confri_data:"请填写正确的字符", ok_draw_money_complete:"请耐心等待管理员审核。",
+				TIP_NOT_MONEY_DRAW:"没有可提现的余额",
 			}
 		}
 	},

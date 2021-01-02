@@ -284,8 +284,8 @@
 									{{getMeIsDrawMoney(item)}}
 								</li>
 							</ul>
-							<div class="mui-card-footer" style="font-size: 12px; min-height: 24px;padding: 4px 6px;background-color: #f0f8ff;border-radius: 0 0 0px 0px;">
-								{{getOrderDate(item)}}</div>
+							<div v-if="item.commission_scale<=1" class="mui-card-footer" style="font-size: 12px; min-height: 24px;padding: 4px 6px; border-radius: 0 0 0px 0px; background-color:#f0f8ff;">{{getOrderDate(item)}}</div>
+							<div v-else class="mui-card-footer" style="font-size: 12px; min-height: 24px;padding: 4px 6px; border-radius: 0 0 0px 0px; background-color:#9bffbe">{{getOrderDate(item)}}</div>
 						</li>
 					</div>
 				</ul>
@@ -373,10 +373,12 @@
 								<form class="mui-input-group">
 									<div class="{'mui-card': draw_money_data.me_paypal}" style=" margin: 0px 10px 10px 10px; padding: 8px; ">{{draw_money_data.me_paypal}}</div>
 									<div class="mui-input-row">
-										<input type="text" class="mui-input-clear" :placeholder="tab_menu.me.lab.Please_Input_Paypal_Account">
+										<input id="draw_money_paypal_txt" type="text" class="mui-input-clear" :placeholder="tab_menu.me.lab.Please_Input_Paypal_Account">
 									</div>
 									<div class="mui-button-row">
-										<button type="button" class="mui-btn mui-btn-primary" onclick="return false;">{{tab_menu.me.lab.confri_tip}}</button>
+										<button id="sub_paypal_btn" class="mui-btn mui-btn-primary" v-on:click="onSubPaypal()"
+										:data-loading-text="lang_var.code_lab.OKING_TIP" data-loading-icon-position="right"
+										>{{tab_menu.me.lab.confri_tip}}</button>
 									</div>
 								</form>
 							</div>
@@ -398,7 +400,7 @@
 										<span>{{draw_money_data.me_paypal}}</span>
 									</div>
 									<div class="mui-button-row">
-										<button type="button" class="mui-btn mui-btn-primary" onclick="return false;">{{tab_menu.me.lab.confri_tip}}{{tab_menu.me.lab.draw_money}}</button>
+										<button id="sub_draw_money_btn" type="button" class="mui-btn mui-btn-primary" v-on:click="onConfriDrawMoney()">{{tab_menu.me.lab.confri_tip}}{{tab_menu.me.lab.draw_money}}</button>
 									</div>
 								</form>
 							</div>

@@ -119,6 +119,6 @@ function mysendmail($title1, $title2, $toemail, $content){
 }
 
 
-exit('{"ret":100,"msg":"no ac param"}');
+exit('{"ret":100,"msg":"not ac param"}');
 
 ?>

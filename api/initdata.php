@@ -147,6 +147,6 @@ function verificationToken(){
 }
 
 
-exit('{"ret":100,"msg":"no ac param"}');
+exit('{"ret":100,"msg":"not ac param"}');
 
 ?>
