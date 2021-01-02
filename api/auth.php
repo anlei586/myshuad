@@ -24,11 +24,12 @@ if($action==1){//登录
 		$result = $dbh->query($sql)->fetchAll();
 		if(count($result)>0){//已存在，那么去对比密码
 			$uid = $result[0]['id'];
+			$paypal = $result[0]['paypal'];
 			$passwd = strtoupper($result[0]['passwd']);
 			$topasswd_md5 = strtoupper(md5($topasswd));
 			if($passwd == $topasswd_md5){
 				$emailtoken=createToken($toemail);
-				$str = '{"ret":0,"uid":"'.$uid.'","email":"'.$toemail.'","token":"'.$emailtoken.'"}';
+				$str = '{"ret":0,"uid":"'.$uid.'","email":"'.$toemail.'","paypal":"'.$paypal.'","token":"'.$emailtoken.'"}';
 				exit($str);
 			}else{
 				exit(retmsg(106,"Incorrect email or password !"));

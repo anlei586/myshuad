@@ -4,6 +4,8 @@ var me_vue;
 var notice_vue;
 var capital_details_vue;
 var my_business_partner_vue;
+var draw_money_vue;
+
 var team_isdrawmoney_total=0;//团队可提现的总额
 var ordermoney_total=0;//总本金
 var commissionmoney_total=0;//总佣金
@@ -408,6 +410,23 @@ function pulldownRefresh() {
 			});
 		}else{
 			me_vue.sv = sv;
+		}
+		
+		var draw_money_data = {
+			me_paypal:localStorage.getItem("paypal"),
+			me_isdrawmoney_total:__isdrawmoney_total.toFixed(4)
+		}
+		//提现UI
+		if(!draw_money_vue){
+			draw_money_vue = new Vue({
+				el: '#draw_money',
+				data: {
+					tab_menu:lang_var.tab_menu,
+					draw_money_data:draw_money_data
+				}
+			});
+		}else{
+			draw_money_vue.draw_money_data = draw_money_data;
 		}
 	
 	},

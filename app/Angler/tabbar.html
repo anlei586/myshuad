@@ -136,7 +136,7 @@
 							</a>
 						</li>
 						<li class="mui-table-view-cell">
-							<a class="mui-navigate-right">
+							<a href="#draw_money" class="mui-navigate-right">
 								{{tab_menu.me.lab.draw_money}}
 							</a>
 						</li>
@@ -162,6 +162,7 @@
 	<!--页面主内容区结束-->
 </div>
 <!--单页面结束-->
+<!-- 公告 -->
 <div id="public_notice" class="mui-page" style="z-index: 10;">
 	<div class="mui-navbar-inner mui-bar mui-bar-nav">
 		<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
@@ -184,7 +185,7 @@
 		</div>
 	</div>
 </div>
-
+<!-- 帮助 -->
 <div id="help_view" class="mui-page" style="z-index: 10;">
 	<div class="mui-navbar-inner mui-bar mui-bar-nav">
 		<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
@@ -206,7 +207,7 @@
 		
 	</div>
 </div>
-
+<!-- 招工 -->
 <div id="share_link_view" class="mui-page" style="z-index: 10;">
 	<div class="mui-navbar-inner mui-bar mui-bar-nav">
 		<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
@@ -238,7 +239,7 @@
 	</div>
 </div>
 
-
+<!-- 订单明细 -->
 <div id="capital_details" class="mui-page" style="z-index: 10;">
 	<div class="mui-navbar-inner mui-bar mui-bar-nav">
 		<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
@@ -294,7 +295,7 @@
 	</div>
 </div>
 
-
+<!-- 我的团队 -->
 <div id="my_business_partner" class="mui-page" style="z-index: 10;">
 	<div class="mui-navbar-inner mui-bar mui-bar-nav">
 		<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
@@ -353,6 +354,62 @@
 		</div>
 	</div>
 </div>
+<!-- 提现UI -->
+<div id="draw_money" class="mui-page" style="z-index: 10;">
+	<div class="mui-navbar-inner mui-bar mui-bar-nav">
+		<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+			<span class="mui-icon mui-icon-left-nav"></span>
+		</button>
+		<h1 class="mui-center mui-title">{{tab_menu.me.lab.draw_money}}</h1>
+	</div>
+	<div class="mui-page-content">
+		<div class="mui-content">
+			<div class="mui-scroll">
+				<div class="mui-card">
+					<ul class="mui-table-view" style=" margin-bottom: 0px; margin-top: 0px; ">
+						<li class="mui-table-view-cell mui-collapse mui-active" style=" background-color: #FFFFFF; ">
+							<a class="mui-navigate-right" href="#">{{tab_menu.me.lab.ok_paypal_to_server}}</a>
+							<div class="mui-collapse-content" style=" background-color: #eee; ">
+								<form class="mui-input-group">
+									<div class="{'mui-card': draw_money_data.me_paypal}" style=" margin: 0px 10px 10px 10px; padding: 8px; ">{{draw_money_data.me_paypal}}</div>
+									<div class="mui-input-row">
+										<input type="text" class="mui-input-clear" :placeholder="tab_menu.me.lab.Please_Input_Paypal_Account">
+									</div>
+									<div class="mui-button-row">
+										<button type="button" class="mui-btn mui-btn-primary" onclick="return false;">{{tab_menu.me.lab.confri_tip}}</button>
+									</div>
+								</form>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="mui-card">
+					<ul class="mui-table-view" style=" margin-bottom: 0px; margin-top: 0px; ">
+						<li class="mui-table-view-cell mui-collapse mui-active" style=" background-color: #FFFFFF; ">
+							<a class="mui-navigate-right" href="#">{{tab_menu.me.lab.ok_isdraw_money_to_paypal}}</a>
+							<div class="mui-collapse-content" style=" background-color: #eee; ">
+								<form class="mui-input-group">
+									<div style="line-height: 36px;text-align: center;padding-top: 8px;padding-bottom: 8px;">
+										<span style="font-size: 24px;">$</span>
+										<span style="font-size: 32px;">{{draw_money_data.me_isdrawmoney_total}}</span>
+									</div>
+									<div class="mui-input-row mui-checkbox mui-left mui-disabled" style=" text-align: center;" v-if="draw_money_data.me_paypal">
+										<input name="checkbox" type="checkbox" disabled="disabled" checked style="position: relative;left: 0px;">
+										<span>{{draw_money_data.me_paypal}}</span>
+									</div>
+									<div class="mui-button-row">
+										<button type="button" class="mui-btn mui-btn-primary" onclick="return false;">{{tab_menu.me.lab.confri_tip}}{{tab_menu.me.lab.draw_money}}</button>
+									</div>
+								</form>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
 
 
 </body>
