@@ -63,7 +63,7 @@
 				</div>
 				<div id="tabbar-with-me" class="mui-control-content ">
 					<ul class="mui-table-view " style="margin-top: 0px; padding-top: 15px; padding-bottom: 10px;">
-						<li class="mui-table-view-cell">
+						<li class="mui-table-view-cell" >
 							<div class="mui-slider-cell">
 								<div class="oa-contact-cell mui-table">
 									<div class="oa-contact-avatar mui-table-cell">
@@ -79,9 +79,7 @@
 									</div>
 								</div>
 							</div>
-							<button type="button" class="mui-btn mui-btn-link"><a href="#public_notice" class="mui-navigate-right">
-								{{tab_menu.me.lab.public_notice}}
-							</a></button>
+							<button type="button" class="mui-btn"><a id="open_notice_btn" href="#public_notice">{{tab_menu.me.lab.public_notice}}<span class="mui-badge">{{sv.me.notice_len}}</span></a></button>
 						</li>
 					</ul>
 					<ul class="mui-table-view mui-grid-view mui-grid-9" style=" border-top: none; border-left: none; border-bottom: none; background-color: #ffffff; ">
@@ -286,6 +284,11 @@
 							</ul>
 							<div v-if="item.commission_scale<=1" class="mui-card-footer" style="font-size: 12px; min-height: 24px;padding: 4px 6px; border-radius: 0 0 0px 0px; background-color:#f0f8ff;">{{getOrderDate(item)}}</div>
 							<div v-else class="mui-card-footer" style="font-size: 12px; min-height: 24px;padding: 4px 6px; border-radius: 0 0 0px 0px; background-color:#9bffbe">{{getOrderDate(item)}}</div>
+							<div v-if="item.status == 'wc-completed'" class="mui-card-footer" style="padding: 4px; background-color: rgb(155, 255, 190);">
+								<button :id="'again_btn_'+item.order_id" type="button" class="mui-btn mui-btn-primary" style="width: 100%;" @click="againBuyOrder(item)"
+								:data-loading-text="lang_var.code_lab.OKING_TIP" data-loading-icon-position="right"
+								>{{tab_menu.me.lab.again_onec_buy}}</button>
+							</div>
 						</li>
 					</div>
 				</ul>

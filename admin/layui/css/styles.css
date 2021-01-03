@@ -1,0 +1,23 @@
+#pingjia {line-height: 150%;margin: 0px 10px 0 0px;height: 350px;overflow: hidden;}
+#pingjia li {margin: 0 10px 30px 10px;}
+#pingjia .allpj {margin: 5px auto;}
+#pingjia .le {text-align: left;}
+#pingjia .ri {text-align: right;}
+#pingjia .touxiang {background: url(../images/touxiang.png);background-size: 40px 40px;width: 40px;height: 40px;padding: 0px;margin: 0px;display: inline-block;vertical-align: top;}
+#pingjia .lj {margin-top: 20px;vertical-align: top;}
+#pingjia .l {padding: 8px;border-radius: 1em;max-width: 70%;min-width: 51%;margin-top: 0.7em;margin-left: -0.4em;display: inline-block;background-color: rgb(255,228,200);}
+#pingjia .r {padding: 8px;border-radius: 1em;max-width: 70%;min-width: 51%;text-align: left;margin-top: 0.7em;margin-right: -0.4em;display: inline-block;background-color: rgb(188,227,249);}
+.ordercontent a.btn {
+background-color: #F00;display: block;width: 96%;margin: 5px auto;padding: 10px 0;text-align: center;color: #fff;text-shadow: 1px 1px 1px #333;border-radius: 6px;}
+
+.ordercontent a.btn {
+    background-color: #F00;
+    display: block;
+    width: 96%;
+    margin: 5px auto;
+    padding: 10px 0;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #333;
+    border-radius: 6px;
+}

@@ -39,6 +39,29 @@ if($gt['passport'])
 		setOrderFromEmail($gt['Email'], "tomoney", 3);
 		setOrderFromEmailLoop($gt['Email'], 3);
 		exit(retmsg(0,"success"));
+	}else if($action==3){//再次购买	change.php?ac=3&oid=406
+		$oid = isset($_GET['oid'])?$_GET['oid']:"";
+		if(!empty($oid)){
+			$sql = 'SELECT post_id FROM sd_postmeta where meta_key="_billing_email" and meta_value="'.$gt['Email'].'" and post_id='.$oid;
+			$res = $dbh->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+			if(count($res)){
+				$sql = 'SELECT commission_scale,status from sd_wc_order_stats where order_id='.$oid;
+				$res = $dbh->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+				if($res[0]['status']=='wc-completed'){
+					$commission_scale = $res[0]['commission_scale'];
+					$commission_scale++;
+					$sql = "UPDATE sd_wc_order_stats set status='wc-processing', commission_scale=".$commission_scale.' where order_id='.$oid;
+					$cx = $dbh->query($sql);
+					exit(retmsg(0,"success"));
+				}else{
+					exit(retmsg(114,"this order is not completed"));
+				}
+			}else{
+				exit(retmsg(113,"this order is not you"));
+			}
+		}else{
+			exit(retmsg(112,"not order id"));
+		}
 	}else{
 		exit(retmsg(110,"not action"));
 	}

@@ -10,6 +10,7 @@ var team_isdrawmoney_total=0;//团队可提现的总额
 var ordermoney_total=0;//总本金
 var commissionmoney_total=0;//总佣金
 var interestmoney_total=0;//总利息
+
 var interest=0.0000001;//利息分比例
 var commission_proportion=0.10;//佣金百分比例
 
@@ -166,11 +167,12 @@ function coveMeOrder(meorder){
 		var item = meorder[i];
 		var _tomoney = parseInt(item.tomoney);
 		if(item.status == "wc-completed" && _tomoney == 0){
+			var _commission_scale = item.commission_scale;//再买一次的倍数
 			var _money = parseFloat(getItemMinMoney(item));
 			//总本金
 			ordermoney_total += _money;
 			//总佣金
-			var money_proportion = _money * commission_proportion;
+			var money_proportion = _money * commission_proportion * _commission_scale;
 			commissionmoney_total += money_proportion;
 			//总利息
 			var _ovint = 0;
@@ -184,9 +186,23 @@ function coveMeOrder(meorder){
 	}
 	return meorder;
 }
+//以oid查找订单
+function findOrderItemByOid(orderList, oid){
+	for(var i=0;i<orderList.length;i++){
+		if(orderList[i].order_id==oid)
+		{
+			return orderList[i];
+		}
+	}
+}
 
 //下拉刷新
 function pulldownRefresh() {
+	team_isdrawmoney_total=0;//团队可提现的总额
+	ordermoney_total=0;//总本金
+	commissionmoney_total=0;//总佣金
+	interestmoney_total=0;//总利息
+	
 	myajax(config_var.host+"initdata.php?ac=1",
 	{dataType:'json',success:function(res) {
 		mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
@@ -227,18 +243,20 @@ function pulldownRefresh() {
 		}else{
 			notice_vue.notice_items = res.notice;
 		}
+		var __capital_details = coveMeOrder(res.meorder);
 		//填充-订单明细
 		if(!capital_details_vue){
 			capital_details_vue = new Vue({
 				el: '#capital_details',
 				data: {
 					tab_menu:lang_var.tab_menu,
-					capital_details:coveMeOrder(res.meorder)
+					capital_details:__capital_details
 				},
 				methods:{
 					getMinMoney:function(item){//取最小的金额
 						var _money = parseFloat(getItemMinMoney(item));
-						var money_proportion = _money * commission_proportion;
+						var _commission_scale = item.commission_scale;//再买一次的倍数
+						var money_proportion = _money * commission_proportion * _commission_scale;
 						var _str = _money.toFixed(2);
 						var _tomoney = parseInt(item.tomoney);
 						if(item.status == "wc-completed" && _tomoney == 0){
@@ -288,19 +306,53 @@ function pulldownRefresh() {
 						var oid = item.order_id;
 						var _str = '['+oid+'] ' + date_created + ' | ' + date_created_gmt;
 						return _str;
+					},
+					againBuyOrder:function(orderItem){
+						var again_btn = document.getElementById('again_btn_'+orderItem.order_id);
+						mui(again_btn).button('loading');
+						mui.confirm(lang_var.tab_menu.me.lab.again_onec_buy_help_tip+"?", lang_var.code_lab.TIP, [lang_var.code_lab.NO, lang_var.code_lab.YES], function(e) {
+							if (e.index == 1) {
+								myajax(config_var.host+"change.php?ac=3&oid="+orderItem.order_id,
+								{dataType:'json',success:function(res) {
+									mui(again_btn).button('reset');
+									if(res.ret==0){
+										//orderItem.commission_scale++;
+										var oitem = findOrderItemByOid(capital_details_vue.capital_details, orderItem.order_id);
+										//
+										var _money = parseFloat(getItemMinMoney(orderItem));
+										var _commission_scale = parseInt(oitem.commission_scale);//再买一次的倍数
+										var money_proportion = _money * commission_proportion * _commission_scale;
+										me_vue.sv.me.total_commission=(commissionmoney_total - money_proportion).toFixed(4);
+										//
+										me_vue.sv.me.total_principal = (ordermoney_total-_money).toFixed(4);//总本金
+										me_vue.sv.me.isdrawmoney_total = (parseFloat(me_vue.sv.me.isdrawmoney_total)-_money-money_proportion).toFixed(4);//可提现金额
+										
+										oitem.commission_scale = parseInt(oitem.commission_scale)+1;
+										oitem.status='wc-processing';
+										mui.toast(res.msg);
+									}else{
+										mui.toast(res.msg);
+									}
+								}});
+							}else{
+								mui(again_btn).button('reset');
+							}
+						});
 					}
 				}
 			});
 		}else{
 			capital_details_vue.capital_details = res.meorder;
 		}
+		
+		var __my_business_partner = coveMeTeamOrder(res.meteamorder);
 		//我的团队
 		if(!my_business_partner_vue){
 			my_business_partner_vue = new Vue({
 				el: '#my_business_partner',
 				data: {
 					tab_menu:lang_var.tab_menu,
-					my_business_partner:coveMeTeamOrder(res.meteamorder)
+					my_business_partner:__my_business_partner
 				},
 				methods:{
 					getMinMoney:function(item){//取最小的金额
@@ -390,6 +442,10 @@ function pulldownRefresh() {
 			}
 		});
 		
+		var notice_len = res.notice.length;
+		var local_notice_len = localStorage.getItem("noticelen");
+		notice_len = notice_len-local_notice_len;
+		notice_len = notice_len.toString();
 		
 		var __isdrawmoney_total = commissionmoney_total+ordermoney_total+interestmoney_total+team_isdrawmoney_total;
 		//我的数据
@@ -401,6 +457,7 @@ function pulldownRefresh() {
 				,total_interest:interestmoney_total.toFixed(4)//总利息
 				,team_isdrawmoney_total:team_isdrawmoney_total.toFixed(4)//团队佣金
 				,isdrawmoney_total:__isdrawmoney_total.toFixed(4)//可提现金额
+				,notice_len:notice_len
 			}
 		};
 		//填充-我的数据
@@ -410,7 +467,7 @@ function pulldownRefresh() {
 				data: {
 					tab_menu:lang_var.tab_menu,
 					sv:sv
-				}
+				},
 			});
 		}else{
 			me_vue.sv = sv;
@@ -495,6 +552,14 @@ function pulldownRefresh() {
 	
 };
 
+
+function clickNoticeBtn(){
+	var notice_len = initdata_obj.notice.length;
+	localStorage.setItem("noticelen", notice_len);
+	me_vue.sv.me.notice_len="0";
+}
+
+
 //任务列表点击
 mui("#pullrefresh").on('tap', 'li', function (event) {
 	//event.stopPropagation();
@@ -524,6 +589,9 @@ mui("#pullrefresh").on('tap', 'li', function (event) {
 	}
 	if(event.target && event.target.id == "quit_account_btn"){
 		quitAccount();
+	}
+	if(event.target && event.target.id == "open_notice_btn"){
+		clickNoticeBtn();
 	}
 });
 
