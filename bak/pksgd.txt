@@ -1,0 +1,20 @@
+﻿银行名称:
+Citibank N.A., Singapore Branch
+
+银行地址:
+8 Marina View #17-01 Asia Square Tower 1 Singapore 018960
+
+银行代码:
+7214
+
+分行代码:
+001
+
+SWIFT代码:
+CITISGSG
+
+帐号:
+11990705104
+
+受益人姓名:
+ChaoFang Pei

@@ -5,6 +5,8 @@ header('Access-Control-Allow-Credentials: true'); // 设置是否允许发送 co
 header('Access-Control-Allow-Headers: Content-Type,Content-Length,Accept-Encoding,X-Requested-with,Origin,Authorization,email,token');
 header('Access-Control-Max-Age: 1728000');
 
+if($_SERVER['REQUEST_METHOD']=='OPTIONS') return;
+
 require './conn.php';
 $dbh = new PDO($dsn, $user, $pass);
 
@@ -23,11 +25,11 @@ if($action==1){//取初始数据
 		$config_result = $dbh->query($config_sql)->fetchAll(PDO::FETCH_ASSOC);
 
 		//公告
-		$notice_sql = 'SELECT * FROM mission_notice';
+		$notice_sql = 'SELECT * FROM mission_notice order by id DESC';
 		$notice_result = $dbh->query($notice_sql)->fetchAll(PDO::FETCH_ASSOC);
 
 		//任务商品
-		$mission_sql = 'SELECT * FROM mission_mission';
+		$mission_sql = 'SELECT * FROM mission_mission order by id DESC';
 		$mission_result = $dbh->query($mission_sql)->fetchAll(PDO::FETCH_ASSOC);
 
 		//自己订单列表
@@ -101,6 +103,9 @@ function findOrderFromEmail($email) {
 	for($i=0;$i<$me_order_post_id_count;$i++){
 		$isEndStr = $i==$me_order_post_id_count-1 ? "" : ",";
 		$me_order_post_id_str .= '"'.$me_order_post_id_result[$i]['post_id'] .'"'. $isEndStr;
+	}
+	if(empty($me_order_post_id_str)){
+	    return array();
 	}
 	//查所有符合条件的订单
 	$me_order_post_id_sql = 'SELECT * FROM sd_wc_order_stats where order_id in('.$me_order_post_id_str.')';

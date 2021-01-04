@@ -7,6 +7,14 @@
 		<script src="js/config.js" language="JavaScript"></script>
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<style>
+			body{
+				overflow: hidden;
+			}
+			header {
+				max-width: 640px !important;
+				margin: 0 auto;
+			}
+			
 			.area {
 				margin: 20px auto 0px auto;
 			}
@@ -20,13 +28,13 @@
 			}
 			
 			.mui-input-group label {
-				width: 22%;
+				width: 30%;
 			}
 			
 			.mui-input-row label~input,
 			.mui-input-row label~select,
 			.mui-input-row label~textarea {
-				width: 78%;
+				width: 70%;
 			}
 			
 			.mui-checkbox input[type=checkbox],
@@ -111,17 +119,17 @@
 	</head>
 
 	<body>
-		<div id="fill_vue">
-			<header class="mui-bar mui-bar-nav">
+		<div id="fill_vue" style=" height: 100vw; background-image: url(./images/loginbg.jpg); background-repeat: no-repeat; background-size: 100% 100%; ">
+			<header class="mui-bar mui-bar-nav" style="display: none;">
 				<h1 class="mui-title">{{login_lab.LOGIN}}</h1>
 			</header>
-			<div class="mui-content">
+			<div class="mui-card" style=" left: 10px; right: 10px; top: 50%; position: absolute; max-width: 640px !important; margin: 0 auto; ">
 				<form id='login-form' class="mui-input-group">
-					<div class="mui-input-row">
+					<div class="mui-input-row" style="border-left: 1px solid #e4e3e6;border-right: 1px solid #e4e3e6;">
 						<label>{{login_lab.EMAIL}}</label>
 						<input id='email' type="text" :value="sv.email" class="mui-input-clear mui-input" :placeholder="login_lab.INPUT_EMAIL">
 					</div>
-					<div class="mui-input-row">
+					<div class="mui-input-row" style="border-left: 1px solid #e4e3e6;border-right: 1px solid #e4e3e6;">
 						<label>{{login_lab.PASSWD}}</label>
 						<input id='password' type="password" :value="sv.passwd" class="mui-input-clear mui-input" :placeholder="login_lab.INPUT_PASSWD">
 					</div>
@@ -145,6 +153,20 @@
 		<script src="js/login_cn.js"></script>
 		<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
 		<script>
+			function getQueryVariable(variable)
+			{
+				   var query = window.location.search.substring(1);
+				   var vars = query.split("&");
+				   for (var i=0;i<vars.length;i++) {
+					   var pair = vars[i].split("=");
+					   if(pair[0] == variable){return pair[1];}
+				   }
+				   return "";
+			}
+			
+			
+			var incode = getQueryVariable("incode");
+			
 			var $=mui;
 			var doc=document;
 			$.init({
@@ -250,7 +272,7 @@
 			
 			regButton.addEventListener('tap', function(event) {
 				$.openWindow({
-					url: 'reg.html',
+					url: 'reg.html?incode='+incode,
 					id: 'reg',
 					preload: true,
 					show: {

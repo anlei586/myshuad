@@ -5,6 +5,8 @@ header('Access-Control-Allow-Credentials: true'); // 设置是否允许发送 co
 header('Access-Control-Allow-Headers: Content-Type,Content-Length,Accept-Encoding,X-Requested-with,Origin,Authorization,email,token');
 header('Access-Control-Max-Age: 1728000');
 
+if($_SERVER['REQUEST_METHOD']=='OPTIONS') return;
+
 require './conn.php';
 $dbh = new PDO($dsn, $user, $pass);
 

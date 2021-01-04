@@ -7,6 +7,15 @@
 		<script src="./js/config.js" language="JavaScript"></script>
 		<link href="./css/mui.min.css" rel="stylesheet" />
 		<style>
+			body {
+				max-width: 640px !important;
+				margin: 0 auto;
+			}
+			header {
+				max-width: 640px !important;
+				margin: 0 auto;
+			}
+			
 			.area {
 				margin: 20px auto 0px auto;
 			}
@@ -14,12 +23,12 @@
 				margin-top: 20px;
 			}
 			.mui-input-group label {
-				width: 22%;
+				width: 30%;
 			}
 			.mui-input-row label~input,
 			.mui-input-row label~select,
 			.mui-input-row label~textarea {
-				width: 78%;
+				width: 70%;
 			}
 			.mui-checkbox input[type=checkbox],
 			.mui-radio input[type=radio] {
@@ -42,11 +51,11 @@
 			</header>
 			<div class="mui-content">
 				<form class="mui-input-group">
-					<div class="mui-input-row">
+					<div class="mui-input-row" style="border-left: 1px solid #e4e3e6;border-right: 1px solid #e4e3e6;">
 						<label>{{login_lab.EMAIL}}</label>
 						<input id='email' type="email" class="mui-input-clear mui-input" :placeholder="login_lab.INPUT_EMAIL">
 					</div>
-					<div class="mui-input-row">
+					<div class="mui-input-row" style="border-left: 1px solid #e4e3e6;border-right: 1px solid #e4e3e6;">
 						<label>{{login_lab.REG_Invitation_code}}</label>
 						<input id='incode' type="email" class="mui-input-clear mui-input" :placeholder="login_lab.INPUT_REG_Invitation_code">
 					</div>
@@ -116,9 +125,7 @@
 							mui(regButton).button('reset');
 							console.log(data);
 							reg_tip.innerHTML = data.msg;
-							if(data.ret!=0){
-								
-							}else{
+							if(data.hasOwnProperty("ret") && data.ret==0 || data.hasOwnProperty("code") && data.code==0 ){
 								mui.toast(login_var.login_lab.REG_SUCCESS_TIP);
 								reg_tip.innerHTML += "<br/>"+login_var.login_lab.REG_SUCCESS_TIP +", " + login_var.login_lab.GOTO_EMAIL_LOOK_TIP;
 							}

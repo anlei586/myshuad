@@ -5,6 +5,8 @@ header('Access-Control-Allow-Credentials: true'); // 设置是否允许发送 co
 header('Access-Control-Allow-Headers: Content-Type,Content-Length,Accept-Encoding,X-Requested-with,Origin,Authorization,email,token');
 header('Access-Control-Max-Age: 1728000');
 
+if($_SERVER['REQUEST_METHOD']=='OPTIONS') return;
+
 require './conn.php';
 $dbh = new PDO($dsn, $user, $pass);
 
@@ -32,8 +34,10 @@ if($action==1){//登录
 				$str = '{"ret":0,"uid":"'.$uid.'","email":"'.$toemail.'","paypal":"'.$paypal.'","token":"'.$emailtoken.'"}';
 				exit($str);
 			}else{
-				exit(retmsg(106,"Incorrect email or password !"));
+				exit(retmsg(106,"password error !"));
 			}
+		}else{
+			exit(retmsg(109,"email error !"));
 		}
 	}else{
 		exit(retmsg(105,"not email or not passwd ?"));
@@ -115,7 +119,7 @@ if($action==1){//登录
 
 function mysendmail($title1, $title2, $toemail, $content){
 		exit('{"ret":0,"msg":"'.$content.'"}');
-	//sendmail($title1, $title2, $toemail, $content);
+	//sendmail($title1, $title2, $toemail, $content);exit(0);die();
 }
 
 

@@ -10,15 +10,17 @@
     <col width="5%">
     <col width="5%">
     <col width="5%">
+    <col width="5%">
     <col>
   </colgroup>
   <thead>
     <tr>
       <th style="text-align: center; cursor: pointer;" onclick="onOrderIdSelectAll(this);">ID</th>
       <th style="text-align: center;">邮箱</th>
-      <th style="text-align: center;">Paypal</th>
       <th style="text-align: center;">注册日期</th>
+      <th style="text-align: center;">Paypal</th>
       <th style="text-align: center;">提现总额</th>
+      <th style="text-align: center;">他的收入</th>
       <th style="text-align: center;">操作</th>
       <th style="text-align: center;">确认提现</th>
     </tr> 
@@ -28,15 +30,17 @@
     <tr id="ytr_<?php echo $_id; ?>">
       <td><input id="id_<?php echo $_id; ?>" type="checkbox" name="" title="<?php echo $_id; ?>" lay-skin="primary"></td>
       <td><?php echo $value['email']; ?></td>
-      <td><?php echo $value["paypal"]; ?></td>
       <td><?php echo $value["date"]; ?></td>
+      <td><?php echo $value["paypal"]; ?></td>
       <td><?php echo $value["drawmoneyreco"]; ?></td>
+      <td id="shouru_<?php echo $_id; ?>"></td>
       <td>
-			<button onclick="confriDrawMoney(this,'<?php echo $_id; ?>');" type="button" class="layui-btn layui-btn-danger layui-btn-sm"><i class="layui-icon">&#xe640;</i>查看他的订单</button>
+			<button onclick="lookOrderList(this,'<?php echo $_id; ?>');" type="button" class="layui-btn layui-btn-danger layui-btn-sm"><i class="layui-icon">&#xe640;</i>查看他的订单</button>
 			<hr/>
-			<button onclick="confriDrawMoney(this,'<?php echo $_id; ?>');" type="button" class="layui-btn layui-btn-danger layui-btn-sm"><i class="layui-icon">&#xe640;</i>查看他的团队订单</button>
+			<button onclick="lookTeamOrderList(this,'<?php echo $_id; ?>');" type="button" class="layui-btn layui-btn-danger layui-btn-sm"><i class="layui-icon">&#xe640;</i>查看他的团队订单</button>
 	  </td>
       <td>
+	  		<div>发起提现：<span id="draw_money_txt_<?php echo $_id; ?>"></span></div><br/>
 			<button onclick="confriDrawMoney(this,'<?php echo $_id; ?>');" type="button" class="layui-btn layui-btn-danger layui-btn-sm"><i class="layui-icon">&#xe640;</i>确认提现</button>
 	  </td>
     </tr>
@@ -79,20 +83,73 @@ if(isset($_GET['action'])){
 }
 
 
+
+function findOrderFromEmail($email) {
+	global $dbh;
+	//查某个email的所有订单ID
+	$me_order_post_id_sql = 'SELECT post_id FROM sd_postmeta where meta_key="_billing_email" and meta_value="'.$email.'"';
+	$me_order_post_id_result = $dbh->query($me_order_post_id_sql)->fetchAll(PDO::FETCH_ASSOC);
+	//组合所有订单ID
+	$me_order_post_id_str="";
+	$me_order_post_id_count = count($me_order_post_id_result);
+	for($i=0;$i<$me_order_post_id_count;$i++){
+		$isEndStr = $i==$me_order_post_id_count-1 ? "" : ",";
+		$me_order_post_id_str .= '"'.$me_order_post_id_result[$i]['post_id'] .'"'. $isEndStr;
+	}
+	//查所有符合条件的订单
+	$me_order_post_id_sql = 'SELECT * FROM sd_wc_order_stats where order_id in('.$me_order_post_id_str.')';
+	$me_order_result = $dbh->query($me_order_post_id_sql)->fetchAll(PDO::FETCH_ASSOC);
+	return $me_order_result;
+}
+
+function findOrderFromEmailLoop($email) {
+	global $dbh;
+	global $fofel_arr;
+	global $fofel_i;
+	$fofel_i++;
+	//查自己的UID
+	$me_order_post_id_sql = 'SELECT id from mission_user where email="'.$email.'"';
+	$me_order_post_id_result = $dbh->query($me_order_post_id_sql)->fetchAll(PDO::FETCH_ASSOC);
+	$me_uid = $me_order_post_id_result[0]["id"];
+	//查自己所有员工的email
+	$me_team_emeun_email_sql = 'SELECT email from mission_user where parent_id='.$me_uid;
+	$me_team_emeun_email_result = $dbh->query($me_team_emeun_email_sql)->fetchAll(PDO::FETCH_ASSOC);
+	//查员工的所有订单
+	$me_team_emeun_email_count = count($me_team_emeun_email_result);
+	$me_team_emeun_arr = array();
+	for($i=0;$i<$me_team_emeun_email_count;$i++){
+		$_email = $me_team_emeun_email_result[$i]['email'];
+		$md5_email = md5($_email);
+		$star_email = filterStar($_email);
+		$_ret = findOrderFromEmail($_email);
+		$me_team_emeun_arr[$md5_email]['email'] = $star_email;
+		$me_team_emeun_arr[$md5_email]['level'] = $fofel_arr[$fofel_i];
+		$me_team_emeun_arr[$md5_email]['order'] = $_ret;
+		$me_team_emeun_arr[$md5_email]['childorder'] = findOrderFromEmailLoop($_email);
+		$fofel_i--;
+	}
+	if(count($me_team_emeun_arr)<=0) return null;
+	return $me_team_emeun_arr;
+}
+
+
+
+
+
 $num = isset($_GET['num'])?$_GET['num']:10;
 $sv = '';
 
 if(isset($_GET['v'])){
 	$sv = $_GET['v'];
-	$sql = 'SELECT id from mission_user WHERE title like "%'.$sv.'%" order by id DESC';
-	
+	$sql = 'SELECT id from mission_user WHERE email like "%'.$sv.'%" order by id DESC';
+	//echo $sql;
 	$db  = $pdo->query($sql)->fetchAll();
 	$total = count($db);
 
 	$cpage = isset($_GET['page'])?$_GET['page']:1;
 	$offset = ($cpage-1)*$num;
 
-	$sql = "SELECT * from mission_user WHERE title like '%{$sv}%' order by id DESC  limit {$offset},{$num}";
+	$sql = "SELECT * from mission_user WHERE email like '%{$sv}%' order by id DESC  limit {$offset},{$num}";
 	//echo $sql;
 	$result = $pdo->query($sql)->fetchAll();
 }else{
@@ -150,13 +207,13 @@ function replace(str, flag, rep){
 
 <center><h1>所有用户</h1></center>
 <div class="layui-form-item" style="margin-bottom:0px; padding: 10px;text-align: center;display: flex;">
-	<input type="text" name="value_txt" id="value_txt" required lay-verify="required" placeholder="请输入要搜索商品标题" autocomplete="off" class="layui-input" style="text-align:center;padding-left: 15%;padding-top: 0px;width: 85%;display: inline;" value="<?php echo $sv; ?>" onkeyup="onKeyUp(this, event)">
+	<input type="text" name="value_txt" id="value_txt" required lay-verify="required" placeholder="请输入要搜索用户email" autocomplete="off" class="layui-input" style="text-align:center;padding-left: 15%;padding-top: 0px;width: 85%;display: inline;" value="<?php echo $sv; ?>" onkeyup="onKeyUp(this, event)">
 	<button class="layui-btn" style="width: 15%;text-align: center;margin-left: 4px;" onclick="onSearch();"><i class="layui-icon">&#xe615;</i> 搜索</button>
 </div>
 
 
 <div id="content_div" style="text-align:center;">
-	<?php echo "<span class='layui-badge layui-bg-gray'>共有<b>$total</b>个商品</span>" ?>
+	<?php echo "<span class='layui-badge layui-bg-gray'>共有<b>$total</b>个用户</span>" ?>
 	<?php renderOrderTable($result, $dispose_status); ?>
 	<br/><br/><br/>
 	<div id="orderlist_page" style="position: fixed;width: 100%;bottom: 0px;background-color: white;border-width: 1px; border-style: solid; border-color: #ffffff; border-top-color: #e6e6e6; padding-top: 6px;">
@@ -212,7 +269,7 @@ layui.use(['laypage', 'flow','laytpl','form'], function(){
 
 //搜索按钮事件
 function onSearch(){
-	var v = value_txt.value;
+	var v = value_txt.value.trim();
 	if(!v || (v && v.length<=0)){
 		layui.layer.msg("不能为空");
 		return;
