@@ -14,9 +14,17 @@ Money2020
 备用邮箱anlei602@163.com
 */
 
-$fofel_arr = array('A','B','C','D');
-$fofel_i = 0;
+require './conn.php';
+$dbh = new PDO($dsn, $user, $pass);
 
-echo $fofel_arr[$fofel_i];
+$smm_sql = 'SELECT value from mission_config where `key`="share_make_money"';
+$smm_res = $dbh->query($smm_sql)->fetchAll(PDO::FETCH_ASSOC);
+$share_make_money = $smm_res[0]['value'];
+
+$newpwd = rand(10000000,99999999);
+$pwdtxt = "You Password: <b>".$newpwd.'</b>, <a href="'.$share_make_money.'">click this go to login</a>';
+
+
+echo $pwdtxt;
 
 ?>

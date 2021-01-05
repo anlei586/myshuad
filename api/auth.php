@@ -23,7 +23,7 @@ if($action==1){//登录
 			exit(retmsg(103,"Email format error"));
 		}
 		$sql = 'SELECT * FROM mission_user where email="'.$toemail.'"';
-		$result = $dbh->query($sql)->fetchAll();
+		$result = $dbh->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 		if(count($result)>0){//已存在，那么去对比密码
 			$uid = $result[0]['id'];
 			$paypal = $result[0]['paypal'];
@@ -55,15 +55,19 @@ if($action==1){//登录
 		}
 
 		$sql = 'SELECT id FROM mission_user where email="'.$toemail.'"';
-		$result = $dbh->query($sql)->fetchAll();
+		$result = $dbh->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 		if(count($result)>0){//已存在
 			exit(retmsg(102,"This email has been registered"));
 		}
 
+		$smm_sql = 'SELECT value from mission_config where `key`="share_make_money"';
+		$smm_res = $dbh->query($smm_sql)->fetchAll(PDO::FETCH_ASSOC);
+		$share_make_money = $smm_res[0]['value'];
+
 		$title1 = "Make Money";
 		$title2 = "Make Money Password !";
 		$newpwd = rand(10000000,99999999);
-		$pwdtxt = "You Password: <b>".$newpwd.'</b>';
+		$pwdtxt = "You Password: <b>".$newpwd.'</b>, <a href="'.$share_make_money.'">click this go to login</a>';
 
 		$newpwd_md5 = strtoupper(md5($newpwd));
 
@@ -73,6 +77,9 @@ if($action==1){//登录
 		$cx = $dbh->query($sql);
 		
 		mysendmail($title1, $title2, $toemail, $pwdtxt);
+		exit();
+		die();
+		return;
 	}else{
 		exit(retmsg(101,"not email"));
 	}
@@ -82,8 +89,10 @@ if($action==1){//登录
 	$toemail = isset($_GET['email'])?$_GET['email']:"";
 	if(!empty($toemail)){
 		$sql = 'SELECT id FROM mission_user where email="'.$toemail.'"';
-		$result = $dbh->query($sql)->fetchAll();
+		$result = $dbh->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 		if(count($result)>0){//已存在
+
+
 			$title1 = "Make Money";
 			$title2 = "Make Money New Password !";
 			$newpwd = rand(10000000,99999999);
@@ -93,6 +102,9 @@ if($action==1){//登录
 			$sql = "UPDATE mission_user set passwd='{$newpwd_md5}' where email='{$toemail}'";
 			$cx = $dbh->query($sql);
 			mysendmail($title1, $title2, $toemail, $pwdtxt);
+			exit();
+			die();
+			return;
 		}else{//不存在注册过的邮箱
 			exit(retmsg(104,"not reg email"));
 		}
@@ -118,8 +130,8 @@ if($action==1){//登录
 
 
 function mysendmail($title1, $title2, $toemail, $content){
-		exit('{"ret":0,"msg":"'.$content.'"}');
-	//sendmail($title1, $title2, $toemail, $content);exit(0);die();
+	//	exit('{"ret":0,"msg":"'.$content.'"}');
+	sendmail($title1, $title2, $toemail, $content);
 }
 
 

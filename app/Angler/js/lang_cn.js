@@ -15,6 +15,7 @@ var lang_var = {
 				total_commission:"您的佣金",
 				commission:"佣金",
 				principal:"总本金",
+				dayreward:"每日任务奖励", reward:"奖励", dayreward_explain:"每日任务奖励说明",
 				interest:"总利息",
 				commission_team:"团队佣金",
 				is_draw_money_total:"可提现金额",
@@ -30,7 +31,7 @@ var lang_var = {
 				help:"帮助",
 				logout:"退出登录",
 				mission_note:"任务说明：<br/>&nbsp;&nbsp;&nbsp;&nbsp;1.点击以下任务列表按钮，会跳转到商品网页进行购买即可获得佣金。<br/>&nbsp;&nbsp;&nbsp;&nbsp;2.三天内，一个商品只能购买一次。<br/>&nbsp;&nbsp;&nbsp;&nbsp;3.请确认您购买商品所填写的邮箱与Make Money邮箱一致，否则联系客服修改。<br/>&nbsp;&nbsp;&nbsp;&nbsp;4.购买商品后的第三天可以确认收货，那么佣金会立即到帐。<br/>&nbsp;&nbsp;&nbsp;&nbsp;5.如果您取消订单、申请退款、申请退货，那么您无法得到佣金和利息。",
-				help_note:"1. 我们会为您订单费用计算利息，例如：订单金额$20，佣金为$2，每日利息为$20+$2=$22*0.00006323=$0.00139106 (即使您什么都不做，您每日也能得到$0.00139106)<br/>2. 团队的佣金奖励不计算利息。<br/>3.完成的订单既可以提现又可以继续再买一次来轻松增加佣金。<br/>",
+				help_note:"1. 我们会为您订单费用计算利息，例如：订单金额$20，佣金为$2，每日利息为$20+$2=$22*0.00006323=$0.00139106 (即使您什么都不做，您每日也能得到$0.00139106)<br/>2. 团队的佣金奖励不计算利息。<br/>3.完成的订单既可以提现又可以继续再买一次来轻松增加佣金。<br/>4.每日任务奖励：2日后（即第三天完成订单后会发放奖励)",
 				order_status:"订单状态",
 				total_money:"金额",
 				order_total_interest:"订单利息",
@@ -46,6 +47,7 @@ var lang_var = {
 				ok_isdraw_money_to_paypal:"提现到银行帐号", please_input_confri_data:"请填写正确的字符", ok_draw_money_complete:"请耐心等待管理员审核。",
 				TIP_NOT_MONEY_DRAW:"没有可提现的余额", again_onec_buy:"再买一次",
 				again_onec_buy_help_tip:"我们的工作人员会用您的这笔订单的钱再买一单，无须您更多的操作，您的佣金会成自动增加。",
+				DAY_ORDER_Total:"每日订单总数", ORDER_Total:"订单总数", DATE_TIP:"日期", MISSION_Progress_TIP:"任务完成度", WAIT_COMPLETE_TIP:"等待完成",
 			}
 		}
 	},

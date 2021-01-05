@@ -1,3 +1,23 @@
+var initdata_obj;
+var mission_vue;
+var me_vue;
+var notice_vue;
+var capital_details_vue;
+var my_business_partner_vue;
+var draw_money_vue;
+var day_mission_reward_vue;
+
+var team_isdrawmoney_total=0;//团队可提现的总额
+var ordermoney_total=0;//总本金
+var commissionmoney_total=0;//总佣金
+var interestmoney_total=0;//总利息
+
+var interest=0.0000001;//利息分比例
+var commission_proportion=0.10;//佣金百分比例
+
+
+
+
 (function($, window) {  
     //显示加载框  
     $.showLoading = function(message,type) {  
@@ -54,23 +74,6 @@
         }  
       }  
 })(mui, window);
-
-
-var initdata_obj;
-var mission_vue;
-var me_vue;
-var notice_vue;
-var capital_details_vue;
-var my_business_partner_vue;
-var draw_money_vue;
-
-var team_isdrawmoney_total=0;//团队可提现的总额
-var ordermoney_total=0;//总本金
-var commissionmoney_total=0;//总佣金
-var interestmoney_total=0;//总利息
-
-var interest=0.0000001;//利息分比例
-var commission_proportion=0.10;//佣金百分比例
 
 function fillVue(){
 	//填充tab栏
@@ -260,7 +263,7 @@ function pulldownRefresh() {
 	ordermoney_total=0;//总本金
 	commissionmoney_total=0;//总佣金
 	interestmoney_total=0;//总利息
-	mui.showLoading("loading..","div");
+	mui.showLoading("loading...","div");
 	myajax(config_var.host+"initdata.php?ac=1",
 	{dataType:'json',success:function(res) {
 		mui.hideLoading(null);
@@ -404,6 +407,68 @@ function pulldownRefresh() {
 			capital_details_vue.capital_details = res.meorder;
 		}
 		
+		//每日任务奖励说明
+		var daymission_reward_data=[];
+		var daymission_reward_data_arr = getConfig(res.config, "daymissionreward").split(",");
+		for(var i=0;i<daymission_reward_data_arr.length;i++){
+			var _arr = daymission_reward_data_arr[i].split("=");
+			var _obj = {
+				level:i,
+				ordertotal: parseFloat(_arr[0]),
+				reward: parseFloat(_arr[1]),
+			}
+			daymission_reward_data.push(_obj);
+		}
+		//把自己的订单分割出来
+		//得到某天共有多少单
+		var _cdObj = {};
+		for(var j1=0;j1<__capital_details.length;j1++){
+			var __item = __capital_details[j1];
+			var __isComp = __item.status=="wc-completed";
+			var __date = __item['date_created_gmt'].split(" ")[0];
+			if(!_cdObj.hasOwnProperty(__date))
+			{
+				_cdObj[__date] = {
+					date:__date,
+					//count: parseInt(Math.random()*100),
+					count: __isComp ? 1 : 0,
+				};
+			}else{
+				_cdObj[__date].count++;
+			}
+		}
+		//把订单按日期从晚到早排序
+		var day_mission_reward_total = 0;//每日任务奖励总共有得了多少钱
+		var _cdArr = [];
+		for(var __date in _cdObj){
+			var __progress = "";
+			var __reward = 0;
+			for(var j2=0;j2<daymission_reward_data.length;j2++){
+				if(_cdObj[__date].count>=daymission_reward_data[j2].ordertotal){
+					__progress = __progress + "+" + daymission_reward_data[j2].reward;
+					__reward = __reward + daymission_reward_data[j2].reward;
+					day_mission_reward_total += daymission_reward_data[j2].reward;
+				}
+			}
+			_cdObj[__date]['progress'] = __progress.substr(1);
+			_cdObj[__date]['reward'] = __reward;
+			_cdArr.push(_cdObj[__date]);
+		}
+		_cdArr.sort(function(a,b) { return a['date'] < b['date']; });
+		var daymission = _cdArr;
+		
+		//每日任务奖励
+		if(!day_mission_reward_vue){
+			day_mission_reward_vue = new Vue({
+				el: '#daymission_reward',
+				data: {
+					tab_menu:lang_var.tab_menu,
+					daymission_reward_data:daymission_reward_data,
+					daymission:daymission,
+				},
+			});
+		}
+		
 		var __my_business_partner = coveMeTeamOrder(res.meteamorder);
 		//我的团队
 		if(!my_business_partner_vue){
@@ -484,7 +549,7 @@ function pulldownRefresh() {
 			methods:{
 				createShareLink:function(){
 					var share_make_money = getConfig(res.config, "share_make_money");
-					var _url = share_make_money+"reg.html?incode="+initdata_obj.uid;
+					var _url = share_make_money+"?incode="+initdata_obj.uid;
 					return _url;
 				},
 				onCopyShareLink:function(event){
@@ -517,6 +582,7 @@ function pulldownRefresh() {
 				,team_isdrawmoney_total:team_isdrawmoney_total.toFixed(4)//团队佣金
 				,isdrawmoney_total:__isdrawmoney_total.toFixed(4)//可提现金额
 				,notice_len:notice_len
+				,day_mission_reward_total:day_mission_reward_total.toFixed(4)
 			}
 		};
 		//填充-我的数据
