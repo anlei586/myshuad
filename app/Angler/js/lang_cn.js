@@ -47,7 +47,7 @@ var lang_var = {
 				ok_isdraw_money_to_paypal:"提现到银行帐号", please_input_confri_data:"请填写正确的字符", ok_draw_money_complete:"请耐心等待管理员审核。",
 				TIP_NOT_MONEY_DRAW:"没有可提现的余额", again_onec_buy:"再买一次",
 				again_onec_buy_help_tip:"我们的工作人员会用您的这笔订单的钱再买一单，无须您更多的操作，您的佣金会成自动增加。",
-				DAY_ORDER_Total:"每日订单总数", ORDER_Total:"订单总数", DATE_TIP:"日期", MISSION_Progress_TIP:"任务完成度", WAIT_COMPLETE_TIP:"等待完成",
+				DAY_ORDER_Total:"每日完成的订单总数", ORDER_COMPLETE_Total:"完成的订单数", ORDER_OTHER_Total:"其他的订单数", DATE_TIP:"日期", MISSION_Progress_TIP:"任务完成度", WAIT_COMPLETE_TIP:"等待完成",
 			}
 		}
 	},

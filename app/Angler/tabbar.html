@@ -296,13 +296,13 @@
 							{{tab_menu.me.lab.DATE_TIP}}
 						</li>
 						<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3" style="font-size: 8px;padding: 0px;vertical-align: middle;color: #000000;word-wrap: break-word;word-break: normal;border-color: #FFFFFF;">
-							{{tab_menu.me.lab.ORDER_Total}}
+							{{tab_menu.me.lab.ORDER_COMPLETE_Total}}
+						</li>
+						<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3" style="font-size: 8px;padding: 0px;vertical-align: middle;color: #000000;word-wrap: break-word;word-break: normal;border-color: #FFFFFF;">
+							{{tab_menu.me.lab.ORDER_OTHER_Total}}
 						</li>
 						<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3" style="font-size: 8px;padding: 0px;vertical-align: middle;color: #000000;word-wrap: break-word;word-break: normal;border-color: #FFFFFF;">
 							{{tab_menu.me.lab.MISSION_Progress_TIP}}
-						</li>
-						<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3" style="font-size: 8px;padding: 0px;vertical-align: middle;color: #000000;word-wrap: break-word;word-break: normal;border-color: #FFFFFF;">
-							{{tab_menu.me.lab.reward}}
 						</li>
 					</ul>
 					<ul class="mui-table-view" style="margin: 0px 0px 8px 0px;padding: 1px 0px 1px 0px;">
@@ -311,14 +311,14 @@
 								<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3" style="font-size: 8px;padding: 0px;vertical-align: middle;color: #000000;word-wrap: break-word;word-break: normal;border-color: #FFFFFF;">
 									{{item.date}}
 								</li>
+								<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3" style="font-size: 8px;padding: 0px;vertical-align: middle;color: #009e00;word-wrap: break-word;word-break: normal;border-color: #FFFFFF;">
+									{{item.complete_count}}
+								</li>
 								<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3" style="font-size: 8px;padding: 0px;vertical-align: middle;color: #FF5053;word-wrap: break-word;word-break: normal;border-color: #FFFFFF;">
-									{{item.count}}
+									{{item.other_count}}
 								</li>
 								<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3" style="font-size: 8px;padding: 0px;vertical-align: middle;color: #ee00ff;word-wrap: break-word;word-break: normal;border-color: #FFFFFF;">
-									{{item.progress}}
-								</li>
-								<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3" style="font-size: 8px;padding: 0px;vertical-align: middle;color: #009e00;word-wrap: break-word;word-break: normal;border-color: #FFFFFF;">
-									{{item.reward <= 0 ? 0 : "$"+item.reward.toFixed(2)}}
+									{{item.progress}}{{item.reward <= 0 ? "0" : " = $"+item.reward.toFixed(0)}}
 								</li>
 							</ul>
 						</li>

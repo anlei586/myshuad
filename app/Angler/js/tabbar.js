@@ -430,11 +430,17 @@ function pulldownRefresh() {
 			{
 				_cdObj[__date] = {
 					date:__date,
-					//count: parseInt(Math.random()*100),
-					count: __isComp ? 1 : 0,
+					complete_count: __isComp ? 1 : 0,
+					other_count: __isComp ? 0 : 1,
+					//complete_count: parseInt(Math.random()*100),	//测试数据，这行需要注释掉
+					//other_count: parseInt(Math.random()*100),		//测试数据，这行需要注释掉
 				};
 			}else{
-				_cdObj[__date].count++;
+				if(__isComp){
+					_cdObj[__date].complete_count++;
+				}else{
+					_cdObj[__date].other_count++;
+				}
 			}
 		}
 		//把订单按日期从晚到早排序
@@ -444,7 +450,7 @@ function pulldownRefresh() {
 			var __progress = "";
 			var __reward = 0;
 			for(var j2=0;j2<daymission_reward_data.length;j2++){
-				if(_cdObj[__date].count>=daymission_reward_data[j2].ordertotal){
+				if(_cdObj[__date].complete_count>=daymission_reward_data[j2].ordertotal){
 					__progress = __progress + "+" + daymission_reward_data[j2].reward;
 					__reward = __reward + daymission_reward_data[j2].reward;
 					day_mission_reward_total += daymission_reward_data[j2].reward;
@@ -571,7 +577,7 @@ function pulldownRefresh() {
 		notice_len = notice_len-local_notice_len;
 		notice_len = notice_len.toString();
 		
-		var __isdrawmoney_total = commissionmoney_total+ordermoney_total+interestmoney_total+team_isdrawmoney_total;
+		var __isdrawmoney_total = commissionmoney_total + ordermoney_total + interestmoney_total + team_isdrawmoney_total + day_mission_reward_total;
 		//我的数据
 		var sv = {
 			me:{
