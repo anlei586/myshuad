@@ -1,30 +1,35 @@
+<?php
+ini_set('display_errors',1); //错误信息 
+ini_set('display_startup_errors',1); //php启动错误信息 
+error_reporting(-1); //打印出所有的 错误信息
+?>
 <?php function renderOrderTable($result, $dispose_status){
 global $status; 
 global $total;
 global $dayhmd_total;
 global $onc_arr;
-
 ?>
 <div class="layui-form">
 <table style="margin-left: 1%; width: 98%;" class="layui-table">
   <colgroup>
-    <col width="5%"><col width="5%">
-    <col width="5%"><col width="5%">
-    <col width="5%"><col width="5%">
-    <col width="5%"><col width="5%">
-    <col width="5%"><col width="5%">
-    <col width="5%"><col width="5%">
-    <col width="5%"><col width="5%">
-    <col width="5%"><col width="5%">
-    <col width="5%"><col width="5%">
-    <col width="5%"><col width="5%">
-    <col width="5%"><col width="5%">
-    <col width="5%"><col width="5%">
+    <col width="5%">
+    <col width="5%">
+    <col width="5%">
+    <col width="5%">
+    <col width="5%">
+    <col width="5%">
+    <col width="5%">
+    <col width="5%">
+    <col width="5%">
+    <col width="5%">
+    <col width="5%">
+    <col width="5%">
   </colgroup>
   <thead>
   	<tr style="background-color: #f7f7f7;">
 		<td colspan="18" style="text-align: left; ">
-			<button onclick="onTopBtnChangeSignClick(this);" type="button" class="layui-btn layui-btn-normal layui-btn-sm"><i class="layui-icon">&#xe716;</i>更改签收状态</button>
+			<button onclick="onTopBtnChangeSignClick(this);" type="button" class="layui-btn layui-btn-normal layui-btn-sm"><i class="layui-icon">&#xe716;</i>批量更改状态</button>
+			<button onclick="onAutoChangeOrderTwoDay(this);" type="button" class="layui-btn layui-btn-normal layui-btn-sm"><i class="layui-icon">&#xe716;</i>自动批量更改>2天的订单状态</button>
 			<?php
 			echo "<span style='padding-right: 20px;'>共查询到<font color='#FF0000'><b> {$total} </b></font>笔订单</span><span style='padding-right: 20px;'>今日有<font color='#FF0000'><b> {$dayhmd_total} </b></font>笔订单</span> 双击创建日期可编辑";
 			?>
@@ -81,7 +86,6 @@ global $onc_arr;
 </table>
 </div>
 <?php } ?>
-
 <?php
 
 $dayhmd = date("Y-m-d");
@@ -93,9 +97,21 @@ require './conn.php';
 //require './orderlistchild.php';
 
 
-$num = isset($_GET['num'])?$_GET['num']:10;
 
 $pdo = new PDO($dsn, $user, $pass);
+
+$action = isset($_GET['action'])?$_GET['action']:"";
+if(!empty($action)){
+	if($action == 3){
+		$sql = "UPDATE sd_wc_order_stats set status='wc-completed' WHERE status='wc-processing' and TO_DAYS( NOW( ) ) - TO_DAYS( date_created_gmt) >= 2";
+		$pdo->query($sql);
+		exit('{"ret":200}');
+	}
+}
+
+
+
+$num = isset($_GET['num'])?$_GET['num']:10;
 
 $sql = "select order_id from sd_wc_order_stats order by order_id DESC";
 $db  = $pdo->query($sql)->fetchAll();
@@ -232,17 +248,32 @@ layui.use(['laypage', 'flow','laytpl','form'], function(){
 
 	initLayui2();
 });
+
+function onAutoChangeOrderTwoDay(that){
+	var ind = layer.confirm('确定？', 
+	{
+		btn: ['确定', '取消'] //可以无限个按钮
+	},
+	function(index, layero) {
+		layer.close(ind);
+		var _ind = layui.layer.load(2);
+		layui.jquery.get("?action=3", function(rel){
+			layer.close(_ind);
+			var ret = JSON.parse(rel);
+			if(ret && ret.ret == 200){
+				layer.msg("修改成功");
+				window.location.reload();
+			}else{
+				layer.msg("失败");
+			}
+		});
+	},
+	function(index) {
+		//console.log("按钮【按钮2】的回调");
+	}
+	);
+}
+
+
 </script>
 <br/></body></html>
-
-<!--
-
-Pending payment
-Processing
-On hold
-Completed
-Cancelled
-Refunded
-Failed
-
--->

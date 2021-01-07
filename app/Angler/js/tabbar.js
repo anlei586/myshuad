@@ -12,6 +12,8 @@ var ordermoney_total=0;//总本金
 var commissionmoney_total=0;//总佣金
 var interestmoney_total=0;//总利息
 
+var my_team_member_total=0;//团队总人数
+
 var interest=0.0000001;//利息分比例
 var commission_proportion=0.10;//佣金百分比例
 
@@ -150,6 +152,7 @@ function coveMeTeamOrderLoop(list){
 	var arr = [];
 	var carr = [];
 	for(var _item in list){
+		my_team_member_total++;//团队总人数
 		var _orderList = list[_item].order;
 		if(_orderList){
 			for(var i=0;i<_orderList.length;i++){
@@ -263,7 +266,9 @@ function pulldownRefresh() {
 	ordermoney_total=0;//总本金
 	commissionmoney_total=0;//总佣金
 	interestmoney_total=0;//总利息
-	mui.showLoading("loading...","div");
+	my_team_member_total=0;//团队总人数
+	
+	mui.showLoading("loading ...","div");
 	myajax(config_var.host+"initdata.php?ac=1",
 	{dataType:'json',success:function(res) {
 		mui.hideLoading(null);
@@ -473,6 +478,9 @@ function pulldownRefresh() {
 					daymission:daymission,
 				},
 			});
+		}else{
+			day_mission_reward_vue.daymission_reward_data = daymission_reward_data;
+			day_mission_reward_vue.daymission = daymission;
 		}
 		
 		var __my_business_partner = coveMeTeamOrder(res.meteamorder);
@@ -482,7 +490,8 @@ function pulldownRefresh() {
 				el: '#my_business_partner',
 				data: {
 					tab_menu:lang_var.tab_menu,
-					my_business_partner:__my_business_partner
+					my_business_partner:__my_business_partner,
+					my_team_member_total:my_team_member_total
 				},
 				methods:{
 					getMinMoney:function(item){//取最小的金额

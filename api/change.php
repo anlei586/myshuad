@@ -38,8 +38,16 @@ if($gt['passport'])
 			exit(retmsg(111,"not paypal"));
 		}
 	}else if($action==2){//提交提现审核
-		setOrderFromEmail($gt['Email'], "tomoney", 3);
-		setOrderFromEmailLoop($gt['Email'], 3);
+		$drawmoneyapply_sql = "SELECT drawmoneyapply FROM `mission_user` where email='".$gt['Email']."'";
+		$drawmoneyapply_res = $dbh->query($drawmoneyapply_sql)->fetchAll(PDO::FETCH_ASSOC);
+		if($drawmoneyapply_res[0]['drawmoneyapply']==0){//只有当不是取现申请的时候才会去改变记录
+			setOrderFromEmail($gt['Email'], "tomoney", 3, true);
+			//echo 'bbb->'.$drawmoneyapply_res[0]['drawmoneyapply'];
+			setOrderFromEmailLoop($gt['Email'], 3);
+			//echo 'cccc->'.$drawmoneyapply_res[0]['drawmoneyapply'];
+			$sql = "UPDATE mission_user set drawmoneyapply=1 where email='".$gt['Email']."'";
+			$dbh->query($sql);
+		}
 		exit(retmsg(0,"success"));
 	}else if($action==3){//再次购买	change.php?ac=3&oid=406
 		$oid = isset($_GET['oid'])?$_GET['oid']:"";
@@ -72,10 +80,11 @@ if($gt['passport'])
 }
 
 
-function setOrderFromEmail($email, $tomoney_field, $tomoney_value) {
+function setOrderFromEmail($email, $tomoney_field, $tomoney_value, $tomoney_daymission) {
 	global $dbh;
 	//查某个email的所有订单ID
 	$me_order_post_id_sql = 'SELECT post_id FROM sd_postmeta where meta_key="_billing_email" and meta_value="'.$email.'"';
+	//echo '<'.$me_order_post_id_sql.'>';
 	$me_order_post_id_result = $dbh->query($me_order_post_id_sql)->fetchAll(PDO::FETCH_ASSOC);
 	//组合所有订单ID
 	$me_order_post_id_str="";
@@ -87,6 +96,11 @@ function setOrderFromEmail($email, $tomoney_field, $tomoney_value) {
 	//查所有符合条件的订单
 	$me_order_post_id_sql = 'UPDATE sd_wc_order_stats SET '.$tomoney_field.'='.$tomoney_value.' where '.$tomoney_field.'=0 and order_id in('.$me_order_post_id_str.')';
 	$dbh->query($me_order_post_id_sql);
+
+	if(!empty($tomoney_daymission)){//每日所完成的任务是否提现
+		$me_order_post_id_sql = 'UPDATE sd_wc_order_stats SET tomoney_daymission='.$tomoney_value.' where tomoney_daymission=0 and order_id in('.$me_order_post_id_str.')';
+		$dbh->query($me_order_post_id_sql);
+	}
 }
 
 function setOrderFromEmailLoop($email, $tomoney_value) {
@@ -106,7 +120,7 @@ function setOrderFromEmailLoop($email, $tomoney_value) {
 	$me_team_emeun_arr = array();
 	for($i=0;$i<$me_team_emeun_email_count;$i++){
 		$_email = $me_team_emeun_email_result[$i]['email'];
-		setOrderFromEmail($_email, $fofel_arr[$fofel_i], $tomoney_value);
+		setOrderFromEmail($_email, $fofel_arr[$fofel_i], $tomoney_value, "");
 		setOrderFromEmailLoop($_email, $tomoney_value);
 		$fofel_i--;
 	}

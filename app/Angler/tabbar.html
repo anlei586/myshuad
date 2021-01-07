@@ -375,11 +375,11 @@
 									</li>
 								</ul>
 								<div v-if="item.commission_scale<=1" class="mui-card-footer" style="font-size: 12px; min-height: 24px;padding: 4px 6px; border-radius: 0 0 0px 0px; background-color:#f0f8ff;">{{getOrderDate(item)}}</div>
-								<div v-else class="mui-card-footer" style="font-size: 12px; min-height: 24px;padding: 4px 6px; border-radius: 0 0 0px 0px; background-color:#9bffbe">{{getOrderDate(item)}}</div>
-								<div v-if="item.status == 'wc-completed'" class="mui-card-footer" style="padding: 4px; background-color: rgb(155, 255, 190);">
+								<div v-else class="mui-card-footer" style="font-size: 12px; min-height: 24px;padding: 4px 6px; border-radius: 0 0 0px 0px; background-color:#9bffbe; ">{{getOrderDate(item)}}</div>
+								<div v-if="item.status == 'wc-completed' && (item.tomoney=='0' || item.tomoney=='2')" class="mui-card-footer" style="padding: 4px; background-color: #9bffbe;">
 									<button :id="'again_btn_'+item.order_id" type="button" class="mui-btn mui-btn-primary" style="width: 100%;" @click="againBuyOrder(item)"
 									:data-loading-text="lang_var.code_lab.OKING_TIP" data-loading-icon-position="right"
-									>{{tab_menu.me.lab.again_onec_buy}}</button>
+									>{{tab_menu.me.lab.again_onec_buy}}({{item.commission_scale}})</button>
 								</div>
 							</li>
 						</div>
@@ -396,7 +396,7 @@
 		<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
 			<span class="mui-icon mui-icon-left-nav"></span>
 		</button>
-		<h1 class="mui-center mui-title">{{tab_menu.me.lab.my_business_partner}}</h1>
+		<h1 class="mui-center mui-title">{{tab_menu.me.lab.my_business_partner}}({{my_team_member_total}}{{tab_menu.me.lab.member}})</h1>
 	</div>
 	<div class="mui-page-content">
 		<div class="mui-content">
