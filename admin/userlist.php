@@ -448,6 +448,13 @@ function getLevelCommissionDrawmoney(order){
 	}
 }
 
+function dateSub(date_str1, date_str2){
+	var date_str1 = date_str1.replace(/\-/g, "/");
+	var date_str2 = date_str2.replace(/\-/g, "/");
+	var _day = new Date(date_str1)-new Date(date_str2);
+	return _day;
+}
+
 //展平自己的订单
 function coveMeOrder(meorder, ___tomoney){
 	for(var i=0;i<meorder.length;i++){
@@ -464,7 +471,7 @@ function coveMeOrder(meorder, ___tomoney){
 			//总利息
 			var _ovint = 0;
 			//服务器当前日期-下单日期=共下单了多少天
-			var _day = (new Date(server_date)-new Date(item.date_created_gmt)) / 1000 / (60 * 60 * 24);
+			var _day = dateSub(server_date, item.date_created_gmt) / 1000 / (60 * 60 * 24);
 			_day = parseInt(_day);
 			_ovint = interest * parseFloat(getItemMinMoney(item)) * _day;
 			interestmoney_total += _ovint;
@@ -749,7 +756,7 @@ function lookOrderList(that, id){
 					var _tomoney = parseInt(item.tomoney);
 					if(item.status == "wc-completed" && _tomoney == 0){
 						//服务器当前日期-下单日期=共下单了多少天
-						var _day = (new Date(server_date)-new Date(item.date_created_gmt)) / 1000 / (60 * 60 * 24);
+						var _day = dateSub(server_date, item.date_created_gmt) / 1000 / (60 * 60 * 24);
 						_day = parseInt(_day);
 						_ovint = interest * parseFloat(getItemMinMoney(item)) * _day;
 						_ovint = parseFloat(_ovint.toFixed(8));

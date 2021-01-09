@@ -35,3 +35,10 @@ function getConfig(res, key){
 	}
 	return null;
 }
+
+function dateSub(date_str1, date_str2){
+	var date_str1 = date_str1.replace(/\-/g, "/");
+	var date_str2 = date_str2.replace(/\-/g, "/");
+	var _day = new Date(date_str1)-new Date(date_str2);
+	return _day;
+}

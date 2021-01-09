@@ -10,6 +10,7 @@
     <col width="5%">
     <col width="5%">
     <col width="5%">
+    <col width="5%">
     <col>
   </colgroup>
   <thead>
@@ -17,6 +18,7 @@
       <th style="text-align: center; cursor: pointer;" onclick="onOrderIdSelectAll(this);">ID</th>
       <th style="text-align: center;">图片</th>
       <th style="text-align: center;">图片地址</th>
+      <th style="text-align: center;">价格</th>
       <th style="text-align: center;">标题</th>
       <th style="text-align: center;">库存</th>
       <th style="text-align: center;">商品链接</th>
@@ -29,6 +31,7 @@
       <td><input id="id_<?php echo $_id; ?>" type="checkbox" name="" title="<?php echo $_id; ?>" lay-skin="primary"></td>
       <td><img width="100" src="<?php echo $value['img']; ?>"/></td>
       <td><?php echo $value['img']; ?></td>
+      <td><?php echo $value['price']; ?></td>
       <td><?php
 	  $_dn = $value["title"];
 	  $_dn = str_replace("\n","", $_dn);
@@ -78,10 +81,11 @@ if(isset($_GET['action'])){
 	}else if($action == 3){
 		$img = $_POST['img'];
 		$title = $_POST['title'];
+		$price = $_POST['price'];
 		$stock = $_POST['stock'];
 		$link = $_POST['link'];
 		if(isset($img) && isset($title) && isset($stock) && isset($link)){
-			$sql = "insert INTO mission_mission(title, stock, img, link) VALUES('{$title}','{$stock}','{$img}','{$link}')";
+			$sql = "insert INTO mission_mission(title, price, stock, img, link) VALUES('{$title}','{$price}','{$stock}','{$img}','{$link}')";
 			//echo $sql;
 			$pdo->exec($sql);
 			echo '{"ret":200}';
@@ -169,6 +173,7 @@ function replace(str, flag, rep){
 </div>
 <div class="layui-form-item" style="margin-bottom:0px; padding: 10px;text-align: center;display: flex;">
 	<input type="text" name="img_txt" id="img_txt" required lay-verify="required" placeholder="图片地址" autocomplete="off" class="layui-input" style="text-align:center;padding-top: 0px;margin-right: 8px;display: inline;" value="" >
+	<input type="text" name="price_txt" id="price_txt" required lay-verify="required" placeholder="价格" autocomplete="off" class="layui-input" style="text-align:center;padding-top: 0px;margin-right: 8px;display: inline;" value="" >
 	<input type="text" name="title_txt" id="title_txt" required lay-verify="required" placeholder="标题" autocomplete="off" class="layui-input" style="text-align:center;padding-top: 0px;margin-right: 8px;display: inline;" value="" >
 	<input type="text" name="stock_txt" id="stock_txt" required lay-verify="required" placeholder="库存" autocomplete="off" class="layui-input" style="text-align:center;padding-top: 0px;margin-right: 8px;display: inline;" value="" >
 	<input type="text" name="link_txt" id="link_txt" required lay-verify="required" placeholder="商品链接" autocomplete="off" class="layui-input" style="text-align:center;padding-top: 0px;margin-right: 8px;display: inline;" value="" >
@@ -322,6 +327,7 @@ function onConfirmDeleteProducts(){
 function onAddProduct(){
 	var img_txt = document.getElementById('img_txt');
 	var title_txt = document.getElementById('title_txt');
+	var price_txt = document.getElementById('price_txt');
 	var stock_txt = document.getElementById('stock_txt');
 	var link_txt = document.getElementById('link_txt');
 	if(!img_txt.value){
@@ -330,6 +336,10 @@ function onAddProduct(){
 	}
 	if(!title_txt.value){
 		layui.layer.msg("标题不能为空");
+		return;
+	}
+	if(!price_txt.value){
+		layui.layer.msg("价格不能为空");
 		return;
 	}
 	if(!stock_txt.value){
@@ -342,6 +352,7 @@ function onAddProduct(){
 	}
 	var data = {
 		img:img_txt.value.trim()
+		,price:price_txt.value.trim()
 		,title:title_txt.value.trim()
 		,stock:stock_txt.value.trim()
 		,link:link_txt.value.trim()

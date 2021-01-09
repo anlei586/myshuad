@@ -6,6 +6,7 @@ var capital_details_vue;
 var my_business_partner_vue;
 var draw_money_vue;
 var day_mission_reward_vue;
+var customer_service_vue;
 
 var team_isdrawmoney_total=0;//团队可提现的总额
 var ordermoney_total=0;//总本金
@@ -30,7 +31,7 @@ var commission_proportion=0.10;//佣金百分比例
         } else {  
             var html = '';  
             html += '<i class="mui-spinner mui-spinner-white"></i>';  
-            html += '<p class="text">' + (message || "数据加载中") + '</p>';  
+            html += '<p class="text">' + (message || "loading ...") + '</p>';  
 
             //遮罩层  
             var mask=document.getElementsByClassName("mui-show-loading-mask");  
@@ -88,6 +89,13 @@ function fillVue(){
 	//app name
 	new Vue({
 		el: '.vuefill2',
+		data: {
+			data:lang_var.tab_menu_lab
+		}
+	});
+	//任务分类
+	new Vue({
+		el: '#sliderSegmentedControl',
 		data: {
 			data:lang_var.tab_menu_lab
 		}
@@ -184,7 +192,7 @@ function coveMeTeamOrderLoop(list){
 		};
 		_interest = _interestObj[item["level"]];
 		//服务器当前日期-下单日期=共下单了多少天
-		var _day = (new Date(res.date.date)-new Date(item.date_created_gmt)) / 1000 / (60 * 60 * 24);
+		var _day = dateSub(res.date.date, item.date_created_gmt) / 1000 / (60 * 60 * 24);
 		_day = parseInt(_day);
 		_ovint = _interest * parseFloat(getItemMinMoney(item)) * _day;
 		_ovint = parseFloat(_ovint.toFixed(8));
@@ -241,7 +249,7 @@ function coveMeOrder(meorder){
 			//总利息
 			var _ovint = 0;
 			//服务器当前日期-下单日期=共下单了多少天
-			var _day = (new Date(initdata_obj.date.date)-new Date(item.date_created_gmt)) / 1000 / (60 * 60 * 24);
+			var _day = dateSub(initdata_obj.date.date, item.date_created_gmt) / 1000 / (60 * 60 * 24);
 			_day = parseInt(_day);
 			_ovint = interest * parseFloat(getItemMinMoney(item)) * _day;
 			interestmoney_total += _ovint;
@@ -285,13 +293,41 @@ function pulldownRefresh() {
 		//佣金百分比例
 		commission_proportion = parseFloat(getConfig(res.config, "commission_proportion"));
 		
+		
+		//任务商品的价格区间  0-25,26-50,51-9999
+		var mission_product_price_gap = getConfig(res.config, "mission_product_price_gap");
+		var mission_list = {};//商品分为0,1,2类
+		var mission_product_price_arr = [];//把价格区间存入数组
+		var pa_arr = mission_product_price_gap.split(",");
+		for(var pa=0;pa<pa_arr.length;pa++){
+			var ___arr = pa_arr[pa].split("-");
+			var ___obj = {
+				min:___arr[0],
+				max:___arr[1]
+			};
+			mission_product_price_arr.push(___obj);
+			mission_list[pa] = [];
+		}
+		for(var ms=0;ms<res.mission.length;ms++){
+			var ___price = parseFloat(res.mission[ms].price);
+			for(pa=0;pa<mission_product_price_arr.length;pa++){
+				var ___obj = mission_product_price_arr[pa];
+				if(___price > ___obj.min && ___price <= ___obj.max){
+					mission_list[pa].push(res.mission[ms]);
+				}
+			}
+		}
+		//console.log(mission_list);
+		
 		//填充-任务列表
 		if(!mission_vue){
 			mission_vue = new Vue({
 				el: '#tabbar-with-mission',
 				data: {
 					tab_menu:lang_var.tab_menu,
-					mission_items:res.mission
+					mission_items0:mission_list[0],
+					mission_items1:mission_list[1],
+					mission_items2:mission_list[2],
 				}
 			});
 		}else{
@@ -342,7 +378,7 @@ function pulldownRefresh() {
 						var _tomoney = parseInt(item.tomoney);
 						if(item.status == "wc-completed" && _tomoney == 0){
 							//服务器当前日期-下单日期=共下单了多少天
-							var _day = (new Date(res.date.date)-new Date(item.date_created_gmt)) / 1000 / (60 * 60 * 24);
+							var _day = dateSub(res.date.date, item.date_created_gmt) / 1000 / (60 * 60 * 24);
 							_day = parseInt(_day);
 							_ovint = interest * parseFloat(getItemMinMoney(item)) * _day;
 							_ovint = parseFloat(_ovint.toFixed(8));
@@ -581,6 +617,32 @@ function pulldownRefresh() {
 			}
 		});
 		
+		//填充客服 view
+		new Vue({
+			el: '#customer_service_view',
+			data: {
+				tab_menu:lang_var.tab_menu
+			},
+			methods:{
+				getServiceInfo:function(){
+					var customer_service = getConfig(res.config, "customer_service");
+					return customer_service;
+				},
+				onCopyServiceInfo:function(event){
+					var code_sp = document.getElementById("serviceInfo_txt");
+					const range = document.createRange();
+					range.selectNode(code_sp);
+					const selection = window.getSelection();
+					if(selection.rangeCount > 0) selection.removeAllRanges();
+					selection.addRange(range);
+					document.execCommand('copy');
+					mui.toast(lang_var.tab_menu.me.lab.copy_link_tip3);
+					
+				},
+			}
+		});
+		
+		
 		var notice_len = res.notice.length;
 		var local_notice_len = localStorage.getItem("noticelen");
 		notice_len = notice_len-local_notice_len;
@@ -762,7 +824,12 @@ function quitAccount(){
 var viewApi = mui('#app').view({
 	defaultPage: '#app_content'
 });
-mui('.mui-scroll-wrapper').scroll();
+
+mui('.mui-scroll-wrapper').scroll({
+	bounce: false,
+	indicators: true, //是否显示滚动条
+	deceleration:0.0009
+});
 var view = viewApi.view;
 (function($) {
 	//处理view的后退与webview后退

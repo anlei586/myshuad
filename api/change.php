@@ -38,6 +38,11 @@ if($gt['passport'])
 			exit(retmsg(111,"not paypal"));
 		}
 	}else if($action==2){//提交提现审核
+		$ww = date("w");
+		if($ww!=2 || $ww!=5){
+			exit(retmsg(116,"Time is not up"));
+			return;
+		}
 		$drawmoneyapply_sql = "SELECT drawmoneyapply FROM `mission_user` where email='".$gt['Email']."'";
 		$drawmoneyapply_res = $dbh->query($drawmoneyapply_sql)->fetchAll(PDO::FETCH_ASSOC);
 		if($drawmoneyapply_res[0]['drawmoneyapply']==0){//只有当不是取现申请的时候才会去改变记录
@@ -60,7 +65,8 @@ if($gt['passport'])
 				if($res[0]['status']=='wc-completed'){
 					$commission_scale = $res[0]['commission_scale'];
 					$commission_scale++;
-					$sql = "UPDATE sd_wc_order_stats set status='wc-processing', commission_scale=".$commission_scale.' where order_id='.$oid;
+					$_date = date("Y-m-d H:i:s");
+					$sql = "UPDATE sd_wc_order_stats set date_created='{$_date}', date_created_gmt='{$_date}', status='wc-processing', commission_scale=".$commission_scale.' where order_id='.$oid;
 					$cx = $dbh->query($sql);
 					exit(retmsg(0,"success"));
 				}else{
