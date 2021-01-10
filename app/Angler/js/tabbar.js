@@ -587,10 +587,6 @@ function pulldownRefresh() {
 		
 		
 		
-		
-		
-		
-		
 		//填充免费招募员工 view
 		new Vue({
 			el: '#share_link_view',
@@ -600,7 +596,8 @@ function pulldownRefresh() {
 			methods:{
 				createShareLink:function(){
 					var share_make_money = getConfig(res.config, "share_make_money");
-					var _url = share_make_money+"?incode="+initdata_obj.uid;
+					var _lang = localStorage.getItem("lang");
+					var _url = share_make_money+"?lang="+_lang+"&incode="+initdata_obj.uid;
 					return _url;
 				},
 				onCopyShareLink:function(event){

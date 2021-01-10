@@ -1,4 +1,5 @@
-var lang_var = {
+var lang_var = {};
+var lang_cn = {
 	code_lab:{
 		YES:"是", NO:"否", TIP:"提示~", ERROR_1:"加载数据似乎出现问题了，请刷新。",
 		OPEN_LINK:"打开商品链接？", OKING_TIP:"提交中..."
@@ -54,6 +55,69 @@ var lang_var = {
 				TIP_NOT_MONEY_DRAW:"没有可提现的余额", TIP_MONEY_DRAW_TIME:"提现时间:周二和周五", again_onec_buy:"再买一次",
 				again_onec_buy_help_tip:"我们的工作人员会用您的这笔订单的钱再买一单，无须您更多的操作，您的佣金会成自动增加。",
 				DAY_ORDER_Total:"每日完成的订单总数", ORDER_COMPLETE_Total:"完成的订单数", ORDER_OTHER_Total:"其他的订单数", DATE_TIP:"日期", MISSION_Progress_TIP:"任务完成度", WAIT_COMPLETE_TIP:"等待完成",
+			}
+		}
+	},
+	
+};
+
+var lang_en = {
+	code_lab:{
+		YES:"YES", NO:"NO", TIP:"Tip~", ERROR_1:"There seems to be a problem loading data, please refresh.",
+		OPEN_LINK:"Open product link？", OKING_TIP:"submitting..."
+	},
+	tab_menu_lab:{
+		mission:"Task",
+		me:"Me",
+		appname:"Make Money",
+		mission_catg_items_shopee:"[Shopee]",
+		mission_catg_items_lazada:"[Lazada]",
+		mission_catg_items_amazon:"[Amazon]",
+	},
+	tab_menu:{
+		me:{
+			lab:{
+				member:"Member",
+				user_email:"User Email",
+				total_commission:"Your Commission",
+				commission:"Commission",
+				principal:"Total Principal",
+				dayreward:"Daily task reward", reward:"Reward", dayreward_explain:"Daily task reward description",
+				interest:"Total Interest",
+				commission_team:"Team Commission",
+				is_draw_money_total:"Cash withdrawal",
+				public_notice:"Notice",
+				capital_details:"My Order",
+				my_business_partner:"My Team",
+				share_make_money:"Recruit Staff",
+				copy_tip:"Copy",
+				copy_link_tip:"Copy link -> send to your relatives and friends",
+				copy_link_tip2:"Copy link",
+				copy_link_tip3:"Copy successfully",
+				draw_money:"Cash withdrawal",
+				confri_tip:"Confirm",
+				customer_service:"Customer Service",
+				help:"Help",
+				logout:"Logout",
+				mission_note:"Task description: <br/>&nbsp;&nbsp;&nbsp;&nbsp;1.Click the task list button below, and you will be redirected to the product page to make a purchase to get commission.<br/>&nbsp;&nbsp;&nbsp;&nbsp;2.A product can only be purchased once within three days.<br/>&nbsp;&nbsp;&nbsp;&nbsp;3.Please make sure that the email address you filled in for the product is the same as the [Make Money] email address.<br/>&nbsp;&nbsp;&nbsp;&nbsp;4.The receipt can be confirmed on the third day after the purchase of the goods, and the commission will be paid immediately.<br/>&nbsp;&nbsp;&nbsp;&nbsp;5.If you cancel an order, apply for a refund, or apply for a return, then you will not receive commission and interest.",
+				help_note:"1. We will calculate interest for your order fee，E.g：order amount $20，commission $2，Daily interest $20+$2=$22*0.00006323=$0.00139106 (Even if you do nothing, you can get $0.00139106)<br/>2. Does not calculate the team's commission reward interest.<br/>3.The completed order can be withdrawn and you can continue to buy it again to easily increase the commission. This function is not available for orders that have been withdrawn.<br/>4.Daily task rewards: rewards will be issued after the order is completed on the third day",
+				share_make_money_fxnote:'<font color="#0062CC"><b>B</b></font> is <font color="#ee0053"><b>your</b></font> employee.<br/><font color="#f4a300"><b>C</b></font> is <font color="#0062CC"><b>B </b></font>employee.<br/><font color="#aa00ff"><b>D</b></font> is <font color="#f4a300"><b>C </b></font>employee.<br/>We will give you an extra commission (will not reduce any employee\'s money)<br/>(1). <font color="#00b020"><b>35%</b></font> of <font color="#0062CC"><b>B</b></font>\'s commission belongs to you.<br/>(2). <font color="#00b020"><b>15%</b></font> of <font color="#f4a300"><b>C</b></font>\'s commission belongs to you.<br/>(3). &nbsp;&nbsp;<font color="#00b020"><b>5%</b></font> of <font color="#aa00ff"><b>D</b></font>\'s commission belongs to you.<br/>Note: The team commission does not calculate interest.',
+				order_status:"Order Status",
+				total_money:"Total Money",
+				order_total_interest:"Order Interest",
+				order_total_cut:"Cut",
+				order_draw_money_status:"Withdrawal Status",
+				draw_money_ok:"You can withdraw cash",
+				draw_money_verifing:"Under Review",
+				draw_money_verify_passport:"Approved",
+				draw_money_verify_decline:"Rejected",
+				draw_money_wait_completed:"Wait for completion",
+				ok_paypal_to_server:"Submit bank account", Please_Input_Paypal_Account:"please input Paypal account number",Please_Input_NewPaypal_Account:"please input New Paypal account number",
+				ok_isdraw_money_to_paypal:"Withdraw cash to your bank account", please_input_confri_data:"Please fill in the correct characters", ok_draw_money_complete:"Please wait patiently for the administrator review.",
+				TIP_NOT_MONEY_DRAW:"There is no cash balance", TIP_MONEY_DRAW_TIME:"Withdrawal time: Tuesday、Friday", again_onec_buy:"Buy again",
+				again_onec_buy_help_tip:"Our staff will use the money from your order to buy another order. No more action is required from you, and your commission will automatically increase.",
+				DAY_ORDER_Total:"The total number of orders completed per day", ORDER_COMPLETE_Total:"Number of completed orders", ORDER_OTHER_Total:"Other orders", DATE_TIP:"DATE",
+				MISSION_Progress_TIP:"Task completion", WAIT_COMPLETE_TIP:"Wait for completion",
 			}
 		}
 	},

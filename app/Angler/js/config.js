@@ -42,3 +42,35 @@ function dateSub(date_str1, date_str2){
 	var _day = new Date(date_str1)-new Date(date_str2);
 	return _day;
 }
+
+function getQueryVariable(variable)
+{
+   var query = window.location.search.substring(1);
+   var vars = query.split("&");
+   for (var i=0;i<vars.length;i++) {
+	   var pair = vars[i].split("=");
+	   if(pair[0] == variable){return pair[1];}
+   }
+   return "";
+}
+
+function setLanguageVars(){
+	//取URL语言变量
+	var language_str = getQueryVariable("lang");//cn,en
+	if(!language_str){//如果没有则去缓存取
+		language_str = localStorage.getItem("lang");
+		if(!language_str){//如果连缓存也没有就用默认的英文
+			language_str = 'en';
+		}
+	}
+	//保存到本地
+	localStorage.setItem("lang", language_str);
+	//判断是否有这个登事的变量
+	if(window['login_var']){
+		login_var = window['login_'+language_str];
+	}
+	//判断是否有这个登事的变量
+	if(window['lang_var']){
+		lang_var = window['lang_'+language_str];
+	}
+}
