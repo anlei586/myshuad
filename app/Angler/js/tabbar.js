@@ -674,7 +674,8 @@ function pulldownRefresh() {
 		
 		var draw_money_data = {
 			me_paypal:localStorage.getItem("paypal"),
-			me_isdrawmoney_total:__isdrawmoney_total.toFixed(4)
+			me_isdrawmoney_total:__isdrawmoney_total.toFixed(4),
+			display_drawmoney_ui:getConfig(res.config, "display_drawmoney_ui")
 		}
 		//提现UI
 		if(!draw_money_vue){
@@ -685,6 +686,11 @@ function pulldownRefresh() {
 					draw_money_data:draw_money_data
 				},
 				methods:{
+					onHelpClick:function(){
+						console.log("open udst");
+						//window.open("https://www.youtube.com/watch?v=Si_KLSbNSZ8");
+						window.open("drawmoneyhelp.html");
+					},
 					onSubPaypal:function(){//确定提交paypal号
 						var draw_money_paypal_txt = document.getElementById('draw_money_paypal_txt');
 						var sub_paypal_btn = document.getElementById('sub_paypal_btn');

@@ -28,6 +28,11 @@ google.com
 amara1897x@gmail.com
 dave741236
 
+vultr.com
+amara1897x@gmail.com
+Dave741236
+
+
 stripe
 amara1897x@gmail.com
 shoptago0087

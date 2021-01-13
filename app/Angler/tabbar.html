@@ -538,7 +538,7 @@
 	</div>
 	<div class="mui-page-content">
 		<div class="mui-content">
-			<div class="mui-scroll">
+			<div class="mui-scroll" v-if="capital_details_vue.capital_details.length>=draw_money_data.display_drawmoney_ui">
 				<div class="mui-card">
 					<ul class="mui-table-view" style=" margin-bottom: 0px; margin-top: 0px; ">
 						<li class="mui-table-view-cell mui-collapse mui-active" style=" background-color: #FFFFFF; ">
@@ -582,7 +582,11 @@
 						</li>
 					</ul>
 				</div>
+				<div class="mui-card" style="box-shadow: none; background-color: #efeff4;">
+					<button type="button" class="mui-btn mui-btn-block" @click="onHelpClick">{{tab_menu.me.lab.help}}</button>
+				</div>
 			</div>
+			<div class="mui-scroll" v-else><br/><center>{{tab_menu.me.lab.please_go_exec_mission}}</center></div>
 		</div>
 	</div>
 </div>
