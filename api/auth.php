@@ -75,8 +75,17 @@ if($action==1){//登录
 		//否则插入
 		$sql = "insert INTO mission_user(email, passwd, parent_id, date) VALUES('{$toemail}','{$newpwd_md5}','{$incode}','{$_date}')";
 		$cx = $dbh->query($sql);
+
+
+/*发送恭喜邮件给客户**/
+$gongxi_html = 'Welcome to make money.Our company mainly works with Shopee, Lazada and Amazon.Buy products to boost your site\'s sales rankings.We offer the following two ways of cooperation:<br/>&nbsp;&nbsp;&nbsp;&nbsp;1. By buying products.3 days later confirm receipt and give praise.We will refund the money to your account in the form of points.And we will give you a 10% commission of the total amount.You can either withdraw cash or continue to purchase products in the form of credits to earn commissions (after credits are deposited into the account, we will give a certain percentage of interest as compensation).<br/>&nbsp;&nbsp;&nbsp;&nbsp;2. Earn a certain amount of team commission through the development team.For specific cooperation methods, please refer to the relevant instructions of the platform or consult customer service.Thank you for your cooperation.';
+mysendmail($title1, $title1, $toemail, $gongxi_html);
+
+
+
+
 		
-		mysendmail($title1, $title2, $toemail, $pwdtxt);
+		echo mysendmail($title1, $title2, $toemail, $pwdtxt);
 		exit();
 		die();
 		return;
@@ -101,7 +110,7 @@ if($action==1){//登录
 			$_date = date("Y-m-d H:i:s");
 			$sql = "UPDATE mission_user set passwd='{$newpwd_md5}' where email='{$toemail}'";
 			$cx = $dbh->query($sql);
-			mysendmail($title1, $title2, $toemail, $pwdtxt);
+			echo mysendmail($title1, $title2, $toemail, $pwdtxt);
 			exit();
 			die();
 			return;
@@ -131,7 +140,7 @@ if($action==1){//登录
 
 function mysendmail($title1, $title2, $toemail, $content){
 	//	exit('{"ret":0,"msg":"'.$content.'"}');
-	sendmail($title1, $title2, $toemail, $content);
+	return sendmail($title1, $title2, $toemail, $content);
 }
 
 

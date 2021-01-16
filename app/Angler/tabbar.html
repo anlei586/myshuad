@@ -74,7 +74,7 @@
 											{{item.title}}
 											<p class='mui-ellipsis'>{{item.link}}</p>
 										</div>
-										<span class="mui-badge mui-badge-purple">{{item.stock}}</span>
+										<span class="mui-badge mui-badge-purple">{{tab_menu.me.lab.mission_item_stock_tip}}:{{item.stock}}</span>
 									</a>
 								</li>
 							</ul>
@@ -135,19 +135,19 @@
 							<span class="mui-media-body" style=" margin-top: 0px; height: 23px; ">
 								<span class="mui-badge mui-badge-primary" style=" font-size: 15px; ">+{{sv.me.total_commission}}</span>
 							</span>
-							<span class="mui-media-body" style=" margin-top: 8px; ">{{tab_menu.me.lab.total_commission}}</span>
+							<span class="mui-media-body" style=" height: 30px; font-size: 8px;">{{tab_menu.me.lab.total_commission}}</span>
 						</li>
 						<li class="mui-table-view-cell mui-media mui-col-xs-4 ">
 							<span class="mui-media-body" style=" margin-top: 0px; height: 23px; ">
 								<span class="mui-badge mui-badge-primary" style=" font-size: 15px; background-color: #53a2f9;">+{{sv.me.team_isdrawmoney_total}}</span>
 							</span>
-							<span class="mui-media-body" style=" margin-top: 8px; ">{{tab_menu.me.lab.commission_team}}</span>
+							<span class="mui-media-body" style=" height: 30px; font-size: 8px;">{{tab_menu.me.lab.commission_team}}</span>
 						</li>
 						<li class="mui-table-view-cell mui-media mui-col-xs-4 ">
 							<span class="mui-media-body" style=" margin-top: 0px; height: 23px; ">
 								<span class="mui-badge mui-badge-purple" style=" font-size: 15px; background-color: #f9b04a;">+{{sv.me.day_mission_reward_total}}</span>
 							</span>
-							<span class="mui-media-body" style=" margin-top: 8px; ">{{tab_menu.me.lab.dayreward}}</span>
+							<span class="mui-media-body" style=" height: 30px; font-size: 8px;">{{tab_menu.me.lab.dayreward}}</span>
 						</li>
 					</ul>
 					<ul class="mui-table-view mui-grid-view mui-grid-9" style=" border-top: none; border-left: none; border-bottom: none; background-color: #ffffff; ">
@@ -155,19 +155,19 @@
 							<span class="mui-media-body" style=" margin-top: 0px; height: 23px; ">
 								<span class="mui-badge mui-badge-purple" style=" font-size: 15px; ">+{{sv.me.total_interest}}</span>
 							</span>
-							<span class="mui-media-body" style=" margin-top: 8px; ">{{tab_menu.me.lab.interest}}</span>
+							<span class="mui-media-body" style=" height: 30px; font-size: 8px;">{{tab_menu.me.lab.interest}}</span>
 						</li>
 						<li class="mui-table-view-cell mui-media mui-col-xs-4 ">
 							<span class="mui-media-body" style=" margin-top: 0px; height: 23px; ">
 								<span class="mui-badge mui-badge-danger" style=" font-size: 15px; ">{{sv.me.total_principal}}</span>
 							</span>
-							<span class="mui-media-body" style=" margin-top: 8px; ">{{tab_menu.me.lab.principal}}</span>
+							<span class="mui-media-body" style=" height: 30px; font-size: 8px;">{{tab_menu.me.lab.principal}}</span>
 						</li>
 						<li class="mui-table-view-cell mui-media mui-col-xs-4 ">
 							<span class="mui-media-body" style=" margin-top: 0px; height: 23px; ">
 								<span class="mui-badge mui-badge-green" style=" font-size: 15px; ">{{sv.me.isdrawmoney_total}}</span>
 							</span>
-							<span class="mui-media-body" style=" margin-top: 8px; ">{{tab_menu.me.lab.is_draw_money_total}}</span>
+							<span class="mui-media-body" style=" height: 30px; font-size: 8px;">{{tab_menu.me.lab.is_draw_money_total}}</span>
 						</li>
 					</ul>
 					<div class="mui-card">
@@ -200,6 +200,11 @@
 							<li class="mui-table-view-cell">
 								<a href="#customer_service_view" class="mui-navigate-right">
 									{{tab_menu.me.lab.customer_service}}
+								</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a id="forgetPassword_btn" class="mui-navigate-right">
+									{{tab_menu.me.lab.forget_passwd}}
 								</a>
 							</li>
 							<li class="mui-table-view-cell">
@@ -241,7 +246,7 @@
 					<ul class="mui-table-view" style=" margin-bottom: 0px; margin-top: 0px; ">
 						<li class="mui-table-view-cell mui-collapse mui-active" v-for="item in notice_items" style=" background-color: #FFFFFF; ">
 							<a class="mui-navigate-right" href="#">{{item.title}}</a>
-							<div class="mui-collapse-content" style=" background-color: #eee; ">{{item.text}}</div>
+							<div class="mui-collapse-content" style=" background-color: #eee; " v-html="item.text">{{item.text}}</div>
 						</li>
 					</ul>
 				</div>
@@ -343,7 +348,7 @@
 				<!-- 每日任务奖励说明 -->
 				<div class="mui-card" style=" margin: 10px 10px 5px 10px; ">
 					<ul class="mui-table-view" style="border-top: none;padding: 0px;margin: 10px 0px;">
-						<li class="mui-table-view-cell" style="padding: 0px 20px;text-align: center;font-size: 8px;vertical-align: middle;color: rgb(0, 0, 0);word-wrap: break-word;word-break: normal;border-color: rgb(255, 255, 255);">
+						<li class="mui-table-view-cell" style="padding: 0px 20px;text-align: center;font-size: 8px;vertical-align: middle;color: rgb(0, 0, 0);word-wrap: break-word;word-break: normal;border-color: rgb(255, 255, 255);" v-html="tab_menu.me.lab.dayreward_explain">
 							{{tab_menu.me.lab.dayreward_explain}}
 						</li>
 					</ul>
@@ -453,10 +458,27 @@
 										{{getMeIsDrawMoney(item)}}
 									</li>
 								</ul>
+								<!-- 如果没有复购过 -->
 								<div v-if="item.commission_scale<=1" class="mui-card-footer" style="font-size: 12px; min-height: 24px;padding: 4px 6px; border-radius: 0 0 0px 0px; background-color:#f0f8ff;">{{getOrderDate(item)}}</div>
+								<!-- 如果复购过 -->
 								<div v-else class="mui-card-footer" style="font-size: 12px; min-height: 24px;padding: 4px 6px; border-radius: 0 0 0px 0px; background-color:#9bffbe; ">{{getOrderDate(item)}}</div>
-								<div v-if="item.status == 'wc-completed' && (item.tomoney=='0' || item.tomoney=='2')" class="mui-card-footer" style="padding: 4px; background-color: #9bffbe;">
-									<button :id="'again_btn_'+item.order_id" type="button" class="mui-btn mui-btn-primary" style="width: 100%;" @click="againBuyOrder(item)"
+								<!-- 显示评价UI -->
+								<div v-if="isDisplayEvaluate(item)" class="mui-card-footer" style=" display: block; padding: 4px; background-color: #ffed1d;">
+									<div>
+										<a id="icon-star"><span class="mui-icon mui-icon-star-filled" style="font-size: 6px;"></span></a>
+										<a id="icon-star"><span class="mui-icon mui-icon-star-filled" style="font-size: 6px;"></span></a>
+										<a id="icon-star"><span class="mui-icon mui-icon-star-filled" style="font-size: 6px;"></span></a>
+										<a id="icon-star"><span class="mui-icon mui-icon-star-filled" style="font-size: 6px;"></span></a>
+										<a id="icon-star"><span class="mui-icon mui-icon-star-filled" style="font-size: 6px;"></span></a>
+									</div>
+									<input :id="'comments_txt_'+item.order_id" type="text" class="mui-input-clear mui-input" :placeholder="tab_menu.me.lab.COMMENT_TIP" style=" line-height: normal; height: 30px; padding: 4px 6px; font-size: 10px; margin: 3px 0px 4px 0px;">
+									<button :id="'submit_comments_btn_'+item.order_id" type="button" @click="submitComments(item)" class="mui-btn mui-btn-primary" style=" width: 100%; "
+									 :data-loading-text="lang_var.code_lab.OKING_TIP" data-loading-icon-position="left"
+									 >{{tab_menu.me.lab.Submit_COMMENTS_TIP}}</button>
+								</div>
+								<!-- 显示再买一次按钮 -->
+								<div class="mui-card-footer" :style="'padding: 4px; background-color: #9bffbe; display:'+isDisplayAgainBuyBtn(item)">
+									<button :id="'again_btn_'+item.order_id" type="button" @click="againBuyOrder(item)" class="mui-btn mui-btn-primary" style="width: 100%;"
 									:data-loading-text="lang_var.code_lab.OKING_TIP" data-loading-icon-position="right"
 									>{{tab_menu.me.lab.again_onec_buy}}({{item.commission_scale}})</button>
 								</div>
@@ -475,7 +497,7 @@
 		<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
 			<span class="mui-icon mui-icon-left-nav"></span>
 		</button>
-		<h1 class="mui-center mui-title">{{tab_menu.me.lab.my_business_partner}}({{my_team_member_total}}{{tab_menu.me.lab.member}})</h1>
+		<h1 class="mui-center mui-title">{{tab_menu.me.lab.my_business_partner}}({{my_team_member_total}} {{tab_menu.me.lab.member}}) (${{my_team_money_total}})</h1>
 	</div>
 	<div class="mui-page-content">
 		<div class="mui-content">

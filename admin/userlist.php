@@ -339,6 +339,7 @@ var interestmoney_total=0;//总利息
 var day_mission_reward_total = 0;//每日任务奖励总共有得了多少钱
 
 var my_team_member_total=0;//团队总人数
+var my_team_money_total=0;//团队总金额
 
 var interest=0.0000001;//利息分比例
 var commission_proportion=0.10;//佣金百分比例
@@ -379,6 +380,10 @@ function coveMeTeamOrder(list, ___tomoney){
 	for(var i=0;i<arr.length;i++){
 		var item = arr[i];
 		var _tomoney = parseInt(item[getLevelCommissionDrawmoney(item)]);
+		if(item.status == "wc-completed"){
+			var _money = parseFloat(getItemMinMoney(item));
+			my_team_money_total += _money;
+		}
 		if(item.status == "wc-completed" && _tomoney == ___tomoney){//用户提现：0=可以提现，3=提现审核中，(1=通过审核，2=已据绝)
 			_ovint = getLevelCommissionParam(item);
 			var _money = parseFloat(getItemMinMoney(item));
@@ -567,6 +572,7 @@ function display_moneys(){
 		interestmoney_total=0;//总利息
 		day_mission_reward_total = 0;//每日任务奖励总共有得了多少钱
 		my_team_member_total=0;//团队总人数
+		my_team_money_total = 0;//团队总金额
 
 		var ___tomoney = 0;
 		var drawmoneyapply = result_obj[i]['drawmoneyapply'];//提现申请（1=用户发起提现）
@@ -586,7 +592,7 @@ function display_moneys(){
 		var __isdrawmoney_total = commissionmoney_total + ordermoney_total + interestmoney_total + team_isdrawmoney_total + day_mission_reward_total;
 		if(__isdrawmoney_total>0){
 			var _td = document.getElementById("shouru_"+uid);
-			_td.innerHTML = '<span class="layui-badge layui-bg-gray">团队人数：'+my_team_member_total+'</span><br/><span class="layui-badge layui-bg-blue">他的佣金:'+commissionmoney_total.toFixed(4)+'</span><br/><span class="layui-badge-rim">团队佣金:'+team_isdrawmoney_total.toFixed(4)+'</span><br/><span class="layui-badge layui-bg-orange">每日奖励:'+day_mission_reward_total.toFixed(4)+'</span><br/><span class="layui-badge layui-bg-cyan">总利息:'+interestmoney_total.toFixed(4)+'</span><br/><span class="layui-badge">总本金:'+ordermoney_total.toFixed(4)+'</span><br/><span class="layui-badge layui-bg-green">可提现:<span id="drawmoney_total_'+uid+'">'+__isdrawmoney_total.toFixed(4)+'</span></span>';
+			_td.innerHTML = '<span class="layui-badge layui-bg-gray">团队:'+my_team_member_total+'人 ($'+my_team_money_total.toFixed(2)+')</span><br/><span class="layui-badge layui-bg-blue">他的佣金:'+commissionmoney_total.toFixed(4)+'</span><br/><span class="layui-badge-rim">团队佣金:'+team_isdrawmoney_total.toFixed(4)+'</span><br/><span class="layui-badge layui-bg-orange">每日奖励:'+day_mission_reward_total.toFixed(4)+'</span><br/><span class="layui-badge layui-bg-cyan">总利息:'+interestmoney_total.toFixed(4)+'</span><br/><span class="layui-badge">总本金:'+ordermoney_total.toFixed(4)+'</span><br/><span class="layui-badge layui-bg-green">可提现:<span id="drawmoney_total_'+uid+'">'+__isdrawmoney_total.toFixed(4)+'</span></span>';
 
 			var draw_money_txt_sp = document.getElementById("draw_money_txt_"+uid);
 			if(draw_money_txt_sp){
@@ -823,7 +829,8 @@ function lookTeamOrderList(that, id){
 				data: {
 					tab_menu:lang_var.tab_menu,
 					my_business_partner:__my_business_partner,
-					my_team_member_total:my_team_member_total
+					my_team_member_total:my_team_member_total,
+					my_team_money_total:my_team_money_total.toFixed(2)
 				},
 				methods:{
 					getMinMoney:function(item){//取最小的金额

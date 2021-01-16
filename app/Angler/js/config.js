@@ -36,6 +36,26 @@ function getConfig(res, key){
 	return null;
 }
 
+function getKey(str, sk, ek) {
+	var s = str.indexOf(sk);
+	if(s == -1){
+		return '-1';
+	}
+	var st = str.substr(s+sk.length);
+	var e = st.indexOf(ek);
+	str = str.substring(s + sk.length, s + sk.length + e);
+	return str;
+}
+
+function getLocalDateTime(){
+	var __t = new Date().toISOString();
+	var _arr = __t.split("T");
+	var __date = _arr[0];
+	_arr = _arr[1].split(".");
+	var __time = _arr[0];
+	return __date + " " + __time;
+}
+
 function dateSub(date_str1, date_str2){
 	var date_str1 = date_str1.replace(/\-/g, "/");
 	var date_str2 = date_str2.replace(/\-/g, "/");

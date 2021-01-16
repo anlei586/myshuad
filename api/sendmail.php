@@ -51,6 +51,24 @@ pk_live_51HytwELYGllvnGPLa6JG0tfg5a63Zy4ptnlpwW0CDctyebPCQ6F4uyVtUxv2scUPU9ts4Nm
 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
 Webhook Secret
 whsec_J1F3AjZVPahLOCurWbXSrxjo043TGFFP
+
+
+
+http://45.77.66.117:9630/e506eefe
+root
+W6{c-t{)YSxFW*xV
+username: hgwgzxoh
+password: 685cf1ff
+
+
+maxmind.com
+amara1897x@gmail.com
+Dave741236
+Account/User ID
+480829
+License key
+8u3ffvBLZbxwMl1m
+
 */
 
 
@@ -83,7 +101,7 @@ function sendmail($title1, $title2, $toemail, $content){
     //$mail->AltBody = '';
 
     $mail->send();
-    echo '{"code":0,"msg":"success"}';
+    return '{"code":0,"msg":"success"}';
 }
 
 ?>

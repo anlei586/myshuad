@@ -38,8 +38,8 @@ if($gt['passport'])
 			exit(retmsg(111,"not paypal"));
 		}
 	}else if($action==2){//提交提现审核
-		$ww = date("w");
-		if($ww!=2 || $ww!=5){
+		$ww = date("w");//取星期几
+		if($ww!=2 || $ww!=5){//如果不是星期2或星期5
 			exit(retmsg(116,"Time is not up"));
 			return;
 		}
@@ -69,6 +69,36 @@ if($gt['passport'])
 					$sql = "UPDATE sd_wc_order_stats set date_created='{$_date}', date_created_gmt='{$_date}', status='wc-processing', commission_scale=".$commission_scale.' where order_id='.$oid;
 					$cx = $dbh->query($sql);
 					exit(retmsg(0,"success"));
+				}else{
+					exit(retmsg(114,"this order is not completed"));
+				}
+			}else{
+				exit(retmsg(113,"this order is not you"));
+			}
+		}else{
+			exit(retmsg(112,"not order id"));
+		}
+	}else if($action==4){//用户提交的商品评论	change.php?ac=4&oid=406&comments=这是给商品的评论
+		$oid = isset($_GET['oid'])?$_GET['oid']:"";
+		if(!empty($oid)){
+			$sql = 'SELECT post_id FROM sd_postmeta where meta_key="_billing_email" and meta_value="'.$gt['Email'].'" and post_id='.$oid;
+			$res = $dbh->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+			if(count($res)){
+				$sql = 'SELECT * from sd_wc_order_stats where order_id='.$oid;
+				$res = $dbh->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+				if($res[0]['status']=='wc-processing'){
+					$a = date($res[0]['date_created_gmt']);
+					//echo "AA-->".$a;
+					$b = date('Y-m-d H:i:s');
+					$aa = strtotime($b)-strtotime($a);
+					$gap_day = intval($aa / (60 * 60 * 24) );
+					if($gap_day>=2){
+						$sql = "UPDATE sd_wc_order_stats set status='wc-completed' where order_id=".$oid;
+						$cx = $dbh->query($sql);
+						exit(retmsg(0,"success"));
+					}else{
+						exit(retmsg(115, "time is not up"));
+					}
 				}else{
 					exit(retmsg(114,"this order is not completed"));
 				}

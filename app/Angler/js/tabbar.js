@@ -14,11 +14,15 @@ var commissionmoney_total=0;//总佣金
 var interestmoney_total=0;//总利息
 
 var my_team_member_total=0;//团队总人数
+var my_team_money_total=0;//团队总金额
 
 var interest=0.0000001;//利息分比例
 var commission_proportion=0.10;//佣金百分比例
 
-
+var OrderStatusType = {
+	processing:'wc-processing',
+	completed:'wc-completed',
+};
 
 
 (function($, window) {  
@@ -144,7 +148,11 @@ function coveMeTeamOrder(list){
 	for(var i=0;i<arr.length;i++){
 		var item = arr[i];
 		var _tomoney = parseInt(item[getLevelCommissionDrawmoney(item)]);
-		if(item.status == "wc-completed" && _tomoney == 0){//用户提现：0=可以提现，3=提现审核中，(1=通过审核，2=已据绝)
+		if(item.status == OrderStatusType.completed){
+			var _money = parseFloat(getItemMinMoney(item));
+			my_team_money_total += _money;
+		}
+		if(item.status == OrderStatusType.completed && _tomoney == 0){//用户提现：0=可以提现，3=提现审核中，(1=通过审核，2=已据绝)
 			_ovint = getLevelCommissionParam(item);
 			var _money = parseFloat(getItemMinMoney(item));
 			var money_proportion = _money * parseFloat(getConfig(initdata_obj.config, "commission_proportion"));
@@ -181,7 +189,7 @@ function coveMeTeamOrderLoop(list){
 //下级员工利息算法
 /*function getInterestByLevel(item){
 	var _ovint = 0;
-	if(item.status == "wc-completed"){
+	if(item.status == OrderStatusType.completed){
 		//利息百分比
 		var _interest = getConfig(initdata_obj.config, "pyramid");
 		var _interestArr = _interest.split(",");
@@ -238,7 +246,7 @@ function coveMeOrder(meorder){
 	for(var i=0;i<meorder.length;i++){
 		var item = meorder[i];
 		var _tomoney = parseInt(item.tomoney);
-		if(item.status == "wc-completed" && _tomoney == 0){
+		if(item.status == OrderStatusType.completed && _tomoney == 0){
 			var _commission_scale = item.commission_scale;//再买一次的倍数
 			var _money = parseFloat(getItemMinMoney(item));
 			//总本金
@@ -246,17 +254,21 @@ function coveMeOrder(meorder){
 			//总佣金
 			var money_proportion = _money * commission_proportion * _commission_scale;
 			commissionmoney_total += money_proportion;
-			//总利息
-			var _ovint = 0;
-			//服务器当前日期-下单日期=共下单了多少天
-			var _day = dateSub(initdata_obj.date.date, item.date_created_gmt) / 1000 / (60 * 60 * 24);
-			_day = parseInt(_day);
-			_ovint = interest * parseFloat(getItemMinMoney(item)) * _day;
+			//算总利息
+			var _ovint = colInteres(item);
 			interestmoney_total += _ovint;
 			
 		}
 	}
 	return meorder;
+}
+//算利息
+function colInteres(item){
+	//服务器当前日期-下单日期=共下单了多少天
+	var _day = dateSub(initdata_obj.date.date, item.date_created_gmt) / 1000 / (60 * 60 * 24);
+	_day = parseInt(_day);
+	var _ovint = interest * parseFloat(getItemMinMoney(item)) * _day;
+	return _ovint;
 }
 //以oid查找订单
 function findOrderItemByOid(orderList, oid){
@@ -275,6 +287,7 @@ function pulldownRefresh() {
 	commissionmoney_total=0;//总佣金
 	interestmoney_total=0;//总利息
 	my_team_member_total=0;//团队总人数
+	my_team_money_total = 0;//团队总金额
 	
 	mui.showLoading("loading ...","div");
 	myajax(config_var.host+"initdata.php?ac=1",
@@ -356,16 +369,56 @@ function pulldownRefresh() {
 					capital_details:__capital_details
 				},
 				methods:{
+					isDisplayEvaluate:function(item){//是否显示评价
+						if(item.status == OrderStatusType.completed) return false;
+						var _day = dateSub(res.date.date, item.date_created_gmt) / 1000 / (60 * 60 * 24);
+						if(item.status == OrderStatusType.processing && _day>=2) return true;
+						return false;
+					},
+					submitComments:function(item){//提交评论
+						var comments_txt = document.getElementById("comments_txt_"+item.order_id);
+						var submit_comments_btn = document.getElementById("submit_comments_btn_"+item.order_id);
+						if(!comments_txt.value){
+							mui.toast(lang_var.tab_menu.me.lab.COMMENTS_NOT_NULL);
+							return;
+						}
+						mui(submit_comments_btn).button('loading');
+						mui.confirm(lang_var.tab_menu.me.lab.confri_tip+"?", lang_var.code_lab.TIP, [lang_var.code_lab.NO, lang_var.code_lab.YES], function(e) {
+							if (e.index == 1) {
+								myajax(config_var.host+"change.php?ac=4&oid="+item.order_id+"&comments="+comments_txt.value,
+								{dataType:'json',success:function(res) {
+									mui(submit_comments_btn).button('reset');
+									if(res.ret==0){
+										var oitem = findOrderItemByOid(capital_details_vue.capital_details, item.order_id);
+										oitem.status = OrderStatusType.completed;
+										var _money = parseFloat(getItemMinMoney(item));//此单本金
+										var _commission_scale = parseInt(oitem.commission_scale);//再买一次的倍数
+										var money_proportion = _money * commission_proportion * _commission_scale;//此单佣金
+										var _ovint = colInteres(item);//此单利息
+										interestmoney_total += _ovint;//总利息
+										me_vue.sv.me.total_interest = interestmoney_total.toFixed(4);//总利息
+										me_vue.sv.me.total_commission=(commissionmoney_total + money_proportion).toFixed(4);//总佣金
+										me_vue.sv.me.total_principal = (ordermoney_total + _money).toFixed(4);//总本金
+										me_vue.sv.me.isdrawmoney_total = (parseFloat(me_vue.sv.me.isdrawmoney_total)+_money+money_proportion+interestmoney_total).toFixed(4);//可提现金额
+									}
+									mui.toast(res.msg);
+								}});
+							}else{
+								mui(submit_comments_btn).button('reset');
+							}
+						});
+						
+					},
 					getMinMoney:function(item){//取最小的金额
 						var _money = parseFloat(getItemMinMoney(item));
 						var _commission_scale = item.commission_scale;//再买一次的倍数
 						var money_proportion = _money * commission_proportion * _commission_scale;
 						var _str = _money.toFixed(2);
 						var _tomoney = parseInt(item.tomoney);
-						if(item.status == "wc-completed" && _tomoney == 0){
+						if(item.status == OrderStatusType.completed && _tomoney == 0){
 							_str = _str + "(" + money_proportion.toFixed(2) + ")";
 						}else{
-							if(item.commission_scale>1 && item.status == "wc-processing"){
+							if(item.commission_scale>1 && item.status == OrderStatusType.processing){
 								_str = _str + "(" + money_proportion.toFixed(2) + ")";
 							}else{
 								_str = _str;
@@ -376,7 +429,7 @@ function pulldownRefresh() {
 					getInterest:function(item){//利息
 						var _ovint = 0;
 						var _tomoney = parseInt(item.tomoney);
-						if(item.status == "wc-completed" && _tomoney == 0){
+						if(item.status == OrderStatusType.completed && _tomoney == 0){
 							//服务器当前日期-下单日期=共下单了多少天
 							var _day = dateSub(res.date.date, item.date_created_gmt) / 1000 / (60 * 60 * 24);
 							_day = parseInt(_day);
@@ -387,7 +440,7 @@ function pulldownRefresh() {
 					},
 					getMeIsDrawMoney:function(item){ //用户提现：0=可以提现，3=提现审核中，(1=通过审核，2=已据绝)
 						var _str = "";
-						if(item.status == "wc-completed"){
+						if(item.status == OrderStatusType.completed){
 							var _tomoney = parseInt(item.tomoney);
 							if(_tomoney == 0){
 								_str = lang_var.tab_menu.me.lab.draw_money_ok;
@@ -398,7 +451,7 @@ function pulldownRefresh() {
 							}else if(_tomoney == 3){
 								_str = lang_var.tab_menu.me.lab.draw_money_verifing;
 							}
-						}else if(item.status == "wc-processing"){
+						}else if(item.status == OrderStatusType.processing){
 							_str = lang_var.tab_menu.me.lab.draw_money_wait_completed;
 						}
 						return _str;
@@ -410,7 +463,15 @@ function pulldownRefresh() {
 						var _str = '['+oid+'] ' + date_created + ' | ' + date_created_gmt;
 						return _str;
 					},
-					againBuyOrder:function(orderItem){
+					isDisplayAgainBuyBtn:function(item){//是否显示再买一次按钮
+						var _onf = item.status == OrderStatusType.completed && (item.tomoney.toString()=='0' || item.tomoney.toString()=='2');
+						if(_onf){
+							return "block";
+						}else{
+							return "none";
+						}
+					},
+					againBuyOrder:function(orderItem){//再买一次
 						var again_btn = document.getElementById('again_btn_'+orderItem.order_id);
 						mui(again_btn).button('loading');
 						mui.confirm(lang_var.tab_menu.me.lab.again_onec_buy_help_tip+"?", lang_var.code_lab.TIP, [lang_var.code_lab.NO, lang_var.code_lab.YES], function(e) {
@@ -425,13 +486,33 @@ function pulldownRefresh() {
 										var _money = parseFloat(getItemMinMoney(orderItem));
 										var _commission_scale = parseInt(oitem.commission_scale);//再买一次的倍数
 										var money_proportion = _money * commission_proportion * _commission_scale;
-										me_vue.sv.me.total_commission=(commissionmoney_total - money_proportion).toFixed(4);
+										
+										var __tmp1 = commissionmoney_total - money_proportion;
+										if(__tmp1<0) __tmp1 = 0;
+										me_vue.sv.me.total_commission = __tmp1.toFixed(4);//总佣金
 										//
-										me_vue.sv.me.total_principal = (ordermoney_total-_money).toFixed(4);//总本金
-										me_vue.sv.me.isdrawmoney_total = (parseFloat(me_vue.sv.me.isdrawmoney_total)-_money-money_proportion).toFixed(4);//可提现金额
+										var _ovint = colInteres(oitem);//此单利息
+										interestmoney_total -= _ovint;//总利息
+										me_vue.sv.me.total_interest = interestmoney_total.toFixed(4);//总利息
+										
+										//
+										__tmp1 = ordermoney_total-_money;
+										if(__tmp1<0) __tmp1 = 0;
+										me_vue.sv.me.total_principal = __tmp1.toFixed(4);//总本金
+										
+										
+										__tmp1 = parseFloat(me_vue.sv.me.isdrawmoney_total)-_money-money_proportion-_ovint;
+										if(__tmp1<0) __tmp1 = 0;
+										me_vue.sv.me.isdrawmoney_total = __tmp1.toFixed(4);//可提现金额
 										
 										oitem.commission_scale = parseInt(oitem.commission_scale)+1;
-										oitem.status='wc-processing';
+										
+										var ldt = getLocalDateTime();
+										oitem.date_created = ldt;
+										oitem.date_created_gmt = ldt;
+										
+										oitem.status=OrderStatusType.processing;
+										
 										mui.toast(res.msg);
 									}else{
 										mui.toast(res.msg);
@@ -465,7 +546,7 @@ function pulldownRefresh() {
 		var _cdObj = {};
 		for(var j1=0;j1<__capital_details.length;j1++){
 			var __item = __capital_details[j1];
-			var __isComp = __item.status=="wc-completed";
+			var __isComp = __item.status==OrderStatusType.completed;
 			var __date = __item['date_created_gmt'].split(" ")[0];
 			if(!_cdObj.hasOwnProperty(__date))
 			{
@@ -527,7 +608,8 @@ function pulldownRefresh() {
 				data: {
 					tab_menu:lang_var.tab_menu,
 					my_business_partner:__my_business_partner,
-					my_team_member_total:my_team_member_total
+					my_team_member_total:my_team_member_total,
+					my_team_money_total:my_team_money_total.toFixed(2)
 				},
 				methods:{
 					getMinMoney:function(item){//取最小的金额
@@ -535,7 +617,7 @@ function pulldownRefresh() {
 						var money_proportion = _money * commission_proportion;
 						var _str = _money.toFixed(2);
 						var _tomoney = parseInt(item.tomoney);
-						if(item.status == "wc-completed" && _tomoney == 0){
+						if(item.status == OrderStatusType.completed && _tomoney == 0){
 							_str = _str + "(" + money_proportion.toFixed(2) + ")";
 						}else{
 							_str = _str;
@@ -544,7 +626,7 @@ function pulldownRefresh() {
 					},
 					getInterest:function(item){//抽成
 						var _ovint = "";
-						if(item.status == "wc-completed"){
+						if(item.status == OrderStatusType.completed){
 							_ovint = getLevelCommissionParam(item);
 							var _money = parseFloat(getItemMinMoney(item));
 							var money_proportion = _money * commission_proportion;
@@ -555,7 +637,7 @@ function pulldownRefresh() {
 					},
 					getMeIsDrawMoney:function(item){ //用户提现：0=可以提现，3=提现审核中，(1=通过审核，2=已据绝)
 						var _str = "";
-						if(item.status == "wc-completed"){
+						if(item.status == OrderStatusType.completed){
 							var _tomoney = parseInt(item[getLevelCommissionDrawmoney(item)]);
 							if(_tomoney == 0){
 								_str = lang_var.tab_menu.me.lab.draw_money_ok;
@@ -566,7 +648,7 @@ function pulldownRefresh() {
 							}else if(_tomoney == 3){
 								_str = lang_var.tab_menu.me.lab.draw_money_verifing;
 							}
-						}else if(item.status == "wc-processing"){
+						}else if(item.status == OrderStatusType.processing){
 							_str = lang_var.tab_menu.me.lab.draw_money_wait_completed;
 						}
 						return _str;
@@ -792,15 +874,38 @@ mui("#pullrefresh").on('tap', 'li', function (event) {
 			}
 		});
 	}
+	if(event.target && event.target.id == "forgetPassword_btn"){
+		forgetPasswdOpen();
+		return;
+	}
 	if(event.target && event.target.id == "quit_account_btn"){
 		quitAccount();
+		return;
 	}
 	if(event.target && event.target.id == "open_notice_btn"){
 		clickNoticeBtn();
+		return;
 	}
 });
 
 pulldownRefresh();
+
+function forgetPasswdOpen(){
+	mui.openWindow({
+		url: 'forget_password.html',
+		id: 'forgetpassword',
+		preload: true,
+		show: {
+			aniShow: 'pop-in'
+		},
+		styles: {
+			popGesture: 'hide'
+		},
+		waiting: {
+			autoShow: false
+		}
+	});
+}
 
 function quitAccount(){
 	console.log("Quit");
