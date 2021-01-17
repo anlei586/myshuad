@@ -10,6 +10,7 @@ var login_cn = {
 		LOGIN_SUCCESS_TIP:"登录成功", LOGINING_TIP:"登录中...", REG_SUCCESS_TIP:"注册成功", REGING_TIP:"注册中...",
 		REG_SUCCESS_TIP2:"注册成功，请到邮箱查看密码，或许在垃圾邮件里", GOTO_EMAIL_LOOK_TIP:"请到邮箱查看密码，或许在垃圾邮件里",
 		REG_Invitation_code:"邀请码",INPUT_REG_Invitation_code:"请输入邀请码",REG_Incode_Input_Tip:"邀请码不能为空",
+		Find_Password_TIP:"为保证帐户资金安全，本平台采用邮箱动态密码登录。",
 	},
 };
 
@@ -17,11 +18,12 @@ var login_en = {
 	login_lab:{
 		LOGIN:"Login", EMAIL:"Email", PASSWD:"Password", REG:"Register",
 		REG_ACCOUNT:"Registered Account", INPUT_EMAIL:"Please input email", INPUT_PASSWD:"Please input a password",
-		FOTGET_PASSWD:"Forget password", Find_Password:"Retrieve password", INPUT_REGED_EMAIL:"Please enter the registered email",
+		FOTGET_PASSWD:"Forget Password", Find_Password:"Change password", INPUT_REGED_EMAIL:"Enter the registered email",
 		OK:"submit", OKING_TIP:"submitting...", OK_SUCCESS_TIP:"Submitted Successfully",
 		EMAIL_FORMAT_ERROR_TIP:"Email wrong format!", NEED_PASSWD:"Please fill in the password", LOGINED_TIP:"logged",
 		LOGIN_SUCCESS_TIP:"login successful", LOGINING_TIP:"logging...", REG_SUCCESS_TIP:"login was successful", REGING_TIP:"Registering...",
 		REG_SUCCESS_TIP2:"Registration is successful, please check your password in your email. Maybe in spam.", GOTO_EMAIL_LOOK_TIP:"please check your password in your email. Maybe in spam.",
-		REG_Invitation_code:"Invitation code",INPUT_REG_Invitation_code:"Please enter the invitation code",REG_Incode_Input_Tip:"Invitation code cannot be empty",
+		REG_Invitation_code:"Invitation code",INPUT_REG_Invitation_code:"Enter the invitation code",REG_Incode_Input_Tip:"Invitation code cannot be empty",
+		Find_Password_TIP:"In order to ensure the security of account funds, the platform uses dynamic password login.",
 	},
 };
