@@ -1,4 +1,4 @@
-::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar { width: 6px; height: 10px; border-radius: 6px;}
 ::-webkit-scrollbar-track { background: rgba(241, 241, 242, 1); }
 ::-webkit-scrollbar-thumb { background-color: #33333375; }
 ::-webkit-scrollbar-thumb:window-inactive { background: #d2d2d2; }

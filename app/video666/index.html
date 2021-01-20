@@ -7,24 +7,14 @@
 <meta content="yes" name="apple-mobile-web-app-capable">
 <meta content="yes" name="apple-touch-fullscreen">
 <link rel="stylesheet" href="./css/mui.min.css">
-<link rel="stylesheet" href="./css/tabbar.css">
+<link rel="stylesheet" href="./css/index.css">
 <script src="./js/config.js" language="JavaScript"></script>
 </head><body>
-		<nav class="vuefill1 mui-bar mui-bar-tab">
-			<a class="mui-tab-item mui-active" href="#tabbar-with-mission" @tap="onTabClick(event)">
-				<span class="mui-icon mui-icon-home"></span>
-				<span class="mui-tab-label">{{data.mission}}</span>
-			</a>
-			<a class="mui-tab-item " href="#tabbar-with-me" @tap="onTabClick(event)">
-				<span class="mui-icon mui-icon-contact"></span>
-				<span class="mui-tab-label">{{data.me}}</span>
-			</a>
-		</nav>
 
 <!--页面主结构开始-->
 <div id="app" class="mui-views" style=" max-width: 640px !important; margin: 0 auto; border: 1px; border-left: 1px solid #ccccd1; border-right: 1px solid #ccccd1; ">
 	<div class="mui-view">
-		<div class="mui-navbar" style="z-index: 12; max-width: 640px !important; margin: 0 auto; border: 1px;">
+		<div class="mui-navbar" style=" max-width: 640px !important; margin: 0 auto; border: 1px;">
 		</div>
 		<div class="mui-pages">
 		</div>
@@ -36,80 +26,16 @@
 	<!--页面标题栏开始-->
 	<div class="mui-navbar-inner mui-bar mui-bar-nav">
 		<h1 class="vuefill2 mui-center mui-title">{{data.appname}}</h1>
+		<a id="offCanvasBtn" href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-right"></a>
+		
 	</div>
 	<!--页面标题栏结束-->
 	<!--页面主内容区开始-->
-	<div class="mui-page-content">
-		<div id="pullrefresh" class="pullrefresh mui-scroll-wrapper" style="overflow-y: auto; margin-bottom: 50px;">
-			<div class="mui-scroll">
-				
-				<div id="tabbar-with-mission" class="mui-control-content mui-active">
-					<div class="mui-card" style="margin: 0px; box-shadow: 0 1px 0px rgba(0,0,0,.1);">
-						<!-- <div class="mui-card-header mui-card-media" style="height:15vw;background-image:url(./images/mkmy1.jpg)"></div> -->
-						<div class="mui-card-content">
-							<div class="mui-card-content-inner" v-html="tab_menu.me.lab.mission_note">{{tab_menu.me.lab.mission_note}}</div>
-						</div>
-					</div>
-					<div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
-						<div class="mui-scroll" style="width: 100%;">
-							<a class="mui-control-item mui-active" href="#items_shopee">
-								{{data.mission_catg_items_shopee}}
-							</a>
-							<a class="mui-control-item" href="#items_lazada">
-								{{data.mission_catg_items_lazada}}
-							</a>
-							<a class="mui-control-item" href="#items_amazon">
-								{{data.mission_catg_items_amazon}}
-							</a>
-						</div>
-					</div>
-					
-					<div class="mui-slider-group">
-						<div id="items_shopee" class="mui-slider-item mui-control-content mui-active">
-							<ul class="mui-table-view mui-table-view-chevron" style="margin-top: 0px;">
-								<li class="mui-table-view-cell mui-media" v-for="item in mission_items0">
-									<a class="mui-navigate-right" href="javascript:;" :data-item="item.link" data-name="ahref">
-										<img class="mui-media-object mui-pull-left" :src="item.img">
-										<div class="mui-media-body">
-											{{item.title}}
-											<p class='mui-ellipsis'>{{item.link}}</p>
-										</div>
-										<span class="mui-badge mui-badge-purple">${{item.price}}</span>
-									</a>
-								</li>
-							</ul>
-						</div>
-						<div id="items_lazada" class="mui-slider-item mui-control-content">
-							<ul class="mui-table-view mui-table-view-chevron" style="margin-top: 0px;">
-								<li class="mui-table-view-cell mui-media" v-for="item in mission_items1">
-									<a class="mui-navigate-right" href="javascript:;" :data-item="item.link" data-name="ahref">
-										<img class="mui-media-object mui-pull-left" :src="item.img">
-										<div class="mui-media-body">
-											{{item.title}}
-											<p class='mui-ellipsis'>{{item.link}}</p>
-										</div>
-										<span class="mui-badge mui-badge-purple">${{item.price}}</span>
-									</a>
-								</li>
-							</ul>
-						</div>
-						<div id="items_amazon" class="mui-slider-item mui-control-content">
-							<ul class="mui-table-view mui-table-view-chevron" style="margin-top: 0px;">
-								<li class="mui-table-view-cell mui-media" v-for="item in mission_items2">
-									<a class="mui-navigate-right" href="javascript:;" :data-item="item.link" data-name="ahref">
-										<img class="mui-media-object mui-pull-left" :src="item.img">
-										<div class="mui-media-body">
-											{{item.title}}
-											<p class='mui-ellipsis'>{{item.link}}</p>
-										</div>
-										<span class="mui-badge mui-badge-purple">${{item.price}}</span>
-									</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div id="tabbar-with-me" class="mui-control-content ">
+	<div class="mui-page-content mui-off-canvas-wrap mui-slide-in">
+		<!--菜单部分-->
+		<aside id="offCanvasSide" class="mui-off-canvas-right">
+			<div id="offCanvasSideScroll" class="mui-scroll-wrapper" style="overflow-y: auto;">
+				<div id="user_div" class="mui-scroll" v-if="isLogin(true)">
 					<ul class="mui-table-view " style="margin-top: 0px; padding-top: 15px; padding-bottom: 10px;">
 						<li class="mui-table-view-cell" >
 							<div class="mui-slider-cell">
@@ -127,55 +53,49 @@
 									</div>
 								</div>
 							</div>
-							<button type="button" class="mui-btn"><a id="open_notice_btn" href="#public_notice">{{tab_menu.me.lab.public_notice}}<span class="mui-badge">{{sv.me.notice_len}}</span></a></button>
 						</li>
 					</ul>
 					<ul class="mui-table-view mui-grid-view mui-grid-9" style=" border-top: none; border-left: none; border-bottom: none; background-color: #ffffff; ">
-						<li class="mui-table-view-cell mui-media mui-col-xs-4 ">
+						<li class="mui-table-view-cell mui-media mui-col-xs-6 ">
 							<span class="mui-media-body" style=" margin-top: 0px; height: 23px; ">
 								<span class="mui-badge mui-badge-primary" style=" font-size: 15px; ">+{{sv.me.total_commission}}</span>
 							</span>
 							<span class="mui-media-body" style=" height: 30px; font-size: 8px;">{{tab_menu.me.lab.total_commission}}</span>
 						</li>
-						<li class="mui-table-view-cell mui-media mui-col-xs-4 ">
+						<li class="mui-table-view-cell mui-media mui-col-xs-6 ">
 							<span class="mui-media-body" style=" margin-top: 0px; height: 23px; ">
 								<span class="mui-badge mui-badge-primary" style=" font-size: 15px; background-color: #53a2f9;">+{{sv.me.team_isdrawmoney_total}}</span>
 							</span>
 							<span class="mui-media-body" style=" height: 30px; font-size: 8px;">{{tab_menu.me.lab.commission_team}}</span>
 						</li>
-						<li class="mui-table-view-cell mui-media mui-col-xs-4 ">
-							<span class="mui-media-body" style=" margin-top: 0px; height: 23px; ">
-								<span class="mui-badge mui-badge-purple" style=" font-size: 15px; background-color: #f9b04a;">+{{sv.me.day_mission_reward_total}}</span>
-							</span>
-							<span class="mui-media-body" style=" height: 30px; font-size: 8px;">{{tab_menu.me.lab.dayreward}}</span>
-						</li>
 					</ul>
 					<ul class="mui-table-view mui-grid-view mui-grid-9" style=" border-top: none; border-left: none; border-bottom: none; background-color: #ffffff; ">
-						<li class="mui-table-view-cell mui-media mui-col-xs-4 ">
-							<span class="mui-media-body" style=" margin-top: 0px; height: 23px; ">
-								<span class="mui-badge mui-badge-purple" style=" font-size: 15px; ">+{{sv.me.total_interest}}</span>
-							</span>
-							<span class="mui-media-body" style=" height: 30px; font-size: 8px;">{{tab_menu.me.lab.interest}}</span>
-						</li>
-						<li class="mui-table-view-cell mui-media mui-col-xs-4 ">
-							<span class="mui-media-body" style=" margin-top: 0px; height: 23px; ">
-								<span class="mui-badge mui-badge-danger" style=" font-size: 15px; ">{{sv.me.total_principal}}</span>
-							</span>
-							<span class="mui-media-body" style=" height: 30px; font-size: 8px;">{{tab_menu.me.lab.principal}}</span>
-						</li>
-						<li class="mui-table-view-cell mui-media mui-col-xs-4 ">
-							<span class="mui-media-body" style=" margin-top: 0px; height: 23px; ">
-								<span class="mui-badge mui-badge-green" style=" font-size: 15px; ">{{sv.me.isdrawmoney_total}}</span>
-							</span>
-							<span class="mui-media-body" style=" height: 30px; font-size: 8px;">{{tab_menu.me.lab.is_draw_money_total}}</span>
-						</li>
-					</ul>
+							<li class="mui-table-view-cell mui-media mui-col-xs-4 ">
+								<span class="mui-media-body" style=" margin-top: 0px; height: 23px; ">
+									<span class="mui-badge mui-badge-purple" style=" font-size: 15px; ">+{{sv.me.total_interest}}</span>
+								</span>
+								<span class="mui-media-body" style=" height: 30px; font-size: 8px;">{{tab_menu.me.lab.interest}}</span>
+							</li>
+							<li class="mui-table-view-cell mui-media mui-col-xs-4 ">
+								<span class="mui-media-body" style=" margin-top: 0px; height: 23px; ">
+									<span class="mui-badge mui-badge-danger" style=" font-size: 15px; ">{{sv.me.total_principal}}</span>
+								</span>
+								<span class="mui-media-body" style=" height: 30px; font-size: 8px;">{{tab_menu.me.lab.principal}}</span>
+							</li>
+							<li class="mui-table-view-cell mui-media mui-col-xs-4 ">
+								<span class="mui-media-body" style=" margin-top: 0px; height: 23px; ">
+									<span class="mui-badge mui-badge-green" style=" font-size: 15px; ">{{sv.me.isdrawmoney_total}}</span>
+								</span>
+								<span class="mui-media-body" style=" height: 30px; font-size: 8px;">{{tab_menu.me.lab.is_draw_money_total}}</span>
+							</li>
+						</ul>
 					<div class="mui-card">
 						<ul class="mui-table-view" style="margin-top: 0px;margin-bottom: 0px;">
-							<li class="mui-table-view-cell">
-								<a href="#daymission_reward" class="mui-navigate-right">
-									{{tab_menu.me.lab.dayreward}}
+							<li @tap="clickNoticeBtn()" class="mui-table-view-cell">
+								<a href="#public_notice" class="mui-navigate-right">
+									{{tab_menu.me.lab.public_notice}}
 								</a>
+								<span v-if="sv.me.notice_len>0" class="mui-badge mui-badge-danger">{{sv.me.notice_len}}</span>
 							</li>
 							<li class="mui-table-view-cell">
 								<a href="#capital_details" class="mui-navigate-right">
@@ -216,7 +136,7 @@
 					</div>
 					<div class="mui-card" style="margin-bottom: 60px;">
 						<ul class="mui-table-view" style="margin-bottom: 0px; margin-top: 0px;">
-							<li class="mui-table-view-cell">
+							<li @tap="quitAccount(event)" class="mui-table-view-cell">
 								<a style="text-align: center;color: #FF3B30;" id="quit_account_btn">
 									{{tab_menu.me.lab.logout}}
 								</a>
@@ -224,8 +144,82 @@
 						</ul>
 					</div>
 				</div>
-				
+				<div id="login_div" class="mui-scroll" style="height: 100%;" v-if="isLogin(false)">
+					<iframe src="./login.html" frameborder="0" style="width: 100%; height: 90%;"></iframe>
+				</div>
 			</div>
+		</aside>
+		<div id="pullrefresh" class="pullrefresh mui-scroll-wrapper mui-inner-wrap " style="overflow-y: auto; margin-bottom: 50px;">
+			<div class="mui-scroll">
+				<div id="tabbar-with-mission" class="mui-control-content mui-active">
+					<div class="mui-card" style="margin: 0px; box-shadow: 0 1px 0px rgba(0,0,0,.1);">
+						<!-- <div class="mui-card-header mui-card-media" style="height:15vw;background-image:url(./images/mkmy1.jpg)"></div> -->
+						<div class="mui-card-content">
+							<div class="mui-card-content-inner" v-html="tab_menu.me.lab.mission_note">{{tab_menu.me.lab.mission_note}}</div>
+						</div>
+					</div>
+					<div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+						<div class="mui-scroll" style="width: 100%;">
+							<a class="mui-control-item mui-active" href="#items_shopee">
+								{{data.mission_catg_items_shopee}}
+							</a>
+							<a class="mui-control-item" href="#items_lazada">
+								{{data.mission_catg_items_lazada}}
+							</a>
+							<a class="mui-control-item" href="#items_amazon">
+								{{data.mission_catg_items_amazon}}
+							</a>
+						</div>
+					</div>
+					
+					<div class="mui-slider-group">
+						<div id="items_shopee" class="mui-slider-item mui-control-content mui-active">
+							<ul class="mui-table-view mui-table-view-chevron" style="margin-top: 0px;">
+								<li class="mui-table-view-cell mui-media" v-for="item in mission_items0">
+									<a class="mui-navigate-right" href="javascript:;" :data-item="item.link" data-name="ahref">
+										<img class="mui-media-object mui-pull-left" :src="item.img">
+										<div class="mui-media-body">
+											{{item.title}}
+											<p class='mui-ellipsis'>{{item.link}}</p>
+										</div>
+										<span class="mui-badge mui-badge-purple">{{tab_menu.me.lab.mission_item_stock_tip}}:{{item.stock}}</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div id="items_lazada" class="mui-slider-item mui-control-content">
+							<ul class="mui-table-view mui-table-view-chevron" style="margin-top: 0px;">
+								<li class="mui-table-view-cell mui-media" v-for="item in mission_items1">
+									<a class="mui-navigate-right" href="javascript:;" :data-item="item.link" data-name="ahref">
+										<img class="mui-media-object mui-pull-left" :src="item.img">
+										<div class="mui-media-body">
+											{{item.title}}
+											<p class='mui-ellipsis'>{{item.link}}</p>
+										</div>
+										<span class="mui-badge mui-badge-purple">{{item.stock}}</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div id="items_amazon" class="mui-slider-item mui-control-content">
+							<ul class="mui-table-view mui-table-view-chevron" style="margin-top: 0px;">
+								<li class="mui-table-view-cell mui-media" v-for="item in mission_items2">
+									<a class="mui-navigate-right" href="javascript:;" :data-item="item.link" data-name="ahref">
+										<img class="mui-media-object mui-pull-left" :src="item.img">
+										<div class="mui-media-body">
+											{{item.title}}
+											<p class='mui-ellipsis'>{{item.link}}</p>
+										</div>
+										<span class="mui-badge mui-badge-purple">{{item.stock}}</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- off-canvas backdrop -->
+			<div class="mui-off-canvas-backdrop"></div>
 		</div>
 	</div>
 	<!--页面主内容区结束-->
@@ -233,7 +227,7 @@
 <!--单页面结束-->
 <!-- 公告 -->
 <div id="public_notice" class="mui-page" style="z-index: 10;">
-	<div class="mui-navbar-inner mui-bar mui-bar-nav">
+	<div class="mui-navbar-inner mui-bar mui-bar-nav" style="background-color: white;">
 		<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
 			<span class="mui-icon mui-icon-left-nav"></span>
 		</button>
@@ -333,86 +327,6 @@
 		
 	</div>
 </div>
-
-<!-- 每日任务奖励 -->
-<div id="daymission_reward" class="mui-page" style="z-index: 10;">
-	<div class="mui-navbar-inner mui-bar mui-bar-nav">
-		<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
-			<span class="mui-icon mui-icon-left-nav"></span>
-		</button>
-		<h1 class="mui-center mui-title">{{tab_menu.me.lab.dayreward}}</h1>
-	</div>
-	<div class="mui-page-content">
-		<div class="mui-content">
-			<div class="mui-scroll">
-				<!-- 每日任务奖励说明 -->
-				<div class="mui-card" style=" margin: 10px 10px 5px 10px; ">
-					<ul class="mui-table-view" style="border-top: none;padding: 0px;margin: 10px 0px;">
-						<li class="mui-table-view-cell" style="padding: 0px 20px;text-align: center;font-size: 8px;vertical-align: middle;color: rgb(0, 0, 0);word-wrap: break-word;word-break: normal;border-color: rgb(255, 255, 255);" v-html="tab_menu.me.lab.dayreward_explain">
-							{{tab_menu.me.lab.dayreward_explain}}
-						</li>
-					</ul>
-					<ul class="mui-table-view mui-grid-view mui-grid-9" style="background-color: rgb(255, 255, 255);border-top: none;padding: 0px;border-bottom: 1px solid #eee;">
-						<li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6" style="padding: 0px 20px; text-align: right; font-size: 8px;vertical-align: middle;color: #000000;word-wrap: break-word;word-break: normal;border-color: #FFFFFF;">
-							{{tab_menu.me.lab.DAY_ORDER_Total}}
-						</li>
-						<li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6" style="padding: 0px 20px; text-align: left; font-size: 8px;vertical-align: middle;color: #000000;word-wrap: break-word;word-break: normal;border-color: #FFFFFF;">
-							{{tab_menu.me.lab.reward}}
-						</li>
-					</ul>
-					<ul class="mui-table-view" style="margin: 0px 0px 8px 0px;padding: 1px 0px 1px 0px;">
-						<li class="mui-table-view-cell" style="margin: 0px 0px 0px 0px;padding: 0px; " v-for="item in daymission_reward_data">
-							<ul class="mui-table-view mui-grid-view mui-grid-9" style="background-color: #FFFFFF;border-top:none;margin: 8px 8px 8px 0px;padding: 0px;">
-								<li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6" style="padding: 0px 20px; text-align: right; font-size: 8px;vertical-align: middle;color: #000000;word-wrap: break-word;word-break: normal;border-color: #FFFFFF;">
-									{{item.ordertotal}}
-								</li>
-								<li class="mui-table-view-cell mui-media mui-col-xs-6 mui-col-sm-6" style="padding: 0px 20px; text-align: left; font-size: 8px;vertical-align: middle;color: #000000;word-wrap: break-word;word-break: normal;border-color: #FFFFFF;">
-									${{item.reward}}.00
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-				<!-- 每日所做的任务 -->
-				<div class="mui-card" style=" margin: 10px 10px 5px 10px; ">
-					<ul class="mui-table-view mui-grid-view mui-grid-9" style="background-color: rgb(255, 255, 255);border-top: none;padding: 0px;border-bottom: 1px solid #eee;">
-						<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3" style="font-size: 8px;padding: 0px;vertical-align: middle;color: #000000;word-wrap: break-word;word-break: normal;border-color: #FFFFFF;">
-							{{tab_menu.me.lab.DATE_TIP}}
-						</li>
-						<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3" style="font-size: 8px;padding: 0px;vertical-align: middle;color: #000000;word-wrap: break-word;word-break: normal;border-color: #FFFFFF;">
-							{{tab_menu.me.lab.ORDER_COMPLETE_Total}}
-						</li>
-						<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3" style="font-size: 8px;padding: 0px;vertical-align: middle;color: #000000;word-wrap: break-word;word-break: normal;border-color: #FFFFFF;">
-							{{tab_menu.me.lab.ORDER_OTHER_Total}}
-						</li>
-						<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3" style="font-size: 8px;padding: 0px;vertical-align: middle;color: #000000;word-wrap: break-word;word-break: normal;border-color: #FFFFFF;">
-							{{tab_menu.me.lab.MISSION_Progress_TIP}}
-						</li>
-					</ul>
-					<ul class="mui-table-view" style="margin: 0px 0px 8px 0px;padding: 1px 0px 1px 0px;">
-						<li class="mui-table-view-cell" style="margin: 0px 0px 0px 0px;padding: 0px; " v-for="item in daymission">
-							<ul class="mui-table-view mui-grid-view mui-grid-9" style="background-color: #FFFFFF;border-top:none;margin: 8px 8px 8px 0px;padding: 0px;">
-								<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3" style="font-size: 8px;padding: 0px;vertical-align: middle;color: #000000;word-wrap: break-word;word-break: normal;border-color: #FFFFFF;">
-									{{item.date}}
-								</li>
-								<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3" style="font-size: 8px;padding: 0px;vertical-align: middle;color: #009e00;word-wrap: break-word;word-break: normal;border-color: #FFFFFF;">
-									{{item.complete_count}}
-								</li>
-								<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3" style="font-size: 8px;padding: 0px;vertical-align: middle;color: #FF5053;word-wrap: break-word;word-break: normal;border-color: #FFFFFF;">
-									{{item.other_count}}
-								</li>
-								<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3" style="font-size: 8px;padding: 0px;vertical-align: middle;color: #ee00ff;word-wrap: break-word;word-break: normal;border-color: #FFFFFF;">
-									{{item.progress}}{{item.reward <= 0 ? "0" : " = $"+item.reward.toFixed(0)}}
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
 <!-- 订单明细 -->
 <div id="capital_details" class="mui-page" style="z-index: 10;">
 	<div class="mui-navbar-inner mui-bar mui-bar-nav">
@@ -623,7 +537,7 @@
 	<script language="JavaScript">
 		setLanguageVars();
 	</script>
-	<script src="./js/tabbar.js"></script>
+	<script src="./js/index.js"></script>
 	<script>
 		
 		

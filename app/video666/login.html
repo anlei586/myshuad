@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html class="ui-page-login">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/config.js" language="JavaScript"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<style>
+			body{
+				overflow: hidden;
+			}
+			header {
+				max-width: 640px !important;
+				margin: 0 auto;
+			}
+			
+			.area {
+				margin: 20px auto 0px auto;
+			}
+			
+			.mui-input-group {
+				margin-top: 10px;
+			}
+			
+			.mui-input-group:first-child {
+				margin-top: 20px;
+			}
+			
+			.mui-input-group label {
+				width: 30%;
+			}
+			
+			.mui-input-row label~input,
+			.mui-input-row label~select,
+			.mui-input-row label~textarea {
+				width: 70%;
+			}
+			
+			.mui-checkbox input[type=checkbox],
+			.mui-radio input[type=radio] {
+				top: 6px;
+			}
+			
+			.mui-content-padded {
+				margin-top: 25px;
+			}
+			
+			.mui-btn {
+				padding: 10px;
+			}
+			
+			.link-area {
+				display: block;
+				margin-top: 25px;
+				text-align: center;
+			}
+			
+			.spliter {
+				color: #bbb;
+				padding: 0px 8px;
+			}
+			
+			.oauth-area {
+				position: absolute;
+				bottom: 20px;
+				left: 0px;
+				text-align: center;
+				width: 100%;
+				padding: 0px;
+				margin: 0px;
+			}
+			
+			.oauth-area .oauth-btn {
+				display: inline-block;
+				width: 50px;
+				height: 50px;
+				background-size: 30px 30px;
+				background-position: center center;
+				background-repeat: no-repeat;
+				margin: 0px 20px;
+				/*-webkit-filter: grayscale(100%); */
+				border: solid 1px #ddd;
+				border-radius: 25px;
+			}
+			
+			.oauth-area .oauth-btn:active {
+				border: solid 1px #aaa;
+			}
+			
+			.oauth-area .oauth-btn.disabled {
+				background-color: #ddd;
+			}
+			
+			.mui-spinner {
+			    display: inline-block;
+			    width: 24px;
+			    height: 24px;
+			    -webkit-transform-origin: 50%;
+			    transform-origin: 50%;
+			    -webkit-animation: spinner-spin 1s step-end infinite;
+			    animation: spinner-spin 1s step-end infinite;
+			}
+			
+			.mui-spinner:after {
+			    display: block;
+			    content: "";
+			    width: 100%;
+			    height: 100%;
+			    background-position: 50%;
+			    background-size: 100%;
+			    background-repeat: no-repeat;
+			}
+			
+            .mui-spinner-custom:after {
+                background-image: url("data:image/svg+xml;charset=utf-8,<svg viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><defs><line id='l' x1='60' x2='60' y1='7' y2='27' stroke='red' stroke-width='11' stroke-linecap='round'/></defs><g><use xlink:href='%23l' opacity='.27'/><use xlink:href='%23l' opacity='.27' transform='rotate(30 60,60)'/><use xlink:href='%23l' opacity='.27' transform='rotate(60 60,60)'/><use xlink:href='%23l' opacity='.27' transform='rotate(90 60,60)'/><use xlink:href='%23l' opacity='.27' transform='rotate(120 60,60)'/><use xlink:href='%23l' opacity='.27' transform='rotate(150 60,60)'/><use xlink:href='%23l' opacity='.37' transform='rotate(180 60,60)'/><use xlink:href='%23l' opacity='.46' transform='rotate(210 60,60)'/><use xlink:href='%23l' opacity='.56' transform='rotate(240 60,60)'/><use xlink:href='%23l' opacity='.66' transform='rotate(270 60,60)'/><use xlink:href='%23l' opacity='.75' transform='rotate(300 60,60)'/><use xlink:href='%23l' opacity='.85' transform='rotate(330 60,60)'/></g></svg>");
+            }
+		</style>
+	</head>
+
+	<body>
+		<div id="fill_vue" >
+			<header class="mui-bar mui-bar-nav">
+				<h1 class="mui-title">{{login_lab.LOGIN}}</h1>
+			</header>
+			<div class="mui-card mui-content" style="margin: 0px;">
+				<form id='login-form' class="mui-input-group">
+					<div class="mui-input-row" style="border-left: 1px solid #e4e3e6;border-right: 1px solid #e4e3e6;">
+						<label>{{login_lab.EMAIL}}</label>
+						<input id='email' type="text" :value="sv.email" class="mui-input-clear mui-input" :placeholder="login_lab.INPUT_EMAIL">
+					</div>
+					<div class="mui-input-row" style="border-left: 1px solid #e4e3e6;border-right: 1px solid #e4e3e6;">
+						<label>{{login_lab.PASSWD}}</label>
+						<input id='password' type="password" :value="sv.passwd" class="mui-input-clear mui-input" :placeholder="login_lab.INPUT_PASSWD">
+					</div>
+				</form>
+				<div class="mui-content-padded">
+					<button id='login' class="mui-btn mui-btn-block mui-btn-primary"
+					:data-loading-text="login_lab.LOGINING_TIP" data-loading-icon-position="right"
+					>{{login_lab.LOGIN}}</button>
+					<div class="link-area">
+						<a id='reg'>{{login_lab.REG_ACCOUNT}}</a>
+						<span class="spliter">|</span>
+						<a id='forgetPassword'>{{login_lab.FOTGET_PASSWD}}</a>
+					</div>
+				</div>
+				<div class="mui-content-padded oauth-area">
+
+				</div>
+			</div>
+		</div>
+		<script src="js/login_cn.js"></script>
+		<script language="JavaScript">
+			setLanguageVars();
+		</script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			
+			
+			var incode = getQueryVariable("incode");
+			
+			var $=mui;
+			var doc=document;
+			$.init({
+				statusBarBackground: '#f7f7f7'
+			});
+			
+			//填充
+			var _vue = new Vue({
+				el: '#fill_vue',
+				data: {
+					login_lab:login_var.login_lab,
+					sv:{email:"",passwd:""}
+				}
+			});
+			var loginButton = document.getElementById('login');
+			var emailBox = document.getElementById('email');
+			var passwordBox = document.getElementById('password');
+			var regButton = document.getElementById('reg');
+			var forgetButton = document.getElementById('forgetPassword');
+			//判断是否有登录过
+			function isLoginedSwitchToTabbar(){
+				var token = localStorage.getItem("token");
+				_vue.sv.email = localStorage.getItem("email");
+				_vue.sv.passwd = localStorage.getItem("passwd");
+				if(!_vue.sv.email || !token ) return;
+				mui(loginButton).button('loading');
+				myajax(config_var.host+"auth.php?ac=5",
+				{
+					data:{},
+					dataType:'json',//服务器返回json格式数据
+					type:'post',//HTTP请求类型
+					timeout:10000,//超时时间设置为10秒；
+					success:function(data){
+						mui(loginButton).button('reset');
+						console.log(data);
+						if(data.ret!=0){
+							mui.toast(data.msg);
+							localStorage.removeItem("token");
+						}else{
+							mui.toast(login_var.login_lab.LOGINED_TIP);
+							$.openWindow({
+								url: 'index.html',
+								id: 'reg',
+								preload: true,
+								show: {
+									aniShow: 'pop-in'
+								},
+								styles: {
+									popGesture: 'hide'
+								},
+								waiting: {
+									autoShow: false
+								}
+							});
+						}
+					},
+					error:function(xhr,type,errorThrown){
+						mui(loginButton).button('reset');
+						mui.toast(errorThrown);
+					}
+				});
+			}
+			isLoginedSwitchToTabbar();
+			
+			loginButton.addEventListener('tap', function(event) {
+				var reg = new RegExp(/^\S+@\S+\.\S{2,}$/);
+				if(!reg.test(emailBox.value)){
+					mui.toast(login_var.login_lab.EMAIL_FORMAT_ERROR_TIP);
+					return;
+				}
+				if(!passwordBox.value){
+					mui.toast(login_var.login_lab.NEED_PASSWD);
+					return;
+				}
+				mui(loginButton).button('loading');
+				mui.ajax(config_var.host+"auth.php?ac=1&email="+emailBox.value+"&passwd="+passwordBox.value,
+				{
+					data:{},
+					dataType:'json',//服务器返回json格式数据
+					type:'get',//HTTP请求类型
+					timeout:10000,//超时时间设置为10秒；
+					success:function(data){
+						mui(loginButton).button('reset');
+						console.log(data);
+						if(data.ret!=0){
+							mui.toast(data.msg);
+						}else{
+							localStorage.setItem("uid", data.uid);
+							localStorage.setItem("paypal", data.paypal);
+							localStorage.setItem("email", data.email);
+							localStorage.setItem("token", data.token);
+							localStorage.setItem("passwd", passwordBox.value);
+							mui.toast(login_var.login_lab.LOGIN_SUCCESS_TIP);
+							isLoginedSwitchToTabbar();
+						}
+					},
+					error:function(xhr,type,errorThrown){
+						mui(loginButton).button('reset');
+						mui.toast(errorThrown);
+					}
+				});
+			});
+			
+			regButton.addEventListener('tap', function(event) {
+				window.location.href = 'reg.html?incode='+incode;
+				/*$.openWindow({
+					url: 'reg.html?incode='+incode,
+					id: 'reg',
+					preload: true,
+					show: {
+						aniShow: 'pop-in'
+					},
+					styles: {
+						popGesture: 'hide'
+					},
+					waiting: {
+						autoShow: false
+					}
+				});*/
+			}, false);
+			forgetButton.addEventListener('tap', function(event) {
+				window.location.href = 'forget_password.html';
+				/*$.openWindow({
+					url: 'forget_password.html',
+					id: 'forget_password',
+					preload: true,
+					show: {
+						aniShow: 'pop-in'
+					},
+					styles: {
+						popGesture: 'hide'
+					},
+					waiting: {
+						autoShow: false
+					}
+				});*/
+			}, false);
+			
+			//
+			var backButtonPress = 0;
+			$.back = function(event) {
+				backButtonPress++;
+				if (backButtonPress > 1) {
+					plus.runtime.quit();
+				} else {
+					plus.nativeUI.toast('再按一次退出应用');
+				}
+				setTimeout(function() {
+					backButtonPress = 0;
+				}, 1000);
+				return false;
+			};
+			
+		</script>
+	</body>
+
+</html>
