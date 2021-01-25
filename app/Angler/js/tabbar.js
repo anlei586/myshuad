@@ -727,7 +727,9 @@ function pulldownRefresh() {
 		notice_len = notice_len-local_notice_len;
 		notice_len = notice_len.toString();
 		
-		var __isdrawmoney_total = commissionmoney_total + ordermoney_total + interestmoney_total + team_isdrawmoney_total + day_mission_reward_total;
+		var givemoney = parseFloat(initdata_obj.meuser.givemoney);
+		
+		var __isdrawmoney_total = commissionmoney_total + ordermoney_total + interestmoney_total + team_isdrawmoney_total + day_mission_reward_total + givemoney;
 		//我的数据
 		var sv = {
 			me:{
@@ -797,6 +799,10 @@ function pulldownRefresh() {
 						});
 					},
 					onConfriDrawMoney:function(){//确定提现
+						if(__isdrawmoney_total<100){
+							mui.toast(lang_var.tab_menu.me.lab.drawmone_100_tip);
+							return;
+						}
 						var sub_draw_money_btn = document.getElementById('sub_draw_money_btn');
 						mui(sub_draw_money_btn).button('loading');
 						mui.confirm(lang_var.tab_menu.me.lab.confri_tip+"?", lang_var.code_lab.TIP, [lang_var.code_lab.NO, lang_var.code_lab.YES], function(e) {

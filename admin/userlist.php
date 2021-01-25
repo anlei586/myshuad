@@ -96,12 +96,16 @@ if(isset($_GET['action'])){
 			$old_drawmoneyreco = $_result[0]['drawmoneyreco'];
 			$new_drawmoneyreco = date("Y-m-d H:i:s").'='.$money.'|'.$old_drawmoneyreco;
 			
-			//改更drawmoneyapply提现申请
-			$sql = "UPDATE mission_user set drawmoneyapply=0, drawmoneyreco='{$new_drawmoneyreco}' where id={$uid} and email='{$email}'";
+			//改更drawmoneyapply提现申请，把赠送的钱置0
+			$sql = "UPDATE mission_user set drawmoneyapply=0, givemoney=0, drawmoneyreco='{$new_drawmoneyreco}' where id={$uid}";
 			$pdo->query($sql);
+
 			//更改自己的订单为审核通过
-			$sql = "UPDATE sd_wc_order_stats set tomoney=1 where status='wc-completed' and tomoney=3";
-			$pdo->query($sql);
+			$forder_res = findOrderFromEmail($email);
+			for($k=0;$k<count($forder_res);$k++) {
+				$sql = "UPDATE sd_wc_order_stats set tomoney=1 where status='wc-completed' and tomoney=3 and order_id=".$forder_res[$k]["order_id"];
+				$pdo->query($sql);
+			}
 			//更改自己的每日奖励为审核通过
 			$sql = "UPDATE sd_wc_order_stats set tomoney_daymission=1 where status='wc-completed' and tomoney_daymission=3";
 			$pdo->query($sql);
@@ -214,8 +218,14 @@ function setOrderDrawMoneyFromEmailLoop($email) {
 	for($i=0;$i<$me_team_emeun_email_count;$i++){
 		$_email = $me_team_emeun_email_result[$i]['email'];
 		$_tomoney = getLevelCommissionDrawmoney($fofel_arr[$fofel_i]);
-		$sql = "UPDATE sd_wc_order_stats set {$_tomoney}=1 where status='wc-completed' and {$_tomoney}=3";
-		$pdo->query($sql);
+		$forder_res = findOrderFromEmail($_email);
+		//var_dump($_email);
+		for($k=0;$k<count($forder_res);$k++) {
+			$sql = "UPDATE sd_wc_order_stats set {$_tomoney}=1 where status='wc-completed' and {$_tomoney}=3 and order_id=".$forder_res[$k]["order_id"];
+			//var_dump($sql);
+			$pdo->query($sql);
+		}
+
 		setOrderDrawMoneyFromEmailLoop($_email);
 		$fofel_i--;
 	}
@@ -589,15 +599,19 @@ function display_moneys(){
 		team_order_content_obj[uid] = coveMeTeamOrder(meteamorder, ___tomoney);
 		getDayMissionReward(meorder);
 
-		var __isdrawmoney_total = commissionmoney_total + ordermoney_total + interestmoney_total + team_isdrawmoney_total + day_mission_reward_total;
-		if(__isdrawmoney_total>0){
-			var _td = document.getElementById("shouru_"+uid);
-			_td.innerHTML = '<span class="layui-badge layui-bg-gray">团队:'+my_team_member_total+'人 ($'+my_team_money_total.toFixed(2)+')</span><br/><span class="layui-badge layui-bg-blue">他的佣金:'+commissionmoney_total.toFixed(4)+'</span><br/><span class="layui-badge-rim">团队佣金:'+team_isdrawmoney_total.toFixed(4)+'</span><br/><span class="layui-badge layui-bg-orange">每日奖励:'+day_mission_reward_total.toFixed(4)+'</span><br/><span class="layui-badge layui-bg-cyan">总利息:'+interestmoney_total.toFixed(4)+'</span><br/><span class="layui-badge">总本金:'+ordermoney_total.toFixed(4)+'</span><br/><span class="layui-badge layui-bg-green">可提现:<span id="drawmoney_total_'+uid+'">'+__isdrawmoney_total.toFixed(4)+'</span></span>';
+		var _givemoney = parseFloat(result_obj[i]['givemoney']);
 
-			var draw_money_txt_sp = document.getElementById("draw_money_txt_"+uid);
-			if(draw_money_txt_sp){
-				draw_money_txt_sp.innerHTML = '<b>$'+__isdrawmoney_total.toFixed(4)+'</b>';
-			}		
+		var __isdrawmoney_total = commissionmoney_total + ordermoney_total + interestmoney_total + team_isdrawmoney_total + day_mission_reward_total + _givemoney;
+		if(__isdrawmoney_total>0) {
+			//if(_givemoney>0 && __isdrawmoney_total != _givemoney) {
+				var _td = document.getElementById("shouru_"+uid);
+				_td.innerHTML = '<span class="layui-badge layui-bg-gray">团队:'+my_team_member_total+'人 ($'+my_team_money_total.toFixed(2)+')</span><br/><span class="layui-badge layui-bg-blue">他的佣金:'+commissionmoney_total.toFixed(4)+'</span><br/><span class="layui-badge-rim">团队佣金:'+team_isdrawmoney_total.toFixed(4)+'</span><br/><span class="layui-badge layui-bg-orange">每日奖励:'+day_mission_reward_total.toFixed(4)+'</span><br/><span class="layui-badge layui-bg-cyan">总利息:'+interestmoney_total.toFixed(4)+'</span><br/><span class="layui-badge">总本金:'+ordermoney_total.toFixed(4)+'</span><br/><span class="layui-badge layui-bg-green">可提现:<span id="drawmoney_total_'+uid+'">'+__isdrawmoney_total.toFixed(4)+'</span></span>';
+
+				var draw_money_txt_sp = document.getElementById("draw_money_txt_"+uid);
+				if(draw_money_txt_sp){
+					draw_money_txt_sp.innerHTML = '<b>$'+__isdrawmoney_total.toFixed(4)+'</b>';
+				}
+			//}
 		}
 	}
 }

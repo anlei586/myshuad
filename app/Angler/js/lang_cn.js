@@ -8,9 +8,9 @@ var lang_cn = {
 		mission:"任务",
 		me:"我的",
 		appname:"Make Money",
-		mission_catg_items_shopee:"[虾皮购]",
-		mission_catg_items_lazada:"[来赞达]",
-		mission_catg_items_amazon:"[亚马逊]",
+		mission_catg_items_shopee:"[较少]",
+		mission_catg_items_lazada:"[较多]",
+		mission_catg_items_amazon:"[很多]",
 	},
 	tab_menu:{
 		me:{
@@ -43,6 +43,7 @@ var lang_cn = {
 				help_note:"1. 我们会为您订单费用计算利息，例如：订单金额$20，佣金为$2，每日利息为$20+$2=$22*0.00006323=$0.00139106 (即使您什么都不做，您每日也能得到$0.00139106)<br/>2. 团队的佣金奖励不计算利息。<br/>3.完成的订单既可以提现又可以继续再买一次来轻松增加佣金。若已提现的订单则没有此功能。<br/>4.每日任务奖励：2日后（即第三天完成订单后会发放奖励)",
 				order_status:"订单状态",
 				total_money:"金额",
+				drawmone_100_tip:"由于USDT手续费很贵，我们设定为$100.00以上才能提现",
 				order_total_interest:"订单利息",
 				order_total_cut:"抽成",
 				order_draw_money_status:"提现状态",
@@ -74,9 +75,9 @@ var lang_en = {
 		mission:"Task",
 		me:"Me",
 		appname:"Make Money",
-		mission_catg_items_shopee:"[Shopee]",
-		mission_catg_items_lazada:"[Lazada]",
-		mission_catg_items_amazon:"[Amazon]",
+		mission_catg_items_shopee:"[less]",
+		mission_catg_items_lazada:"[More]",
+		mission_catg_items_amazon:"[quite a lot]",
 	},
 	tab_menu:{
 		me:{
@@ -110,6 +111,7 @@ var lang_en = {
 				share_make_money_fxnote:'<font color="#0062CC"><b>B</b></font> is <font color="#ee0053"><b>your</b></font> employee.<br/><font color="#f4a300"><b>C</b></font> is <font color="#0062CC"><b>B </b></font>employee.<br/><font color="#aa00ff"><b>D</b></font> is <font color="#f4a300"><b>C </b></font>employee.<br/>We will give you an extra commission (will not reduce any employee\'s money)<br/>(1). <font color="#00b020"><b>35%</b></font> of <font color="#0062CC"><b>B</b></font>\'s commission belongs to you.<br/>(2). <font color="#00b020"><b>15%</b></font> of <font color="#f4a300"><b>C</b></font>\'s commission belongs to you.<br/>(3). &nbsp;&nbsp;<font color="#00b020"><b>5%</b></font> of <font color="#aa00ff"><b>D</b></font>\'s commission belongs to you.<br/>Note: The team commission does not calculate interest.',
 				order_status:"Order Status",
 				total_money:"Total Money",
+				drawmone_100_tip:"Due to the high service charge of usdt, we set it to be more than $100.00 to Account Withdrawal.",
 				order_total_interest:"Order Interest",
 				order_total_cut:"Commission",
 				order_draw_money_status:"Withdrawal Status",

@@ -32,35 +32,16 @@ if($action==1){//取初始数据
 		$mission_sql = 'SELECT * FROM mission_mission order by id DESC';
 		$mission_result = $dbh->query($mission_sql)->fetchAll(PDO::FETCH_ASSOC);
 
+		//自己
+		$meuser_sql = 'SELECT * FROM mission_user where email="'.$gt['Email'].'"';
+		$meuser_result = $dbh->query($meuser_sql)->fetchAll(PDO::FETCH_ASSOC);
+		$meuser_result = $meuser_result[0];
+		$meuser_result['passwd']='';
+
 		//自己订单列表
-		/*$me_order_post_id_sql = 'SELECT post_id FROM sd_postmeta where meta_key="_billing_email" and meta_value="'.$gt['Email'].'"';
-		$me_order_post_id_result = $dbh->query($me_order_post_id_sql)->fetchAll(PDO::FETCH_ASSOC);
-		$me_order_post_id_str="";
-		$me_order_post_id_count = count($me_order_post_id_result);
-		for($i=0;$i<$me_order_post_id_count;$i++){
-			$isEndStr = $i==$me_order_post_id_count-1 ? "" : ",";
-			$me_order_post_id_str .= '"'.$me_order_post_id_result[$i]['post_id'] .'"'. $isEndStr;
-		}
-		$me_order_post_id_sql = 'SELECT * FROM sd_wc_order_stats where order_id in('.$me_order_post_id_str.')';
-		$me_order_result = $dbh->query($me_order_post_id_sql)->fetchAll(PDO::FETCH_ASSOC);*/
 		$me_order_result = findOrderFromEmail($gt['Email']);
 
 		//团队的订单
-		//查自己的UID
-		/*$me_order_post_id_sql = 'SELECT id from mission_user where email="'.$gt['Email'].'"';
-		$me_order_post_id_result = $dbh->query($me_order_post_id_sql)->fetchAll(PDO::FETCH_ASSOC);
-		$me_uid = $me_order_post_id_result[0]["id"];
-		//查自己所有员工的email
-		$me_team_emeun_email_sql = 'SELECT email from mission_user where parent_id='.$me_uid;
-		$me_team_emeun_email_result = $dbh->query($me_team_emeun_email_sql)->fetchAll(PDO::FETCH_ASSOC);
-		//查员工的所有订单
-		$me_team_emeun_email_count = count($me_team_emeun_email_result);
-		$me_team_emeun_arr = array();
-		for($i=0;$i<$me_team_emeun_email_count;$i++){
-			$_email = $me_team_emeun_email_result[$i]['email'];
-			$_ret = findOrderFromEmail($_email);
-			$me_team_emeun_arr[$_email]['order'] = $_ret;
-		}*/
 		$me_team_emeun_arr = findOrderFromEmailLoop($gt['Email']);
 
 		$end_time = time();
@@ -68,7 +49,7 @@ if($action==1){//取初始数据
 		$arr = array(
 			"date"=>$dateArr, "config"=>$config_result,
 			"notice"=>$notice_result, "mission"=>$mission_result, "meorder"=>$me_order_result,
-			"meteamorder"=>$me_team_emeun_arr,
+			"meteamorder"=>$me_team_emeun_arr, "meuser"=>$meuser_result
 		);
 		
 		$_str = json_encode($arr);
