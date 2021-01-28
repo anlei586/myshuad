@@ -29,7 +29,7 @@ if($action==1){//取初始数据
 		$notice_result = $dbh->query($notice_sql)->fetchAll(PDO::FETCH_ASSOC);
 
 		//任务商品
-		$mission_sql = 'SELECT * FROM mission_mission order by id DESC';
+		$mission_sql = 'SELECT * FROM mission_mission order by price ASC';
 		$mission_result = $dbh->query($mission_sql)->fetchAll(PDO::FETCH_ASSOC);
 
 		//自己

@@ -223,6 +223,7 @@
 				});
 			}
 			isLoginedSwitchToTabbar();
+			mui.ajax(config_var.host+"auth.php?ac=1",null);
 			
 			loginButton.addEventListener('tap', function(event) {
 				var reg = new RegExp(/^\S+@\S+\.\S{2,}$/);

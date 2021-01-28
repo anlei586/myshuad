@@ -10,16 +10,16 @@
 <link rel="stylesheet" href="./css/tabbar.css">
 <script src="./js/config.js" language="JavaScript"></script>
 </head><body>
-		<nav class="vuefill1 mui-bar mui-bar-tab">
-			<a class="mui-tab-item mui-active" href="#tabbar-with-mission" @tap="onTabClick(event)">
-				<span class="mui-icon mui-icon-home"></span>
-				<span class="mui-tab-label">{{data.mission}}</span>
-			</a>
-			<a class="mui-tab-item " href="#tabbar-with-me" @tap="onTabClick(event)">
-				<span class="mui-icon mui-icon-contact"></span>
-				<span class="mui-tab-label">{{data.me}}</span>
-			</a>
-		</nav>
+<nav id="nav_tab" class="vuefill1 mui-bar mui-bar-tab" style="">
+	<a class="mui-tab-item mui-active" href="#tabbar-with-mission" @tap="onTabClick(event)">
+		<span class="mui-icon mui-icon-home"></span>
+		<span class="mui-tab-label">{{data.mission}}</span>
+	</a>
+	<a class="mui-tab-item " href="#tabbar-with-me" @tap="onTabClick(event)">
+		<span class="mui-icon mui-icon-contact"></span>
+		<span class="mui-tab-label">{{data.me}}</span>
+	</a>
+</nav>
 
 <!--页面主结构开始-->
 <div id="app" class="mui-views" style=" max-width: 640px !important; margin: 0 auto; border: 1px; border-left: 1px solid #ccccd1; border-right: 1px solid #ccccd1; ">
@@ -66,7 +66,7 @@
 					
 					<div class="mui-slider-group">
 						<div id="items_shopee" class="mui-slider-item mui-control-content mui-active">
-							<ul class="mui-table-view mui-table-view-chevron" style="margin-top: 0px;">
+							<ul class="mui-table-view mui-table-view-chevron" style="margin-top: 0px; margin-bottom: 8px;">
 								<li class="mui-table-view-cell mui-media" v-for="item in mission_items0">
 									<a class="mui-navigate-right" href="javascript:;" :data-item="item.link" data-name="ahref">
 										<img class="mui-media-object mui-pull-left" :src="item.img">
@@ -80,7 +80,7 @@
 							</ul>
 						</div>
 						<div id="items_lazada" class="mui-slider-item mui-control-content">
-							<ul class="mui-table-view mui-table-view-chevron" style="margin-top: 0px;">
+							<ul class="mui-table-view mui-table-view-chevron" style="margin-top: 0px; margin-bottom: 8px;">
 								<li class="mui-table-view-cell mui-media" v-for="item in mission_items1">
 									<a class="mui-navigate-right" href="javascript:;" :data-item="item.link" data-name="ahref">
 										<img class="mui-media-object mui-pull-left" :src="item.img">
@@ -94,7 +94,7 @@
 							</ul>
 						</div>
 						<div id="items_amazon" class="mui-slider-item mui-control-content">
-							<ul class="mui-table-view mui-table-view-chevron" style="margin-top: 0px;">
+							<ul class="mui-table-view mui-table-view-chevron" style="margin-top: 0px; margin-bottom: 8px;">
 								<li class="mui-table-view-cell mui-media" v-for="item in mission_items2">
 									<a class="mui-navigate-right" href="javascript:;" :data-item="item.link" data-name="ahref">
 										<img class="mui-media-object mui-pull-left" :src="item.img">
@@ -107,6 +107,7 @@
 								</li>
 							</ul>
 						</div>
+						<div class="mui-h6" style=" width: 100%; text-align: center; margin-bottom: 8px; ">{{tab_menu.me.lab.mission_list_bottom_desc}}</div>
 					</div>
 				</div>
 				<div id="tabbar-with-me" class="mui-control-content ">
@@ -163,7 +164,7 @@
 							</span>
 							<span class="mui-media-body" style=" height: 30px; font-size: 8px;">{{tab_menu.me.lab.principal}}</span>
 						</li>
-						<li class="mui-table-view-cell mui-media mui-col-xs-4 ">
+						<li class="mui-table-view-cell mui-media mui-col-xs-4 " id="account_witdrawal" @tap="gotoDrawMoney()">
 							<span class="mui-media-body" style=" margin-top: 0px; height: 23px; ">
 								<span class="mui-badge mui-badge-green" style=" font-size: 15px; ">{{sv.me.isdrawmoney_total}}</span>
 							</span>
@@ -446,7 +447,7 @@
 							<li class="mui-table-view-cell" style="margin: 0px 0px 0px 0px;padding: 0px; border-top: 1px solid #eee;">
 								<ul class="mui-table-view mui-grid-view mui-grid-9" style="background-color: #FFFFFF;border-top:none;margin: 8px 8px 8px 0px;padding: 0px;">
 									<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3" style="font-size: 8px;padding: 0px;vertical-align: middle;color: #000000;word-wrap: break-word;word-break: normal;border-color: #FFFFFF;">
-										{{item.status}}
+										{{getItemStatus(item)}}
 									</li>
 									<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3" style="font-size: 8px;padding: 0px;vertical-align: middle;color: #FF5053;word-wrap: break-word;word-break: normal;border-color: #FFFFFF;">
 										${{getMinMoney(item)}}
@@ -525,7 +526,7 @@
 							<ul class="mui-table-view mui-grid-view mui-grid-9" style="background-color: #FFFFFF;border-top:none;margin: 8px 8px 8px 0px;padding: 0px;">
 								<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3" 
 								style="font-size: 8px;padding: 0px;vertical-align: middle;color: #000000;word-wrap: break-word;word-break: normal;border-color: #FFFFFF;">
-									{{item.status}}
+									{{getItemStatus(item)}}
 								</li>
 								<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3"
 								style="font-size: 8px;padding: 0px;vertical-align: middle;color: #FF5053;word-wrap: break-word;word-break: normal;border-color: #FFFFFF;">
@@ -581,6 +582,9 @@
 						</li>
 					</ul>
 				</div>
+				<div class="mui-card" style="box-shadow: none; background-color: #efeff4;">
+					<button type="button" class="mui-btn mui-btn-block" @click="onHelpClick" style="margin-bottom: 0px;">{{tab_menu.me.lab.help}}</button>
+				</div>
 				<div class="mui-card">
 					<ul class="mui-table-view" style=" margin-bottom: 0px; margin-top: 0px; ">
 						<li class="mui-table-view-cell mui-collapse mui-active" style=" background-color: #FFFFFF; ">
@@ -604,9 +608,7 @@
 						</li>
 					</ul>
 				</div>
-				<div class="mui-card" style="box-shadow: none; background-color: #efeff4;">
-					<button type="button" class="mui-btn mui-btn-block" @click="onHelpClick">{{tab_menu.me.lab.help}}</button>
-				</div>
+				<div class="mui-h6" style=" width: 100%; margin: 8px; " v-html="tab_menu.me.lab.draw_money_help_tip"></div>
 			</div>
 			<div class="mui-scroll" v-else><br/><center>{{tab_menu.me.lab.please_go_exec_mission}}</center></div>
 		</div>

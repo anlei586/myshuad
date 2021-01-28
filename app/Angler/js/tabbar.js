@@ -297,6 +297,10 @@ function pulldownRefresh() {
 		//mui('#pullrefresh').pullRefresh().endPullupToRefresh();
 		initdata_obj = res;
 		
+		
+		mui("#nav_tab")[0].style.display="block";
+		mui("#app")[0].style.display="block";
+		
 		initdata_obj.uid = localStorage.getItem("uid");
 		initdata_obj.email = localStorage.getItem("email");
 		initdata_obj.token = localStorage.getItem("token");
@@ -369,6 +373,13 @@ function pulldownRefresh() {
 					capital_details:__capital_details
 				},
 				methods:{
+					getItemStatus:function(item){
+						var _sta = item.status;
+						if(_sta){
+							_sta = _sta.replace("wc-", "");
+						}
+						return _sta;
+					},
 					isDisplayEvaluate:function(item){//是否显示评价
 						if(item.status == OrderStatusType.completed) return false;
 						var _day = dateSub(res.date.date, item.date_created_gmt) / 1000 / (60 * 60 * 24);
@@ -612,6 +623,13 @@ function pulldownRefresh() {
 					my_team_money_total:my_team_money_total.toFixed(2)
 				},
 				methods:{
+					getItemStatus:function(item){
+						var _sta = item.status;
+						if(_sta){
+							_sta = _sta.replace("wc-", "");
+						}
+						return _sta;
+					},
 					getMinMoney:function(item){//取最小的金额
 						var _money = parseFloat(getItemMinMoney(item));
 						var money_proportion = _money * commission_proportion;
@@ -751,6 +769,11 @@ function pulldownRefresh() {
 					tab_menu:lang_var.tab_menu,
 					sv:sv
 				},
+				methods:{
+					gotoDrawMoney:function(){
+						viewApi.go("#draw_money");
+					},
+				}
 			});
 		}else{
 			me_vue.sv = sv;
@@ -843,6 +866,7 @@ function pulldownRefresh() {
 	},
 	});
 	
+	
 };
 
 
@@ -892,6 +916,7 @@ mui("#pullrefresh").on('tap', 'li', function (event) {
 		clickNoticeBtn();
 		return;
 	}
+	
 });
 
 pulldownRefresh();
@@ -944,6 +969,11 @@ mui('.mui-scroll-wrapper').scroll({
 	indicators: true, //是否显示滚动条
 	deceleration:0.0009
 });
+
+
+mui("#nav_tab")[0].style.display="none";
+mui("#app")[0].style.display="none";
+
 var view = viewApi.view;
 (function($) {
 	//处理view的后退与webview后退
