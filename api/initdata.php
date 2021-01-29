@@ -21,7 +21,7 @@ if($action==1){//取初始数据
 	if($gt['passport'])
 	{
 		//配置
-		$config_sql = 'SELECT * FROM mission_config';
+		$config_sql = 'SELECT `id`,`key`,`value` FROM mission_config';
 		$config_result = $dbh->query($config_sql)->fetchAll(PDO::FETCH_ASSOC);
 
 		//公告
@@ -31,6 +31,53 @@ if($action==1){//取初始数据
 		//任务商品
 		$mission_sql = 'SELECT * FROM mission_mission order by price ASC';
 		$mission_result = $dbh->query($mission_sql)->fetchAll(PDO::FETCH_ASSOC);
+
+		//优惠券列表
+		//取列表
+		$coupon_sql = "SELECT ID,post_title,post_date FROM sd_posts where lower(post_title)=lower(post_name) and post_type='shop_coupon' and post_excerpt='".$gt['Email']."' order by id DESC";
+		$coupon_result = $dbh->query($coupon_sql)->fetchAll(PDO::FETCH_ASSOC);
+		//var_dump($coupon_result);
+		$coupon_post_id_str="";
+		$coupon_post_id_count = count($coupon_result);
+		if($coupon_post_id_count>0){
+			//把ID集中起来
+			for($i=0;$i<$coupon_post_id_count;$i++){
+				$isEndStr = $i==$coupon_post_id_count-1 ? "" : ",";
+				$coupon_post_id_str .= $coupon_result[$i]['ID'] . $isEndStr;
+			}
+			
+			if(!empty($coupon_post_id_str)){
+				//查使用过的优惠券，以便剔除
+				$coupon_used_sql = "SELECT post_id FROM sd_postmeta where meta_key='_used_by' and post_id in(".$coupon_post_id_str.") order by meta_id DESC";
+				$coupon_used_result = $dbh->query($coupon_used_sql)->fetchAll(PDO::FETCH_ASSOC);
+				$coupon_used_count = count($coupon_used_result);
+				for($i=0;$i<$coupon_used_count;$i++){
+					$post_id = $coupon_used_result[$i]['post_id'];
+					$coupon_post_id_str = str_replace($post_id, "-1", $coupon_post_id_str);
+					for($m=0;$m<count($coupon_result);$m++){
+						if($coupon_result[$m]['ID'] == $post_id){
+							array_splice($coupon_result, $m, 1);
+							//var_dump($coupon_result);
+							break;
+						}
+					}
+				}
+				//按ID查优惠券的价格
+				$coupon_amount_sql = "SELECT * FROM sd_postmeta where meta_key='coupon_amount' and post_id in(".$coupon_post_id_str.") order by meta_id DESC";
+				//echo '->'.$coupon_amount_sql.'<-';
+				$coupon_amount_result = $dbh->query($coupon_amount_sql)->fetchAll(PDO::FETCH_ASSOC);
+				//var_dump($coupon_amount_result);
+				$coupon_amount_count = count($coupon_amount_result);
+				//把价格堆入列表
+				for($i=0;$i<$coupon_post_id_count;$i++){
+					for($k=0;$k<$coupon_amount_count;$k++){
+						if($coupon_result[$i]['ID'] == $coupon_amount_result[$k]["post_id"] && $coupon_amount_result[$k]['usage_count']<=0){
+							$coupon_result[$i]['amount'] = $coupon_amount_result[$k]["meta_value"];
+						}
+					}
+				}
+			}
+		}
 
 		//自己
 		$meuser_sql = 'SELECT * FROM mission_user where email="'.$gt['Email'].'"';
@@ -49,7 +96,7 @@ if($action==1){//取初始数据
 		$arr = array(
 			"date"=>$dateArr, "config"=>$config_result,
 			"notice"=>$notice_result, "mission"=>$mission_result, "meorder"=>$me_order_result,
-			"meteamorder"=>$me_team_emeun_arr, "meuser"=>$meuser_result
+			"meteamorder"=>$me_team_emeun_arr, "meuser"=>$meuser_result, "coupons"=>$coupon_result,
 		);
 		
 		$_str = json_encode($arr);

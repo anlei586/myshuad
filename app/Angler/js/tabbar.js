@@ -4,6 +4,7 @@ var me_vue;
 var notice_vue;
 var capital_details_vue;
 var my_business_partner_vue;
+var exchange_coupons_vue;
 var draw_money_vue;
 var day_mission_reward_vue;
 var customer_service_vue;
@@ -22,6 +23,8 @@ var commission_proportion=0.10;//佣金百分比例
 var OrderStatusType = {
 	processing:'wc-processing',
 	completed:'wc-completed',
+	cancelled:"wc-cancelled",
+	hold:"wc-on-hold",
 };
 
 
@@ -129,6 +132,17 @@ mui.init({
 		}
 	}*/
 });
+//复制文字
+function copytext(eleid){
+	var code_sp = document.getElementById(eleid);
+	const range = document.createRange();
+	range.selectNode(code_sp);
+	const selection = window.getSelection();
+	if(selection.rangeCount > 0) selection.removeAllRanges();
+	selection.addRange(range);
+	document.execCommand('copy');
+	mui.toast(lang_var.tab_menu.me.lab.copy_link_tip3);
+}
 //切换标签时复位滚动条到最顶
 function onTabClick(event){
 	var scroller = mui("#pullrefresh").scroll();
@@ -482,7 +496,61 @@ function pulldownRefresh() {
 							return "none";
 						}
 					},
-					againBuyOrder:function(orderItem){//再买一次
+					againBuyOrder:function(orderItem){//再买一次改为兑换优惠券
+						var again_btn = document.getElementById('again_btn_'+orderItem.order_id);
+						mui(again_btn).button('loading');
+						mui.confirm(lang_var.tab_menu.me.lab.again_onec_buy_help_tip, lang_var.code_lab.TIP, [lang_var.code_lab.NO, lang_var.code_lab.YES], function(e) {
+							if (e.index == 1) {
+								myajax(config_var.host+"change.php?ac=5&oid="+orderItem.order_id,
+								{dataType:'json',success:function(res) {
+									mui(again_btn).button('reset');
+									if(res.ret==0){
+										exchange_coupons_vue.exchange_coupons_data.push(res);
+										sv.me.coupons_len = exchange_coupons_vue.exchange_coupons_data.length;
+										
+										var oitem = findOrderItemByOid(capital_details_vue.capital_details, orderItem.order_id);
+										//
+										var _money = parseFloat(getItemMinMoney(orderItem));
+										var _commission_scale = parseInt(oitem.commission_scale);//再买一次的倍数
+										var money_proportion = _money * commission_proportion * _commission_scale;
+										
+										var __tmp1 = commissionmoney_total - money_proportion;
+										if(__tmp1<0) __tmp1 = 0;
+										me_vue.sv.me.total_commission = __tmp1.toFixed(4);//总佣金
+										//
+										var _ovint = colInteres(oitem);//此单利息
+										interestmoney_total -= _ovint;//总利息
+										me_vue.sv.me.total_interest = interestmoney_total.toFixed(4);//总利息
+										
+										//
+										__tmp1 = ordermoney_total-_money;
+										if(__tmp1<0) __tmp1 = 0;
+										me_vue.sv.me.total_principal = __tmp1.toFixed(4);//总本金
+										
+										
+										__tmp1 = parseFloat(me_vue.sv.me.isdrawmoney_total)-_money-money_proportion-_ovint;
+										if(__tmp1<0) __tmp1 = 0;
+										me_vue.sv.me.isdrawmoney_total = __tmp1.toFixed(4);//可提现金额
+										
+										oitem.commission_scale = parseInt(oitem.commission_scale)+1;
+										
+										oitem.date_created = res.post_date;
+										oitem.date_created_gmt = res.post_date;
+										
+										
+										
+										orderItem.status=OrderStatusType.hold;
+										mui.toast("OK");
+									}else{
+										mui.toast(res.msg);
+									}
+								}});
+							}else{
+								mui(again_btn).button('reset');
+							}
+						});
+					},
+					againBuyOrder1:function(orderItem){//再买一次
 						var again_btn = document.getElementById('again_btn_'+orderItem.order_id);
 						mui(again_btn).button('loading');
 						mui.confirm(lang_var.tab_menu.me.lab.again_onec_buy_help_tip+"?", lang_var.code_lab.TIP, [lang_var.code_lab.NO, lang_var.code_lab.YES], function(e) {
@@ -701,15 +769,7 @@ function pulldownRefresh() {
 					return _url;
 				},
 				onCopyShareLink:function(event){
-					var code_sp = document.getElementById("sharelink_txt");
-					const range = document.createRange();
-					range.selectNode(code_sp);
-					const selection = window.getSelection();
-					if(selection.rangeCount > 0) selection.removeAllRanges();
-					selection.addRange(range);
-					document.execCommand('copy');
-					mui.toast(lang_var.tab_menu.me.lab.copy_link_tip3);
-					
+					copytext("sharelink_txt");
 				},
 			}
 		});
@@ -726,15 +786,7 @@ function pulldownRefresh() {
 					return customer_service;
 				},
 				onCopyServiceInfo:function(event){
-					var code_sp = document.getElementById("serviceInfo_txt");
-					const range = document.createRange();
-					range.selectNode(code_sp);
-					const selection = window.getSelection();
-					if(selection.rangeCount > 0) selection.removeAllRanges();
-					selection.addRange(range);
-					document.execCommand('copy');
-					mui.toast(lang_var.tab_menu.me.lab.copy_link_tip3);
-					
+					copytext("serviceInfo_txt");
 				},
 			}
 		});
@@ -758,6 +810,7 @@ function pulldownRefresh() {
 				,team_isdrawmoney_total:team_isdrawmoney_total.toFixed(4)//团队佣金
 				,isdrawmoney_total:__isdrawmoney_total.toFixed(4)//可提现金额
 				,notice_len:notice_len
+				,coupons_len:res.coupons.length
 				,day_mission_reward_total:day_mission_reward_total.toFixed(4)
 			}
 		};
@@ -777,6 +830,24 @@ function pulldownRefresh() {
 			});
 		}else{
 			me_vue.sv = sv;
+		}
+		
+		//兑换优惠券
+		if(!exchange_coupons_vue){
+			exchange_coupons_vue = new Vue({
+				el: '#exchange_coupons',
+				data: {
+					tab_menu:lang_var.tab_menu,
+					exchange_coupons_data:res.coupons,
+				},
+				methods:{
+					onCopyCoupons:function(item){
+						copytext("coupons_item_"+item.ID);
+					},
+				},
+			});
+		}else{
+			exchange_coupons_vue.exchange_coupons_data = res.coupons;
 		}
 		
 		var draw_money_data = {

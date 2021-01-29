@@ -108,12 +108,38 @@ if($gt['passport'])
 		}else{
 			exit(retmsg(112,"not order id"));
 		}
+	}else if($action==5){//用户提交的况换优惠券的商品	change.php?ac=5&oid=406
+		$oid = isset($_GET['oid'])?$_GET['oid']:"";
+		if(!empty($oid)){
+			//0.读佣金配置
+			$smp_sql = 'SELECT value from mission_config where `key`="commission_proportion"';
+			$smp_res = $dbh->query($smp_sql)->fetchAll(PDO::FETCH_ASSOC);
+			$commission_proportion = $smp_res[0]['value'];
+			//1.读订单价格
+			$order_sql = 'SELECT total_sales,net_total from sd_wc_order_stats where order_id='.$oid;
+			$order_res = $dbh->query($order_sql)->fetchAll(PDO::FETCH_ASSOC);
+			$total_sales = $order_res[0]['total_sales'];
+			$net_total = $order_res[0]['net_total'];
+			$order_price = min($total_sales, $net_total);//订单价格
+			$order_price_comm = $order_price*$commission_proportion;//佣金
+			$total_order_price = $order_price + $order_price_comm + 0.1;
+			//1.把订单时间改为最新, 状态改为wc-on-hold
+			$_date = date('Y-m-d H:i:s');
+			$sql = "UPDATE sd_wc_order_stats set date_created='{$_date}', date_created_gmt='{$_date}', status='wc-on-hold' where order_id=".$oid;
+			$dbh->query($sql);
+			//2.生成优惠券
+			$str = duifcoupon($gt['Email'], $total_order_price);
+			exit($str);
+		}else{
+			exit(retmsg(112,"not order id"));
+		}
 	}else{
 		exit(retmsg(110,"not action"));
 	}
 }else{
 	exit(retmsg(108,"logout"));
 }
+
 
 
 function setOrderFromEmail($email, $tomoney_field, $tomoney_value, $tomoney_daymission) {
