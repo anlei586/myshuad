@@ -34,7 +34,7 @@ if($action==1){//取初始数据
 
 		//优惠券列表
 		//取列表
-		$coupon_sql = "SELECT ID,post_title,post_date FROM sd_posts where lower(post_title)=lower(post_name) and post_type='shop_coupon' and post_excerpt='".$gt['Email']."' order by id DESC";
+		$coupon_sql = "SELECT ID,post_title,post_date FROM sd_posts where lower(post_title)=lower(post_name) and post_type='shop_coupon' and post_excerpt='".$gt['Email']."'";
 		$coupon_result = $dbh->query($coupon_sql)->fetchAll(PDO::FETCH_ASSOC);
 		//var_dump($coupon_result);
 		$coupon_post_id_str="";

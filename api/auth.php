@@ -86,6 +86,9 @@ mysendmail($title1, $title1, $toemail, $gongxi_html);
 
 		
 		echo mysendmail($title1, $title2, $toemail, $pwdtxt);
+
+		duifcoupon($toemail, 10);
+
 		exit();
 		die();
 		return;

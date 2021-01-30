@@ -99,8 +99,8 @@ function duifcoupon($email,$money){
 	$dbh->query($sql);
 
 	$arr = array("ret"=>0, "ID"=>$lastid, "amount"=>$money, "post_title"=>$code8, "post_date"=>$_date);
-	$str = json_encode($arr);
-	return $str;
+	
+	return $arr;
 }
 
 

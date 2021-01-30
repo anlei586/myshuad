@@ -108,7 +108,7 @@ if($gt['passport'])
 		}else{
 			exit(retmsg(112,"not order id"));
 		}
-	}else if($action==5){//用户提交的况换优惠券的商品	change.php?ac=5&oid=406
+	}else if($action==5){//用户提交的兑换优惠券的商品	change.php?ac=5&oid=406
 		$oid = isset($_GET['oid'])?$_GET['oid']:"";
 		if(!empty($oid)){
 			//0.读佣金配置
@@ -128,8 +128,65 @@ if($gt['passport'])
 			$sql = "UPDATE sd_wc_order_stats set date_created='{$_date}', date_created_gmt='{$_date}', status='wc-on-hold' where order_id=".$oid;
 			$dbh->query($sql);
 			//2.生成优惠券
-			$str = duifcoupon($gt['Email'], $total_order_price);
+			$arr = duifcoupon($gt['Email'], $total_order_price);
+			$str = json_encode($arr);
 			exit($str);
+		}else{
+			exit(retmsg(112,"not order id"));
+		}
+	}else if($action==6){//用户提交的拆分优惠券	change.php?ac=6&id=1565&title=abc&m1=1&m2=9
+		$pid = isset($_GET['id'])?$_GET['id']:"";
+		$pid = intval($pid);
+		if(!empty($pid)){
+			//取好url参数
+			$m1 = isset($_GET['m1'])?$_GET['m1']:0;
+			//$m2 = isset($_GET['m2'])?$_GET['m2']:0;
+			$m1 = floatval($m1);
+			//$m2 = floatval($m2);
+			if($m1<=0){
+				exit(retmsg(124,"coupon amount error"));
+			}
+			$title = isset($_GET['title'])?$_GET['title']:0;
+			$title = strtolower($title);
+			//读这张优惠是否是自己的
+			$coupon_sql = "SELECT ID,post_title FROM sd_posts where lower(post_title)=lower(post_name) and ID=".$pid." and lower(post_title)='".$title."' and post_type='shop_coupon' and post_excerpt='".$gt['Email']."' order by id DESC";
+			//echo '->'.$coupon_sql.'<-';
+			$coupon_result = $dbh->query($coupon_sql)->fetchAll(PDO::FETCH_ASSOC);
+			//var_dump($coupon_result);
+			//说明有此卷
+			if(count($coupon_result)>0)
+			{
+				//则去查卷的价格
+				$coupon_amount_sql = "SELECT * FROM sd_postmeta where meta_key='coupon_amount' and post_id=".$pid." order by meta_id DESC";
+				//echo '->'.$coupon_amount_sql.'<-';
+				$coupon_amount_result = $dbh->query($coupon_amount_sql)->fetchAll(PDO::FETCH_ASSOC);
+				$amount = $coupon_amount_result[0]['meta_value'];
+				//var_dump($coupon_amount_result);
+				//说明有查到卷的价格
+				if(count($amount)>0 && $m1<$amount)
+				{
+					$m2 = $amount - $m1;
+					//如果URL参数发来的两个拆分价格相加等于库中查到的价格相等则说明成功
+					if($amount == $m1+$m2){
+						//可以在此拆分卷
+						//1.修改原始卷的价格为m2
+						$sql = "UPDATE sd_postmeta set meta_value={$m2} where meta_key='coupon_amount' and post_id=".$pid;
+						$dbh->query($sql);
+						//2.新增一张价格为m1的卷
+						$arr = duifcoupon($gt['Email'], $m1);
+						$arr["m2"] = $m2;
+						$arr["msg"] = "success";
+						$str = json_encode($arr);
+						exit($str);
+					}else{
+						exit(retmsg(123,"coupon amount error"));
+					}
+				}else{
+					exit(retmsg(122,"not coupon amount"));
+				}
+			}else{
+				exit(retmsg(121,"not coupon"));
+			}
 		}else{
 			exit(retmsg(112,"not order id"));
 		}

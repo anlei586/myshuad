@@ -196,7 +196,7 @@
 								<a href="#exchange_coupons" class="mui-navigate-right">
 									{{tab_menu.me.lab.again_onec_buy}}
 								</a>
-								<span class="mui-badge">{{sv.me.coupons_len}}</span>
+								<span class="mui-badge mui-badge-danger">{{sv.me.coupons_len}}</span>
 							</li>
 							<li class="mui-table-view-cell">
 								<a href="#draw_money" class="mui-navigate-right">
@@ -567,13 +567,14 @@
 	<div class="mui-page-content">
 		<div class="mui-content">
 			<div class="mui-scroll">
+				<div class="mui-h6" style=" width: 100%; margin: 8px; text-align: center;" v-html="tab_menu.me.lab.coupons_use_help_tip"></div>
 				<div class="mui-card" style=" margin: 10px 10px 5px 10px; ">
 					<ul class="mui-table-view mui-grid-view mui-grid-9" style="background-color: #FFFFFF;border-top:none;margin: 8px 8px 8px 0px;padding: 0px;">
 						<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3" style="font-size: 8px;padding: 0px;vertical-align: middle;color: #000000;word-wrap: break-word;word-break: normal;border-color: #FFFFFF;">
 							ID
 						</li>
 						<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3" style="font-size: 8px;padding: 0px;vertical-align: middle;color: #000000;word-wrap: break-word;word-break: normal;border-color: #FFFFFF;">
-							{{tab_menu.me.lab.total_money}}
+							{{tab_menu.me.lab.amounts_tip}}
 						</li>
 						<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3" style="font-size: 8px;padding: 0px;vertical-align: middle;color: #000000;word-wrap: break-word;word-break: normal;border-color: #FFFFFF;">
 							{{tab_menu.me.lab.DATE_TIP}}
@@ -592,7 +593,7 @@
 										{{item.ID}}
 									</li>
 									<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3" style="font-size: 8px;padding: 0px;vertical-align: middle;color: #FF5053;word-wrap: break-word;word-break: normal;border-color: #FFFFFF;">
-										{{item.amount}}
+										{{parseFloat(item.amount).toFixed(2)}}
 									</li>
 									<li :id="'coupons_item_'+item.ID" class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3" style="font-size: 8px;padding: 0px;vertical-align: middle;color: #ee00ff;word-wrap: break-word;word-break: normal;border-color: #FFFFFF;user-select: text;">{{item.post_title}}</li>
 									<li class="mui-table-view-cell mui-media mui-col-xs-3 mui-col-sm-3" style="font-size: 8px;padding: 0px;vertical-align: middle;color: #000000;word-wrap: break-word;word-break: normal;border-color: #FFFFFF;">
@@ -600,7 +601,8 @@
 									</li>
 								</ul>
 								<div class="mui-card-footer" style="padding: 4px; ">
-									<button type="button" class="mui-btn mui-btn-primary"
+									<button :id="'split_coupons_btn_'+item.ID" type="button" @click="onSplitCoupons(item)" class="mui-btn mui-btn-primary"
+									:data-loading-text="lang_var.code_lab.OKING_TIP" data-loading-icon-position="right"
 									 style="width: 50%; margin-right: 3px;">{{tab_menu.me.lab.split_coupons_tip}}</button>
 									<button type="button" @click="onCopyCoupons(item)" class="mui-btn mui-btn-primary"
 									 style="width: 50%; margin-left: 3px;">{{tab_menu.me.lab.copy_coupons_tip}}</button>

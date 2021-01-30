@@ -44,6 +44,7 @@ var lang_cn = {
 				help_note:"1. 我们会为您订单费用计算利息，例如：订单金额$20，佣金为$2，每日利息为$20+$2=$22*0.00006323=$0.00139106 (即使您什么都不做，您每日也能得到$0.00139106)<br/>2. 团队的佣金奖励不计算利息。<br/>3.完成的订单既可以提现又可以兑换优惠券。若已提现的订单则没有此功能。<br/>4.每日任务奖励：2日后（即第三天完成订单后会发放奖励)",
 				order_status:"订单状态",
 				total_money:"金额",
+				amounts_tip:"钱",
 				drawmone_100_tip:"由于USDT手续费很贵，我们设定为$100.00以上才能提现",
 				order_total_interest:"订单利息",
 				order_total_cut:"抽成",
@@ -62,6 +63,8 @@ var lang_cn = {
 				again_onec_buy_help_tip:"将该订单的金额转换为优惠码，使用优惠码可以抵消新订单的金额。是否需要兑换优惠券？",
 				DAY_ORDER_Total:"每日完成的订单总数", ORDER_COMPLETE_Total:"完成的订单数", ORDER_OTHER_Total:"其他的订单数", DATE_TIP:"日期", MISSION_Progress_TIP:"进度度", WAIT_COMPLETE_TIP:"等待完成",
 				COMMENT_TIP:"请输入评论内容", Submit_COMMENTS_TIP:"提交评论", COMMENTS_NOT_NULL:"评论不能为空",
+				split_coupons_desc:"生成一个新的优惠券，金额必须少于{money}",
+				coupons_use_help_tip:"复制优惠券->进入购物车->使用优惠券",
 			}
 		}
 	},
@@ -114,6 +117,7 @@ var lang_en = {
 				share_make_money_fxnote:'<font color="#0062CC"><b>B</b></font> is <font color="#ee0053"><b>your</b></font> employee.<br/><font color="#f4a300"><b>C</b></font> is <font color="#0062CC"><b>B </b></font>employee.<br/><font color="#aa00ff"><b>D</b></font> is <font color="#f4a300"><b>C </b></font>employee.<br/>We will give you an extra commission (will not reduce any employee\'s money)<br/>(1). <font color="#00b020"><b>35%</b></font> of <font color="#0062CC"><b>B</b></font>\'s commission belongs to you.<br/>(2). <font color="#00b020"><b>15%</b></font> of <font color="#f4a300"><b>C</b></font>\'s commission belongs to you.<br/>(3). &nbsp;&nbsp;<font color="#00b020"><b>5%</b></font> of <font color="#aa00ff"><b>D</b></font>\'s commission belongs to you.<br/>Note: The team commission does not calculate interest.',
 				order_status:"Order Status",
 				total_money:"Total Money",
+				amounts_tip:"Amounts",
 				drawmone_100_tip:"Due to the high service charge of usdt, we set it to be more than $100.00 to Account Withdrawal.",
 				order_total_interest:"Order Interest",
 				order_total_cut:"Commission",
@@ -128,10 +132,12 @@ var lang_en = {
 				ok_paypal_to_server:"Submit USDT-ERC20 wallet address", Please_Input_Paypal_Account:"please input USDT-ERC20 wallet address",Please_Input_NewPaypal_Account:"please input New USDT-ERC20 wallet address",
 				ok_isdraw_money_to_paypal:"Withdraw cash to your USDT-ERC20 wallet address", please_input_confri_data:"Please fill in the correct characters", ok_draw_money_complete:"Please wait patiently for the administrator review.",
 				TIP_NOT_MONEY_DRAW:"There is no cash balance", TIP_MONEY_DRAW_TIME:"Withdrawal time: Tuesday、Friday", again_onec_buy:"Exchange Coupons", coupons_tip:"Coupons", copy_coupons_tip:"Copy Coupons", split_coupons_tip:"Split Coupons",
-				again_onec_buy_help_tip:"将该订单的金额转换为优惠码，使用优惠码可以抵消新订单的金额。是否需要兑换优惠券？",
+				again_onec_buy_help_tip:"Convert the amount of the order into a discount code, which can be used to offset the amount of the new order. Do you need to exchange coupons?？",
 				DAY_ORDER_Total:"The total number of orders completed per day", ORDER_COMPLETE_Total:"Number of completed orders", ORDER_OTHER_Total:"Other orders", DATE_TIP:"DATE",
 				MISSION_Progress_TIP:"Reward Progress", WAIT_COMPLETE_TIP:"Wait for completion",
 				COMMENT_TIP:"Please enter comments", Submit_COMMENTS_TIP:"Submit comments", COMMENTS_NOT_NULL:"Please enter comments",
+				split_coupons_desc:"To generate a new coupon, the amount must be less than {money}",
+				coupons_use_help_tip:"Copy coupons -> enter shopping cart->use coupons",
 			}
 		}
 	},

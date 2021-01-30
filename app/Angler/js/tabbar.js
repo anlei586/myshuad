@@ -844,6 +844,42 @@ function pulldownRefresh() {
 					onCopyCoupons:function(item){
 						copytext("coupons_item_"+item.ID);
 					},
+					onSplitCoupons:function(item){
+						var again_btn = document.getElementById('split_coupons_btn_'+item.ID);
+						mui(again_btn).button('loading');
+						var _desc = lang_var.tab_menu.me.lab.split_coupons_desc;
+						_desc = _desc.replace("{money}", parseFloat(item.amount).toFixed(2));
+						mui.prompt(_desc,
+							lang_var.tab_menu.me.lab.amounts_tip,
+							lang_var.tab_menu.me.lab.split_coupons_tip,
+							[lang_var.code_lab.NO, lang_var.code_lab.YES],
+						function(e) {
+							if (e.index == 1 && parseFloat(e.value)>0) {
+								myajax(config_var.host+"change.php?ac=6&id="+item.ID+"&title="+item.post_title+"&m1="+e.value,
+								{dataType:'json',success:function(res) {
+									mui(again_btn).button('reset');
+									if(res.ret==0){
+										for(var i=0;i<exchange_coupons_vue.exchange_coupons_data.length;i++){
+											if(exchange_coupons_vue.exchange_coupons_data[i].ID==item.ID){
+												exchange_coupons_vue.exchange_coupons_data[i].amount = res.m2;
+												break;
+											}
+										}
+										exchange_coupons_vue.exchange_coupons_data.push(res);
+										
+										mui.toast(res.msg);
+									}else{
+										mui.toast(res.msg);
+									}
+								},error:function(err){
+									mui(again_btn).button('reset');
+								},
+								});
+							}else{
+								mui(again_btn).button('reset');
+							}
+						});
+					},
 				},
 			});
 		}else{
