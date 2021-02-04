@@ -138,6 +138,18 @@ function findOrderFromEmail($email) {
 	//查所有符合条件的订单
 	$me_order_post_id_sql = 'SELECT * FROM sd_wc_order_stats where order_id in('.$me_order_post_id_str.')';
 	$me_order_result = $dbh->query($me_order_post_id_sql)->fetchAll(PDO::FETCH_ASSOC);
+	$me_order_count = count($me_order_result);//订单总数
+	//查订单的使用优惠券
+	$me_order_coupon_sql = 'SELECT order_id,discount_amount FROM sd_wc_order_coupon_lookup where order_id in('.$me_order_post_id_str.')';
+	$me_order_coupon_result = $dbh->query($me_order_coupon_sql)->fetchAll(PDO::FETCH_ASSOC);
+	$me_order_coupon_count = count($me_order_coupon_result);//优惠券总数
+	for($i=0;$i<$me_order_count;$i++){//把优惠券的折价加到net_total字段里
+		for($k=0;$k<$me_order_coupon_count;$k++){
+			if($me_order_result[$i]['order_id'] == $me_order_coupon_result[$k]['order_id']){
+				$me_order_result[$i]['net_total'] = floatval($me_order_result[$i]['net_total']) + floatval($me_order_coupon_result[$k]['discount_amount']);
+			}
+		}
+	}
 	return $me_order_result;
 }
 

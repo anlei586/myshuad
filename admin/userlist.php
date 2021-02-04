@@ -378,10 +378,11 @@ function getConfig2(res, key, value){
 }
 
 function getItemMinMoney(item){
-	var total_sales = parseFloat(item.total_sales);
+	return item.net_total;
+	/*var total_sales = parseFloat(item.total_sales);
 	var net_total = parseFloat(item.net_total);
 	var _end = Math.min(total_sales, net_total);
-	return _end;
+	return _end;*/
 }
 //把团队订单树列展平成列表
 function coveMeTeamOrder(list, ___tomoney){

@@ -123,9 +123,9 @@ if($gt['passport'])
 			$order_price = min($total_sales, $net_total);//订单价格
 			$order_price_comm = $order_price*$commission_proportion;//佣金
 			$total_order_price = $order_price + $order_price_comm + 0.1;
-			//1.把订单时间改为最新, 状态改为wc-on-hold
+			//1.把订单时间改为最新, 状态改为 (wc-on-hold)  wc-completed
 			$_date = date('Y-m-d H:i:s');
-			$sql = "UPDATE sd_wc_order_stats set date_created='{$_date}', date_created_gmt='{$_date}', status='wc-on-hold' where order_id=".$oid;
+			$sql = "UPDATE sd_wc_order_stats set date_created='{$_date}', date_created_gmt='{$_date}', status='wc-completed', tomoney=1 where order_id=".$oid;
 			$dbh->query($sql);
 			//2.生成优惠券
 			$arr = duifcoupon($gt['Email'], $total_order_price);

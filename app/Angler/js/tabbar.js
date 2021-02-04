@@ -150,10 +150,11 @@ function onTabClick(event){
 }
 
 function getItemMinMoney(item){
+	return item.net_total;
+	/*var net_total = parseFloat(item.net_total);
 	var total_sales = parseFloat(item.total_sales);
-	var net_total = parseFloat(item.net_total);
 	var _end = Math.min(total_sales, net_total);
-	return _end;
+	return _end;*/
 }
 //把团队订单树列展平成列表
 function coveMeTeamOrder(list){
@@ -505,6 +506,7 @@ function pulldownRefresh() {
 								{dataType:'json',success:function(res) {
 									mui(again_btn).button('reset');
 									if(res.ret==0){
+										orderItem.tomoney = 1;
 										exchange_coupons_vue.exchange_coupons_data.push(res);
 										sv.me.coupons_len = exchange_coupons_vue.exchange_coupons_data.length;
 										
@@ -539,7 +541,7 @@ function pulldownRefresh() {
 										
 										
 										
-										orderItem.status=OrderStatusType.hold;
+										orderItem.status=OrderStatusType.completed;
 										mui.toast("OK");
 									}else{
 										mui.toast(res.msg);
