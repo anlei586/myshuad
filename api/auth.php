@@ -78,7 +78,8 @@ if($action==1){//登录
 
 
 /*发送恭喜邮件给客户**/
-$gongxi_html = 'Welcome to make money.Our company mainly works with Shopee, Lazada and Amazon.Buy products to boost your site\'s sales rankings.We offer the following two ways of cooperation:<br/>&nbsp;&nbsp;&nbsp;&nbsp;1. By buying products.3 days later confirm receipt and give praise.We will refund the money to your account in the form of points.And we will give you a 10% commission of the total amount.You can either withdraw cash or continue to purchase products in the form of credits to earn commissions (after credits are deposited into the account, we will give a certain percentage of interest as compensation).<br/>&nbsp;&nbsp;&nbsp;&nbsp;2. Earn a certain amount of team commission through the development team.For specific cooperation methods, please refer to the relevant instructions of the platform or consult customer service.Thank you for your cooperation.';
+$gongxi_html = "Welcome to [Make Money].Our platform mainly works with the shopping website [Goodsummerday2020].Increase the number of website views and merchandise turnover through the way of brushing orders. We offer the following three ways of cooperation:<br/>&nbsp;&nbsp;&nbsp;&nbsp;1. Order Brushing. Purchase related goods, confirm the receipt on the third day, and give a good evaluation. Your payment and commission will arrive at the account immediately.<br/>&nbsp;&nbsp;&nbsp;&nbsp;2. Team Agent. You can develop your agent team and earn a certain amount of team commission through team member's Order Brushing.<br/>&nbsp;&nbsp;&nbsp;&nbsp;3. Interest Income. You can get a certain proportion of interest by depositing the income and payment you get through the Order Brushing.<br/><br/>
+For specific cooperation mode, please refer to the website platform description or consult relevant customer service. Thank You for Your Cooperation!";
 mysendmail($title1, $title1, $toemail, $gongxi_html);
 
 

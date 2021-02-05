@@ -930,12 +930,15 @@ function pulldownRefresh() {
 							}
 						});
 					},
-					onConfriDrawMoney:function(){//确定提现
-						if(__isdrawmoney_total<100){
+					onConfriDrawMoney:function(type){//确定提现 ，type=0时为提现，type=1时则为转换优惠券
+						if(__isdrawmoney_total<100 && type==0){
 							mui.toast(lang_var.tab_menu.me.lab.drawmone_100_tip);
 							return;
 						}
 						var sub_draw_money_btn = document.getElementById('sub_draw_money_btn');
+						if(type==1){
+							sub_draw_money_btn = document.getElementById('sub_covecoupons_btn');
+						}
 						mui(sub_draw_money_btn).button('loading');
 						mui.confirm(lang_var.tab_menu.me.lab.confri_tip+"?", lang_var.code_lab.TIP, [lang_var.code_lab.NO, lang_var.code_lab.YES], function(e) {
 							if (e.index == 1) {
@@ -949,7 +952,7 @@ function pulldownRefresh() {
 									mui.alert(lang_var.tab_menu.me.lab.TIP_NOT_MONEY_DRAW);
 									return;
 								}
-								myajax(config_var.host+"change.php?ac=2",
+								myajax(config_var.host+"change.php?ac=2&type="+type,
 								{dataType:'json',success:function(res) {
 									mui(sub_draw_money_btn).button('reset');
 									console.log(res);

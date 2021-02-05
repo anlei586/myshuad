@@ -38,10 +38,13 @@ if($gt['passport'])
 			exit(retmsg(111,"not paypal"));
 		}
 	}else if($action==2){//提交提现审核
-		$ww = date("w");//取星期几
-		if($ww!=2 || $ww!=5){//如果不是星期2或星期5
-			exit(retmsg(116,"Time is not up"));
-			return;
+		$type = isset($_GET['type'])?$_GET['type']:"";
+		if($type==0){
+			$ww = date("w");//取星期几
+			if($ww!=2 || $ww!=5){//如果不是星期2或星期5
+				exit(retmsg(116,"Time is not up"));
+				return;
+			}
 		}
 		$drawmoneyapply_sql = "SELECT drawmoneyapply FROM `mission_user` where email='".$gt['Email']."'";
 		$drawmoneyapply_res = $dbh->query($drawmoneyapply_sql)->fetchAll(PDO::FETCH_ASSOC);
@@ -50,7 +53,7 @@ if($gt['passport'])
 			//echo 'bbb->'.$drawmoneyapply_res[0]['drawmoneyapply'];
 			setOrderFromEmailLoop($gt['Email'], 3);
 			//echo 'cccc->'.$drawmoneyapply_res[0]['drawmoneyapply'];
-			$sql = "UPDATE mission_user set drawmoneyapply=1 where email='".$gt['Email']."'";
+			$sql = "UPDATE mission_user set drawmoneyapply=1,coveconput=".$type." where email='".$gt['Email']."'";
 			$dbh->query($sql);
 		}
 		exit(retmsg(0,"success"));
@@ -116,11 +119,34 @@ if($gt['passport'])
 			$smp_res = $dbh->query($smp_sql)->fetchAll(PDO::FETCH_ASSOC);
 			$commission_proportion = $smp_res[0]['value'];
 			//1.读订单价格
-			$order_sql = 'SELECT total_sales,net_total from sd_wc_order_stats where order_id='.$oid;
+			$order_sql = 'SELECT order_id,net_total from sd_wc_order_stats where order_id='.$oid;
 			$order_res = $dbh->query($order_sql)->fetchAll(PDO::FETCH_ASSOC);
-			$total_sales = $order_res[0]['total_sales'];
+			$me_order_count = count($order_res);//订单总数
+			//var_dump($order_res);
+			
+
+			//查订单的使用优惠券
+			$me_order_coupon_sql = 'SELECT order_id,discount_amount FROM sd_wc_order_coupon_lookup where order_id in('.$oid.')';
+			$me_order_coupon_result = $dbh->query($me_order_coupon_sql)->fetchAll(PDO::FETCH_ASSOC);
+			$me_order_coupon_count = count($me_order_coupon_result);//优惠券总数
+			//var_dump($me_order_coupon_result);
+			for($i=0;$i<$me_order_count;$i++){//把优惠券的折价加到net_total字段里
+				for($k=0;$k<$me_order_coupon_count;$k++){
+					if($order_res[$i]['order_id'] == $me_order_coupon_result[$k]['order_id']){
+						$order_res[$i]['net_total'] = floatval($order_res[$i]['net_total']) + floatval($me_order_coupon_result[$k]['discount_amount']);
+						//var_dump($order_res[$i]['net_total']);
+					}
+				}
+			}
 			$net_total = $order_res[0]['net_total'];
-			$order_price = min($total_sales, $net_total);//订单价格
+			$order_price = $net_total;//订单价格
+
+
+
+			
+			
+			
+			
 			$order_price_comm = $order_price*$commission_proportion;//佣金
 			$total_order_price = $order_price + $order_price_comm + 0.1;
 			//1.把订单时间改为最新, 状态改为 (wc-on-hold)  wc-completed

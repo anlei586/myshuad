@@ -39,10 +39,16 @@ error_reporting(-1); //打印出所有的 错误信息
       <td><?php echo $value["drawmoneyreco"]; ?></td>
       <td id="shouru_<?php echo $_id; ?>"></td>
       <td>
-	  		<?php if($value["drawmoneyapply"]==1){ ?>
-	  		<div>发起提现<br/><span id="draw_money_txt_<?php echo $_id; ?>"></span></div><hr/>
-			<button onclick="confriDrawMoney(this,'<?php echo $_id; ?>');" type="button" class="layui-btn layui-btn-danger layui-btn-sm">确认提现</button>
+	  	<?php if($value["drawmoneyapply"]==1){ ?>
+			<?php if($value["coveconput"]==0){ ?>
+		  		<div>发起提现<br/><span id="draw_money_txt_<?php echo $_id; ?>"></span></div><hr/>
+			<?php }elseif($value["coveconput"]==1){ ?>
+		  		<div>发起转换优惠券<br/><span id="draw_money_txt_<?php echo $_id; ?>"></span></div><hr/>
 			<?php } ?>
+			<button onclick="confriDrawMoney(this,'<?php echo $_id; ?>','<?php echo $value["coveconput"]; ?>');" type="button" class="layui-btn layui-btn-danger layui-btn-sm">
+				<?php echo $value["coveconput"]==0 ? "确认提现" : "确认转换成优惠券"; ?>
+			</button>
+		<?php } ?>
 	  </td>
       <td>
 			<button onclick="lookOrderList(this,'<?php echo $_id; ?>');" type="button" class="layui-btn layui-btn-sm">查看他的订单</button>
@@ -87,14 +93,81 @@ if(isset($_GET['action'])){
 			return;
 		}
 	}else if($action == 3){
+		// 随机字符
+		// 当前的毫秒时间戳
+		function msectime(){
+			$arr = explode(' ', microtime());
+			$tmp1 = $arr[0];
+			$tmp2 = $arr[1];
+			return (float)sprintf('%.0f', (floatval($tmp1) + floatval($tmp2)) * 1000);
+		}
+		// 10进制转62进制
+		function dec62($dec){
+			$base = 62;
+			$chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+			$ret = '';
+			for($t = floor(log10($dec) / log10($base)); $t >= 0; $t--){
+				$a = floor($dec / pow($base, $t));
+				$ret .= substr($chars, $a, 1);
+				$dec -= $a * pow($base, $t);
+			}
+			return $ret;
+		}
+		// 随机字符
+		function rand_char(){
+			$base = 62;
+			$chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+			return $chars[mt_rand(1, $base) - 1];
+		}
+		//生成优惠券
+		function duifcoupon($email,$money){
+			global $pdo;
+
+			$_date = date("Y-m-d H:i:s");
+			$str_time = dec62(msectime());
+			//8位随机字符串
+			$code8 = rand_char().$str_time;
+			
+			//插入优惠码1
+			$dbh = $pdo;
+			$sql = "INSERT INTO sd_posts (`post_author`, `post_date`, `post_date_gmt`, `post_content`, `post_title`, `post_excerpt`, `post_status`, `comment_status`, `ping_status`, `post_password`, `post_name`, `to_ping`, `pinged`, `post_modified`, `post_modified_gmt`, `post_content_filtered`, `post_parent`, `guid`, `menu_order`, `post_type`, `post_mime_type`, `comment_count`) VALUES ('1', '{$_date}', '{$_date}', '', '{$code8}', '{$email}', 'publish', 'closed', 'closed', '', '{$code8}', '', '', '{$_date}', '{$_date}', '', '0', '', '0', 'shop_coupon', '', '0')";
+			$dbh->query($sql);
+
+			//取新插入的自增ID
+			$lastid_sql = "SELECT LAST_INSERT_ID()";
+			$lastid_res = $dbh->query($lastid_sql)->fetchAll(PDO::FETCH_ASSOC);
+			$lastid = $lastid_res[0]['LAST_INSERT_ID()'];
+
+			//插入优惠码2
+			$_time = time();
+			$sql = "INSERT INTO sd_postmeta (`post_id`, `meta_key`, `meta_value`) VALUES ('{$lastid}', '_edit_last', '1');".
+			"INSERT INTO `sd_postmeta` (`post_id`, `meta_key`, `meta_value`) VALUES ('{$lastid}', '_edit_lock', '{$_time}:1');".
+			"INSERT INTO `sd_postmeta` (`post_id`, `meta_key`, `meta_value`) VALUES ('{$lastid}', 'discount_type', 'fixed_cart');".
+			"INSERT INTO `sd_postmeta` (`post_id`, `meta_key`, `meta_value`) VALUES ('{$lastid}', 'coupon_amount', '{$money}');".
+			"INSERT INTO `sd_postmeta` (`post_id`, `meta_key`, `meta_value`) VALUES ('{$lastid}', 'individual_use', 'no');".
+			"INSERT INTO `sd_postmeta` (`post_id`, `meta_key`, `meta_value`) VALUES ('{$lastid}', 'usage_limit', '1');".
+			"INSERT INTO `sd_postmeta` (`post_id`, `meta_key`, `meta_value`) VALUES ('{$lastid}', 'usage_limit_per_user', '1');".
+			"INSERT INTO `sd_postmeta` (`post_id`, `meta_key`, `meta_value`) VALUES ('{$lastid}', 'limit_usage_to_x_items', '0');".
+			"INSERT INTO `sd_postmeta` (`post_id`, `meta_key`, `meta_value`) VALUES ('{$lastid}', 'usage_count', '0');".
+			"INSERT INTO `sd_postmeta` (`post_id`, `meta_key`, `meta_value`) VALUES ('{$lastid}', 'date_expires', null);".
+			"INSERT INTO `sd_postmeta` (`post_id`, `meta_key`, `meta_value`) VALUES ('{$lastid}', 'free_shipping', 'no');".
+			"INSERT INTO `sd_postmeta` (`post_id`, `meta_key`, `meta_value`) VALUES ('{$lastid}', 'exclude_sale_items', 'no');";
+			$dbh->query($sql);
+
+			$arr = array("ret"=>0, "ID"=>$lastid, "amount"=>$money, "post_title"=>$code8, "post_date"=>$_date);
+			
+			return $arr;
+		}
+
 		$money = isset($_GET['m'])?$_GET['m']:"";//提现金额
 		$uid = isset($_GET['uid'])?$_GET['uid']:"";//提现人UID
 		$email = isset($_GET['email'])?$_GET['email']:"";//提现人UID
+		$type = isset($_GET['type'])?$_GET['type']:"";//提现还是转优惠券
 		if(floatval($money)>0 && !empty($uid) && !empty($email)){
 			$sql = "select drawmoneyreco FROM mission_user where id={$uid} and email='{$email}'";
 			$_result = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 			$old_drawmoneyreco = $_result[0]['drawmoneyreco'];
-			$new_drawmoneyreco = date("Y-m-d H:i:s").'='.$money.'|'.$old_drawmoneyreco;
+			$new_drawmoneyreco = $type .'='. date("Y-m-d H:i:s").'='.$money.'|'.$old_drawmoneyreco;
 			
 			//改更drawmoneyapply提现申请，把赠送的钱置0
 			$sql = "UPDATE mission_user set drawmoneyapply=0, givemoney=0, drawmoneyreco='{$new_drawmoneyreco}' where id={$uid}";
@@ -115,7 +188,9 @@ if(isset($_GET['action'])){
 
 			setOrderDrawMoneyFromEmailLoop($email);
 
-
+			if($type==1){//转成优惠券
+				duifcoupon($email, $money);
+			}
 
 			exit('{"ret":200}');
 		}
@@ -167,6 +242,18 @@ function findOrderFromEmail($email) {
 	//查所有符合条件的订单
 	$me_order_post_id_sql = 'SELECT * FROM sd_wc_order_stats where order_id in('.$me_order_post_id_str.')';
 	$me_order_result = $pdo->query($me_order_post_id_sql)->fetchAll(PDO::FETCH_ASSOC);
+	$me_order_count = count($me_order_result);//订单总数
+	//查订单的使用优惠券
+	$me_order_coupon_sql = 'SELECT order_id,discount_amount FROM sd_wc_order_coupon_lookup where order_id in('.$me_order_post_id_str.')';
+	$me_order_coupon_result = $pdo->query($me_order_coupon_sql)->fetchAll(PDO::FETCH_ASSOC);
+	$me_order_coupon_count = count($me_order_coupon_result);//优惠券总数
+	for($i=0;$i<$me_order_count;$i++){//把优惠券的折价加到net_total字段里
+		for($k=0;$k<$me_order_coupon_count;$k++){
+			if($me_order_result[$i]['order_id'] == $me_order_coupon_result[$k]['order_id']){
+				$me_order_result[$i]['net_total'] = floatval($me_order_result[$i]['net_total']) + floatval($me_order_coupon_result[$k]['discount_amount']);
+			}
+		}
+	}
 	return $me_order_result;
 }
 
@@ -709,19 +796,19 @@ function onOrderIdSelectAll(_this){
 	layui.form.render();
 }
 
-function confriDrawMoney(that, id){
+function confriDrawMoney(that, id, covetype){
 	var _sp = layui.$('#drawmoney_total_'+id);
 	money = _sp[0].innerText;
 	email = getConfig2(result_obj, 'id', id).email;//提现人UID
 	
-	var ind = layer.confirm('确定提现？', 
+	var ind = layer.confirm(covetype==0?'确定提现？':'确认转换成优惠券', 
 		{
 			btn: ['确定', '取消'] //可以无限个按钮
 		},
 		function(index, layero) {
 			layer.close(ind);
 			var _ind = layui.layer.load(2);
-			layui.jquery.get("?action=3&uid="+id+"&m="+money+"&email="+email, function(rel){
+			layui.jquery.get("?action=3&uid="+id+"&m="+money+"&email="+email+"&type="+covetype, function(rel){
 				layer.close(_ind);
 				var ret = JSON.parse(rel);
 				if(ret && ret.ret == 200){

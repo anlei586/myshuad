@@ -8,6 +8,7 @@ global $status;
 global $total;
 global $dayhmd_total;
 global $onc_arr;
+global $pdo;
 ?>
 <div class="layui-form">
 <table style="margin-left: 1%; width: 98%;" class="layui-table">
@@ -59,7 +60,20 @@ global $onc_arr;
 	$date_created_gmt = zyyhj($value["date_created_gmt"]);
 	$num_items_sold = zyyhj($value["num_items_sold"]);
 	$total_sales = zyyhj($value["total_sales"]);
+
+	//查订单的使用优惠券
+	$me_order_coupon_sql = 'SELECT order_id,discount_amount FROM sd_wc_order_coupon_lookup where order_id in('.$order_id.')';
+	$me_order_coupon_result = $pdo->query($me_order_coupon_sql)->fetchAll(PDO::FETCH_ASSOC);
+	$me_order_coupon_count = count($me_order_coupon_result);//优惠券总数
+	//var_dump($me_order_coupon_result);
+	//把优惠券的折价加到net_total字段里
+	for($k=0;$k<$me_order_coupon_count;$k++){
+		if($value['order_id'] == $me_order_coupon_result[$k]['order_id']){
+			$value['net_total'] = floatval($value['net_total']) + floatval($me_order_coupon_result[$k]['discount_amount']);
+		}
+	}
 	$net_total = zyyhj($value["net_total"]);
+
 	$status = zyyhj($value["status"]);
 	$tomoney = zyyhj($value["tomoney"]);
 	$tomoney1 = zyyhj($value["tomoney1"]);
