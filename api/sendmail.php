@@ -69,6 +69,12 @@ Account/User ID
 License key
 8u3ffvBLZbxwMl1m
 
+
+https://www.pionex.cc/
+amara1897x@gmail.com
+Dave741236
+
+
 */
 
 
