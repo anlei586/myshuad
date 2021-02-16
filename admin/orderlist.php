@@ -38,17 +38,18 @@ global $pdo;
 	</tr>
     <tr>
       <th style="text-align: center; cursor: pointer;" onclick="onOrderIdSelectAll(this);">订单ID</th>
+      <th style="text-align: center;" >用户</th>
       <th style="text-align: center; border-bottom-color: #673AB7;" title='双击以下内容可编辑'>创建日期1</th>
       <th style="text-align: center; border-bottom-color: #673AB7;" title='双击以下内容可编辑'>创建日期2</th>
-      <th style="text-align: center; border-bottom-color: #673AB7;" >数量</th>
-      <th style="text-align: center; border-bottom-color: #673AB7;" >价格1</th>
-      <th style="text-align: center; border-bottom-color: #673AB7;" >价格2</th>
-      <th style="text-align: center; border-bottom-color: #673AB7;" >状态</th>
-      <th style="text-align: center; border-bottom-color: #673AB7;" >买家提现</th>
-      <th style="text-align: center; border-bottom-color: #673AB7;" >1级提现</th>
-      <th style="text-align: center; border-bottom-color: #673AB7;" >2级提现</th>
-      <th style="text-align: center; border-bottom-color: #673AB7;" >3级提现</th>
-      <th style="text-align: center; border-bottom-color: #673AB7;" >复购次数</th>
+      <th style="text-align: center;" >数量</th>
+      <th style="text-align: center;" >价格1</th>
+      <th style="text-align: center;" >价格2</th>
+      <th style="text-align: center;" >状态</th>
+      <th style="text-align: center;" >买家提现</th>
+      <th style="text-align: center;" >1级提现</th>
+      <th style="text-align: center;" >2级提现</th>
+      <th style="text-align: center;" >3级提现</th>
+      <!-- <th style="text-align: center; border-bottom-color: #673AB7;" >复购次数</th> -->
     </tr> 
   </thead>
   <tbody>
@@ -83,6 +84,7 @@ global $pdo;
   ?>
     <tr id="ytr_<?php echo $_id; ?>">
       <td><input id="id_<?php echo $_id; ?>" type="checkbox" name="" title="<?php echo $_id; ?>" lay-skin="primary"></td>
+      <td><?php echo $value["useremail"]; ?></td>
       <td ondblclick="popModifyBox(this,<?php echo $_id; ?>,'date_created','创建日期1');"><?php echo $date_created; ?></td>
       <td ondblclick="popModifyBox(this,<?php echo $_id; ?>,'date_created_gmt','创建日期2');"><?php echo $date_created_gmt; ?></td>
       <td><?php echo $num_items_sold; ?></td>
@@ -93,7 +95,7 @@ global $pdo;
       <td><?php echo $tomoney1; ?></td>
       <td><?php echo $tomoney2; ?></td>
       <td><?php echo $tomoney3; ?></td>
-      <td><?php echo $commission_scale; ?></td>
+      <!-- <td><?php echo $commission_scale; ?></td> -->
     </tr>
   <?php endforeach ?>
   </tbody>
@@ -135,6 +137,12 @@ $cpage = isset($_GET['page'])?$_GET['page']:1;
 $offset = ($cpage-1)*$num;
 $sql = "select * from sd_wc_order_stats order by order_id DESC  limit {$offset},{$num}";
 $result  = $pdo->query($sql)->fetchAll();
+
+for($i=0;$i<count($result);$i++){
+	$sql = 'SELECT meta_value FROM sd_postmeta where meta_key="_billing_email" and post_id='.$result[$i]['order_id'];
+	$res = $pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+	$result[$i]['useremail'] = $res[0]['meta_value'];
+}
 
 //今日有几单。
 $sql = "select order_id from sd_wc_order_stats where date_created like '%{$dayhmd}%' order by order_id DESC";
